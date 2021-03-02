@@ -1,0 +1,29 @@
+---
+title: '<center>Percepciones de conflicto entre trabajadores y directivos<center>'
+subtitle: "<center>Seminario para optar al grado de Licenciado en Sociólogía de la Universidad de Chile<center>"
+author: "Andreas Lafferte Tamayo"
+date: "Fecha" # o para fecha actual: "`r Sys.Date()`"
+institution: "Universidad de Chile"
+degree: "Seminario de Grado - Carrera de Sociología"
+advisor: "Profesor/a guía: Giorgio Boccardo"
+bibliography: [tesis.bib]
+biblio-style: apalike
+link-citations: yes
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+fontsize: 14pt
+lof: True
+lot: True
+
+---
+
+
+# Resumen {-}
+
+Resumen  aquí
+
+
+# Agradecimientos {-}
+
+Agradecimientos aquí.
