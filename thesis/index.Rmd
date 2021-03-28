@@ -1,29 +1,36 @@
 ---
-title: '<center>Percepciones de conflicto entre trabajadores y directivos<center>'
-subtitle: "<center>Seminario para optar al grado de Licenciado en Sociólogía de la Universidad de Chile<center>"
-author: "Andreas Lafferte Tamayo"
-date: "Fecha" # o para fecha actual: "`r Sys.Date()`"
+title: '<center>Percepciones de conflicto social en Chile</center>'
+author: "<center>Andreas Lafferte Tamayo </center>"
+date: "`r Sys.Date()`"
 institution: "Universidad de Chile"
 degree: "Seminario de Grado - Carrera de Sociología"
-advisor: "Profesor/a guía: Giorgio Boccardo"
+advisor: "Profesor guía: Juan Carlos Castillo"
 bibliography: [tesis.bib]
 biblio-style: apalike
+subtitle: "<center>Un análisis temporal de sus determinantes</center>"
+description: Tesis para optar al grado de Sociólogo de la Universidad de Chile
 link-citations: yes
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
-fontsize: 14pt
+geometry: "left=4cm, right=3cm, top=2.5cm, bottom=2.5cm"
+fontsize: 12pt
+linestretch: 1.5
+toc-depth: 1
 lof: True
 lot: True
+editor_options: 
+  markdown: 
+    wrap: 72
 
 ---
+# Presentación {-}
 
+La siguiente investigación se ha desarrollado en el marco de la tesis para optar al grado de Sociólogo de la Universidad de Chile. El profesor guía a cargo es el Dr. Juan Carlos Castillo Valenzuela.
 
-# Resumen {-}
+[Estado]
 
-Resumen  aquí
+- En desarrollo. 
 
-
-# Agradecimientos {-}
-
-Agradecimientos aquí.
+- *Última actualización de datos: `r format(Sys.Date(), '%d %B %Y')`*
+</center>

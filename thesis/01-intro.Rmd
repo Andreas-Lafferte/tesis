@@ -4,7 +4,7 @@ output:
   html_document: default
 ---
 # Introducción: tesisfacsodown
-
+<div style="text-align: justify">
 Tesisfacsodown es básicamente una propuesta o plantilla para poder escribir un trabajo final formateado en alta calidad, con opción tanto para pdf como para html. Para ello, basta con escribir el trabajo en un lenguaje de estructura simple: **markdown** (detalles mś adelante), el que luego es transformado a un documento formateado en pdf tal como se puede ver [aquí](docs/tesis.pdf), y si se desea también en html de manera simultanea. Es decir, se trata de concentrarse en escribir y el trabajo de formateo se lo dejamos a un tercero, que en este caso es la librería `bookdown` de R [@xie_Bookdown_2017]  .
 
 ```{r flujo, echo=FALSE, fig.cap="Flujo tesisfacsodown", fig.align = 'center', out.width = "100%"}
