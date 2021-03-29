@@ -1,0 +1,222 @@
+---
+title: "Percepciones de conflicto social en Chile y el mundo" 
+subtitle: "Un análisis comparado de sus determinantes"
+author: "Andreas Lafferte T"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: "libs"
+    nature:
+      seal: false
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      navigation:
+        scroll: false
+      beforeInit: "https://jciturras.github.io/ayudantia-sol3051/slides/00-intro-r/macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+    css: ["https://jciturras.github.io/ayudantia-sol3051/slides/00-intro-r/xaringan-coes.css","https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css", "css/ath-inferno-fonts.css"]
+    #seal: false # esto omite title slide automática  
+---
+class: center, middle
+
+```{r setup, include=FALSE,eval=TRUE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo(primary_color = "#1F4257", secondary_color = "#F97B64")
+```
+# _Coloquio Desigualdades y Ciudadanía - 1er Sem 2021_
+.class-info[
+
+</br>
+
+**Propuesta de tema para Seminario de Grado**
+
+.light[Andreas Lafferte Tamayo<br>
+.small[Facultad de Ciencias Sociales, Universidad de Chile<br>
+Abril 2021]
+]
+]
+.right.tiny[Profesor Guía: Juan Carlos Castillo</br>
+]
+---
+class: inverse, center, middle
+
+# Estructura de presentación
+
+1. Tema y contexto investigativo
+2. Problematización
+3. Algunos antecedentes
+4. Concepto principal y tipo de estudio
+5. Pregunta de investigación
+6. Datos, variables y método
+7. Discusión
+---
+class: inverse, middle, center
+
+# 1. Tema y contexto investigativo
+
+---
+# 1.1. Campo temático 
+
+---
+# 1.2. Contexto disciplinar
+
+---
+class: inverse, middle, center
+
+# 2. Problematización
+
+---
+# 2.1. Problema  
+
+
+---
+# 2.2. Problematización
+
+
+---
+# 2.3. Contribución/relevancia
+ 
+ 
+---
+class: inverse, middle, center
+
+#  3. Algunos antecedentes
+
+---
+# 3.1. Enfoques teóricos dominantes
+
+
+---
+# 3.2. Estudios empíricos 
+
+
+---
+class: inverse, middle, center
+
+# 4. Concepto principal y tipo de estudio
+
+---
+# 4.1. Percepciones de conflicto social
+
+
+---
+# 4.2. Tipo de estudio 
+
+- Énfasis explicativo, relacional y comparado 
+- Cuantitativo con datos secundarios 
+- Análisis multinivel y series de tiempo/tendencia (primario)
+- Análisis multinivel transversal (secundario)
+
+---
+class: inverse, middle, center
+# 5. Pregunta de investigación
+
+---
+# 5.1. Preguntas 
+
+---
+class: inverse, middle, center 
+# 6. Datos, variables y método
+
+---
+# 6.1. Datos
+</br>
+**International Social Survey Programm (ISSP)**. Module of Social Inequality 1999/2009/2019. Se estima la publicación del modulo 2019 para el resto de los países a mediados del 2021. 
+
+Otras fuentes:
+- OCDE
+- ILO STATS
+- ICTWSS (Visser, 2019)
+---
+# 6.2. Variables
+
+### Dependiente
+
+Índice de Percepción de Conflicto (IPC): índice sumativo de escalas sobre percepción de distintos conflictos.
+
+|Q. In all countries, there are differences or even conflicts between different social groups. In your opinion, in <R's country> how much conflict is there between ...?|
+|-----------------------------------------------------------------------------------------------------------------------------------------|
+| Q9a.Conflicts: between poor people and rich people?                                                                                     |
+| Q9b.Conflicts: between the working class and the middle class?                                                                          |
+| Q9c.Conflicts: between management and workers?                                                                                          |
+| Q9d.Conflicts: between people at the top of society and people at the bottom?                                                           | 
+                                                                                                                                          |
+---
+## Dependiente
+
+Índice de Percepción de Conflicto (IPC): índice sumativo de escalas sobre percepción de distintos conflictos.
+
+| Values | Categories               |
+|--------|:------------------------:|
+| 1      | Very strong conflicts    |
+| 2      | Strong conflicts         |
+| 3      | Not very strong conflicts|
+| 4      | There are no conflicts   |
+| 8      | Cant choose              |
+| 9      | NA                       |
+
+---
+## Independientes
+
+|Variable    |Descripción |Fuente       |
+|------------:|-----------:|------------:|
+| *Nivel 1*   |            |             |
+| Posición de clase | Esquema E.G.P o E.O. Wright| ISSP |
+| Clas social subjetiva | Autoposición del individuo en la sociedad | ISSP |
+| Tipo de sociedad | Descripción de un diagrama social | ISSP | 
+| Desigualdad percibida | Escala desigualdad de ingreso | ISSP |
+| Preferencias redistributivas | Índice de preferencias rol del gobierno en ingresos | ISSP |
+| Afiliación sindical | Miembro sindicato | ISSP |
+| Posición política | Posicionamiento en el espectro político | ISSP | 
+| Sociodemográficas | Ingreso/Nivel educación/Sexo | ISSP | 
+
+---
+## Independientes 
+|Variable    |Descripción |Fuente       |
+|------------:|-----------:|------------:|
+| *Nivel 2*   |            |             |
+| Desigualdad ecónomica | Índice de GINI | OCDE |
+| Coordinación salarial | Esquema de coordinación salarial por país | ICTWSS |
+| Desempleo | Tasa de desempleo por país | ILO |
+| Densidad sindical | Tasa de sindicalización neta por país | ILO |
+
+---
+# 6.3. Método
+
+## Modelos Multinivel 
+
+Permiten analizar y especificar el efecto de variables contextuales sobre variables individuales (relaciones micro/macro). Es decir, plantea hipótesis sobre la relación entre las variables de contexto, en este caso  económico-laborales e institucionales, con variables individuales como el índice de percepciones de conflicto (IPC). Además, permite plantear interacción entre niveles para determinar variaciones específicas según características de los contextos (DiPrete and Forristal, 1994). 
+
+**Por ejemplo:** 
+ + Estimar el efecto de la desigualdad económica sobre las percepciones de conflicto entre países 1999-2019. 
+ + Cambios en el efecto de la desigualdad perciba sobre las percepciones de conflicto según el grado de coordinación salarial entre países 1999-2019.
+
+---
+class: inverse, middle, center
+# 7. Discusión
+
+---
+# Referencias
+
+---
+class: inverse, middle, center
+
+# ¡Muchas Gracias!
+.center[
+
+</br>
+Andreas Lafferte Tamayo<br>
+
+.light[Facultad de Ciencias Sociales, Universidad de Chile<br>
+Abril 2021]
+]
