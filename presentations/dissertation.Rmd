@@ -172,19 +172,19 @@ class: inverse, middle, center
 
 ## Conflicto social
 - Teoría del conflicto social como una relación de posiciones contradictorias sobre determinado recurso/valor identificado por las partes (Callinicos, 2004; Collins, 2009). 
-- El conflicto como fenómeno intrinseco de la sociedad y las clases (Collins, 2009; Wright, 1997).
+- Resolución del conflicto (Zagórski, 2006).
 
 ## Desigualdad y clases 
 - Importancia de la clase social en la configuración de opiniones y actitudes (Svallfors, 2006; Wright, 1997).
 - La desigualdad percibida y las preferencias distributivas como mediador de la percepción de conflicto (Verwiebe & Wegener, 2000).
-- Desigualdad económica real y redistribución de ingresos (Korpi, 2006).
-- Grado de concertación política, desempleo y sindicalización (Korpi, 2006; Wright, 1997).
+- Desigualdad económica real y redistribución de ingresos (Edlund & Lindh, 2015).
+- Grado de concertación política, desempleo y sindicalización (Hadler, 2003; Wright, 1997).
 
 ---
 # 3.2. Estudios empíricos 
 
 ## Principales hallazgos y variables
-- 
+- Tienen que ser antecdentes sobre tu problematización en especifico!!
 
 ---
 class: inverse, middle, center
@@ -195,8 +195,11 @@ class: inverse, middle, center
 # 4.1. Percepciones de conflicto social
 
 ## Definición
-</br>
+Las percepciones son un ejercicio subjetivo de describir la realidad social **-thoughts about _what is_-** (Castillo et al. 2019). Se refiere a una estimación subjetiva de las desigualdades existentes, o bien, sobre determinados órdenes estructurales.
 
+Por su parte, **las percepciones de conflicto social** se refiere a _cómo los sujetos captan/describen un conflicto social determinado entre dos clases o grupos verticalmente organizados_ presente en su entorno (Hadler, 2017). 
+
+Según Hertel y Schöneck: "Los conflictos sociales percibidos (PSC) señalan el grado en que los individuos experimentan sus entornos como caracterizados por tales relaciones antagónicas" (2019, p.2 _traducción propia_). 
 
 ---
 # 4.2. Tipo de estudio 
@@ -212,7 +215,12 @@ class: inverse, middle, center
 
 ---
 # 5.1. Preguntas 
+## Principal
+¿De qué manera determinantes económico-laborales, institucionales e individuales afectan las percepciones de conflicto social en Chile y otros países entre 1999-2019? 
 
+## Secundarias
+- ¿Existen diferencias significativas de las percepciones de conflicto según los contextos institucionales y económico-laborales de los países? 
+- ¿Las características de clase de los individuos poseen un efecto distinto sobre las percepciones de conflicto según el contexto de cada país?
 ---
 class: inverse, middle, center 
 # 6. Datos, variables y método
@@ -298,7 +306,62 @@ class: inverse, middle, center
 # 7. Discusión
 
 ---
+# 7. Discusión
+
+## Enfoque comparado
+¿Se sostiene un enfoque comparado? ¿Delimitar solo en Chile? ¿Integrar otro enfoque en Chile tal como el longitudinal (ELSOC)?
+
+## Clase social
+¿La clase como un determinante pero con un supuesto de diferencias en intereses materiales?
+
+## Otros
+¿Algún otro factor relevante a incluir/problematizar?
+
+---
 # Referencias
+
+Callinicos, A. (2004). Making history: Agency, structure, and change in social theory (Vol. 3). Brill. 
+
+Castillo, J. C., Torres, A., Atria, J., & Maldonado, L. (2019). Meritocracia y desigualdad económica: Percepciones, preferencias e implicancias. Revista Internacional De Sociología, 77(1), e117. https://doi.org/10.3989/ris.2019.77.1.17.114 
+
+Castillo, Juan C., Bargsted, M., Olivos, F., & Mackenna, B. (2015). Percepción del conflicto en Chile: Un análisis desde la opinión pública, 2006-2013. En M. Castillo & C. Maldonado (Eds.), Desigualdades. Tolerancia, legitimación y conflicto en las sociedades latinoamericanas. RIL
+
+COES (2020). Informe anual Observatorio de Conflictos 2020. https://coes.cl/wp-content/uploads/Informe-Anual-Observatorio-de-Conflictos-2020-COES.pdf 
+
+Collins, R. (2009). Conflict sociology: A Sociological Classical Update. Paradigm Publishers.
+
+Edlund, J., & Lindh, A. (2015). The democratic class struggle revisited: The welfare state, social cohesion and political conflict. Acta Sociologica, 58(4), 311-328.
+---
+# Referencias
+Hadler, M. (2003). Ist der Klassenkonflikt überholt? Die Wahrnehmung von vertikalen Konflikten im internationalen Vergleich. Soziale Welt, 175-200.
+
+Hadler, M. (2017). Social Conflict Perception Between Long-term Inequality and Short-term Turmoil: A Multilevel Analysis of Seven Countries Between 1987 and 2009. 57225, 17, 35-49.
+
+Hertel, F. R., & Schöneck, N. M. (2019). Conflict perceptions across 27 OECD countries: The roles of socioeconomic inequality and collective stratification beliefs. Acta Sociologica, 0001699319847515.
+
+Kelley, J., & Evans, M. D. R. (1995). Class and class conflict in six western nations. American Sociological Review, 60(2), 157-178.
+
+Lasch, C. (1996). La rebelión de las élites y la traición a la democracia. Paidós. 
+
+Lewin-Epstein, N., Kaplan, A., & Levanon, A. (2003). Distributive justice and attitudes toward the welfare state. Social Justice Research, 16(1), 1-27.
+---
+# Referencias
+Pérez, P. (2020). Percepciones de conflicto y confianza en el empresariado: Chile en perspectiva comparada. Fábrica de Datos Laborales: https://fabricadedatoslaborales.cl/percepciones-conflicto-con-empresariado/ 
+
+Ringqvist, J. (2016). Three dimensions of class conflict: A cross-country comparison of individual perceptions of class conflict and their contextual determinants.
+
+Svallfors, S. (2006). The moral economy of class: Class and attitudes in comparative perspective. Stanford University Press.
+
+T. A. DiPrete and J. D. Forristal. "Multilevel Models: Methods and Substance". In: Annual Review of Sociology 20.1 (ago. 1994), pp. 331-357. ISSN: 0360-0572. DOI: 10.1146/annurev.so.20.080194.001555.
+
+Verwiebe, R., & Wegener, B. (2000). Social inequality and the perceived income justice gap. Social Justice Research, 13(2), 123-149.
+---
+# Referencias
+Whitefield, S., & Loveless, M. (2013). Social inequality and assessments of democracy and the market: Evidence from central and eastern Europe. Europe-Asia Studies, 65(1), 26-44.
+
+Wright, E. O. (1997). Class counts: Comparative studies in class analysis. Cambridge University Press.
+
+Zagórski, K. (2006). The perception of social conflicts and attitudes to democracy. International Journal of sociology, 36(3), 3-34.
 
 ---
 class: inverse, middle, center
