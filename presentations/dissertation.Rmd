@@ -141,8 +141,8 @@ Dentro de este problema (las percepciones subjetivas del conflicto social) reali
 - No aparece como una agenda de primera importancia en la investigación nacional (Olivos et al. 2015).
 
 ### Críticas y debates 
-- Por un lado, se debate sobre la preponderancia de **determinantes subjetivos/individuales u objetivos/estructurales** sobre las percepciones, como la posición de clase o la desigualdad percibida (Epstein et al. 2003; Whitefield & Loveless, 2013).
-- Por otro, son escasos los esfuerzos por estudiar las percepciones de conflicto desde un enfoque que rescate los **vínculos micro-macro a nivel comparado**, considerando sus estructuras institucionales (Wright, 1997).
+- Determinantes **subjetivos/individuales u objetivos/estructurales** sobre las percepciones, como la posición de clase o la desigualdad percibida (Epstein et al. 2003; Whitefield & Loveless, 2013).
+- Escasos los esfuerzos por estudiar las percepciones de conflicto desde un enfoque **micro-macro a nivel comparado**, considerando sus estructuras institucionales (Wright, 1997).
 -  No se han considerado factores económico-laborales como el grado de coordinación salarial o la tasa de desempleo (Hadler, 2003; Ringqvist, 2016). 
 
 ---
@@ -183,8 +183,19 @@ class: inverse, middle, center
 ---
 # 3.2. Estudios empíricos 
 
-## Principales hallazgos y variables
-- Tienen que ser antecdentes sobre tu problematización en especifico!!
+## Determinantes objetivos-estructurales
+
+La posición de clase delimita los intereses materiales de los individuos. La riqueza individual y la participación en organizaciones políticas (inclinación ideológica) y sociales (afiliación sindical), afectan las percepciones de conflicto (Hadler, 2003; Hertel & Schöneck, 2019; Ringqvist, 2016)
+
+## Determinantes subjetivos-individuales
+
+La desigualdad percibida, las preferencias redistributivas y la imagen del tipo de sociedad son los principales determinantes de las percepciones de conflicto (Hadler, 2017; Whitefield & Loveless, 2013).
+
+---
+# 3.2. Estudios empíricos
+</br>
+## Determinantes contextuales
+La desigualdad económica real y la distribución de la riqueza son determinantes (Edlund & Lindh, 2015). Además, el grado de concertación política y la tasa de desempleo son factores económico-laborales relevantes que varian entre países (Hadler, 2003; Ringqvist, 2016).
 
 ---
 class: inverse, middle, center
@@ -195,11 +206,13 @@ class: inverse, middle, center
 # 4.1. Percepciones de conflicto social
 
 ## Definición
-Las percepciones son un ejercicio subjetivo de describir la realidad social **-thoughts about _what is_-** (Castillo et al. 2019). Se refiere a una estimación subjetiva de las desigualdades existentes, o bien, sobre determinados órdenes estructurales.
+Son un ejercicio subjetivo de describir la realidad social **-thoughts about _what is_-** (Castillo et al. 2019). Se refiere a una estimación subjetiva de las desigualdades existentes, o bien, sobre determinados órdenes estructurales.
 
 Por su parte, **las percepciones de conflicto social** se refiere a _cómo los sujetos captan/describen un conflicto social determinado entre dos clases o grupos verticalmente organizados_ presente en su entorno (Hadler, 2017). 
 
-Según Hertel y Schöneck: "Los conflictos sociales percibidos (PSC) señalan el grado en que los individuos experimentan sus entornos como caracterizados por tales relaciones antagónicas" (2019, p.2 _traducción propia_). 
+.center.light[
+"Los conflictos sociales percibidos (PSC) señalan el grado en que los individuos experimentan sus entornos como caracterizados por tales relaciones antagónicas" (Hertel y Schöneck, 2019, p.2 _traducción propia_). 
+]
 
 ---
 # 4.2. Tipo de estudio 
