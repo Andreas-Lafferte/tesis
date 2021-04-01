@@ -127,7 +127,7 @@ Así, dentro de este campo identifiqué un _problema particular: el ámbito subj
 ---
 # 2.2. Problematización
 
-Dentro de este problema (las percepciones subjetivas del conflicto social) realice una _problematización sobre sus principales determinantes a nivel objetivo/estructural, subjetivo/individual y contextual/institucional-económico_. 
+Dentro de este problema (las percepciones subjetivas del conflicto social) realicé una _problematización sobre sus principales determinantes a nivel objetivo/estructural, subjetivo/individual y contextual/institucional-económico_. 
 
 + Identificar vacíos de investigación
 + Cuestionar bases explicativas de teorías y hallazgos anteriores (contribuir a debates internos)
@@ -267,12 +267,11 @@ Otras fuentes:
 |------------:|-----------:|------------:|
 | *Nivel 1*   |            |             |
 | Posición de clase | Esquema E.G.P o E.O. Wright| ISSP |
-| Clas social subjetiva | Autoposición del individuo en la sociedad | ISSP |
+| Clase social subjetiva | Autoposición del individuo en la sociedad | ISSP |
 | Tipo de sociedad | Descripción de un diagrama social | ISSP | 
 | Desigualdad percibida | Escala desigualdad de ingreso | ISSP |
 | Preferencias redistributivas | Índice de preferencias rol del gobierno en ingresos | ISSP |
 | Afiliación sindical | Miembro sindicato | ISSP |
-| Posición política | Posicionamiento en el espectro político | ISSP | 
 | Sociodemográficas | Ingreso/Nivel educación/Sexo | ISSP | 
 
 ---
