@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.3 Algunos detalles adicionales: | thesis.utf8</title>
+  <title>5.1 Section Title | thesis.utf8</title>
   <meta name="description" content="Tesis para optar al grado de Sociólogo de la Universidad de Chile" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.3 Algunos detalles adicionales: | thesis.utf8" />
+  <meta property="og:title" content="5.1 Section Title | thesis.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.3 Algunos detalles adicionales: | thesis.utf8" />
+  <meta name="twitter:title" content="5.1 Section Title | thesis.utf8" />
   
   <meta name="twitter:description" content="Tesis para optar al grado de Sociólogo de la Universidad de Chile" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="pasos.html"/>
-<link rel="next" href="publicación-web-y-versionamiento.html"/>
+<link rel="prev" href="bibliografía.html"/>
+<link rel="next" href="figures.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -157,7 +157,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="modelos.html"><a href="modelos.html"><i class="fa fa-check"></i><b>4.2</b> Modelos</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="conclusiones.html"><a href="conclusiones.html"><i class="fa fa-check"></i><b>5</b> Conclusiones</a></li>
-<li class="chapter" data-level="" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i>Bibliografía</a></li>
+<li class="chapter" data-level="" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i>Bibliografía</a><ul>
+<li class="chapter" data-level="5.1" data-path="section-title.html"><a href="section-title.html"><i class="fa fa-check"></i><b>5.1</b> Section Title</a></li>
+<li class="chapter" data-level="5.2" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>5.2</b> Figures</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="figures.html"><a href="figures.html#level-3"><i class="fa fa-check"></i><b>5.2.1</b> Level 3</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/Andreas-Lafferte" target="blank">Andreas Lafferte - Github <i class="fa fa-github"></i></a></li>
 
@@ -180,125 +185,17 @@ Percepciones de conflicto social en Chile y el mundo
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="algunos-detalles-adicionales" class="section level2">
-<h2><span class="header-section-number">1.3</span> Algunos detalles adicionales:</h2>
-<ul>
-<li><p>para más opciones de bookdown y detalles en general consultar <a href="https://rubenfcasal.github.io/bookdown_intro/">https://rubenfcasal.github.io/bookdown_intro/</a> (en español).</p></li>
-<li><p>el formato del pdf es para ser impreso por los dos lados, por eso incluye algunas páginas en blanco (por ejemplo, la paǵina de atrás de la portada), y también los números de página se van alternando entre izquierda y derecha</p></li>
-<li><p>Es posible generar una referenciación automática de tablas, imágenes y gráficos; además, se generan los índices respectivos en el formato pdf. Si estos provienen simplemente de archivos externos, se pueden almacenar en la carpeta “imágenes” e insertar así:</p></li>
-</ul>
-<pre><code>```{r nombre, echo=FALSE, fig.cap=&quot;Imagen de ejemplo&quot;, fig.align = &#39;center&#39;, out.width = &#39;50%&#39;}
-knitr::include_graphics(path = &quot;images/build_book.png&quot;)
-```</code></pre>
-<p>Lo que hay aquí es un trozo o “chunk” de código R, que en (R)Markdown se inserta simplemente entre tres acentos invertidos (“```”). Luego hay dos partes: las especificaciones de formato que van entre llaves {}, y la instrucción de lo que hay que hacer, en este caso llamar una imagen. Vamos por parte:</p>
-<ul>
-<li>especificaciones de formato:
-<ul>
-<li><code>r</code> solamente informa que viene código R</li>
-<li><code>nombre</code>: es el nombre que identifica al chunk, puede ser cualquiera</li>
-<li><code>echo=FALSE</code>: esto se utiliza para que solo se muestre el resultado sin el código. Si fuera <code>TRUE</code>, entonces aparecería la función que llama la imagen además que la mi_imagen</li>
-<li><code>fig.cap</code>: el título de la imagen</li>
-<li><code>fig.align</code>: alineación de la figura</li>
-<li><code>out.width</code>: ancho en relación a la página. Hay diferentes formas de especificar las dimensiones, la ventaja de esta es que funciona bien tanto para pdf como para html, por lo que se recomienda</li>
-</ul></li>
-<li>instrucción o función: aquí se da la ruta a la imagen dentro del paréntesis con <code>path=</code>, y lo que antecede es la función para incluir gráficos de la librería knitr de R. Pero en simple: solo reemplazar el nombre de la imagen</li>
-</ul>
-<p>Al incluir este trozo de código el resultado será el siguiente:</p>
-<div class="figure" style="text-align: center"><span id="fig:nombre2"></span>
-<img src="images/facso.png" alt="Imagen de ejemplo" width="50%" />
-<p class="caption">
-Figura 1.3: Imagen de ejemplo
-</p>
-</div>
-<p>Donde la referenciación (caption) tiene el número 1.2, que quiere decir que es la segunda imagen del capítulo 1. En el pdf ahora esta figura aparece en el índice de figuras.</p>
-<ul>
-<li>en el caso de gráficos generados por R, también se insertan dentro de un chunk, por ejemplo</li>
-</ul>
-<pre><code>```{r echo=FALSE, fig.cap=&quot;Gráfico de ejemplo&quot;, fig.align = &#39;center&#39;, out.width = &#39;50%&#39;}
-boxplot(Sepal.Length~Species,data=iris,
-        xlab=&quot;Species&quot;, ylab=&quot;Sepal Length&quot;, main=&quot;Iris Boxplot&quot;)
-```</code></pre>
-<p>Y el resultado es este:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
-<img src="thesis_files/figure-html/unnamed-chunk-1-1.png" alt="Gráfico de ejemplo" width="50%" />
-<p class="caption">
-Figura 1.4: Gráfico de ejemplo
-</p>
-</div>
-<ul>
-<li>finalmente para las tablas producidas por R, es un poco más difícil si se quiere obtener el documento tanto en html como en pdf (que se genera vía Latex). En este caso, las tablas deben ser producidas en formato markdown, lo que no es muy común todavía en las distintas librerías de R que en genera privilegian o html o latex. La función para producir tablas markdown en R es principalmente <code>kable</code>, de la librería <code>knitr</code>, por ejemplo:</li>
-</ul>
-<pre><code>```{r tabla, echo=FALSE, caption=&quot;tabla de ejemplo&quot;, align = &#39;center&#39;}
-knitr::kable(head(iris), caption = &quot;An example table caption.&quot;)
-```</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="algunos-detalles-adicionales.html#cb4-1"></a>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(iris), <span class="dt">caption =</span> <span class="st">&quot;Un ejemplo de tabla&quot;</span>)</span></code></pre></div>
-<table>
-<caption><span id="tab:unnamed-chunk-2">Tabla 1.1: </span>Un ejemplo de tabla</caption>
-<thead>
-<tr class="header">
-<th align="right">Sepal.Length</th>
-<th align="right">Sepal.Width</th>
-<th align="right">Petal.Length</th>
-<th align="right">Petal.Width</th>
-<th align="left">Species</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.7</td>
-<td align="right">3.2</td>
-<td align="right">1.3</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.6</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.0</td>
-<td align="right">3.6</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.7</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>nota sobre ubicación de imágenes y tablas en documento pdf (latex): en general se producen problemas en la ubicación, ya que automáticamente se ajustan al lugar disponible más cercano, sea atrás o delante. Si se quiere fijar la posición en el pdf, agregar antes y después del texto <code>\FloarBarrier</code>, que es un comando latex que no será visible ni en pdf ni en html.</li>
-</ul>
+<div id="section-title" class="section level2">
+<h2><span class="header-section-number">5.1</span> Section Title</h2>
+<p>G’Kar: It is said that the future is always born in pain. The history of war is the history of pain. If we are wise, what is born of that pain matures into the promise of a better world, because we learn that we can no longer afford the mistakes of the past. Dr. Stephen Franklin: Doesn’t anyone listen to one damn word I say? Captain John Sheridan: No surrender, no retreat. [Opening narration, season 4] Lennier: It was the year of fire, Zack Allan: The year of destruction, Citizen G’Kar: The year we took back what was ours. Lyta Alexander: It was the year of rebirth, Ambassador Vir Cotto: The year of great sadness, Marcus Cole: The year of pain, Delenn: And a year of joy. Ambassador Londo Mollari: It was a new age. Dr. Stephen Franklin: It was the end of history. Susan Ivanova: It was the year everything changed. Michael Garibaldi: The year is 2261. Captain John Sheridan: The place, Babylon 5. Sinclair: They say God works in mysterious ways. Michael Garibaldi: Maybe so, but He’s a con-man compared to the Vorlon.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="pasos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="publicación-web-y-versionamiento.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="bibliografía.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="figures.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -329,7 +226,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/jj.Rmd",
 "text": "Edit"
 },
 "history": {

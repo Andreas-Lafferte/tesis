@@ -1,5 +1,5 @@
 ---
-title: '<center>Percepciones de conflicto social en Chile</center>'
+title: '<center>Percepciones de conflicto social en Chile y el mundo</center>'
 author: "<center>Andreas Lafferte Tamayo </center>"
 date: "`r Sys.Date()`"
 institution: "Universidad de Chile"
@@ -7,7 +7,7 @@ degree: "Seminario de Grado - Carrera de Sociología"
 advisor: "Profesor guía: Juan Carlos Castillo"
 bibliography: [tesis.bib]
 biblio-style: apalike
-subtitle: "<center>Un análisis temporal de sus determinantes</center>"
+subtitle: "<center>Un análisis comparado de sus determinantes</center>"
 description: Tesis para optar al grado de Sociólogo de la Universidad de Chile
 link-citations: yes
 site: bookdown::bookdown_site

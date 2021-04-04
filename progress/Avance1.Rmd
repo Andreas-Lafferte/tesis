@@ -1,0 +1,15 @@
+---
+title: "Percepciones de conflicto social en Chile y el mundo"
+subtitle: "Un análisis comparado de sus determinantes"
+author: "Lafferte, A."
+date: "15-04-2021"
+output: pdf_document
+bib: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+```
+
+## Introducción. ¿Se han polarizado las percepciones de conflicto?
+

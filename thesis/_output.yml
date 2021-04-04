@@ -6,7 +6,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">Percepciones de conflicto social en Chile</a></li>
       after: |
-        <li><a href="https://github.com/Andreas-Lafferte" target="blank">Andreas-Lafferte - Github <i class="fa fa-github"></i></a></li>
+        <li><a href="https://github.com/Andreas-Lafferte" target="blank">Andreas Lafferte - Github <i class="fa fa-github"></i></a></li>
     edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
     sharing:
       github: yes
