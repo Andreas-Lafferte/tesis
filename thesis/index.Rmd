@@ -22,7 +22,6 @@ lot: True
 editor_options: 
   markdown: 
     wrap: 72
-
 ---
 # Presentación {-}
 

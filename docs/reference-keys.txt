@@ -1,3 +1,9 @@
+fig:flujo
+fig:build
+fig:nombre2
+fig:unnamed-chunk-1
+tab:unnamed-chunk-2
+fig:githubpages
 introducción-tesisfacsodown
 requisitos
 pasos
@@ -16,9 +22,3 @@ análisis
 análisis-descriptivo
 modelos
 conclusiones
-section-title
-figures
-level-3
-level-4
-r-markdown
-including-plots

@@ -1,15 +1,33 @@
 ---
-title: "Percepciones de conflicto social en Chile y el mundo"
-subtitle: "Un análisis comparado de sus determinantes"
-author: "Lafferte, A."
+title: "**Percepciones de conflicto en Chile y el mundo**"
+subtitle: "**Un análisis comparado de sus determinantes**"
+author: "Andreas Lafferte Tamayo"
 date: "15-04-2021"
 output: pdf_document
 bib: false
+header-includes:
+    - \usepackage{fancyhdr}
 ---
+\addtolength{\headheight}{2.0cm} 
+\pagestyle{fancyplain} 
+\chead{\includegraphics[height=4.5cm]{C:/Users/USUARIO/Documents/GitHub/tesis/thesis/images/facso.png}}
+\renewcommand{\headrulewidth}{0pt} 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F)
 ```
 
-## Introducción. ¿Se han polarizado las percepciones de conflicto?
+<p style="text-align: center"> 
+## Introducción. ¿Se han polarizado las percepciones de conflicto? {-#intro}
+</p>
+
+\begin{flushright}
+\leftskip=5.5 cm
+\rightskip=1 cm\textit{``The rich and the poor in a country with a highly unequal distribution of wealth . . . may live next to each other, but their lives do not intersect. . . . In such societies, neither the rich nor the poor have any sense of a shared fate. . . . In turn, each group looks out for its own interests and is likely to see the demands of the other as conflicting with its own well-being.''} \\
+\vspace{.2em}
+\leftskip= 5.5 cm
+\rightskip=1 cm---(Rothstein and Uslaner, 2005, p.46).
+\end{flushright}
+\vspace{1em}
+
 
