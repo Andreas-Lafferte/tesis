@@ -1,33 +1,39 @@
 ---
 title: "**Percepciones de conflicto en Chile y el mundo**"
-subtitle: "**Un análisis comparado de sus determinantes**"
+subtitle: "Un análisis comparado de sus determinantes"
 author: "Andreas Lafferte Tamayo"
 date: "15-04-2021"
 output: pdf_document
 bib: false
+link-citations: yes
+linkcolor: blue
+fontsize: 12pt
+font-family: Times New Roman
 header-includes:
-    - \usepackage{fancyhdr}
+  - \usepackage{titling}
+  - \pretitle{\begin{center}
+  - \includegraphics[width=3in,height=2in]{C:/Users/USUARIO/Documents/GitHub/tesis/thesis/images/facso.png}\LARGE\\}
+  - \posttitle{\end{center}}
 ---
-\addtolength{\headheight}{2.0cm} 
-\pagestyle{fancyplain} 
-\chead{\includegraphics[height=4.5cm]{C:/Users/USUARIO/Documents/GitHub/tesis/thesis/images/facso.png}}
-\renewcommand{\headrulewidth}{0pt} 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F)
 ```
 
-<p style="text-align: center"> 
-## Introducción. ¿Se han polarizado las percepciones de conflicto? {-#intro}
-</p>
+## Introducción. ¿Se han polarizado las percepciones de conflicto? 
 
 \begin{flushright}
 \leftskip=5.5 cm
-\rightskip=1 cm\textit{``The rich and the poor in a country with a highly unequal distribution of wealth . . . may live next to each other, but their lives do not intersect. . . . In such societies, neither the rich nor the poor have any sense of a shared fate. . . . In turn, each group looks out for its own interests and is likely to see the demands of the other as conflicting with its own well-being.''} \\
+\rightskip=0 cm\textit{``The rich and the poor in a country with a highly unequal distribution of wealth . . . may live next to each other, but their lives do not intersect. . . . In such societies, neither the rich nor the poor have any sense of a shared fate. . . . In turn, each group looks out for its own interests and is likely to see the demands of the other as conflicting with its own well-being.''} \\
 \vspace{.2em}
 \leftskip= 5.5 cm
-\rightskip=1 cm---(Rothstein and Uslaner, 2005, p.46).
+\rightskip=0 cm---(Rothstein and Uslaner, 2005, p.46).
 \end{flushright}
 \vspace{1em}
+
+
+Las interconexiones entre desigualdades de clase, relaciones laborales y conflicto social permiten una comprensión más compleja y completa al atravesar por los diferentes niveles del análisis de clases (Wright, 2018). En particular, una serie de investigaciones se han preocupado por las variaciones del conflicto de clases, referido a la polarización entre trabajadores y empresarios o trabajadores y directivos superiores, desde ámbitos objetivos y subjetivos. Estos han concluido, independiente de las múltiples orientaciones y esquemas de clases, que la posición individual en la estructura de clases es un factor explicativo fundamental para una serie de comportamientos, preferencias y actitudes en el ámbito del trabajo y otras esferas distributivas, políticas y culturales (Wright, 1977; Evans & Kelly, añoX; Svallfors, 2006). 
+
+En este marco general del vínculo entre conflicto, trabajo y posición de clase, la presente investigación se interroga por los determinantes subjetivos del conflicto laboral medido como la polarización de las percepciones entre trabajadores y directivos en el marco del neoliberalismo chileno contemporáneo. Por tanto, es preciso manejar una somera aproximación y definición sobre las percepciones de conflicto y cómo se despliegan en las relaciones laborales. 
+
 
 
