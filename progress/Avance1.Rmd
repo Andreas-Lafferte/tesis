@@ -1,8 +1,18 @@
 ---
-title: "**Percepciones de conflicto en Chile y el mundo**"
-subtitle: "Un análisis comparado de sus determinantes"
-author: "Andreas Lafferte Tamayo"
-date: "15-04-2021"
+title: |
+ | \vspace{2cm} **Percepciones de conflicto en Chile y el mundo**
+subtitle: 'Un análisis comparado de sus determinantes'
+author: |
+ | \vspace{1.5cm} 
+ | Autor
+ | Andreas Lafferte Tamayo
+ | \vspace{1cm}
+ | Profesor guía
+ | Dr. Juan Carlos Castillo
+ | \vspace{2cm}
+date: |
+ | 15 de abril de 2021
+ | Santiago de Chile
 output: pdf_document
 bib: false
 link-citations: yes
@@ -12,14 +22,14 @@ font-family: Times New Roman
 header-includes:
   - \usepackage{titling}
   - \pretitle{\begin{center}
-  - \includegraphics[width=3in,height=2in]{C:/Users/USUARIO/Documents/GitHub/tesis/thesis/images/facso.png}\LARGE\\}
+  - \includegraphics[width=3.5in,height=3.5in]{C:/Users/USUARIO/Documents/GitHub/tesis/thesis/images/facso.png}\LARGE\\}
   - \posttitle{\end{center}}
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F)
 ```
 
-## Introducción. ¿Se han polarizado las percepciones de conflicto? 
+## Introducción. ¿Han aumentado las percepciones de conflicto social? 
 
 \begin{flushright}
 \leftskip=5.5 cm
@@ -28,12 +38,43 @@ knitr::opts_chunk$set(echo = F)
 \leftskip= 5.5 cm
 \rightskip=0 cm---(Rothstein and Uslaner, 2005, p.46).
 \end{flushright}
-\vspace{1em}
+
+Esta cita ilustra un hecho importante; el creciente distanciamiento entre grupos y clases sociales en la actualidad. Los altos niveles de desigualdad económica, la explotación, los cierres sociales y los estilos de vida tan marcados, son todas características para describir el comportamiento de la estratificación social en el capitalismo contemporáneo. Asimismo, producen una visión conflictiva de la realidad bajo la defensa de los intereses propios ante los de otros. Esta visión del ‘nosotros contra ellos’, deja abierta la pregunta de si estamos observando síntomas de un conflicto de clases más profundo y si ello se traduce en un aumento de la percepción subjetiva del mismo. ¿Es posible pensar, al menos desde el plano subjetivo, que los conflictos de clases continúan siendo relevantes?
+
+En las últimas décadas, el conflicto social ha persistido como un rasgo característico de países con altos niveles de desigualdad económica y ciclos de movilización social recurrentes. Múltiples países han experimentado un aumento progresivo de la desigualdad económica, expresado en la financiarización de servicios de primer orden, estancamiento salarial, recortes tributarios y una retirada de políticas de protección social (Keiser, 2014). En paralelo, los conflictos han “resurgido” con demandas sobre temáticas redistributivas y reconocimiento de derechos sociales (Hertel & Schöneck, 2019). Ante este escenario, la dimensión subjetiva del conflicto cobra especial relevancia para determinar la existencia de una polarización de actitudes y opiniones de los sujetos. La conflictividad social, y en particular el conflicto de clases, es uno de los temas más tratados en la sociología (Collins, 2009), y dentro de ella el conflicto subjetivo percibido es una de las vertientes que permiten abordarla. En este ámbito, tanto en Chile como en distintos países, recientes investigaciones han demostrado un aumento en las _percepciones de conflicto social_ a razón de eventos políticos y la agudización de desigualdades económicas, dando cuenta de un amplio grado de desconexión social entre grupos verticalmente estructurados (COES, 2021; Edlund & Linh, 2015; Hadler, 2017; Hertel & Schöneck, 2019; Olivos, Mackenna, Castillo & Bargsted, 2015; Ringqvist, 2016; Whitefield & Loveless, 2013). Con todo, la conflictividad social ha persistido en países con amplias desigualdades y ciclos de protestas, demostrando una tendencia al aumento de la percepción subjetiva del conflicto entre grupos y clases.
+
+A luz de estos antecedentes, cabe preguntarse por los principales determinantes de las percepciones de conflicto social y sus características. La percepción de conflicto social se refiere a cómo los sujetos captan/describen un conflicto social determinado entre dos clases o grupos verticalmente organizados (Hertel & Schöneck, 2019). En ese sentido, indican “la medida en que los individuos experimentan su entorno como caracterizado por tales relaciones antagónicas” (Hertel y Schöneck, 2019, p.2). Estas percepciones son afectadas tanto por condiciones objetivas como por actitudes subjetivas de los individuos (Edlund & Linh, 2015). Además, las características contextuales de los países, en términos políticos, económicos e institucionales, influyen en las percepciones de conflicto vertical, en la medida que funcionan como constricciones para el desarrollo y carácter del conflicto (Hadler, 2017; Wright, 1997). Así, esta investigación se pregunta por los principales determinantes a nivel individual y contextual de las percepciones de conflicto social en Chile y otros países.
+
+Las percepciones de conflicto social son influenciadas por factores individuales, estructurales y contextuales. Sin embargo, no existe consenso en la preponderancia explicativa de estos factores y sus interrelaciones. Primero, se identifica un debate sobre la prevalencia de las condiciones objetivas y las características subjetivas (actitudes y preferencias) de los individuos como determinantes de las percepciones de conflicto. Por un lado, recientes estudios han demostrado que la posición objetiva de clase continúa delimitando los intereses materiales y un conjunto de actitudes subjetivas de los sujetos (Hadler, 2003; Svallfors, 2006; Wright, 1997). Además, se plantea que la afiliación sindical, el ingreso y el ser mujer también son características objetivas que inciden en las percepciones de conflicto (Hertel & Schöneck, 2019). Por el otro, se ha demostrado que la desigualdad percibida y las preferencias redistributivas son matizadores importantes de la percepción de conflicto social (Bussolo, Ferrer, Giolbas & Torre, 2019). Igualmente, la autoidentificación subjetiva de clase es influyente puesto que induce ciertos patrones de preferencias (Kelley & Evans, 1995). Segundo, se establece que los factores contextuales de los países actúan como constricciones para el desarrollo del conflicto y sus actitudes (Edlund & Linh, 2015; Wright, 1997). Factores como la desigualdad de ingreso y el nivel de riqueza afectan las percepciones de conflicto, en tanto que una mayor desigualdad de ingresos exacerba la percepción de conflictos y un grado de riqueza elevada los disminuye (Hadler, 2017; Hertel & Schöneck, 2019). No obstante, factores institucionales y económico-laborales, tales como: el grado de coordinación salarial, la tasa de desempleo y de sindicalización en un país, no han sido considerados para explicar las percepciones de conflicto (Hadler, 2017; Ringqvist, 2016). En suma, hasta lo mejor de mi conocimiento, los factores individuales, estructurales y contextuales son determinantes de las percepciones de conflicto, pero la preponderancia de dichos factores es discutida. 
+
+A raíz de estos debates y la ausencia de una agenda de investigación sobre la conflictividad de clases percibida, esta investigación se propone conocer y analizar los principales determinantes contextuales (institucionales y económico-laborales) e individuales que influyen en las percepciones de conflicto, y cómo estos efectos varían entre cada país y contexto entre 1999 a 2019.  En consiguiente, la pregunta de investigación es: ¿De qué manera determinantes económico-laborales, institucionales e individuales afectan las percepciones de conflicto social en Chile y otros países entre 1999-2019? Para lograr este objetivo, se adopta una perspectiva temporal y comparada entre países, a fin de dar cuenta de la importancia de las características contextuales de los países y si interactúan con las características individuales de los sujetos, tal como indica la Figura 1 (Apéndice). La tesis central que se busca defender es que la posición objetiva de clase es el principal determinante individual de las percepciones de conflicto, y que la relación de estos factores dependen del nivel de desigualdad económica así como el grado de coordinación salarial de los países.  
+
+Estudiar las percepciones de conflicto contiene dos tipos de relevancia. Por un lado,  no sólo porque puede relacionarse con la ocurrencia  de conflictos, sino que entrega evidencia sobre las actitudes, opiniones y valores que desarrollan los individuos respecto a una estructura social jerárquica y la posesión desigual de recursos (Whitefield & Loveless, 2013; Zagórski, 2006). Por otro, si bien es útil en el orden de hacer más cohesiva la sociedad, también es una herramienta para comprender que las percepciones de conflicto no son solo desigualdades meramente de opinión (Lasch, 1996), sino que revelan diferencias estructuralmente formadas (Rodrik, 1997).  En países con alta desigualdad económica y protestas es necesario escudriñar quienes perciben más conflicto, cómo y por qué ciertos factores sociales lo afectan (Hertel & Shöneck, 2019). Así, los principales beneficiados de este conocimiento son los mismos sujetos que experimentan roces entre clases sociales al capturar una panorámica del comportamiento social en determinado tiempo.
+
+La principal contribución de esta pesquisa es su valor teórico en dos direcciones. Primero, aporta a llenar vacíos sobre el estudio subjetivo de la conflictividad social, en particular, las percepciones de conflicto social desde una óptica de la influencia de las condicionantes sociales. Además, y en relación a lo anterior, la información por desarrollar contribuye a los debates internos de las teorías del conflicto social y las relaciones de clases sociales tales como la la preponderancia de determinantes objetivas/estructurales, subjetivas/individuales y contextuales/económico-institucionales. Segundo, se podrá diagnosticar la importancia de determinantes contextuales (económicas e institucionales) sobre las percepciones de conflicto, y cómo estas últimas varían entre países y contextos. Esto es de interés mayúsculo pues integra debates sociológicos sobre lo micro-macro en las desigualdades y estratificación social. Futuras investigaciones pueden tomar este estudio como base para hipótesis que diversifiquen las teorías dominantes del conflicto social, ampliando su rango hacia factores provenientes de la economía laboral y de los movimientos sociales.
+
+## Método
+
+## Referencias
+
+## Apéndice
+
+### Figura 1. Diagrama conceptual.
 
 
-Las interconexiones entre desigualdades de clase, relaciones laborales y conflicto social permiten una comprensión más compleja y completa al atravesar por los diferentes niveles del análisis de clases (Wright, 2018). En particular, una serie de investigaciones se han preocupado por las variaciones del conflicto de clases, referido a la polarización entre trabajadores y empresarios o trabajadores y directivos superiores, desde ámbitos objetivos y subjetivos. Estos han concluido, independiente de las múltiples orientaciones y esquemas de clases, que la posición individual en la estructura de clases es un factor explicativo fundamental para una serie de comportamientos, preferencias y actitudes en el ámbito del trabajo y otras esferas distributivas, políticas y culturales (Wright, 1977; Evans & Kelly, añoX; Svallfors, 2006). 
 
-En este marco general del vínculo entre conflicto, trabajo y posición de clase, la presente investigación se interroga por los determinantes subjetivos del conflicto laboral medido como la polarización de las percepciones entre trabajadores y directivos en el marco del neoliberalismo chileno contemporáneo. Por tanto, es preciso manejar una somera aproximación y definición sobre las percepciones de conflicto y cómo se despliegan en las relaciones laborales. 
+### Pregunta de investigación {-} 
 
+¿De qué manera determinantes económico-laborales, institucionales e individuales afectan las percepciones de conflicto social en Chile y otros países entre 1999-2019? 
 
+### Objetivo {-}
 
+Analizar cómo determinantes contextuales (económico-laborales e institucionales) e individuales afectan las percepciones de conflicto social en Chile y otros países entre 1999-2019.
+
+### Objetivos específicos {-}
+
+*O.E.1* – Identificar los principales determinantes contextuales e individuales que afectan las percepciones de conflicto social en Chile y otros países entre 1999-2019.
+
+*O.E.2* – Analizar la influencia separada y conjunta de factores contextuales (económico-laborales e institucionales) e individuales sobre las percepciones de conflicto social en Chile y otros países entre 1999-2019.
+
+*O.E.3* – Analizar la influencia de factores individuales sobre las percepciones de conflicto según las diferencias contextuales (económico-laborales e institucionales) de los países entre 1999-2019.
