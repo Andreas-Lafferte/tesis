@@ -39,6 +39,7 @@ knitr::opts_chunk$set(echo = F)
 \leftskip= 5.5 cm
 \rightskip=0 cm---(Rothstein and Uslaner, 2005, p.46).
 \end{flushright}
+\vspace{1em}
 
 Esta cita ilustra un hecho importante; el creciente distanciamiento entre grupos y clases sociales en la actualidad. Los altos niveles de desigualdad económica, la explotación, los cierres sociales y los estilos de vida tan marcados, son todas características para describir el comportamiento de la estratificación social en el capitalismo contemporáneo. Asimismo, producen una visión conflictiva de la realidad bajo la defensa de los intereses propios ante los de otros. Esta visión del ‘nosotros contra ellos’, deja abierta la pregunta de si estamos observando síntomas de un conflicto de clases más profundo y si ello se traduce en un aumento de la percepción subjetiva del mismo. ¿Es posible pensar, al menos desde el plano subjetivo, que los conflictos de clases continúan siendo relevantes?
 
