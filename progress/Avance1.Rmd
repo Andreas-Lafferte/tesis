@@ -1,9 +1,9 @@
 ---
 title: |
- | \vspace{2cm} **Percepciones de conflicto en Chile y el mundo**
+ | \vspace{2cm} **Percepciones de conflicto social en Chile y el mundo**
 subtitle: 'Un análisis comparado de sus determinantes'
 author: |
- | \vspace{1.5cm} 
+ | \vspace{1cm} 
  | Autor
  | Andreas Lafferte Tamayo
  | \vspace{1cm}
