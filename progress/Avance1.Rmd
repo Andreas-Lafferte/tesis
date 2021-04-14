@@ -11,7 +11,7 @@ author: |
  | Dr. Juan Carlos Castillo Valenzuela
  | \vspace{2cm}
 date: |
- | 15 de abril de 2021
+ | 13 de abril de 2021
  | Santiago de Chile
 output: pdf_document
 bibliography: avance.bib
