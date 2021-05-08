@@ -1,0 +1,7 @@
+# Método {#method}
+
+<div style="text-align: justify">
+
+## Datos y variables 
+
+## Métodos

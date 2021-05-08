@@ -1,0 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+# Resumen {-}
+<div style="text-align: justify">

@@ -1,9 +1,0 @@
-# Metodología
-
-## Datos
-
-
-## Variables
-
-
-## Métodos

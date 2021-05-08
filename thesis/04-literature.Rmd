@@ -1,0 +1,9 @@
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(out.width="80%", fig.pos = "!ht", out.extra = "")
+```
+
+# Antecedentes conceptuales y empíricos {#literature}
+
+<div style="text-align: justify">
+
