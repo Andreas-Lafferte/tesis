@@ -11,4 +11,20 @@ output:
 
 Esta cita ilustra un hecho importante; el creciente distanciamiento entre grupos y clases sociales en la actualidad. Los altos niveles de desigualdad económica, la explotación, los cierres sociales y los estilos de vida tan marcados, son algunas características para describir el comportamiento de la estratificación social en el capitalismo contemporáneo. Asimismo, producen una visión conflictiva de la realidad bajo la defensa de los intereses propios ante los de otros. Esta visión del ‘nosotros contra ellos’ deja abierta la pregunta de si estamos observando síntomas de un conflicto de clases más profundo y si ello se traduce en la percepción subjetiva del mismo. ¿Es posible pensar, al menos desde el plano subjetivo, que existen los conflictos de clase?
 
+### Pregunta de investigación {-}
+
+*¿Cómo cambia la relación entre la clase social y las percepciones de conflicto social a partir del rol de determinantes económicos-laborales en Chile y otros países durante 1999-2019?*
+
+### Objetivo {-}
+
+Analizar cómo cambia la relación entre la clase social y las percepciones de conflicto social de acuerdo con las variaciones contextuales de determinantes económicos-laborales en Chile y otros países durante 1999-2019.
+
+### Objetivos específicos {-}
+
+*O.E.1* – Analizar la relación entre la posición de clase y las percepciones de conflicto social en Chile y su cambio en el tiempo entre 1999-2019.
+
+*O.E.2* – Analizar el rol de la desigualdad económica sobre la relación entre la posición de clase y las percepciones de conflicto social a nivel mundial y su cambio en el tiempo entre 1999-2019.
+
+*O.E.3* – Analizar el rol del grado de coordinación salarial sobre la relación entre la posición de clase y las percepciones de conflicto social a nivel mundial y su cambio en el tiempo entre 1999-2019.
+
 
