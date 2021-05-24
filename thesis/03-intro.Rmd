@@ -21,10 +21,12 @@ Analizar cómo cambia la relación entre la clase social y las percepciones de c
 
 ### Objetivos específicos {-}
 
-*O.E.1* – Analizar la relación entre la posición de clase y las percepciones de conflicto social en Chile y su cambio en el tiempo entre 1999-2019.
+*O.E.1* – Analizar la relación entre la posición de clase y las percepciones de conflicto social en Chile entre 1999-2019.
 
-*O.E.2* – Analizar el rol de la desigualdad económica sobre la relación entre la posición de clase y las percepciones de conflicto social a nivel mundial y su cambio en el tiempo entre 1999-2019.
+*O.E.2* – Analizar el rol de la desigualdad económica sobre la relación entre la posición de clase y las percepciones de conflicto social a nivel mundial entre 1999-2019.
 
-*O.E.3* – Analizar el rol del grado de coordinación salarial sobre la relación entre la posición de clase y las percepciones de conflicto social a nivel mundial y su cambio en el tiempo entre 1999-2019.
+*O.E.3* – Analizar el rol del grado de coordinación salarial sobre la relación entre la posición de clase y las percepciones de conflicto social a nivel mundial entre 1999-2019. 
+
+*O.E.4* - Analizar el cambio en el tiempo de los enunciados anteriores entre 1999-2019.
 
 
