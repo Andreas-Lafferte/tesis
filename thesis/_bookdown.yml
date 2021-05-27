@@ -15,7 +15,10 @@ language:
     exr: 'Ejercicio '
     solution: 'Solución. '
   ui:
-    edit: Edit
+    edit: https://github.com/Andreas-Lafferte/tesis/edit/master/%s
+    view: https://github.com/Andreas-Lafferte/tesis/blob/master/%s
     chapter_name: 'Capítulo '
     appendix_name: 'Apéndice '
-output_dir: "../docs"
+output_dir: docs
+
+

@@ -3,7 +3,7 @@ output:
   pdf_document: default
   html_document: default
 ---
-# Introducción. ¿Han aumentado las percepciones de conflicto social? {-#intro}
+# Introducción. ¿Mayores percepciones de conflicto social? {-#intro}
 
 > *“The rich and the poor in a country with a highly unequal distribution of wealth . . . may live next to each other, but their lives do not intersect. . . . In such societies, neither the rich nor the poor have any sense of a shared fate. . . . In turn, each group looks out for its own interests and is likely to see the demands of the other as conflicting with its own well-being.” ---(Rothstein and Uslaner, 2005, p.46).*
 

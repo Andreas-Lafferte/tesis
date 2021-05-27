@@ -1,27 +1,13 @@
----
+--- 
 title: '<center>Percepciones de conflicto social en Chile y el mundo</center>'
 author: "<center>Andreas Lafferte Tamayo </center>"
 date: "`r Sys.Date()`"
-institution: "Universidad de Chile"
-degree: "Seminario de Grado - Carrera de Sociología"
-advisor: "Profesor guía: Juan Carlos Castillo"
+site: bookdown::bookdown_site
 bibliography: [tesis.bib]
 biblio-style: apalike
 subtitle: "<center>Un análisis comparado de sus determinantes</center>"
 description: Tesis para optar al grado de Sociólogo de la Universidad de Chile
 link-citations: yes
-site: bookdown::bookdown_site
-output: bookdown::gitbook
-documentclass: book
-geometry: "left=4cm, right=3cm, top=2.5cm, bottom=2.5cm"
-fontsize: 12pt
-linestretch: 1.5
-toc-depth: 1
-lof: True
-lot: True
-editor_options: 
-  markdown: 
-    wrap: 72
 ---
 # Presentación {-}
 
