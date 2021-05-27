@@ -1,0 +1,146 @@
+---
+title: "Percepciones de conflicto social en Chile y el mundo" 
+subtitle: "Un análisis comparado de sus determinantes"
+author: "Andreas Lafferte T"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: "libs"
+    nature:
+      seal: false
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      navigation:
+        scroll: false
+      beforeInit: "https://jciturras.github.io/ayudantia-sol3051/slides/00-intro-r/macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+    css: ["https://jciturras.github.io/ayudantia-sol3051/slides/00-intro-r/xaringan-coes.css","https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css", "css/ath-inferno-fonts.css"]
+    #seal: false # esto omite title slide automática  
+---
+class: center, middle
+
+```{r setup, include=FALSE,eval=TRUE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo(primary_color = "#1F4257", secondary_color = "#F97B64")
+```
+# _Coloquio de investigación en desigualdad y ciudadanía - 1er Sem 2021_
+.class-info[
+
+</br>
+
+**Propuesta de tema para Seminario de Grado**
+
+.light[Andreas Lafferte Tamayo<br>
+.small[Facultad de Ciencias Sociales, Universidad de Chile<br>
+Mayo 2021]
+]
+]
+.right.tiny[Profesor Guía: Juan Carlos Castillo</br>
+]
+---
+class: inverse, center, middle
+
+# Estructura de presentación
+
+1. Pregunta de investigación
+2. ¿Cómo incluir a Chile?
+---
+
+class: inverse, middle, center
+
+# 1. Pregunta de investigación
+
+---
+# 1.1. ¿Cúal es el foco?
+
+A partir de una primera problematización nace el interés por conocer qué determina en mayor medida las percepciones de conflicto social. 
+
+- Determinantes objetivos v/s subjetivos
+- Determinantes contextuales económicos-laborales
+
+Con una problematización más fina se define relevar la dimensión objetiva y analizar cómo se relaciona con las percepciones de conflicto social bajo dos enfoques: 
+
+- Analizar la relación de determinantes objetivos con las percepciones de conflicto social controlando por determinantes subjetivos. El determinante objetivo principal es la posición de clase y el subjetivo la desigualdad económica percibida (a discutir). 
+
+- Analizar cómo los contextos económicos e institucionales dan forma a la relación entre la posición de clase y las percepciones de conflicto social. 
+
+---
+# 1.2. ¿Cómo hacerlo?
+
+Considerando ambos objetivos asalta la pregunta de cómo llevarlo a cabo. Una primera salida es que, al tratarse de elementos contextuales, se opte por un análisis comparado entre países aglutinando los 2 objetivos propuestos. ¿Tiene sentido y viabilidad? Sí la tiene.
+
+## ¿Qué pasa con Chile? 
+
+Para incluir a Chile dentro del estudio se abre la pregunta por el enfoque y su justificación. Entonces, ¿por qué estudiar Chile?, y segundo ¿cómo incluir a Chile en estos objetivos? 
+
+---
+# Más incógnitas...
+
+¿Es Chile el punto de partida o es un caso de estudio? 
+
+*Micro a macro*
+- En la primera forma se estudiaría la discusión objetivo v/s subjetivo sobre las PCS en Chile y luego se preguntaría por ¿cómo esto que pasa en Chile ocurre a nivel internacional? ¿lo afecta el contexto? Esto implica dos estudios.
+
+*Macro a micro*
+- En la segunda forma se estudiaría ambos objetivos planteados (objetivo v/s subjetivo y el contetxo) a nivel internacional y luego se preguntaría por ¿cuál es el caso específico de Chile? llegando a entregar luces de ¿cómo ocurre la discusión objetivo/subjetivo en Chile? Esto implica un estudio con un enfoque de caso, pero se pierde especificidad. 
+
+---
+class: inverse, middle, center
+
+# 2. ¿Cómo incluir a Chile? 
+
+---
+# Chile y el mundo
+Pregunta: ¿Cómo la relación entre la clase social y las percepciones de conflicto social existente en Chile ocurre en otros países bajo la influencia de determinantes económicos-laborales durante 1999-2019?
+
+Objetivo: Analizar cómo la clase social se relaciona con las percepciones de conflicto social en Chile y determinar cómo dicha relación es afectada por determinantes económicos-laborales a nivel mundial durante 1999-2019.
+
+* O.E.1 – Analizar la relación entre la posición de clase y las percepciones de conflicto social en Chile entre 1999-2019.
+* O.E.2 – Analizar el rol de la desigualdad económica sobre la relación entre la posición de clase y las percepciones de conflicto social a nivel mundial entre 1999-2019.
+* O.E.3 – Analizar el rol del grado de coordinación salarial sobre la relación entre la posición de clase y las percepciones de conflicto social a nivel mundial entre 1999-2019.
+* O.E.4 - Analizar el cambio en el tiempo de los enunciados anteriores entre 1999-2019.
+
+---
+# Chile y el mundo (2)
+Pregunta: ¿Cómo cambia la relación entre la clase social y las percepciones de conflicto social a partir del rol de determinantes económicos-laborales en Chile y otros países durante 1999-2019?
+
+Objetivo: Analizar cómo cambia la relación entre la clase social y las percepciones de conflicto social de acuerdo con las variaciones contextuales de determinantes económicos-laborales en Chile y otros países durante 1999-2019.
+
+* O.E.1 – Analizar la relación entre la posición de clase y las percepciones de conflicto social en Chile entre 1999-2019.
+* O.E.2 – Analizar el rol de la desigualdad económica sobre la relación entre la posición de clase y las percepciones de conflicto social a nivel mundial entre 1999-2019.
+* O.E.3 – Analizar el rol del grado de coordinación salarial sobre la relación entre la posición de clase y las percepciones de conflicto social a nivel mundial entre 1999-2019. 
+* O.E.4 - Analizar el cambio en el tiempo de los enunciados anteriores entre 1999-2019.
+
+---
+# Solo el mundo
+Pregunta: ¿Cómo cambia la relación entre la clase social y las percepciones de conflicto social a partir del rol de determinantes económicos-laborales a nivel mundial durante 1999-2019?
+
+Objetivo: Analizar cómo cambia la relación entre la clase social y las percepciones de conflicto social de acuerdo con las variaciones contextuales de determinantes económicos-laborales a nivel mundial durante 1999-2019.
+
+* O.E.1 – Analizar la relación entre la posición de clase y las percepciones de conflicto social a nivel mundial entre 1999-2019.
+* O.E.2 – Analizar el rol de la desigualdad económica sobre la relación entre la posición de clase y las percepciones de conflicto social a nivel mundial entre 1999-2019.
+* O.E.3 – Analizar el rol del grado de coordinación salarial sobre la relación entre la posición de clase y las percepciones de conflicto social a nivel mundial entre 1999-2019. 
+* O.E.4 - Analizar el cambio en el tiempo de los enunciados anteriores entre 1999-2019.
+
+---
+class: inverse, middle, center
+
+# ¡Muchas Gracias!
+.center[
+
+</br>
+Andreas Lafferte Tamayo<br>
+
+.light[Facultad de Ciencias Sociales, Universidad de Chile<br>
+Mayo 2021]
+]
