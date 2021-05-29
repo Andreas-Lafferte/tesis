@@ -1,9 +1,0 @@
-literature
-method
-datos-y-variables
-métodos
-application
-análisis-descriptivo
-modelos
-discussion
-conclusiones
