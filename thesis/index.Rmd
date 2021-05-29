@@ -19,3 +19,7 @@ La siguiente investigación se ha desarrollado en el marco de la tesis para opta
 
 - *Última actualización de datos: `r format(Sys.Date(), '%d %B %Y')`*
 </center>
+
+```{r out.width = '20%', echo = FALSE, fig.align = 'center'}
+knitr::include_graphics("images/escudo-uchile-vertical-color.jpg") 
+```
