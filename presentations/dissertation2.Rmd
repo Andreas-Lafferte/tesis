@@ -88,7 +88,7 @@ Esta investigación se preocupa por esta última _dimesión subjetiva del confli
 
 > _La percepción de conflicto social se refiere a cómo los sujetos captan/describen un conflicto social determinado entre dos clases o grupos verticalmente organizados (Hertel & Schöneck, 2019, p.2)_
 
-Las PCS son situaciones de oposición psicológica, es decir, se basan en un antagonismo de intereses (Fink, 1968; Infante, 1998; Pondy, 1967)
+Las PCS son situaciones de oposición psicológica, es decir, se basan en un antagonismo de intereses (Fink, 1968; Pondy, 1967)
 
 ---
 # 1.2. Contexto disciplinar
@@ -266,23 +266,30 @@ class: inverse, middle, center
 
 ## Hipótesis en Chile
 
-- $H_{1a}$ Individuos de clase trabajadora tenderán a percibir mayores conflictos, en cambio, individuos de clase alta tenderán a percibir menores conflictos en Chile.  
+- $H_{1}$ Individuos de clase trabajadora tenderán a percibir mayores conflictos, en cambio individuos de clase alta tenderán a percibir menores conflictos.  
 
 ## Hipótesis comparación
 
-- $H_{2a}$ Individuos de clase trabajadora tenderán a percibir mayor conflicto, en cambio individuos de clase alta tenderán a percibir menor conflicto.  
-
-- $H_{2b}$ Mayores niveles de desigualdad económica aumentarán las percepciones de conflicto social 
+### _Sobre clase social_
+- $H_{2}$ Individuos de clase trabajadora tenderán a percibir mayor conflicto, en cambio individuos de clase alta tenderán a percibir menor conflicto.  
 
 ---
 # 5.1. Hipótesis principales
 
 ## Hipótesis comparación
-- $H_{2c}$ Mayores niveles de desigualdad económica implicará que los individuos de clase trabajadora perciban mayores conflictos e individuos de clase alta percibirán menores conflictos. Es decir, las diferencias de clase se acrecentarán. 
+### _Sobre desigualdad económica_
+- $H_{3a}$ Mayores niveles de desigualdad económica aumentarán las percepciones de conflicto social 
 
-- $H_{2d}$ En países con baja coordinación salarial (LME's) individuos de clase trabajadora percibirán mayor conflicto que individuos de clase alta. 
+- $H_{3b}$ Mayores niveles de desigualdad económica implicará que los individuos de clase trabajadora perciban mayores conflictos e individuos de clase alta percibirán menores conflictos. Es decir, las diferencias de clase se acrecentarán. 
+---
+# 5.1. Hipótesis principales
 
-- $H_{2e}$ En países con baja coordinación salarial (LME's) y altos niveles de desigualdad económica las percepciones de conflicto social serán mayores que en países con alta coordinación salarial (CME's). 
+## Hipótesis comparación
+
+### _Sobre coordinación salarial_
+- $H_{4a}$ La baja coordinación salarial (LME's) de un país producirá que individuos de clase trabajadora percibirán mayor conflicto que individuos de clase alta. 
+
+- $H_{4b}$ En países con baja coordinación salarial (LME's) y altos niveles de desigualdad económica las percepciones de conflicto social serán mayores que en países con alta coordinación salarial (CME's). 
 
 ---
 class: inverse, middle, center 
@@ -294,7 +301,7 @@ class: inverse, middle, center
 **International Social Survey Programm (ISSP)**. Module of Social Inequality 1999/2009/2019. Se estima la publicación del modulo 2019 para el resto de los países a mediados del 2021. 
 
 Otras fuentes:
-- OCDE
+- OCDE/SWIID
 - ILO STATS
 - ICTWSS (Visser, 2019)
 ---
@@ -335,11 +342,11 @@ Otras fuentes:
 | *Nivel 1*   |            |             |
 | Posición de clase | Esquema E.G.P o E.O. Wright| ISSP |
 | Clase social subjetiva | Autoposición del individuo en la sociedad | ISSP |
-| Tipo de sociedad | Descripción de un diagrama social | ISSP | 
+| Brecha salarial justa | Brecha entre salarios justos de ocupaciones extremas | ISSP | 
 | Desigualdad percibida | Escala desigualdad de ingreso | ISSP |
 | Preferencias redistributivas | Índice de preferencias rol del gobierno en ingresos | ISSP |
 | Afiliación sindical | Miembro sindicato | ISSP |
-| Sociodemográficas | Ingreso/Nivel educación/Sexo | ISSP | 
+| Sociodemográficas | Ingreso/Nivel educativo/Sexo | ISSP | 
 
 ---
 # 6.2. Variables
@@ -347,10 +354,10 @@ Otras fuentes:
 |Variable    |Descripción |Fuente       |
 |------------:|-----------:|------------:|
 | *Nivel 2*   |            |             |
-| Desigualdad ecónomica | Índice de GINI | OCDE |
+| Desigualdad ecónomica | Índice de GINI | OCDE-SWIID |
 | Coordinación salarial | Esquema de coordinación salarial por país | ICTWSS |
 | Desempleo | Tasa de desempleo por país | ILO |
-| Densidad sindical | Tasa de sindicalización neta por país | ILO |
+| Densidad sindical | Tasa de sindicalización neta por país | ICTWSS |
 
 ---
 # 6.3. Método
@@ -369,7 +376,7 @@ class: inverse, middle, center
 # 7. Discusión
 
 ## Enfoque comparado
-¿Observaciones sobre las decisiones metodólogicas? ¿Se plantea correctamente ambos objetivos?
+¿Observaciones sobre las decisiones metodólogicas? ¿Se plantean correctamente ambos objetivos?
 
 ## Otros
 ¿Algún otro factor relevante a incluir/problematizar?
@@ -392,30 +399,34 @@ Delhey, J., & Dragolov, G. (2014). Why inequality makes Europeans less happy: Th
 
 Edlund, J., & Lindh, A. (2015). The democratic class struggle revisited: The welfare state, social cohesion and political conflict. Acta Sociologica, 58(4), 311-328.
 
+Fink, C. F. (1968). Some conceptual difficulties in the theory of social conflict. Journal of conflict resolution, 12(4), 412-460.
+
 Hadler, M. (2003). Ist der Klassenkonflikt überholt? Die Wahrnehmung von vertikalen Konflikten im internationalen Vergleich. Soziale Welt, 175-200.
 
 Hadler, M. (2017). Social Conflict Perception Between Long-term Inequality and Short-term Turmoil: A Multilevel Analysis of Seven Countries Between 1987 and 2009. 57225, 17, 35-49.
 
 Hertel, F. R., & Schöneck, N. M. (2019). Conflict perceptions across 27 OECD countries: The roles of socioeconomic inequality and collective stratification beliefs. Acta Sociologica, 0001699319847515.
-
-Kelley, J., & Evans, M. D. R. (1995). Class and class conflict in six western nations. American Sociological Review, 60(2), 157-178.
-
 ---
 # Referencias
+
+Kelley, J., & Evans, M. D. R. (1995). Class and class conflict in six western nations. American Sociological Review, 60(2), 157-178.
 
 Lasch, C. (1996). La rebelión de las élites y la traición a la democracia. Paidós. 
 
 Lewin-Epstein, N., Kaplan, A., & Levanon, A. (2003). Distributive justice and attitudes toward the welfare state. Social Justice Research, 16(1), 1-27.
 
+Oberschall, A. (1978). Theories of social conflict. Annual review of sociology, 4(1), 291-315.
+
 Pérez. P. (2013). Encontrando lo que nunca estuvo perdido. Conciencia de clase y conflicto de clases en el régimen neoliberal chileno. Revista de Sociología, (28).
 
-Ringqvist, J. (2016). Three dimensions of class conflict: A cross-country comparison of individual perceptions of class conflict and their contextual determinants.
+Pondy, L. R. (1967). Organizational conflict: Concepts and models. Administrative science quarterly, 296-320.
 
+Ringqvist, J. (2016). Three dimensions of class conflict: A cross-country comparison of individual perceptions of class conflict and their contextual determinants.
+---
+# Referencias
 Ringqvist, J. (2020). How do union membership, union density and institutionalization affect perceptions of conflict between management and workers?. European Journal of Industrial Relations, 0959680120963546.
 
 T. A. DiPrete and J. D. Forristal. "Multilevel Models: Methods and Substance". In: Annual Review of Sociology 20.1 (ago. 1994), pp. 331-357. ISSN: 0360-0572. DOI: 10.1146/annurev.so.20.080194.001555.
----
-# Referencias
 
 Verwiebe, R., & Wegener, B. (2000). Social inequality and the perceived income justice gap. Social Justice Research, 13(2), 123-149.
 

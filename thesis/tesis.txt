@@ -1,0 +1,1057 @@
+%0 Journal Article
+%T How do union membership, union density and institutionalization affect perceptions of conflict between management and workers?
+%P 095968012096354
+%U http://journals.sagepub.com/doi/10.1177/0959680120963546
+%X This article contributes to debates about trade unions and conflict by studying how individuals’ perceptions of conflicts between management and workers relate to trade union membership, country-level trade union density and institutionalization (collective bargaining coverage, centralization and policy concertation). Hierarchical multi-level models are fitted to data from the International Social Survey Programme from 2009. The results show that union members tend to be more likely than non-members to perceive management–worker conflicts and that this appears not to vary substantially between countries. However, regardless of union membership, individuals in countries with higher trade union density and with policy concertation tend to be significantly less likely to perceive conflicts. These findings highlight the risk of atomic fallacies in research limited to the individual-level effects of union membership. Contrary to an argument often raised by pluralists, neither bargaining coverage nor centralization has significant effects. Overall, the results question depictions of trade unions as divisive organizations.
+%G en
+%J European Journal of Industrial Relations
+%A Ringqvist, Josef
+%D Octubre 2020
+
+%0 Journal Article
+%T Social Conflict Perception Between Long-term Inequality and Short-term Turmoil
+%V 17
+%P 16
+%G en
+%A Hadler, Markus
+%D 2017
+
+%0 Journal Article
+%T Percepción de conflicto en Chile: un análisis desde la opinión pública
+%P 22
+%G es
+%A Castillo, Juan C.
+%A Bargsted, Matías
+%A Olivos, Francisco
+%A Mackenna, Bernardo
+%D 2015
+
+%0 Journal Article
+%T Recent Developments in Attitudes and Social Structure
+%P 23
+%X A large body of research in social psychology has investigated the links between attitudes and social structure. Efforts have focused on (a) relating attitudes to aspects of the social context and to indicators of location in the social structure; (b) investigating how social structure affects attitudes via such intervening mechanisms of influence as social networks and roles; and (c) identifying the psychological processes through which persons interpret their experiences, and which in tum affect their attitudes (House 1981). This article reviews recent work in these three areas, as well as on the relationship between social structure and attitude change over time. While attitudes often are found to be weakly correlated with socioeconomic status, research on work and personality has continued to make progress in identifying the particular aspects of occupations that influence attitudes. Theories of the intervening mechanisms through which social structure affects attitudes need to be more systematically articulated, and such theories must specify the psychological processes that mediate the effects of social structure, A promis­ ing line of research develops and tests models that show the links between aspects of social structure, psychological processes, and attitudes. Future work also would benefit by incorporating recent findings concerning the motivations and cognitive limitations that affect attitudes. The review con­ cludes by discussing challenges that remain. These are to improve attitude measurement, to determine the relative strength of structural and cultural influences in various types of attitudes, to reconsider the degree to which attitudes are situational rather than dispositional, and to integrate research on self-attitudes with research on other attitudes.
+%G en
+%A Kiecolt, K Jill
+
+%0 Journal Article
+%T Conflict perceptions across 27 OECD countries: The roles of socioeconomic inequality and collective stratification beliefs
+%P 000169931984751
+%U http://journals.sagepub.com/doi/10.1177/0001699319847515
+%X Socioeconomic inequality and conflicts regarding distributional issues have resurfaced in many OECD countries over the past three decades. Whereas most research has focused on the objective determinants of perceived social conflicts, we contribute a new facet to this discussion by assessing the relevance of collective stratification beliefs as an independent driver of vertical conflict perceptions. After formulating theoretical positions that give precedence to two factors in explaining the perceptions of social conflicts – objective inequality and the collective stratification belief – we use individual-level data from the 2009 International Social Survey Programme, along with suitable country-level indicators to evaluate both hypotheses. Amid the diverse collective stratification beliefs, we focus on the role of an egalitarian (middle-) class imagery. We are particularly interested in the extent to which such a class imagery can mediate the relationship between socioeconomic inequality and individual conflict perceptions. The results of our multilevel analyses of 27 OECD countries indicate that an egalitarian (middle-) class imagery held by a certain share of a country’s population constitutes a distinct dimension of reality and clearly dominates country-level objective inequality in the explanation of individually perceived social conflicts.
+%G en
+%J Acta Sociologica
+%A Hertel, Florian R
+%A Schöneck, Nadine M
+%D Junio 2019
+
+%0 Journal Article
+%T The democratic class struggle revisited: The welfare state, social cohesion and political conflict
+%V 58
+%N 4
+%P 311–328
+%U http://journals.sagepub.com/doi/10.1177/0001699315610176
+%X This paper attempts to resolve scholarly disagreements concerning how class conflicts are manifested in contemporary welfare states. An analytical distinction is made between social (tensions/antagonism between classes) and political (class-based differences in political preferences) manifestations of class conflict. Using International Social Survey Program data (1999/ 2009) from 20 countries, the results indicate that social conflict is more common in meager welfare states where material inequality is relatively high compared to encompassing highly redistributive welfare states where levels of material inequality are relatively low. When it comes to distributive struggles in the political sphere – political conflict – the pattern is reversed. The results do not support arguments emphasizing that class as an analytical concept is irrelevant for understanding socio-political phenomena in modern industrial democracies. Instead, the results suggest that the character of class conflict varies across national socioeconomic contexts in tandem with between-country variation in the institutional setup of the welfare state. The results support Walter Korpi’s theory outlined in The Democratic Class Struggle, which suggests that in modern welfare states, institutionalized political conflict tends to replace less institutionalized and unorganized social conflict. This is more the case in encompassing welfare states than in residual welfare states.
+%G en
+%J Acta Sociologica
+%A Edlund, Jonas
+%A Lindh, Arvid
+%D Noviembre 2015
+
+%0 Book
+%7 Abridged and updated
+%T Conflict sociology: a sociological classic updated
+%S Studies in comparative social science
+%C Boulder
+%I Paradigm Publishers
+%@ 978-1-59451-600-9 978-1-59451-601-6
+%G en
+%A Collins, Randall
+%D 2009
+%K Social conflict
+Sociology
+
+%0 Journal Article
+%T Social Inequality and Assessments of Democracy and the Market: Evidence from Central and Eastern Europe
+%V 65
+%N 1
+%P 26–44
+%U http://www.tandfonline.com/doi/abs/10.1080/09668136.2012.734588
+%G en
+%J Europe-Asia Studies
+%A Whitefield, Stephen
+%A Loveless, Matthew
+%D Enero 2013
+
+%0 Journal Article
+%T Ist der Klassenkonflikt überholt? Die Wahrnehmung von vertikalen Konflikten im internationalen Vergleich
+%P 175–200
+%U http://www.jstor.org/stable/40878409
+%G de
+%A Hadler, Markus
+%D 2003
+
+%0 Journal Article
+%T Three dimensions of class conflict: A cross-country comparison of individual perceptions of class conflict and their contextual determinants
+%U http://urn.kb.se/resolve?urn=urn:nbn:se:umu:diva-133069
+%J Umeå University, Faculty of Social Sciences, Department of Sociology
+%A Ringqvist, Josef
+%D 2016
+
+%0 Book
+%T The moral economy of class: Class and attitudes in comparative perspective
+%I Stanford University Press
+%A Svallfors, Stefan
+%D 2006
+
+%0 Journal Article
+%T Changes in Perception of Inequality and Demand for Redistribution
+%P 54
+%X This paper investigates the link between inequality and demand for redistribution by looking at how individuals form their perceptions of inequality. Most of the literature analyzing demand for redistribution has focused on objective inequality, rather than subjective perceptions of inequality. However, a model that links demand for redistribution to subjective inequality is needed given that recent empirical research has shown a growing gap between subjective and objective inequality. Using data from the International Social Survey Programme (ISSP) survey on social inequality we focus on explaining individuals’ formation of perceptions using objective variables and we then study the relationship between individuals’ perceptions of equality and their demand for redistribution. We find that objective macro variables are associated to individual perceptions, and that individual circumstances like age, educational attainment, and employment status play also a role. Perceptions of equality, in turn, are significatively correlated to demand for redistribution and seem to substitute for any effect of objective variables. This result suggests that contextual, macro variables only affect individuals’ demand for redistribution through their perceptions of equality and don’t have a direct effect.
+%G en
+%A Bussolo, Maurizio
+%A Ferrer-i-Carbonell, Ada
+%A Giolbas, Anna
+%A Torre, Ivan
+%D 2019
+
+%0 Journal Article
+%T Class and Class Conflict in Six Western Nations
+%V 60
+%N 2
+%P 157
+%U http://www.jstor.org/stable/2096382?origin=crossref
+%G en
+%J American Sociological Review
+%A Kelley, Jonathan
+%A Evans, M. D. R.
+%D Abril 1995
+
+%0 Journal Article
+%T The Perception of Social Conflicts and Attitudes to Democracy
+%V 36
+%N 3
+%P 3–34
+%U https://www.tandfonline.com/doi/full/10.2753/IJS0020-7659360301
+%X The acceptance of social conflicts rather than only one ideologically approved set of congruent and supposedly “just” social interests constitutes one of the preconditions of democracy legitimization. Perceptions of social conflicts have not changed very much in Central and East European societies. Moreover, not all kinds of perceived conflicts have a negative effect on pro-democracy attitudes, the conflicts between rich and poor being the most detrimental in this respect. All conflict perceptions combined exert a very weak effect on both the evaluation of current functioning of democratic institutions and support for democracy as an ideal political system. Part of this impact is exerted indirectly, through strengthening egalitarian attitudes. Sociodemographic characteristics and conflict perceptions explain the evaluation of current democracy better than they explain general support for a democratic system. The perception of social relations as a “zerosum” rather than a “positive-sum” game reinforces all of these relations.
+%G en
+%J International Journal of Sociology
+%A Zagórski, Krzysztof
+%D Octubre 2006
+
+%0 Journal Article
+%T Globalization, social conflict and economic growth
+%P 27
+%U http://www. ksg. harvard. edu/rodrik/global
+%G en
+%J In Conferencia de Raúl Prebisch. Ginebra
+%A Rodrik, Dani
+%D 1997
+
+%0 Book
+%T La rebelión de las élites y la traición a la democracia
+%C Barcelona
+%I Paidós Ibérica
+%@ 978-84-493-0261-9
+%G es
+%A Lasch, Christopher
+%D 1996
+
+%0 Journal Article
+%T Multilevel Models: Methods and Substance
+%P 27
+%X This paper reviews recent developments in the application of multilevel models to substantive problems sociology, but rather a isnets·oocfiomloogrey.
+%G en
+%J Annual Review of Sociology 20.1
+%A DiPrete, Thomas A
+%A Forristal, Jerry D
+%D 1994
+
+%0 Book
+%T Class counts: Comparative studies in class analysis
+%I Cambridge University Press
+%A Wright, Erik Olin
+%D 1997
+
+%0 Report
+%T Informe de resultados. Estudio COES de la elite cultural, económica y política en Chile
+%C Santiago, Chile
+%I COES
+%A Atria, Jorge
+%A Rovira Kaltwasser, Cristóbal
+%D 2021
+
+%0 Journal Article
+%T All for All: Equality, Corruption, and Social Trust
+%V 58
+%N 1
+%P 41–72
+%U https://www.cambridge.org/core/product/identifier/S004388710001889X/type/journal_article
+%X The importance of social trust has become widely accepted in the social sciences. A number of explanations have been put forward for the stark variation in social trust among countries. Among these, participation in voluntary associations received most attention. Yet there is scant evidence that participation can lead to trust. In this article, the authors examine a variable that has not gotten the attention it deserves in the discussion about the sources of generalized trust, namely, equality. They conceptualize equality along two dimensions: economic equality and equality of opportunity. The omission of both these dimensions of equality in the social capital literature is peculiar for several reasons. First, it is obvious that the countries that score highest on social trust also rank highest on economic equality, namely, the Nordic countries, the Netherlands, and Canada. Second, these countries have put a lot of effort in creating equality of opportunity, not least in regard to their policies for public education, health care, labor market opportunities, and (more recently) gender equality. The argument for increasing social trust by reducing inequality has largely been ignored in the policy debates about social trust. Social capital research has to a large extent been used by several governments and policy organizations to send a message to people that the bad things in their society are caused by too little volunteering. The policy implications that follow from the authors' research is that the low levels of trust and social capital that plague many countries are caused by too little government action to reduce inequality. However, many countries with low levels of social trust and social capital may be stuck in what is known as a social trap . The logic of such a situation is the following. Social trust will not increase because massive social inequality prevails, but the public policies that could remedy this situation cannot be established precisely because there is a genuine lack of trust. This lack of trust concerns both “other people” and the government institutions that are needed to implement universal policies.
+%G en
+%J World Politics
+%A Rothstein, Bo
+%A Uslaner, Eric M.
+%D Octubre 2005
+
+%0 Book Section
+%T Economic globalization and increasing earnings inequality in affluent democracies
+%V 18
+%I Emerald Group Publishing Limited
+%P 149–181
+%@ 978-1-84855-368-2 978-1-84855-369-9
+%U https://www.emerald.com/insight/content/doi/10.1108/S0277-2833(2009)0000018009/full/html
+%X Purpose – Since the 1960s, the afﬂuent democracies have experienced substantial changes in earnings inequality at the same time as heightening economic globalization. This paper investigates the relationship between these two processes.
+%G en
+%B Research in the Sociology of Work
+%A Brady, David
+%E Bandelj, Nina
+%D Enero 2009
+
+%0 Journal Article
+%T Why Inequality Makes Europeans Less Happy: The Role of Distrust, Status Anxiety, and Perceived Conflict
+%V 30
+%N 2
+%P 151–165
+%U https://academic.oup.com/esr/article-lookup/doi/10.1093/esr/jct033
+%X Are more equal societies ‘better’ societies? This article addresses the question as to whether and why income inequality lowers the degree of Europeans’ subjective well-being. While in broad international comparisons typically no clear-cut link between income inequality and (un)happiness exists, we can demonstrate that Europeans are somewhat less happy in more unequal places. We further discuss and empirically test three explanations as to why Europeans are inequality-averse, namely (dis)trust, status anxiety, and perceived conflicts. Each of these three potential mediators is hypothesized to be shaped by the extent of a nation’s income inequality, and in turn to result in lower subjective well-being. A multilevel mediation analysis with data from the European Quality of Life Survey 2007 for 30 countries reveals that distrust and status anxiety are important mediators of inequality aversion, whereas perceived conflict is not. We can further show that trust is the crucial mediator among affluent societies, whereas status anxiety is crucial among the less affluent societies. The results are discussed with reference to the Spirit Level theory developed by Richard Wilkinson and Kate Pickett.
+%G en
+%J European Sociological Review
+%A Delhey, J.
+%A Dragolov, G.
+%D Abril 2014
+
+%0 Journal Article
+%T Distributive Justice and Attitudes Towards the Welfare State
+%P 44
+%X Current debates concerning the viability of the welfare state evoke the question of the social bases of support of the welfare state. Past research has documented fairly similar relationships between socio-demographic characteristics and attitudes toward welfare policies. Yet, the nature of these relationships is not well understood. In the paper we argue that the level of support for the welfare state is largely determined by the principles of distributive justice espoused by individuals as well as their images of society. We develop a theoretical framework, which outlines the structural relationship between social attributes, principles of justice, perceived conflict and support for the welfare state. Using data from a recent population survey on the legitimation of inequality, conducted in Israel in 1999 (N = 706), we test a number of hypotheses. For the empirical analysis we use structural equation modeling with multiple indicators. Our findings reveal substantial support for policies aimed at reducing inequality. At the same time we find strong support for rewards according to merit and unequal earnings distribution. The impact of social attributes on attitudes toward the welfare state is partially mediated by the justice principles and images of society.
+%G en
+%A Lewin-Epstein, Noah
+%A Kaplan, Amit
+%A Levanon, Asaf
+%D 2003
+
+%0 Journal Article
+%T Who thinks what about capitalism? Class consciousness and attitudes to economic institutions
+%V 35
+%N 3
+%P 351-370
+%U http://journals.sagepub.com/doi/10.1177/144078339903500306
+%X Attitudes to the fundamental economic institutions of capitalism, private ownership of productive property, markets as arenas for securing economic outcomes, and working class rights to associate and to strike, are key dimensions of class consciousness. This paper investigates how class location shapes these attitudes in combination with other factors like employment sector and trade union membership. Using data from the 1995 National Social Science Survey, the paper finds systematic class variation on attitudes to economic institutions that is consistent with respondents endorsing or rejecting class-specific strategies of interest realisation according to their own class circumstances. On some attitudes, class structural effects are additionally moderated by organisational norms associated with public sector employment and mediated by the impact of trade union membership.
+%G en
+%J Journal of Sociology
+%A Western, Mark
+%D 12/1999
+
+%0 Book
+%T Varieties of Capitalism
+%I Oxford University Press
+%@ 978-0-19-924775-2
+%U http://www.oxfordscholarship.com/view/10.1093/0199247757.001.0001/acprof-9780199247752
+%G en
+%A Hall, Peter A.
+%A Soskice, David
+%D 2001-08-30
+
+%0 Journal Article
+%T Economic inequality and belief in meritocracy in the United States
+%P 7
+%X How does the context of income inequality in which people live affect their belief in meritocracy, the ability to get ahead through hard work? A prominent recent study by Newman, Johnston, and Lown argues that, consistent with the conflict theory, exposure to higher levels of local income inequality leads lower-income people to become more likely to reject—and higher-income people to become more likely to accept—the dominant United States ideology of meritocracy. Here, we show that this conclusion is not supported by the study’s own reported results and that even these results depend on pooling three distinctly different measures of meritocracy into a single analysis. We then demonstrate that analysis of a larger and more representative survey employing a single consistent measure of the dependent variable yields the opposite conclusion. Consistent with the relative power theory, among those with lower incomes, local contexts of greater inequality are associated with more widespread belief that people can get ahead if they are willing to work hard.
+%G en
+%A Solt, Frederick
+%A Hu, Yue
+%A Hudson, Kevan
+%A Song, Jungmin
+
+%0 Journal Article
+%T [No title found]
+%V 13
+%N 2
+%P 123-149
+%U http://link.springer.com/10.1023/A:1007545823040
+%G en
+%J Social Justice Research
+%A Verwiebe, Roland
+%A Wegener, Bernd
+%D 2000
+
+%0 Journal Article
+%T The class pictures in citizens’ minds: The class pictures in citizens’ minds
+%V 69
+%N 4
+%P 1220-1247
+%U http://doi.wiley.com/10.1111/1468-4446.12313
+%X Social class has traditionally played a key role in explaining social behaviour and cognition. However, recent analyses have been dominated by the view that the relevance of class for behaviour has dwindled in advanced industrial societies. We contest this view by focusing on the subjective components of class consciousness. Using a national survey of Danish citizens, we show that individuals continue to hold meaningful conceptions of classes, to identify with them and, moreover, to perceive substantial levels of differences between them with these latter beliefs being strongly structured by respondent class identiﬁcation. These results are all the more intriguing because they stem from a high afﬂuence/low inequality national context that should be a particularly good case for failing to ﬁnd such rich class perceptions.
+%G en
+%J The British Journal of Sociology
+%A Robison, Joshua
+%A Stubager, Rune
+%D 12/2018
+
+%0 Journal Article
+%T Organizational Conflict: Concepts and Models
+%V 12
+%N 2
+%P 296
+%U https://www.jstor.org/stable/2391553?origin=crossref
+%G en
+%J Administrative Science Quarterly
+%A Pondy, Louis R.
+%D 09/1967
+
+%0 Journal Article
+%T Sobre la definición del conflicto interpersonal: aplicación del <i>cluster analysis</i> al estudio semántico
+%V 13
+%N 3
+%P 485-493
+%U https://www.tandfonline.com/doi/full/10.1174/021347498760349733
+%X Following the attempts of various authors when trying to define interpersonal conflict and its nature (Pondy, 1967; Fink, 1968; Thomas, 1992), 78 definitions from various sources between 1933 and 1996 are analysed. The purpose is to make clear the meaning of conflict and its nature. Various type of definitions were obtained across the history of its literature using the cluster analysis procedure. The included categories were the following: (1) phase of conflict; (2) base of conflict; (3) perception; (4) incompatibility; (5) way of interaction: (6) number of parties; (7) (interpersonal) power; (8) interdependency; and (9), nature of conflict.
+%G es
+%J Revista de Psicología Social
+%A Infante, Eduardo
+%D 01/1998
+
+%0 Journal Article
+%T The Continued Significance of Class Voting
+%V 3
+%N 1
+%P 401-417
+%U http://www.annualreviews.org/doi/10.1146/annurev.polisci.3.1.401
+%G en
+%J Annual Review of Political Science
+%A Evans, Geoffrey
+%D 06/2000
+
+%0 Journal Article
+%T Some conceptual difficulties in the theory of social conflict
+%V 12
+%N 4
+%P 412-460
+%U http://journals.sagepub.com/doi/10.1177/002200276801200402
+%G en
+%J Journal of Conflict Resolution
+%A Fink, Clinton F.
+%D 12/1968
+
+%0 Journal Article
+%T Cognitive models of class structure and explanations of social outcomes
+%V 23
+%N 5
+%P 445-464
+%U http://doi.wiley.com/10.1002/ejsp.2420230503
+%X In this paper we argue that people’s explanations of a wide range of social outcomes occur within a framework of expectations derived from beliefs about the pervasive influence of social class on individuals’ life-chances. This claim is tested by examining the efSect of varying the social class origins of vignette characters on judgments and explanations concerning their outcomes. Four domains of social activity are examined: occupational attainment, educationa~achievement, relationship success, and unemployment. In all of these areas, the class background of the characters was found to be associated with different outcome expectations,future expectations,judgments of responsibility and differences in the ways in which outcomes were explained. The results are consistent with the claim that people have cognitive models in which social class background is associated with particular social outcomes across a range of activities, and that these models are reasonably accurate representations of the relationships between social class and life-chances. This suggests that contrary to theories which have stressed the individualistic nature of belief systems in western societies, social classforms an important part of thepopular representation of the influences on occupational, educational and relationship success.
+%G en
+%J European Journal of Social Psychology
+%A Evans, Geoffrey
+%D 09/1993
+
+%0 Journal Article
+%T Toward a theory of social conflict
+%V 2
+%N 2
+%P 170-183
+%U http://journals.sagepub.com/doi/10.1177/002200275800200204
+%G en
+%J Journal of Conflict Resolution
+%A Dahrendorf, Ralf
+%D 06/1958
+
+%0 Journal Article
+%T Social Conflict and the Theory of Social Change
+%V 8
+%N 3
+%P 197
+%U https://www.jstor.org/stable/586859?origin=crossref
+%G en
+%J The British Journal of Sociology
+%A Coser, Lewis A.
+%D 09/1957
+
+%0 Journal Article
+%T COHORT, CLASS AND ATTITUDES TO REDISTRIBUTION: BRITAIN AND THE US, 1996-2006
+%P 38
+%G en
+%A Edlund, Jonas
+%A Svallfors, Stefan
+
+%0 Journal Article
+%T Social Class, Economic Inequality, and the Convergence of Policy Preferences: Evidence from 24 Modern Democracies: Social Class, Economic Inequality, and Policy Preferences
+%V 52
+%N 3
+%P 266-288
+%U http://doi.wiley.com/10.1111/cars.12077
+%G en
+%J Canadian Review of Sociology/Revue canadienne de sociologie
+%A Andersen, Robert
+%A Curtis, Josh
+%D 08/2015
+
+%0 Book
+%7 Primera edición
+%T La gran ruptura: institucionalidad política y actores sociales en el Chile del siglo XXI
+%S Ciencias sociales y humanas. Ciencias políticas
+%C Santiago, Chile
+%I LOM Ediciones
+%@ 978-956-00-0784-1
+%L F3101.3 .G73 2016
+%E Garretón Merino, Manuel A.
+%E Barozet, Emmanuelle
+%D 2016
+%K Chile
+21st century
+Politics and government
+Social conditions
+
+%0 Journal Article
+%T ¿CUÁL ES LA BRECHA SALARIAL JUSTA?
+%P 30
+%G es
+%A Castillo, Juan C
+
+%0 Journal Article
+%T Legitimacy of Inequality in a Highly Unequal Context: Evidence from the Chilean Case
+%V 24
+%N 4
+%P 314-340
+%U http://link.springer.com/10.1007/s11211-011-0144-5
+%X Economic inequality is usually assumed to be a threat to social cohesion and democracy. Nevertheless, this opposition of inequality and democracy is based on further assumptions such as (a) that people perceive economic inequality accurately, and (b) that, by and large they consider inequality unjust. Research into distributive issues has not found consistent support for neither of these assumptions. Quite the contrary, empirical evidence indicates that economic inequality is widely misperceived and that inequality is to some extent considered legitimate. So far most of the empirical evidence in the area of legitimacy comes from experimental studies in the developed world. The present research aims at widening the scope of legitimacy studies by focusing on Chile as a case country, one of the societies with the highest economic inequality worldwide, guided by the question to what extent is economic inequality considered legitimate in a context of high economic inequality? In addressing this question, and based on previous evidence, the article proposes a way to evaluate (a) the legitimacy of inequality at a country level via survey research, and (b) the role of inequality perception and justice ideologies in the justiﬁcation of economic inequality. The data to be analyzed is the public opinion survey International Social Justice Project (ISJP), implemented in Chile in the year 2007 (n = 890). Multivariate analysis results reveal signs of legitimacy of inequality in Chile, opening a series of issues regarding the acceptance and stability of unequal distributions.
+%G en
+%J Social Justice Research
+%A Castillo, Juan Carlos
+%D 12/2011
+
+%0 Journal Article
+%T Handbook of South American Governance
+%P 509
+%G en
+%A Pía, Riggirozzi
+
+%0 Book
+%7 2nd rev. ed
+%T Making history: agency, structure, and change in social theory
+%S Historical materialism book series
+%C Leiden ; Boston
+%I Brill
+%@ 978-90-04-13627-4
+%L BD450 .C23 2004
+%G en
+%A Callinicos, Alex
+%D 2004
+%K Act (Philosophy)
+Agent (Philosophy)
+Historical materialism
+Marx, Karl
+Philosophy
+Revolutions
+Structuralism
+
+%0 Journal Article
+%T Estratificación y movilidad social bajo un
+%P 23
+%X This paper describes the changes in the Chilean social structure over the past four decades, and characterizes, on the one hand, the loss of effectiveness of public policies that aimed at improving the life chances for social mobility for the poor and the middle classes and, on the other, the increasing distance between the poles of the social structure. Challenges for a rent-seeker country par excellence are exposed, particularly those related to a reform of the tax system as a solution to the persistent and growing inequality.
+%G es
+%A Espinoza, Vicente
+%A Barozet, Emmanuelle
+%A Méndez, María Luisa
+
+%0 Journal Article
+%T Movilizaciones sociales y conflicto de clases en Chile. Consideraciones para una teoría crítica de la sociedad
+%P 27
+%X From its beginnings, critical theory has assumed the relationship between theory and praxis as necessary. Thus, it has been said that the critique of society must be necessarily accompanied by the identiﬁcation of some agent that can realize in practical terms what is claimed theoretically. By reviewing the way in which the ﬁrst generation of Frankfurt school (speciﬁcally Adorno and Horkheimer) analyzed the relationship between theory and praxis, in this paper the analytical and practical centrality of the concepts of class and class conﬂict is claimed. To support such an idea, the social mobilizations observed in Chile en 2011 are used as example. According to what will be shown, those mobilizations can be rightly analyzed from a class-based perspective. This allow us to revitalize a critical theory of the Chilean society, which can overcome some problems observed in the Frankfurt School’s analysis.
+%G es
+%J Actuel Marx
+%A Ahumada, Pablo Pérez
+
+%0 Journal Article
+%T Class consciousness in a mature neoliberal society: Evidence from Chile
+%V 38
+%P 57-75
+%U https://linkinghub.elsevier.com/retrieve/pii/S0276562414000389
+%G en
+%J Research in Social Stratification and Mobility
+%A Pérez-Ahumada, Pablo
+%D 12/2014
+
+%0 Journal Article
+%T The identity of class in Latin America: Objective class position and subjective class identification in Argentina and Chile (2009)
+%V 66
+%N 5
+%P 724-747
+%U http://journals.sagepub.com/doi/10.1177/0011392117749685
+%X Class identity is a key mechanism in the explanation of class-based collective action. For decades, this was particularly relevant in Latin America, where objective class inequality was persistent and there was a long history of collective action, originating in the workplace and expressed through unions and labor parties. Despite persistent inequalities in the region, since the 1990s scholars increasingly claimed that the relation between objective class position and subjective class identification weakened significantly, and that class dynamics centered on work were no longer central to explain group formation and collective action among the popular sectors. While in countries like Argentina scholars have explained these processes by focusing on the effects of the de-industrialization of the economy and the informalization of the job market, in Chile analysts have done so by emphasizing the growth of the service sector and the emergence of a middle-class society where ‘old-fashioned’ working-class identities have become irrelevant. This article questions these arguments based on a comparative analysis of the relationship between objective class position and subjective class identification in Argentina and Chile in 2009. The results show that class still matters. In both countries, people with a working-class position or a working-class trajectory are significantly more likely to uphold working-class identity than individuals with a privileged class position or trajectory. Surprisingly, the authors’ analysis also demonstrates that the overall rates of working-class identification are higher in Chile than in Argentina. The authors explain these unexpected results by looking at contemporary class-related phenomena (e.g. higher inequality and economic concentration in Chile) and longer-term class dynamics (particularly differences stemming from the ‘radical’ party–union configuration in Chile and the state-corporatist incorporation of labor in Argentina).
+%G en
+%J Current Sociology
+%A Elbert, Rodolfo
+%A Pérez, Pablo
+%D 09/2018
+
+%0 Journal Article
+%T Conflict and Development
+%P 33
+%X In this review, we examine the links between economic development and social conﬂict. By economic development, we refer broadly to aggregate changes in per capita income and wealth or in the distribution of that wealth. By social conﬂict, we refer to within-country unrest, ranging from peaceful demonstrations, processions, and strikes to violent riots and civil war. We organize our review by critically examining three common perceptions: that conﬂict declines with ongoing economic growth; that conﬂict is principally organized along economic differences rather than similarities; and that conﬂict, most especially in developing countries, is driven by ethnic motives.
+%G en
+%A Ray, Debraj
+%A Esteban, Joan
+%D 2017
+
+%0 Journal Article
+%T Social conflict
+%V 61
+%N 5-6
+%P 696-713
+%U http://journals.sagepub.com/doi/10.1177/0011392113499487
+%X Numerous approaches in the social sciences either refuse to consider or minimize the importance of conflict in community or else replace it with a Spencerian vision of the social struggle. Between these two extremes there is considerable space for us to consider conflict as a relationship; this is what differentiates it from modes of behaviour involving war and rupture. Sociology suggests different ways of differentiating various modes of social conflict. The question is not only theoretical. It is also empirical and historical: have we not moved, in a certain number of countries at least, from the industrial era dominated by a structural social conflict in which the working-class movement confronted the masters of labour, to a new era dominated by other types of conflict with distinctly more cultural orientations? Whatever the type of analysis, the very concept of conflict must be clearly distinguished from that of crisis, even if materially the two coexist in social reality.
+%G en
+%J Current Sociology
+%A Wieviorka, Michel
+%D 09/2013
+
+%0 Journal Article
+%T Theories of Social Conflict
+%P 25
+%G en
+%A Oberschall, A
+
+%0 Journal Article
+%T Approaches to Class Analysis
+%P 224
+%G en
+%A Wright, Erik Olin
+
+%0 Book
+%7 [Nachdr. der Ausg. London] 1956
+%T Class, race and social structure: in 21 volumes. 9: The functions of social conflict
+%S The international library of sociology
+%C London
+%I Routledge
+%@ 978-0-415-17627-9
+%G en
+%A Coser, Lewis A.
+%D 1998
+
+%0 Journal Article
+%T How Social Class Shapes Attitudes on Economic Inequality: The Competing Forces of Self-Interest and Legitimation
+%V 5
+%N 1
+%P 4-19
+%U http://archive.sciendo.com/IRSR/irsr.2015.5.issue-1/irsr-2015-0002/irsr-2015-0002.pdf
+%X Using survey data from the World Values Survey (WVS) and national-level statistics from various official sources, we explore how attitudes toward economic inequality are shaped by economic conditions across 24 Organization for Economic Cooperation and Development (OECD). Consistent with the economic self-interest thesis, we find that where income inequality is low, those in lower economic positions tend to be less likely than those in higher economic positions to favor it being increased. On the other hand, where economic resources are highly unequally distributed, the adverse effects of inequality climb the class ladder, resulting in the middle classes being just as likely as the working class to favor a reduction in inequality. Our results further suggest that people tend to see current levels of inequality as legitimate, regardless of their own economic position, but nonetheless desire economic change—i.e., they would like to see inequality reduced—if they perceive it could improve their own economic situation.
+%G en
+%J International Review of Social Research
+%A Curtis, Josh
+%A Andersen, Robert
+%D 2015-06-30
+
+%0 Journal Article
+%T Public Opinion on Income Inequality in 20 Democracies: The Enduring Impact of Social Class and Economic Inequality
+%P 47
+%G en
+%A Andersen, Robert
+%A Yaish, Meir
+
+%0 Journal Article
+%T The polarizing effect of economic inequality on class identification: Evidence from 44 countries
+%V 30
+%N 1
+%P 129-141
+%U https://linkinghub.elsevier.com/retrieve/pii/S0276562412000030
+%X Using cumulative logit mixed models ﬁtted to World Values Survey data from 44 countries, we explore the impact of economic conditions – both at the individual-level and the national-level – on social class identiﬁcation. Consistent with previous research, we ﬁnd a positive relationship between household income and class identiﬁcation in all countries that we explore, though this relationship varies substantially. Also corroborating previous research, we ﬁnd that ‘low’ class identiﬁcations are more likely in poor countries than in rich ones. However, in contrast to previous research that has neglected the role of inequality, our results indicate that the effect of economic development diminishes if income inequality is considered in the same model. We further demonstrate that income inequality has an important polarizing effect on class identiﬁcation. Speciﬁcally, the relationship between household income and class identity tends to be strongest in countries with a high level of income inequality.
+%G en
+%J Research in Social Stratification and Mobility
+%A Andersen, Robert
+%A Curtis, Josh
+%D 3/2012
+
+%0 Journal Article
+%T Revisiting the redistribution hypothesis with perceived inequality and redistributive preferences
+%V 58
+%P 220-244
+%U https://linkinghub.elsevier.com/retrieve/pii/S0176268017305773
+%X It is a long-standing puzzle whether or not changes in economic inequality lead to changes in redistribution. However, there has been a lack of conclusive evidence about this relationship. Moreover, redistributive preferences as an intervening factor between inequality and redistribution, which are taken for granted implicitly or explicitly in redistribution theories, have been largely overlooked in the existing analyses. Besides, recent comparative studies of inequality and redistribution have started paying attention to inequality perceptions that deviate from actual inequality. Thus, this inquiry aims to reconstruct the classical redistribution theory by employing perceived inequality and preferences for redistribution and to test the reformulated redistribution hypotheses. One of the most challenging efforts for the analysis is to develop a country-level measure of perceived inequality. To this end, the Gini coefficient of perceived social position (perceived Gini) was first created by using data from 16 rounds of the International Social Survey Programme (ISSP 1987 to 2014), covering 34 OECD countries. The empirical results show robust evidence that perceived inequality, not actual inequality, is significantly associated with redistributive preferences, while preferences for redistribution do not translate into any type of redistribution.
+%G en
+%J European Journal of Political Economy
+%A Choi, Gwangeun
+%D 06/2019
+
+%0 Journal Article
+%T An Empirical Analysis of the Determinants of Perceived Inequality
+%V 65
+%N 2
+%P 264-292
+%U https://onlinelibrary.wiley.com/doi/abs/10.1111/roiw.12351
+%G en
+%J Review of Income and Wealth
+%A Bavetta, Sebastiano
+%A Li Donni, Paolo
+%A Marino, Maria
+%D 06/2019
+
+%0 Journal Article
+%T Subjective Perceptions of Inequality and Redistributive Preferences: An International Comparison
+%P 23
+%X Views on income inequality and concomitant redistributive preferences are crucial to the design of tax and transfer systems. Although income distribution in Germany, France and Switzerland is very similar, opinions differ widely as to how critically income differences are viewed. This is hardly surprising given that when countries are compared there is almost no connection between the actual distribution of incomes and subjective evaluations of income differentials. In fact, many nationalities assume that the structure of their society is considerably less equitable than it really is. Thus, a factor which far better explains views on distribution is the subjective perception of inequality within a society. Similarly, redistributive preferences are influenced less by actual distribution than by perceived inequality.
+%G en
+%A Niehues, Judith
+
+%0 Book Section
+%T Class, Perceptions of
+%C Oxford, UK
+%I John Wiley & Sons, Ltd
+%P 1-3
+%@ 978-1-4051-2433-1 978-1-4051-6551-8
+%U http://doi.wiley.com/10.1002/9781405165518.wbeosc052.pub2
+%G en
+%B The Blackwell Encyclopedia of Sociology
+%E Ritzer, George
+%A Curtis, Josh
+%D 2016-08-01
+
+%0 Journal Article
+%T Are the underprivileged really that economically 'leftist'? Attitudes towards economic redistribution and the welfare state in Flanders
+%V 43
+%N 4
+%P 509-521
+%U http://doi.wiley.com/10.1111/j.1475-6765.2004.00163.x
+%X According to S. M. Lipset, the working classes are authoritarian in the cultural domain, but leftist in the economic domain as the interests of the underprivileged make them inclined to support redistributive politics. These ﬁndings have been repeated in an extensive body of research. In our analysis using Flemish (Belgian) data (N = 1,577), we examine the economic orientations of the underprivileged, more speciﬁcally their attitudes towards social inequality, economic redistribution and welfare state politics. We found that many respondents (especially among the underprivileged) express complaints against social inequality, while at the same time rejecting the arrangements of the welfare state. We argue that it is inappropriate to consider this economic orientation as a speciﬁc ideological doctrine. Rather it should be considered as a syndrome that can be labelled ‘economic populism’. Economic populism is caused by feelings of social discontent, such as defeatism and political distrust. The methodological and theoretical implications of these ﬁndings will be discussed.
+%G en
+%J European Journal of Political Research
+%A Derks, Anton
+%D 06/2004
+
+%0 Journal Article
+%T No water in the oasis: the Chilean Spring of 2019–2020
+%P 1-8
+%U https://www.tandfonline.com/doi/full/10.1080/14742837.2020.1727737
+%X We analyse the Chilean Spring of 2019-2020 – the ﬁercest social outburst in Chile during the last three decades. After discussing the combined role of long-standing grievances, political attitudes, and cultural change in triggering the outburst, we study the interplay among peaceful and violent protests and criminal activity. We argue that brutal police repression and governmental mismanagement contributed to deepening the crisis once it exploded. We conclude by describing the attempts of the political class to cope with the crisis and speculate about its potential political consequences, especially for the Chilean party system.
+%G en
+%J Social Movement Studies
+%A Somma, Nicolás M.
+%A Bargsted, Matías
+%A Disi Pavlic, Rodolfo
+%A Medel, Rodrigo M.
+%D 2020-02-11
+
+%0 Journal Article
+%T La terciarización en Chile. Desigualdad cultural y estructura ocupacional
+%V 2016
+%N 119
+%P 187-207
+%U https://www.un-ilibrary.org/content/journals/16820908/2016/119/19
+%G es
+%J Revista de la CEPAL
+%A Gayo, Modesto
+%A Méndez, María Luisa
+%A Teitelboim, Berta
+%D 2016-11-17
+
+%0 Book
+%7 Primera edición
+%T Desigualdades: tolerancia, legitimación y conflicto en las sociedades latinoamericanas
+%C Santiago de Chile
+%I RIL Editores
+%@ 978-956-01-0176-1
+%L HN110.5.A8 D39 2015
+%E Castillo Gallardo, Mayarí
+%D 2015
+%K Social conflict
+Latin America
+Social conditions
+Equality
+Toleration
+
+%0 Book
+%T Social Movements in Chile
+%C New York
+%I Palgrave Macmillan US
+%@ 978-1-349-95091-1 978-1-137-60013-4
+%U http://link.springer.com/10.1057/978-1-137-60013-4
+%G en
+%E Donoso, Sofia
+%E von Bülow, Marisa
+%D 2017
+
+%0 Book
+%7 First edition
+%T The Oxford handbook of distributive justice
+%S Oxford handbooks
+%C Oxford
+%I Oxford University Press
+%@ 978-0-19-964512-1
+%L 320.011
+%X "Distributive justice has come to the fore in political philosophy in recent decades: how should we arrange our social and economic institutions so as to distribute fairly the benefits and burdens of social cooperation? Thirty-eight leading figures from philosophy and political theory present specially written critical assessments of the state of research into a broad range of questions about distributive justice. The first seventeen chapters consider how to understand distributive justice and its importance in our world. The remaining fifteen chapters investigate questions about the implementation of distributive justice with regard to a range of aspects of society, including gender, race, the family, education, work, health, language, migration, and climate change"--Book jacket
+%G en
+%E Olsaretti, Serena
+%D 2018
+%K Distributive justice
+Justice (Philosophy)
+
+%0 Journal Article
+%T Beliefs about Stratification
+%V 7
+%N 1
+%P 29-56
+%U http://www.annualreviews.org/doi/10.1146/annurev.so.07.080181.000333
+%G en
+%J Annual Review of Sociology
+%A Kluegel, J R
+%A Smith, E R
+%D 08/1981
+
+%0 Journal Article
+%T Class as Conceived by Marx and Dahrendorf: Effects on Income Inequality and Politics in the United States and Great Britain
+%V 44
+%N 1
+%P 38
+%U http://www.jstor.org/stable/2094817?origin=crossref
+%G en
+%J American Sociological Review
+%A Robinson, Robert V.
+%A Kelley, Jonathan
+%D 02/1979
+
+%0 Book
+%7 1
+%T The Oxford Handbook of Comparative Institutional Analysis
+%I Oxford University Press
+%@ 978-0-19-923376-2
+%U http://www.oxfordhandbooks.com/view/10.1093/oxfordhb/9780199233762.001.0001/oxfordhb-9780199233762
+%G en
+%E Morgan, Glenn
+%E Campbell, John L.
+%E Crouch, Colin
+%E Pedersen, Ove Kaj
+%E Whitley, Richard
+%D 2010-04-08
+
+%0 Book
+%T The Oxford handbook of capitalism
+%C Oxford ; New York
+%I Oxford University Press
+%@ 978-0-19-539117-6
+%L HB501 .O97 2012
+%G en
+%E Mueller, Dennis C.
+%D 2012
+%K Capitalism
+Handbooks, manuals, etc
+
+%0 Book
+%T The Oxford handbook of political theory
+%S Oxford handbooks of political science
+%C Oxford ; New York
+%I Oxford University Press
+%@ 978-0-19-927003-3
+%L JA71 .O95 2006
+%G en
+%E Dryzek, John S.
+%E Honig, Bonnie
+%E Phillips, Anne
+%D 2006
+%K Political science
+
+%0 Book
+%T Introduction
+%I Oxford University Press
+%U http://oxfordhandbooks.com/view/10.1093/oxfordhb/9780199606061.001.0001/oxfordhb-9780199606061-e-1
+%G en
+%A Salverda, Wiemer
+%A Nolan, Brian
+%A Smeeding, Timothy M.
+%D 2011-02-03
+
+%0 Book
+%T Global inequality: a new approach for the age of globalization
+%C Cambridge, Massachusetts
+%I The Belknap Press of Harvard University Press
+%@ 978-0-674-73713-6
+%L HM821 .M555 2016
+%X "One of the world's leading economists of inequality, Branko Milanovic presents a bold new account of the dynamics that drive inequality on a global scale. Drawing on vast data sets and cutting-edge research, he explains the benign and malign forces that make inequality rise and fall within and among nations. He also reveals who has been helped the most by globalization, who has been held back, and what policies might tilt the balance toward economic justice. Global Inequality takes us back hundreds of years, and as far around the world as data allow, to show that inequality moves in cycles, fueled by war and disease, technological disruption, access to education, and redistribution. The recent surge of inequality in the West has been driven by the revolution in technology, just as the Industrial Revolution drove inequality 150 years ago. But even as inequality has soared within nations, it has fallen dramatically among nations, as middle-class incomes in China and India have drawn closer to the stagnating incomes of the middle classes in the developed world. A more open migration policy would reduce global inequality even further. Both American and Chinese inequality seem well entrenched and self-reproducing, though it is difficult to predict if current trends will be derailed by emerging plutocracy, populism, or war. For those who want to understand how we got where we are, where we may be heading, and what policies might help reverse that course, Milanovic's compelling explanation is the ideal place to start."--Provided by publisher
+%G en
+%A Milanović, Branko
+%D 2016
+%K Globalization
+Equality
+Economic aspects
+Income distribution
+Social aspects
+
+%0 Book
+%T The haves and the have-nots: a brief and idiosyncratic history of global inequality
+%C New York
+%I Basic Books
+%@ 978-0-465-01974-8
+%L HC79.I5 M547 2011
+%G en
+%A Milanović, Branko
+%D 2011
+%K Income distribution
+History
+Poverty
+Wealth
+
+%0 Book
+%7 1st ed
+%T Poverty and social assistance in transition countries
+%C New York
+%I St. Martin's Press
+%@ 978-0-312-22436-3
+%L HC244.Z9 P613 2000
+%G en
+%A Braithwaite, Jeanine
+%A Grootaert, Christiaan
+%A Milanović, Branko
+%D 2000
+%K Poverty
+1989-
+Economic conditions
+Europe, Eastern
+Former Soviet republics
+Social policy
+
+%0 Book
+%T Income and influence: social policy in emerging market economies
+%C Kalamazoo, Mi
+%I W.E. Upjohn Institute for Employment Research
+%@ 978-0-88099-269-5 978-0-88099-270-1
+%L HB523 .K36 2003
+%G en
+%A Kapstein, Ethan B.
+%A Milanović, Branko
+%D 2003
+%K Income distribution
+Social policy
+Mixed economy
+Poor
+
+%0 Journal Article
+%T La economía de las desigualdades
+%P 159
+%G es
+%A Piketty, Thomas
+
+%0 Book Section
+%7 1
+%T Foundations of a post-class analysis
+%I Cambridge University Press
+%P 152-179
+%@ 978-0-521-84304-1 978-0-521-60381-2 978-0-511-48890-0
+%U https://www.cambridge.org/core/product/identifier/CBO9780511488900A014/type/book_part
+%G en
+%B Approaches to Class Analysis
+%E Wright, Erik Olin
+%A Pakulski, Jan
+%D 2005-7-1
+
+%0 Journal Article
+%T Income inequality, distributive fairness and political trust in Latin America
+%V 52
+%P 179-192
+%U https://linkinghub.elsevier.com/retrieve/pii/S0049089X15000538
+%X In the wake of rising levels of income inequality during the past two decades, widespread concerns emerged about the social and political consequences of the widening gap between the poor and the rich that can be observed in many established democracies. Several empirical studies substantiate the link between macro-level income inequality and political attitudes and behavior, pointing at its broad and negative implications for political equality. Accordingly, these implications are expected to be accentuated in contexts of high inequality, as is the case in Latin America. Despite these general concerns about the consequences of income inequality, few studies have accounted for the importance of individual perceptions of distributive fairness in regard to trust in political institutions. Even less is known about the extent to which distributive fairness perceptions co-vary with objective indicators of inequality. Moreover, the research in this area has traditionally focused on OECD countries, which have lower indexes of inequality than the rest of the world. This study aims at ﬁlling this gap by focusing on the relevance of distributive fairness perceptions and macro-level inequality for political trust and on how these two levels interact in Latin American countries. The analyses are based on the Latinobarometer survey 2011, which consists of 18 countries. Multilevel estimations suggest that both dimensions of inequality are negatively associated with political trust but that higher levels of macro-level inequality attenuate rather than increase the strength of the negative association between distributive fairness perceptions and political trust.
+%G en
+%J Social Science Research
+%A Zmerli, Sonja
+%A Castillo, Juan Carlos
+%D 07/2015
+
+%0 Journal Article
+%T Legitimacy of Inequality in a Highly Unequal Context: Evidence from the Chilean Case
+%V 24
+%N 4
+%P 314-340
+%U http://link.springer.com/10.1007/s11211-011-0144-5
+%X Economic inequality is usually assumed to be a threat to social cohesion and democracy. Nevertheless, this opposition of inequality and democracy is based on further assumptions such as (a) that people perceive economic inequality accurately, and (b) that, by and large they consider inequality unjust. Research into distributive issues has not found consistent support for neither of these assumptions. Quite the contrary, empirical evidence indicates that economic inequality is widely misperceived and that inequality is to some extent considered legitimate. So far most of the empirical evidence in the area of legitimacy comes from experimental studies in the developed world. The present research aims at widening the scope of legitimacy studies by focusing on Chile as a case country, one of the societies with the highest economic inequality worldwide, guided by the question to what extent is economic inequality considered legitimate in a context of high economic inequality? In addressing this question, and based on previous evidence, the article proposes a way to evaluate (a) the legitimacy of inequality at a country level via survey research, and (b) the role of inequality perception and justice ideologies in the justiﬁcation of economic inequality. The data to be analyzed is the public opinion survey International Social Justice Project (ISJP), implemented in Chile in the year 2007 (n = 890). Multivariate analysis results reveal signs of legitimacy of inequality in Chile, opening a series of issues regarding the acceptance and stability of unequal distributions.
+%G en
+%J Social Justice Research
+%A Castillo, Juan Carlos
+%D 12/2011
+
+%0 Journal Article
+%T Freefall: America, free markets, and the sinking of the world economy
+%V 47
+%N 11
+%P 47-6385-47-6385
+%U http://choicereviews.org/review/10.5860/CHOICE.47-6385
+%G en
+%J Choice Reviews Online
+%D 2010-07-01
+
+%0 Book
+%T The Measurement of Economic Inequality
+%I Oxford University Press
+%U http://oxfordhandbooks.com/view/10.1093/oxfordhb/9780199606061.001.0001/oxfordhb-9780199606061-e-3
+%X This article provides an introduction to methods for the measurement of economic inequality. It reviews the inequality measures that economists have developed, and explains how one might choose between indices or check whether conclusions about inequality difference can be derived without choosing any specific index. It reviews mobility measurement and some fundamental questions about how the distributions of economic interest are defined.
+%G en
+%A Jenkins, Stephen P.
+%A Van Kerm, Philippe
+%D 2011-02-03
+
+%0 Book
+%T Economic Inequality, Poverty, and Social Exclusion
+%I Oxford University Press
+%U http://oxfordhandbooks.com/view/10.1093/oxfordhb/9780199606061.001.0001/oxfordhb-9780199606061-e-13
+%G en
+%A Nolan, Brian
+%A Ive, Marx
+%D 2011-02-03
+
+%0 Book
+%T Equality: Its Justification, Nature, and Domain
+%I Oxford University Press
+%U http://oxfordhandbooks.com/view/10.1093/oxfordhb/9780199606061.001.0001/oxfordhb-9780199606061-e-2
+%X During the last 40 years, political philosophers have made important advances in our understanding of why equality is valuable, and what kind of equality is important. This article summarizes the development of these ideas, in particular, the contributions of John Rawls, Amartya Sen, Ronald Dworkin, Robert Nozick, Richard Arneson, and G. A. Cohen. It shows how these ideas have filtered into economic thinking in the conceptualization of equality of opportunity. It concludes with a brief discussion of how these ideas might be extended to evaluate intergenerational and global distributions of income or welfare.
+%G en
+%A Roemer, John E.
+%D 2011-02-03
+
+%0 Book
+%T Inequality and the Labor Market: Unions
+%I Oxford University Press
+%U http://oxfordhandbooks.com/view/10.1093/oxfordhb/9780199606061.001.0001/oxfordhb-9780199606061-e-10
+%X This article focuses on the role of unions and their influence on economic inequality. Section 2 reviews the literature regarding the union effect on wages and wage inequality. Section 3 considers the separate contributions of union power, membership composition, bargaining coordination, and wage policy. Section 4 introduces the distinction between membership and coverage, while the following two sections discuss the impact of union power on earnings inequality when coverage is either exclusive or inclusive. Section 7 discusses the rationale for unions aiming for wage compression while Section 8 estimates how the presence of trade unions has influenced the extent and dynamics of earnings inequality across advanced economies during the 1980s and 1990s. For this purpose indicators have been developed for trends in equality and union presence from different sources. Section 9 concludes.
+%G en
+%A Visser, Jelle
+%A Checchi, Daniele
+%D 2011-02-03
+
+%0 Book
+%T The Political Economy of Inequality and Redistribution
+%I Oxford University Press
+%U http://oxfordhandbooks.com/view/10.1093/oxfordhb/9780199606061.001.0001/oxfordhb-9780199606061-e-26
+%G en
+%A McCarty, Nolan
+%A Pontusson, Jonas
+%D 2011-02-03
+
+%0 Journal Article
+%T A Common Neoliberal Trajectory: The Transformation of Industrial Relations in Advanced Capitalism
+%V 39
+%N 4
+%P 521-563
+%U http://journals.sagepub.com/doi/10.1177/0032329211420082
+%X Based on quantitative indicators for fifteen advanced countries between 1974 and 2005, and case studies of France, the United Kingdom, Germany, Italy, Sweden, and Ireland, this article analyzes the trajectory of institutional change in the industrial relations systems of advanced capitalist societies, with a focus on Western Europe. In contrast to current comparative political economy scholarship, which emphasizes the resilience of national institutions to common challenges and trends, it argues that despite a surface resilience of distinct national sets, all countries have been transformed in a neoliberal direction. Neoliberal transformation manifests itself not just as institutional deregulation but also as institutional conversion, as the functions associated with existing institutional forms change in a convergent direction. A key example is the institution of centralized bargaining, once the linchpin of an alternative, redistributive and egalitarian, model of negotiated capitalism, which has been reshaped in the past twenty years to fit the common imperative of liberalization.
+%G en
+%J Politics & Society
+%A Baccaro, Lucio
+%A Howell, Chris
+%D 12/2011
+
+%0 Journal Article
+%T The Sociology of Labor Markets
+%V 5
+%N 1
+%P 351-379
+%U http://www.annualreviews.org/doi/10.1146/annurev.so.05.080179.002031
+%G en
+%J Annual Review of Sociology
+%A Kalleberg, Arne L.
+%A Sorensen, Aage B.
+%D 08/1979
+
+%0 Journal Article
+%T Wage-Setting Measures: A Survey and Assessment
+%V 54
+%N 1
+%P 57-98
+%U https://www.cambridge.org/core/product/identifier/S0043887100015951/type/journal_article
+%X Wage setting has been one of the most heavily studied institutions in the field of comparative political economy over the past two decades, and quantitative measures of wage-setting arrangements have played a major role in this research. Yet the proliferation of such measures in recent years presents researchers with a sizable array from which to choose. In addition, some scholars are rather skeptical about the validity and/or reliability of these measures. This article offers a survey and assessment of fifteen wage-setting measures. It attempts to answer questions about (1) how these indicators differ from one another in conceptualization and measurement strategy; (2) which are the most valid and reliable; (3) the strengths and weaknesses of measures of wage centralization versus those of wage coordination; (4) particular countries or time periods for which there are noteworthy discrepancies in scoring; (5) how sensitive empirical findings are to the choice of wage-setting measure.
+%G en
+%J World Politics
+%A Kenworthy, Lane
+%D 10/2001
+
+%0 Journal Article
+%T Quantitative Indicators of Corporatism
+%V 33
+%N 3
+%P 10-44
+%U https://www.tandfonline.com/doi/full/10.1080/15579336.2003.11770269
+%X In this article, it is assumed that corporatism consists ofvarious types ofinstitutional arrangements whereby important political-economic decisions are reached via negotiation between, or in consultation with, peaklevel representatives ofemployees and employers (or other interest groups and the state). The article offers an overview of the forty-two prominent or useful indicators of corporatism suggested in the literature. All these indicators are compared, and the correlations among them are examined. The results produced by the various measures in a set ofotherwise identical regression analyses ofthe relationship between corporatism and unemployment show the sensitivity of empirical findings in this field. Students of corporatism have not always paid sufficient attention to the impact of indicator choice on empirical results.
+%G en
+%J International Journal of Sociology
+%A Kenworthy, Lane
+%D 09/2003
+
+%0 Journal Article
+%T Bargaining Structure, Corporatism and Macroeconomic Performance
+%V 3
+%N 6
+%P 13
+%U https://academic.oup.com/economicpolicy/article-lookup/doi/10.2307/1344503
+%X The structuroef labourmarketsis increasinglyperceivedas a determinanotfthemacroeconompicerformancoefa countryT.his articlefocuseosnoneaspectoflabourmarketts,hedegreeofcentralizationofwagesettingT. he main conclusionis thatextremewsork bestE. itherhighlycentralizesdystemwsithnationalbargaining(such as in Austriaand theNordiccountries)o,r highlydecentralized systemws ithwagesettingat thelevelofindividualfirms(suchas inJapan,Switzerlanadnd theUS) seemtoperformwell.Theworst outcomews ithrespecttoemploymenmtaywellbefoundin systems withan intermediatdeegreeofcentralizatio(nsuchas in Belgium and theNetherlands)T.hisconclusionis reasonablywellsupported bytheavailableempiricaelvidenceI.t is alsological.Indeed,large and all-encompassintgradeunionsnaturallyrecognizteheirmarket powerand takeintoaccountboththeinflationarayndunemployment effectosf wage increases.Converselyu,nions operatingat the individualfirmorplantlevelhave verylimitedmarkeptower.In intermediatceases,unionscan exertsomemarkeptowerbutare led to ignorethemacroeconomiimc plicationosf theiractions.These conclusioncshallengetheconventionawl isdomwhichassertsthat themore 'corporatistis' an economyt,hebetteris its economic performance.
+%G en
+%J Economic Policy
+%A Calmfors, Lars
+%A Driffill, John
+%A Honkapohja, Seppo
+%A Giavazzi, Francesco
+%D 04/1988
+
+%0 Journal Article
+%T Unions and labour market institutions in Europe
+%V 17
+%N 35
+%P 361-408
+%U https://academic.oup.com/economicpolicy/article-lookup/doi/10.1111/1468-0327.00092
+%X We study the evolution of union density in 14 European countries over the postwar period in light of theoretical rationales for union membership. Unions offer not only wage bargaining strength, but also protection against uninsurable labour market risks, and similar protection may also be offered by labour market institutions. Empirically, such institutions as job security legislation and wage indexation do appear to crowd out unions. Conversely, institutional features that make it easier for unions to function (such as workplace representation and centralized wage bargaining) are empirically associated with higher unionization.
+%G en
+%J Economic Policy
+%A Checchi, D.
+%A Lucifora, C.
+%D 2002-10-01
+
+%0 Journal Article
+%T Is America Fragmenting?
+%V 35
+%N 1
+%P 435-455
+%U http://www.annualreviews.org/doi/10.1146/annurev-soc-070308-115909
+%X The view that America is fragmenting is popular among both pundits and academics and may well be endemic to American culture. We review claims that between 1970 and 2005 American society fragmented along lines of cultural politics, social class, immigration, race, or lifestyle. Taking the twentieth century as historical context, we weigh evidence for both main variants of the fragmentation thesis—that there is an increasing divide between two Americas, or that America is fragmenting into a variety of “little worlds that touch but do not interpenetrate.” We ﬁnd a well-documented, widening gap in social class, whether measured by education or income. We also ﬁnd that political elites and activists are demonstrably more polarized in 2005 than they were in 1970; this gap’s effect on the electorate is debatable, however. Caveats aside, there is little evidence for increasing fragmentation of America along lines of race, ethnicity, or immigration status. American cultural tastes increasingly cluster into distinct lifeways, but there is little evidence about what effects, if any, this development has. The loudest claims of fragmentation, those concerning value issues, are based on the most contested evidence, but the widening gap between Americans by income and education—which receives less popular attention—is substantial and serious.
+%G en
+%J Annual Review of Sociology
+%A Fischer, Claude S.
+%A Mattson, Greggor
+%D 08/2009
+
+%0 Journal Article
+%T From the periphery to the core. Collective bargaining in Chile as a journey to the potential future of European systems
+%P 21
+%X This paper examines a radical case of collective bargaining decentralisation in which the negotiating takes place only between single employers and ﬁrm-level trade unions. It discusses the channels through which Chilean workers’ power resources are aﬀected since its introduction in 1979. Using a combination of institutional and data analysis, it is concluded that the “abolitionist model” turbo-stimulates the tendency of companies to fragmentation, which is a powerful factor in reducing workers’ organisational and structural power resources. These ﬁndings can be seen as a journey into the future of work for many countries that have belatedly adopted neoliberal policies.
+%G en
+%A Sanhueza, Gonzalo Ignacio Duran
+
+%0 Journal Article
+%T Encontrando lo que nunca estuvo perdido. Conciencia de clase y conflicto de clases en el régimen neoliberal chileno
+%P 29
+%X In this research I examine the patterns of class conflict in contemporary Chilean society. To do so I focus on how the different social classes support dissimilar sociopolitical orientations towards several class-related issues. In particular, this research draws on the literature on class consciousness to analyze three main components of people’s class consciousness: 1) Class identity, 2) Perceptions of class conflict, 3) Attitudes toward state intervention in the economy (as this issue is a central point of neoliberal regimes). On the basis of several ordinal logistic regression models, I examine which of these components of class consciousness are more polarized. By doing so I aim to understand how class conflict expressed in the polarization of opinions and attitudes is structured in a developed neoliberal regime which –as the Chilean– is characterized by high levels of depoliticization, weak working class actors (e.g. unions,) and the practical absence of labor parties. The findings show that despite such an unfavorable scenario, social class is still a salient foundation for antagonistic ideological orientations. This may probably be the source of important political conflicts in the future.
+%G es
+%A Ahumada, Pablo Pérez
+
+%0 Journal Article
+%T Income inequality in Chile since 1850
+%P 36
+%X This paper is a synthesis of the author’s Ph.D. dissertation. It studies the relationship between income inequality and the development process, understood as the combination of economic, social and political changes produced over time based on the case of Chile between 1850 and 2009. It aims to describe and explain the tendencies in income distribution over time signaling their causes and some of their consequences. In the empirical area, the main contributions of the dissertation are the estimates of historical series of salaries, wages, and different measures of income distribution –Gini index, Theil, labor share and the income of the top 1%. These estimates relied on the methodology of ‘social tables’, which aggregates income earners in categories such as occupation, having estimated the number and earnings for each category every year between 1860 and 1970. In spite of the problems arising from the use of assumptions to obtain an annual estimate, which implies an immeasurable but undoubtedly large margin of error for each year, this methodology allows us to analyze medium-term trends with relative confidence. In the fields of theory and methodology, the paper makes two major contributions. First, it shows the potential of in-depth case studies as a means to analyze the relationship between development and inequality. Second, its focus on the political economy of inequality overcomes the problem of oversimplification. Most studies tend to focus on a single factor –usually either on the market or institutions- and analyze the impact on inequality in a timeless or ahistorical manner. But, as this work shows, trends in inequality are always the consequence of a set of factors -economic, social, political and institutional- which interact, so that each one reinforces or overrides the influence of the other. The combination of these factors, which is an outcome of the historical process, is what determines the trends in inequality over time.
+%G en
+%A Weber, Javier E Rodríguez
+
+%0 Journal Article
+%T ¿Marchas, ocupaciones o barricadas?
+%P 39
+%G es
+%A Sierralta, Rodrigo Miguel Medel
+%D 2016
+
+%0 Book Section
+%T Discontent, Collective Protest, and Social Movements in Chile
+%C New York
+%I Palgrave Macmillan US
+%P 47-68
+%@ 978-1-137-59987-2 978-1-137-59955-1
+%U http://link.springer.com/10.1057/978-1-137-59955-1_2
+%G en
+%B Malaise in Representation in Latin American Countries
+%E Joignant, Alfredo
+%E Morales, Mauricio
+%E Fuentes, Claudio
+%A Somma, Nicolás M.
+%D 2017
+

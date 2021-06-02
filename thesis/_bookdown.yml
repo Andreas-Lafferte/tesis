@@ -19,6 +19,5 @@ language:
     view: https://github.com/Andreas-Lafferte/tesis/blob/master/%s
     chapter_name: 'Capítulo '
     appendix_name: 'Apéndice '
-output_dir: docs
-
+output_dir: "../docs"
 
