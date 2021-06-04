@@ -3,8 +3,9 @@ title: '<center>Percepciones de conflicto social en Chile y el mundo</center>'
 author: "<center>Andreas Lafferte Tamayo </center>"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-bibliography: [tesis.bib]
+bibliography: tesis.bib
 biblio-style: apalike
+csl: apa.csl
 subtitle: "<center>Un análisis comparado de sus determinantes</center>"
 description: Tesis para optar al grado de Sociólogo de la Universidad de Chile
 link-citations: yes
