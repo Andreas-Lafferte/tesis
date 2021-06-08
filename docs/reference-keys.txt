@@ -1,3 +1,4 @@
+fig:fig1
 literature
 conflicto-social-y-percepciones-de-conflicto
 method

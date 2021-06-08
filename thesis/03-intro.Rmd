@@ -23,7 +23,31 @@ En Chile, ciertas posturas sostienen que buena parte de la conflictividad -en ge
 En cierto modo, la literatura nacional sobre las percepciones de conflicto social han instalado una dicotomía de factores explicativos. Por un lado, existe un consenso en que las percepciones de conflicto social serían mayormente explicadas por factores subjetivos, tales como actitudes, preferencias y otras percepciones. En ese sentido, la desigualdad percibida y las expectativas políticas (como las metas del país) afectarían las percepciones de conflicto en tanto inducen ciertos patrones de comportamiento y preferencias, aun cuando no se correspondan con las características sociodemográficas [@castilloPercepcionConflictoChile2015a]. Por otro lado, se ha demostrado que factores objetivos tales como la clase social, el estatus socioeconómico, el ingreso y otras características sociodemográficas, inciden en las percepciones de conflicto social [@perezEncontrandoQueNunca2013; -@perezPercepcionesConflictoConfianza2020]. Por ejemplo, Pérez [-@perezEncontrandoQueNunca2013, pp.103] estudia la percepción de conflicto entre trabajadores y directivos (ejecutivos de empresa) desde una perspectiva de clase. Sus hallazgos permiten concluir que: (i) la posición objetiva de clase representa una serie de mecanismos que configuran los intereses y ciertas actitudes subjetivas de sus miembros, y (ii) que esta percepción varía según la categoría de clase, por lo que no puede ser desestimada para el análisis del conflicto. 
 
 Evidentemente, los enfoques y hallazgos contrarios hacen difícil establecer los principales determinantes de las percepciones de conflicto social. Asimismo, por un lado, los estudios que relacionan la clase social con las percepciones de conflicto solo se han enfocado en determinados tipos de conflicto. Por el otro, la pregunta empírica por los mecanismos a través de los cuales las desigualdades de clase conducen a distintas percepciones de conflicto social ha sido escasamente planteada en la actualidad, volviéndose aún más relevante considerando las movilizaciones en la última década [@hadlerIstKlassenkonfliktUeberholt2003b; @perezEncontrandoQueNunca2013].
-Buscando aportar en esta línea adoptando una perspectiva materialista, esta investigación se interroga por la relación entre la posición de clase y las percepciones de conflicto social en Chile durante los años 1999 a 2019. Dada la ausencia de investigaciones recientes sobre la relación entre la posición de clase y distintos conflictos sociales percibidos, mi propuesta es reconsiderar las condiciones objetivas de clase para abordar el conflicto en una sociedad que, como la chilena, posee una estructura de clases reticente al cambio y que es fuente de diversas desigualdades [@perezClasesSocialesSectores2018; @gayoTerciarizacionChileDesigualdad2016a].
+Buscando aportar en esta línea desde una perspectiva materialista, esta investigación se interroga por la relación entre la posición de clase y las percepciones de conflicto social en Chile durante los años 1999 a 2019. Dada la ausencia de investigaciones recientes sobre la relación entre la posición de clase y distintos conflictos sociales percibidos, mi propuesta es reconsiderar las condiciones objetivas de clase para abordar el conflicto en una sociedad que, como la chilena, posee una estructura de clases reticente al cambio y que es fuente de diversas desigualdades [@perezClasesSocialesSectores2018; @gayoTerciarizacionChileDesigualdad2016a].
+
+```{r include=FALSE}
+pacman::p_load(tidyverse, kableExtra, knitr)
+```
+
+```{r include=FALSE}
+table_format = if(is_html_output()) {
+  "html"
+} else if(is_latex_output()) {
+  "latex"
+}
+table_format2 = if(is_html_output()) {
+  T
+} else if(is_latex_output()) {
+  F
+}
+```
+
+Como se puede ver en la (Figura \@ref(fig:fig1))
+
+```{r fig1, results='asis', out.width = '75%', echo = FALSE, fig.align = 'center', fig.cap="(ref:fig1)"}
+knitr::include_graphics("images/Diamiro3.jpg") 
+```
+(ref:fig1) Diagrama conceptual
 
 
 ### Pregunta de investigación {-}
