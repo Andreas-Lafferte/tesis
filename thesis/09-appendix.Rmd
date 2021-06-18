@@ -1,0 +1,37 @@
+# Apéndice {#apendice}
+
+En el siguiente apéndice se presentan las variables de control de esta investigación y la fórmula de Alpha de Cronbach's para la validación de $PSCi$.
+
+#### Variables de control
+
+```{r include=FALSE}
+cap3 <- "Variables de control"
+```
+
+```{r tab-control, echo=FALSE}
+tab3 <- read.csv(file = "../input/tables/tabla3.csv", header = 1, sep = ";", encoding = "UTF-8")
+
+kable(tab3,table_format,booktabs = T, linesep = "",col.names = colnames2, caption = cap3) %>%
+  kable_styling(
+    full_width = T,
+    latex_options = c("hold_position"),
+    position = "center",
+    font_size = 14,
+    bootstrap_options=c("striped", "bordered")) %>%
+  column_spec(column = 1, width = "4 cm", ) %>%
+  column_spec(column = 2,width = "6 cm") %>%
+  column_spec(column = 3,width = "2 cm") %>%
+  collapse_rows(columns = 1:2,valign = "middle")
+
+```
+#### Alpha de Cronbach's
+
+$$
+\alpha = \frac{K}{K-1}( \frac{\sum_{i=1}^{K} \sigma^2_{Y_i}} {\sigma^2_X}  )
+$$
+Donde:
+
+* K = Número de ítems en la escala.
+* $\sigma^2_{Y_i}$ = Varianza del ítem i.
+* $\sigma^2_X$ = Varianza de las puntuaciones observadas de los individuos.
+
