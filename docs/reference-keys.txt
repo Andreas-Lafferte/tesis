@@ -2,6 +2,9 @@ fig:fig1
 tab:tab-dep
 tab:tab-indep
 tab:tab-control
+eq:alpha
+eq:reg
+eq:mlm
 literature
 conflicto-social-y-percepciones-de-conflicto
 method
@@ -18,3 +21,5 @@ conclusiones
 apendice
 variables-de-control-1
 alpha-de-cronbachs
+modelo-regresión-lineal
+modelo-multinivel

@@ -1,6 +1,6 @@
 # Apéndice {#apendice}
 
-En el siguiente apéndice se presentan las variables de control de esta investigación y la fórmula de Alpha de Cronbach's para la validación de $PSCi$.
+En el siguiente apéndice se presentan las variables de control de esta investigación, así como las fórmulas estadísticas para validación de $PSCi$ y de los modelos lineales y multinivel.
 
 #### Variables de control
 
@@ -26,12 +26,50 @@ kable(tab3,table_format,booktabs = T, linesep = "",col.names = colnames2, captio
 ```
 #### Alpha de Cronbach's
 
-$$
+\begin{equation}
 \alpha = \frac{K}{K-1}( \frac{\sum_{i=1}^{K} \sigma^2_{Y_i}} {\sigma^2_X}  )
-$$
+(\#eq:alpha)
+\end{equation}
+
 Donde:
 
-* K = Número de ítems en la escala.
-* $\sigma^2_{Y_i}$ = Varianza del ítem i.
-* $\sigma^2_X$ = Varianza de las puntuaciones observadas de los individuos.
+* K = número de ítems en la escala
+* $\sigma^2_{Y_i}$ = varianza del ítem i
+* $\sigma^2_X$ = varianza de las puntuaciones observadas de los individuos
 
+#### Modelo regresión lineal 
+
+\begin{equation}
+\widehat{PSCi}=\beta_{0}+\beta_{1}X_{i}+\beta_{2}X_{i}+\beta_{3}X_{i}X_{i}...+\beta_{k}X_{k}+\varepsilon_{i}
+(\#eq:reg)
+\end{equation}
+
+Donde: 
+
+- $\widehat{PSCi}$ = representa la estimación del índice de conflictos sociales percibidos
+- $\beta_{0}$ = representa el intercepto
+- $\beta_{1}$ = representa el coeficiente de regresión para cada variable independiente
+- $X_{i}$ = representa cada variable independiente 
+- $\varepsilon$ = representa el error estándar
+- $i$ = representa cada individuo (i = 1, ..., N)
+
+#### Modelo multinivel
+
+\begin{equation}
+PSCi_{ij} = \gamma_{00}+\gamma_{10}X_{ij}+\gamma_{01}Z_{j}+\gamma_{1001}X_{ij}Z_{j}+U_{0j}+U_{1j}X_{ij}+\varepsilon_{ij}
+(\#eq:mlm)
+\end{equation}
+
+Donde: 
+
+- $PSCi_{ij}$ = representa la estimación del índice de conflictos sociales percibidos
+- $\gamma_{00}$ = representa el gran intercepto del modelo 
+- $\gamma_{10}$ = representa el efecto fijo de la variable independiente de nivel indvidual
+- $X$ = representa cada variable independiente 
+- $\gamma_{01}$= representa el efecto fijo de la variable independiente de nivel contextual Z
+- $\gamma_{1001}$ = representa el efecto de interacción entre niveles 
+- $U_{0j}$ = representa la variación aleatoria para el intercepto entre grupos 
+- $U_{1j}$ = representa la variación aleatoria de la pendiente entre los grupos
+- $\varepsilon$ = representa el error estándar
+- $i$ = representa cada individuo
+- $j$ = representa cada país
