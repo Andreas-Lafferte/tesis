@@ -1,9 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Roboto+Condensed|Lato|Lora|Fira+Sans");
+@import url("https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Roboto+Condensed|Lato|Fira+Sans");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
 
 /* title page */
 .book .book-body .page-wrapper .page-inner section.normal h1.title {
   font-size: 250%;
-  font-family: 'Fira Sans', Karla, 'Roboto Condensed', Lora, Lato, Roboto, sans;
+  font-family: 'Inter:wght@300', Karla, 'Roboto Condensed', Lato, Roboto, sans;
   font-style: normal;
   font-weight: 100;
 }
