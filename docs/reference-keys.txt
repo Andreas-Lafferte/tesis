@@ -1,4 +1,3 @@
-fig:fig1
 tab:tab-dep
 tab:tab-indep
 tab:tab-control
