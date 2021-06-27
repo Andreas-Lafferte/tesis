@@ -1,14 +1,20 @@
+<div style="text-align: justify">
+# Desigualdades y conflicto social: un marco analítico {#literature}
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(out.width="80%", fig.pos = "!ht", out.extra = "")
 ```
+
 <div style="text-align: justify">
-# Antecedentes conceptuales y empíricos {#literature}
+## Percepciones subjetivas y conflicto social
+
+> *"Wherever live together and lay men foundations of forms of social organization, there whose have positions occupants are of command and in certain contexts powers and there other certain positions, over are positions whose subjected occupants to are such commands." ---(Dahrendorf, 1958, p.176).*
+
+
+## Estructura de clases y percepciones de conflicto social
 
 > *“Hoy como ayer la clase importa"*
 
+## Desigualdad económica y percepciones de conflicto social
 
-## Conflicto social y percepciones de conflicto 
-<div style="text-align: justify">
-> *"Wherever live together and lay men foundations of forms of social organization, there whose have positions occupants are of command and in certain contexts powers and there other certain positions, over are positions whose subjected occupants to are such commands." ---(Dahrendorf, 1958, p.176).*
-
+## Marcos institucionales y percepciones de conflicto social

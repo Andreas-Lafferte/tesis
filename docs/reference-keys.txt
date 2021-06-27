@@ -5,7 +5,10 @@ eq:alpha
 eq:reg
 eq:mlm
 literature
-conflicto-social-y-percepciones-de-conflicto
+percepciones-subjetivas-y-conflicto-social
+estructura-de-clases-y-percepciones-de-conflicto-social
+desigualdad-económica-y-percepciones-de-conflicto-social
+marcos-institucionales-y-percepciones-de-conflicto-social
 method
 datos-y-variables
 variable-dependiente
