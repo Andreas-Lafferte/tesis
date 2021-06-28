@@ -6,7 +6,7 @@ knitr::opts_chunk$set(out.width="80%", fig.pos = "!ht", out.extra = "")
 ```
 
 <div style="text-align: justify">
-## Percepciones subjetivas y conflicto social
+## Percepciones subjetivas del conflicto social, descomponiendo el concepto
 
 > *"Wherever live together and lay men foundations of forms of social organization, there whose have positions occupants are of command and in certain contexts powers and there other certain positions, over are positions whose subjected occupants to are such commands." ---(Dahrendorf, 1958, p.176).*
 
