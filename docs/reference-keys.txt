@@ -1,3 +1,5 @@
+fig:fig1
+fig:fig2
 tab:tab-dep
 tab:tab-indep
 tab:tab-control
@@ -5,7 +7,7 @@ eq:alpha
 eq:reg
 eq:mlm
 literature
-percepciones-subjetivas-y-conflicto-social
+percepciones-subjetivas-del-conflicto-social
 estructura-de-clases-y-percepciones-de-conflicto-social
 desigualdad-económica-y-percepciones-de-conflicto-social
 marcos-institucionales-y-percepciones-de-conflicto-social
