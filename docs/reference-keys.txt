@@ -8,7 +8,7 @@ eq:reg
 eq:mlm
 literature
 percepciones-subjetivas-del-conflicto-social
-estructura-de-clases-y-percepciones-de-conflicto-social
+posición-de-clase-y-percepciones-de-conflicto-social
 desigualdad-económica-y-percepciones-de-conflicto-social
 marcos-institucionales-y-percepciones-de-conflicto-social
 method
