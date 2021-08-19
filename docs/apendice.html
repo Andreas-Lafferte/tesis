@@ -260,22 +260,25 @@ ICTWSS
 <div id="modelo-multinivel" class="section level4" number="6.0.0.4">
 <h4><span class="header-section-number">6.0.0.4</span> Modelo multinivel</h4>
 <p><span class="math display" id="eq:mlm">\[\begin{equation}
-PSCi_{ij} = \gamma_{00}+\gamma_{10}X_{ij}+\gamma_{01}Z_{j}+\gamma_{1001}X_{ij}Z_{j}+U_{0j}+U_{1j}X_{ij}+\varepsilon_{ij}
+PSCi_{ijk} = \gamma_{000}+\gamma_{100}X_{ijk}+\gamma_{010}Z_{jk}+\gamma_{001}Z_{k}+\gamma_{100010}X_{ijk}Z_{jk}+U_{0jk}+U_{1jk}X_{ijk}+\varepsilon_{ijk}
 \tag{6.3}
 \end{equation}\]</span></p>
 <p>Donde:</p>
 <ul>
 <li><span class="math inline">\(PSCi_{ij}\)</span> = representa la estimación del índice de conflictos sociales percibidos</li>
-<li><span class="math inline">\(\gamma_{00}\)</span> = representa el gran intercepto del modelo</li>
-<li><span class="math inline">\(\gamma_{10}\)</span> = representa el efecto fijo de la variable independiente de nivel indvidual</li>
-<li><span class="math inline">\(X\)</span> = representa cada variable independiente</li>
-<li><span class="math inline">\(\gamma_{01}\)</span>= representa el efecto fijo de la variable independiente de nivel contextual Z</li>
-<li><span class="math inline">\(\gamma_{1001}\)</span> = representa el efecto de interacción entre niveles</li>
-<li><span class="math inline">\(U_{0j}\)</span> = representa la variación aleatoria para el intercepto entre grupos</li>
-<li><span class="math inline">\(U_{1j}\)</span> = representa la variación aleatoria de la pendiente entre los grupos</li>
+<li><span class="math inline">\(\gamma_{000}\)</span> = representa el gran intercepto del modelo</li>
+<li><span class="math inline">\(\gamma_{100}\)</span> = representa el efecto fijo de la variable independiente de nivel indvidual</li>
+<li><span class="math inline">\(\gamma_{010}\)</span>= representa el efecto fijo de la variable independiente de nivel contextual para cada año-país</li>
+<li><span class="math inline">\(\gamma_{001}\)</span>= representa el efecto fijo de la variable independiente de nivel contextual para cada país</li>
+<li><span class="math inline">\(\gamma_{100010}\)</span> = representa el efecto de interacción entre niveles</li>
+<li><span class="math inline">\(U_{0jk}\)</span> = representa la variación aleatoria para el intercepto entre grupos</li>
+<li><span class="math inline">\(U_{1jk}\)</span> = representa la variación aleatoria de la pendiente entre los grupos</li>
 <li><span class="math inline">\(\varepsilon\)</span> = representa el error estándar</li>
+<li><span class="math inline">\(X\)</span> = representa cada variable independiente de nivel individual</li>
+<li><span class="math inline">\(Z\)</span> = representa cada variable independiente de nivel contextual</li>
 <li><span class="math inline">\(i\)</span> = representa cada individuo</li>
-<li><span class="math inline">\(j\)</span> = representa cada país</li>
+<li><span class="math inline">\(j\)</span> = representa cada año</li>
+<li><span class="math inline">\(k\)</span> = representa cada país</li>
 </ul>
 
 </div>

@@ -56,20 +56,26 @@ Donde:
 #### Modelo multinivel
 
 \begin{equation}
-PSCi_{ij} = \gamma_{00}+\gamma_{10}X_{ij}+\gamma_{01}Z_{j}+\gamma_{1001}X_{ij}Z_{j}+U_{0j}+U_{1j}X_{ij}+\varepsilon_{ij}
+PSCi_{ijk} = \gamma_{000}+\gamma_{100}X_{ijk}+\gamma_{010}Z_{jk}+\gamma_{001}Z_{k}+\gamma_{100010}X_{ijk}Z_{jk}+U_{0jk}+U_{1jk}X_{ijk}+\varepsilon_{ijk}
 (\#eq:mlm)
 \end{equation}
 
 Donde: 
 
 - $PSCi_{ij}$ = representa la estimación del índice de conflictos sociales percibidos
-- $\gamma_{00}$ = representa el gran intercepto del modelo 
-- $\gamma_{10}$ = representa el efecto fijo de la variable independiente de nivel indvidual
-- $X$ = representa cada variable independiente 
-- $\gamma_{01}$= representa el efecto fijo de la variable independiente de nivel contextual Z
-- $\gamma_{1001}$ = representa el efecto de interacción entre niveles 
-- $U_{0j}$ = representa la variación aleatoria para el intercepto entre grupos 
-- $U_{1j}$ = representa la variación aleatoria de la pendiente entre los grupos
+- $\gamma_{000}$ = representa el gran intercepto del modelo 
+- $\gamma_{100}$ = representa el efecto fijo de la variable independiente de nivel indvidual
+- $\gamma_{010}$= representa el efecto fijo de la variable independiente de nivel contextual para cada año-país
+- $\gamma_{001}$= representa el efecto fijo de la variable independiente de nivel contextual para cada país
+- $\gamma_{100010}$ = representa el efecto de interacción entre niveles 
+- $U_{0jk}$ = representa la variación aleatoria para el intercepto entre grupos 
+- $U_{1jk}$ = representa la variación aleatoria de la pendiente entre los grupos
 - $\varepsilon$ = representa el error estándar
+- $X$ = representa cada variable independiente de nivel individual
+- $Z$ = representa cada variable independiente de nivel contextual
 - $i$ = representa cada individuo
-- $j$ = representa cada país
+- $j$ = representa cada año
+- $k$ = representa cada país
+
+
+
