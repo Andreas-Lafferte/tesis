@@ -1,3 +1,17 @@
+
+```{r set up2, echo= F, message=FALSE,warning=F}
+#1. Packages
+if (!require("pacman")) install.packages("pacman") 
+pacman::p_load(tidyverse, sjlabelled, ggplot2, sjmisc,summarytools, sjPlot, ggthemes, 
+               plotly, lubridate, RColorBrewer, htmlwidgets, kableExtra, withr)
+
+options(kableExtra.html.bsTable = T)
+options(knitr.kable.NA = '')
+
+#2. Data
+load("../input/data/swiid9_1.rda")
+```
+
 <div style="text-align: justify">
 # Desigualdades y conflicto social: un marco analítico {#literature}
 
@@ -82,7 +96,47 @@ $H_{1b}$: Individuos de clase trabajadora y aquellos pertenecientes a las clases
 ## Desigualdad económica y percepciones de conflicto social
 <div style="text-align: justify">
 
-El resurgimiento de la conflictividad social en los últimos años, especialmente después de la crisis financiera del 2008, se ha caracterizado por una fuerte y renovada crítica contra las desigualdades sociales en varios países del mundo, como las movilizaciones de Wall Street en Estados Unidos, los Indignados en España, los Giles Jaunes en Francia o el Estallido Social en Chile [@dellaportaLateNeoliberalismIts2017a; @sommaSocialMovementsLatin2020]. Un elemento común a estos conflictos es que, en base al descontento, las desigualdades se han re-politizado y los clivajes verticales han vuelto a la palestra al contrastarse los altos niveles de desigualdad económica y la excesiva concentración de la riqueza en el 1% de la población; “We are the 99%” decía el famoso slogan de Wall Street [@bluhdornPoliticisationPostPoliticsNew2021a]. Como han destacado varios analistas, desde 1980 hasta la fecha la desigualdad económica se ha incrementado dramáticamente tanto dentro como entre países [@milanovicGlobalInequalityNew2016a; @keeleyIncomeInequalityGap2015; @kenworthyRisingInequalityPolitics2005]. Lo que principalmente ha empujado este aumento ha sido el crecimiento de las diferencias de ingresos promedios dentro de los países y el acaparamiento de la riqueza por pequeños segmentos de la población en países desarrollados como en aquellos en vías de desarrollo [@milanovicGlobalInequalityNew2016a]. Esto ha conducido, entre otras razones, a una preocupación generalizada en la investigación sociológica por las polarizaciones sociales, los grados de desconfianza social y deslegitimación política que produce la desigualdad económica [@andersenPolarizingEffectEconomic2012a]. Así también, la desigualdad económica se ha vuelto un punto común para analizar los conflictos sociales, ya sea en sus formas manifiestas, como por ejemplo mediante las acciones contenciosas ante las deprivaciones materiales [@tillyContentiousPolitics2015a], o en sus formas latentes a través de las percepciones subjetivas sobre la desigualdad y el conflicto [@hadlerSocialConflictPerception2017a; @hertelConflictPerceptions272019a]. 
+El resurgimiento de la conflictividad social en los últimos años, especialmente después de la crisis financiera del 2008, se ha caracterizado por una fuerte y renovada crítica contra las desigualdades sociales en varios países del mundo, como las movilizaciones de Wall Street en Estados Unidos, los Indignados en España, los Giles Jaunes en Francia o el Estallido Social en Chile [@dellaportaLateNeoliberalismIts2017a; @sommaSocialMovementsLatin2020]. Un elemento común a estos conflictos es que, en base al descontento, las desigualdades se han re-politizado y los clivajes verticales han vuelto a la palestra al contrastarse los altos niveles de desigualdad económica y la excesiva concentración de la riqueza en el 1% de la población; “We are the 99%” decía el famoso slogan de Wall Street [@bluhdornPoliticisationPostPoliticsNew2021a]. Como han destacado varios analistas, desde 1980 hasta la fecha (ver Figura \@ref(fig:fig3)) la desigualdad económica se ha incrementado dramáticamente tanto dentro como entre países [@milanovicGlobalInequalityNew2016a; @keeleyIncomeInequalityGap2015; @kenworthyRisingInequalityPolitics2005]. Lo que principalmente ha empujado este aumento ha sido el crecimiento de las diferencias de ingresos promedios dentro de los países y el acaparamiento de la riqueza por pequeños segmentos de la población en países desarrollados como en aquellos en vías de desarrollo [@milanovicGlobalInequalityNew2016a]. Esto ha conducido, entre otras razones, a una preocupación generalizada en la investigación sociológica por las polarizaciones sociales, los grados de desconfianza social y deslegitimación política que produce la desigualdad económica [@andersenPolarizingEffectEconomic2012a]. Así también, la desigualdad económica se ha vuelto un punto común para analizar los conflictos sociales, ya sea en sus formas manifiestas, como por ejemplo mediante las acciones contenciosas ante las deprivaciones materiales [@tillyContentiousPolitics2015a], o en sus formas latentes a través de las percepciones subjetivas sobre la desigualdad y el conflicto [@hadlerSocialConflictPerception2017a; @hertelConflictPerceptions272019a]. 
+
+```{r fig3, results='asis', out.width = '75%', echo = FALSE, fig.cap="(ref:fig3)"}
+
+swiid_summary <- swiid_summary %>% 
+  mutate(continent = case_when(country %in% c("United States", "Canada") ~ "Norte América",
+                               country %in% c("Chile", "Argentina", "Venezuela") ~ "Latinoamérica",
+                               country %in% c( "Austria", "Belgium", 
+                                               "Bulgaria", "Croatia", "Cyprus", 
+                                               "Czech Republic", "Denmark","Estonia", 
+                                               "Finland", "France", "Germany", 
+                                               "United Kingdom", "Hungary",
+                                               "Italy", "Latvia", "Netherlands", 
+                                               "Norway", "Poland", "Portugal", "Slovakia", "Slovenia",
+                                               "Spain", "Sweden", "Switzerland", "Turkey", "Ukraine") ~ "Europa",
+                               country %in% c("China", "Japan", "Philippines", "Taiwan", "Russia", "Israel") ~ "Asia",
+                               country %in% c("Iceland", "New Zealand", "Australia") ~ "Oceanía",
+                               country == "South Africa" ~ "África",
+                               TRUE ~ NA_character_))
+
+swiid_summary <- swiid_summary %>% filter(!is.na(continent))
+
+g <- swiid_summary %>%  
+  group_by(continent) %>% 
+  ggplot(aes(x=year, y=gini_disp, color = country)) +
+  geom_line() + 
+  scale_x_continuous(breaks=seq(1960, 2020, 20)) +
+  facet_wrap(.~continent) +
+  theme_bw() +
+  theme(legend.position='none') +
+  labs(x = "",
+       y = "Índice de Gini",
+       color = "País",
+       title = "Evolución desigualdad de ingresos 1960-2020",
+       caption = "Fuente: Elaboración propia en base a SWIID (2019). Seleccionados 45 países en base a ISSP (1999-2019)") +
+  scale_linetype_manual(values = c("dashed", "solid"), guide = "none")
+
+ggplotly(g) %>% config(displayModeBar = F)
+
+```
+(ref:fig3) Evolución desigualdad de ingresos 1960-2020. Fuente: Elaboración propia en base a [SWIID (2019)](https://fsolt.org/swiid/). Seleccionados 45 países en base a [ISSP (1999-2019)](https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality).
 
 Las principales causas del incremento de la desigualdad económica se han asociado a la expansión de la globalización, los cambios tecnológicos y productivos con la flexibilización y precarización laboral, y a una retirada generalizada de las políticas de seguridad social en varios países [@bradyEconomicGlobalizationIncreasing2009a; @milanovicGlobalInequalityNew2016a; @salverdaIntroduction2011b]. La investigación específica sobre la desigualdad económica se ha concentrado en dos componentes para definirla: por un lado, las diferencias de ingresos entre los núcleos familiares y, por el otro, la repartición/concentración de la riqueza entre segmentos poblacionales [@salverdaIntroduction2011b]. Al respecto, un diagnóstico compartido es que a pesar del crecimiento económico sostenido por varios países luego de la introducción de políticas neoliberales [@bradyEconomicGlobalizationIncreasing2009a; @coburnIncomeInequalitySocial2000], se han incrementado las distancias sociales entre los grupos más ricos y el resto de la población dentro de los países [@andersenPolarizingEffectEconomic2012a]. Sin embargo, en las últimas décadas lo que ha caracterizado a la desigualdad económica no es solo su incremento *dentro* de las naciones, sino más bien *entre* ellas, llegando a constituirse como un fenómeno de desigualdad global [@milanovicGlobalInequalityNew2016a; @bradyConsequencesEconomicGlobalization2007]. Así, por ejemplo, para el 2014 menos del 50% de la población global poseía conjuntamente menos del 1% de la riqueza mundial, mientras que el 10% más rico poseía el 87% de los activos y el 1% casi la mitad de todos los activos del mundo [@keeleyIncomeInequalityGap2015]. Con todo, la desigualdad económica es un fenómeno a escala global que ha incrementado las diferencias de ingresos dentro de los países generando distancias entre grupos sociales, y también ha crecido extensivamente entre países adaptándose a sus estructuras económicas e institucionales [@keeleyIncomeInequalityGap2015].
 
