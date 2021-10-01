@@ -137,7 +137,7 @@ g <- swiid_summary %>%
        caption = "Fuente: Elaboración propia en base a SWIID (2019). Seleccionados 45 países en base a ISSP (1999-2019)") +
   scale_linetype_manual(values = c("dashed", "solid"), guide = "none") 
 
-ggplotly(g) %>% config(displayModeBar = F)
+ggplotly(g)
 ```
 (ref:fig3) Evolución de la desigualdad de ingresos 1960-2020. Fuente: Elaboración propia en base a [SWIID (2019)](https://fsolt.org/swiid/). Solo 45 países seleccionados en base a [ISSP (1999-2019)](https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality).
 
