@@ -42,7 +42,7 @@ De acuerdo con estas críticas, la presente investigación tiene el doble objeti
 
 Este estudio pretende contribuir a la disciplina sociológica de dos maneras. Por un lado, analizando la influencia de las desigualdades de clase se revisa de manera crítica los principales determinantes de las percepciones de conflicto social desde sus condicionantes socioeconómicas. Además, incluyendo el rol del contexto sobre la relación entre la posición de clase y las percepciones de conflicto se pretende salvar este vacío en la investigación comparada. Por otro lado, se diagnostica la importancia de factores económicos e institucionales sobre las percepciones de conflicto social, dando cuenta de cómo estas últimas varían según los contextos. Futuras investigaciones pueden tomar este estudio como base para hipótesis que diversifiquen las teorías dominantes sobre las percepciones de conflicto social, integrando factores provenientes de la estratificación social y el análisis comparado.
 
-La tesis principal que se busca defender es que la posición de clase es un determinante relevante de las percepciones de conflicto social en Chile, y que dicha relación a nivel comparado es afectada por el nivel de desigualdad económica y el grado de coordinación salarial de los países. Se espera que en Chile la posición objetiva de clase pueda predecir las percepciones de conflicto social, y que dichas percepciones sean distintas según la categoría de clase. A nivel comparado, esta relación será aún más pronunciada en la medida que exista alta desigualdad económica y bajos niveles de coordinación salarial. En consiguiente, la pregunta y objetivos de investigación son:
+La tesis principal que se busca defender es que la posición de clase es un determinante relevante de las percepciones de conflicto social en Chile, y que dicha relación a nivel comparado es afectada por el nivel de desigualdad económica y el grado de concertación política de los países. Se espera que en Chile la posición objetiva de clase pueda predecir las percepciones de conflicto social, y que dichas percepciones sean distintas según la categoría de clase. A nivel comparado, esta relación será aún más pronunciada en la medida que exista alta desigualdad económica y bajos niveles de concertación política. En consiguiente, la pregunta y objetivos de investigación son:
 
 ### Pregunta de investigación {-}
 
@@ -58,7 +58,7 @@ Analizar cómo cambia la relación entre la clase social y las percepciones de c
 
 *O.E.2* – Analizar el rol de la desigualdad económica sobre la relación entre la posición de clase y las percepciones de conflicto social entre 1999-2019.
 
-*O.E.3* – Analizar la relacion entre el grado de coordinación salarial y las percepciones de conflicto social entre 1999-2019. 
+*O.E.3* – Analizar la relacion entre el nivel de concertación política y las percepciones de conflicto social entre 1999-2019. 
 
 ### Estructura de investigación {-}
 
