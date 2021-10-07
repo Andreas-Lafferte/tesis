@@ -245,11 +245,11 @@ class: inverse, middle, center, slideInRight
 
 - La participación en organizaciones intermedias, tales como los partidos políticos o sindicatos, tiende a aumentar las percepciones de conflicto social (Hadler, 2003; Kumlin & Svallfors, 2008; Pérez, 2013; Ringqvist, 2020).
  + Individuos miembros de sindicatos son más propensos a percibir mayor conflicto social que aquellos que no lo son (Hadler, 2003; Pérez, 2013; Ringqvist, 2020). 
- + La afiliación a partidos políticos de izquierda tiende a aumentar las actitudes subjetivas de carácter conflictivo (Kumlin & Svallfors, 2008; Tilly & Tarrow, 2015).
+ + La afiliación a partidos políticos tiende a aumentar las actitudes subjetivas de carácter conflictivo (Kumlin & Svallfors, 2008; Tilly & Tarrow, 2015).
  
 > $H_{2a}$: Individuos miembros de sindicatos tenderán a percibir mayor conflicto social que individuos que no lo son.
 
-> $H_{2b}$: Individuos afiliados a partidos políticos de izquierda tenderán a percibir mayor conflicto social que individuos afiliados a partidos políticos de derecha y aquellos que no están afiliados.
+> $H_{2b}$: Individuos afiliados a partidos políticos tenderán a percibir mayor conflicto social que aquellos que no están afiliados.
 
 ---
 # 3.1. ¿Qué dice la literatura? 
