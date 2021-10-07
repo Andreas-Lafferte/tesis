@@ -75,7 +75,7 @@ class: inverse, center, middle, slideInRight
 # Estructura de presentación
 
 1. Introducción
-2. Pregunta y problema de investigación
+2. Pregunta y objetivos de investigación
 3. Antecedentes e hipótesis
 4. Datos, variables y métodos
 5. Discusión
