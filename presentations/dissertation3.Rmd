@@ -98,15 +98,6 @@ class: inverse, center, middle, slideInRight
 - Las desigualdades se han re-politizado y los clivajes verticales han vuelto a la palestra al contrastarse los altos niveles de desigualdad económica y la excesiva concentración de la riqueza en el 1% de la población (Blühdorn & Deflorian, 2021).
 
 ---
-# 1.1. Contexto disciplinar 
-
-## Resurgimiento de la conflictividad social
-
-.center[
-<iframe src="file:///C:/Users/PC/Documents/GitHub/tesis/presentations/p1.html" height="380" width="740" style="center: 1px solid #464646;" allowfullscreen="" allow="autoplay" data-external="1"></iframe>
-]
-
----
 # 1.1. Contexto disciplinar
 
 ## Chile en perspectiva comparada
@@ -146,15 +137,6 @@ Esta investigación se preocupa por esta última _dimesión subjetiva del confli
 - Recientes investigaciones han demostrado que las percepciones de conflicto vertical están presentes en varios países y que sus niveles tienden a ser moderados y/o fuertes (Atria & Rovira Kaltwasser, 2021; Castillo et al., 2015; Delhey & Keck, 2008; Hadler, 2017; Hertel & Schöneck, 2019; Pérez, 2013).
 
 - En Chile, las percepciones de conflicto social han variado en la última década, a razón de eventos políticos como por la agudización de desigualdades económicas (Castillo et al., 2015; Pérez, 2013, 2020). Un estudio reciente de [COES sobre las elites chilenas](https://drive.google.com/file/d/1q0MH4aE4PwTlZcdWJV29P9Dtz4w6nTRp/view) refleja lo anterior. 
-
----
-# 1.3. Problematización
-
-## ¿Cómo estudiar las percepciones de conflicto social? 
-
-.center[
-<img src= "../thesis/images/figu.jpg" height="400" width="700">
-]
 
 ---
 # 1.3. Problematización

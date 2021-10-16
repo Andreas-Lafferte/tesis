@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-10-01" />
+<meta name="date" content="2021-10-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
 <link rel="prev" href="method.html"/>
 <link rel="next" href="métodos.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,8 +50,17 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.3/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 
@@ -85,8 +94,9 @@
 <ul>
 <li class="chapter" data-level="1.1" data-path="percepciones-subjetivas-del-conflicto-social.html"><a href="percepciones-subjetivas-del-conflicto-social.html"><i class="fa fa-check"></i><b>1.1</b> Percepciones subjetivas del conflicto social</a></li>
 <li class="chapter" data-level="1.2" data-path="posición-de-clase-y-percepciones-de-conflicto-social.html"><a href="posición-de-clase-y-percepciones-de-conflicto-social.html"><i class="fa fa-check"></i><b>1.2</b> Posición de clase y percepciones de conflicto social</a></li>
-<li class="chapter" data-level="1.3" data-path="desigualdad-económica-y-percepciones-de-conflicto-social.html"><a href="desigualdad-económica-y-percepciones-de-conflicto-social.html"><i class="fa fa-check"></i><b>1.3</b> Desigualdad económica y percepciones de conflicto social</a></li>
-<li class="chapter" data-level="1.4" data-path="marcos-institucionales-y-percepciones-de-conflicto-social.html"><a href="marcos-institucionales-y-percepciones-de-conflicto-social.html"><i class="fa fa-check"></i><b>1.4</b> Marcos institucionales y percepciones de conflicto social</a></li>
+<li class="chapter" data-level="1.3" data-path="organizaciones-intermedias-y-percepciones-de-conflicto-social.html"><a href="organizaciones-intermedias-y-percepciones-de-conflicto-social.html"><i class="fa fa-check"></i><b>1.3</b> Organizaciones intermedias y percepciones de conflicto social</a></li>
+<li class="chapter" data-level="1.4" data-path="desigualdad-económica-y-percepciones-de-conflicto-social.html"><a href="desigualdad-económica-y-percepciones-de-conflicto-social.html"><i class="fa fa-check"></i><b>1.4</b> Desigualdad económica y percepciones de conflicto social</a></li>
+<li class="chapter" data-level="1.5" data-path="marcos-institucionales-y-percepciones-de-conflicto-social.html"><a href="marcos-institucionales-y-percepciones-de-conflicto-social.html"><i class="fa fa-check"></i><b>1.5</b> Marcos institucionales y percepciones de conflicto social</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="method.html"><a href="method.html"><i class="fa fa-check"></i><b>2</b> Método</a>
 <ul>
@@ -133,7 +143,7 @@ Percepciones de conflicto social en Chile y el mundo
 <h2><span class="header-section-number">2.1</span> Datos y variables</h2>
 <div style="text-align: justify">
 
-<p>Este estudio se basa en la información proporcionada por la base de datos del Módulo de Desigualdad Social de la <a href="https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality">International Social Survey Programme (ISSP)</a> en sus tres olas que contemplan a Chile, realizadas en los años 1999, 2009 y 2019. Esta base de datos se sustenta en la aplicación de cuestionarios en 45 países en secciones transversales de tiempo. El diseño muestral complejo es de tipo probabilístico, estratificado según el tamaño de los países y multietápico. La unidad de análisis son individuos mayores de 18 años en 45 países encuestados en diferentes olas. Se consideran para este estudio 32.178 casos para el año 1999, 56.021 para 2009 y 25.847 para el 2019.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Además, se utilizan otras fuentes de datos secundarias como <a href="https://data.oecd.org/economy.htm#profile-GDP%20and%20spending">OCDE</a>, <a href="https://fsolt.org/swiid/">SWIID</a> e <a href="https://www.ictwss.org/">ICTWSS</a>, que proveen información contextual de variables institucionales, económicas y laborales de diversos países.</p>
+<p>Este estudio se basa en la información proporcionada por la base de datos del Módulo de Desigualdad Social de la <a href="https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality">International Social Survey Programme (ISSP)</a> en sus tres olas que contemplan a Chile, realizadas en los años 1999, 2009 y 2019. Esta base de datos se sustenta en la aplicación de cuestionarios en 45 países en secciones transversales de tiempo. El diseño muestral complejo es de tipo probabilístico, estratificado según el tamaño de los países y multietápico. La unidad de análisis son individuos mayores de 18 años en 45 países encuestados en diferentes olas. Se consideran para este estudio 32.178 casos para el año 1999, 56.021 para 2009 y 25.847 para el 2019.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> Además, se utilizan otras fuentes de datos secundarias como <a href="https://data.oecd.org/economy.htm#profile-GDP%20and%20spending">OCDE</a>, <a href="https://fsolt.org/swiid/">SWIID</a> e <a href="https://www.ictwss.org/">ICTWSS</a>, que proveen información contextual de variables institucionales, económicas y laborales de diversos países.</p>
 <div id="variable-dependiente" class="section level3" number="2.1.1">
 <h3><span class="header-section-number">2.1.1</span> Variable dependiente</h3>
 <p>Se propone como variable dependiente de esta investigación un índice de conflictos sociales percibidos (Perceived Social Conflict Index - <span class="math inline">\(PSCi\)</span>). Este es un índice sumativo de cuatro indicadores que responden a la pregunta <em>“En todos los países hay diferencias o incluso conflictos entre los distintos grupos sociales. En su opinión, en el país de referencia ¿cuánto conflicto hay entre…?”</em>. Los valores de respuesta de estos indicadores corresponden a una escala de tipo Likert de 1 a 4. Los indicadores y sus valores de respuesta se detallan en la Tabla N° <a href="datos-y-variables.html#tab:tab-dep">2.1</a>. Se estima recodificar estas cuatro variables en un rango de valores de 0 (“sin conflictos”) a 3 (“muy fuertes conflictos”), para luego crear una escala aditiva continua de 0 a 12.</p>
@@ -194,7 +204,7 @@ Q9d.Conflictos: ¿entre la gente de arriba y la gente de abajo?
 </ol></li>
 </ol></li>
 </ol>
-<p>Cabe señalar que este índice de conflictos sociales percibidos es validado y utilizado en investigaciones similares<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> <span class="citation">(<a href="referencias.html#ref-hadlerSocialConflictPerception2017a" role="doc-biblioref">Hadler, 2017</a>; <a href="referencias.html#ref-hertelConflictPerceptions272019a" role="doc-biblioref">Hertel &amp; Schöneck, 2019</a>)</span>. Considerando lo anterior, se opta por utilizar el <span class="math inline">\(PSCi\)</span> como variable dependiente con el fin de poder establecer comparaciones con la literatura existente. Respecto a la confiabilidad de este índice, se aplicará el coeficiente de Alpha de Cronbach’s a fin de conocer su consistencia interna en tanto mida una misma dimensión latente<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+<p>Cabe señalar que este índice de conflictos sociales percibidos es validado y utilizado en investigaciones similares<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> <span class="citation">(<a href="referencias.html#ref-hadlerSocialConflictPerception2017a" role="doc-biblioref">Hadler, 2017</a>; <a href="referencias.html#ref-hertelConflictPerceptions272019a" role="doc-biblioref">Hertel &amp; Schöneck, 2019</a>)</span>. Considerando lo anterior, se opta por utilizar el <span class="math inline">\(PSCi\)</span> como variable dependiente con el fin de poder establecer comparaciones con la literatura existente. Respecto a la confiabilidad de este índice, se aplicará el coeficiente de Alpha de Cronbach’s a fin de conocer su consistencia interna en tanto mida una misma dimensión latente<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>.</p>
 </div>
 <div id="variables-independientes" class="section level3" number="2.1.2">
 <h3><span class="header-section-number">2.1.2</span> Variables independientes</h3>
@@ -299,15 +309,15 @@ ICTWSS
 </div>
 <div id="variables-de-control" class="section level3" number="2.1.3">
 <h3><span class="header-section-number">2.1.3</span> Variables de control</h3>
-<p>Se controlará por variables que han sido utilizadas en investigaciones previas. A nivel individual, se contemplan variables como el ingreso, la afiliación sindical y el tiempo -medido como el año de aplicación de la encuesta-. A nivel contextual, se utilizarán dos variables que han demostrado importantes efectos sobre las percepciones de conflicto social, estas son: el nivel de riqueza del país medido por el GDP bruto (Gross Domestic Product) y la densidad sindical del país. La descripción y fuentes de donde serán extraídos estos datos se detallan en la Tabla <a href="#tab:tab-control"><strong>??</strong></a> del <a href="apendice.html#apendice">Apéndice</a>.</p>
+<p>Se controlará por variables que han sido utilizadas en investigaciones previas. A nivel individual, se contemplan variables como el ingreso, la afiliación sindical y el tiempo -medido como el año de aplicación de la encuesta-. A nivel contextual, se utilizarán dos variables que han demostrado importantes efectos sobre las percepciones de conflicto social, estas son: el nivel de riqueza del país medido por el GDP bruto (Gross Domestic Product) y la densidad sindical del país. La descripción y fuentes de donde serán extraídos estos datos se detallan en la Tabla <a href="apendice.html#tab:tab-control">6.1</a> del <a href="apendice.html#apendice">Apéndice</a>.</p>
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="1">
-<li id="fn1"><p>La realización del módulo 2019 para todos los países aún continúa en desarrollo. De momento, existe información de 15 países y 25.847 casos. Se contempla la finalización de la recolección de datos a mediados del 2021.<a href="datos-y-variables.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>En otras investigaciones como la de Hertel &amp; Schöneck <span class="citation">(<a href="referencias.html#ref-hertelConflictPerceptions272019a" role="doc-biblioref">2019, p. 14</a>)</span>, el Alpha de Cronbach’s tiene un valor cercano a 0.83, lo cual es satisfactorio.<a href="datos-y-variables.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>Ver <a href="apendice.html#apendice">Apéndice</a> para especificación de fórmula.<a href="datos-y-variables.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<ol start="10">
+<li id="fn10"><p>La realización del módulo 2019 para todos los países aún continúa en desarrollo. De momento, existe información de 15 países y 25.847 casos. Se contempla la finalización de la recolección de datos a mediados del 2021.<a href="datos-y-variables.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>En otras investigaciones como la de Hertel &amp; Schöneck <span class="citation">(<a href="referencias.html#ref-hertelConflictPerceptions272019a" role="doc-biblioref">2019, p. 14</a>)</span>, el Alpha de Cronbach’s tiene un valor cercano a 0.83, lo cual es satisfactorio.<a href="datos-y-variables.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>Ver <a href="apendice.html#apendice">Apéndice</a> para especificación de fórmula.<a href="datos-y-variables.html#fnref12" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
