@@ -29,3 +29,5 @@ variables-de-control-1
 alpha-de-cronbachs
 modelo-regresión-lineal
 modelo-multinivel
+determinantes-individuales
+determinantes-contextuales
