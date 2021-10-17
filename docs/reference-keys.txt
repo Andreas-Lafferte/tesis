@@ -9,8 +9,10 @@ eq:reg
 eq:mlm
 literature
 percepciones-subjetivas-del-conflicto-social
+determinantes-individuales-la-importancia-de-la-posición-de-clase-y-las-organizaciones-intermedias
 posición-de-clase-y-percepciones-de-conflicto-social
 organizaciones-intermedias-y-percepciones-de-conflicto-social
+determinantes-contextuales-el-rol-de-la-desigualdad-económica-y-las-instituciones
 desigualdad-económica-y-percepciones-de-conflicto-social
 marcos-institucionales-y-percepciones-de-conflicto-social
 method
@@ -29,5 +31,3 @@ variables-de-control-1
 alpha-de-cronbachs
 modelo-regresión-lineal
 modelo-multinivel
-determinantes-individuales
-determinantes-contextuales
