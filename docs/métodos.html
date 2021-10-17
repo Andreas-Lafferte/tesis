@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-10-15" />
+<meta name="date" content="2021-10-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
 <link rel="prev" href="datos-y-variables.html"/>
 <link rel="next" href="application.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,17 +50,8 @@
 
 
 
-<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.9.3/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 
@@ -93,10 +84,16 @@
 <li class="chapter" data-level="1" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>1</b> Desigualdades y conflicto social: un marco analítico</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="percepciones-subjetivas-del-conflicto-social.html"><a href="percepciones-subjetivas-del-conflicto-social.html"><i class="fa fa-check"></i><b>1.1</b> Percepciones subjetivas del conflicto social</a></li>
-<li class="chapter" data-level="1.2" data-path="posición-de-clase-y-percepciones-de-conflicto-social.html"><a href="posición-de-clase-y-percepciones-de-conflicto-social.html"><i class="fa fa-check"></i><b>1.2</b> Posición de clase y percepciones de conflicto social</a></li>
-<li class="chapter" data-level="1.3" data-path="organizaciones-intermedias-y-percepciones-de-conflicto-social.html"><a href="organizaciones-intermedias-y-percepciones-de-conflicto-social.html"><i class="fa fa-check"></i><b>1.3</b> Organizaciones intermedias y percepciones de conflicto social</a></li>
-<li class="chapter" data-level="1.4" data-path="desigualdad-económica-y-percepciones-de-conflicto-social.html"><a href="desigualdad-económica-y-percepciones-de-conflicto-social.html"><i class="fa fa-check"></i><b>1.4</b> Desigualdad económica y percepciones de conflicto social</a></li>
-<li class="chapter" data-level="1.5" data-path="marcos-institucionales-y-percepciones-de-conflicto-social.html"><a href="marcos-institucionales-y-percepciones-de-conflicto-social.html"><i class="fa fa-check"></i><b>1.5</b> Marcos institucionales y percepciones de conflicto social</a></li>
+<li class="chapter" data-level="1.2" data-path="determinantes-individuales.html"><a href="determinantes-individuales.html"><i class="fa fa-check"></i><b>1.2</b> Determinantes individuales</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="determinantes-individuales.html"><a href="determinantes-individuales.html#posición-de-clase-y-percepciones-de-conflicto-social"><i class="fa fa-check"></i><b>1.2.1</b> Posición de clase y percepciones de conflicto social</a></li>
+<li class="chapter" data-level="1.2.2" data-path="determinantes-individuales.html"><a href="determinantes-individuales.html#organizaciones-intermedias-y-percepciones-de-conflicto-social"><i class="fa fa-check"></i><b>1.2.2</b> Organizaciones intermedias y percepciones de conflicto social</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="determinantes-contextuales.html"><a href="determinantes-contextuales.html"><i class="fa fa-check"></i><b>1.3</b> Determinantes contextuales</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="determinantes-contextuales.html"><a href="determinantes-contextuales.html#desigualdad-económica-y-percepciones-de-conflicto-social"><i class="fa fa-check"></i><b>1.3.1</b> Desigualdad económica y percepciones de conflicto social</a></li>
+<li class="chapter" data-level="1.3.2" data-path="determinantes-contextuales.html"><a href="determinantes-contextuales.html#marcos-institucionales-y-percepciones-de-conflicto-social"><i class="fa fa-check"></i><b>1.3.2</b> Marcos institucionales y percepciones de conflicto social</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="method.html"><a href="method.html"><i class="fa fa-check"></i><b>2</b> Método</a>
 <ul>
@@ -143,15 +140,15 @@ Percepciones de conflicto social en Chile y el mundo
 <h2><span class="header-section-number">2.2</span> Métodos</h2>
 <div style="text-align: justify">
 
-<p>Esta investigación utiliza dos técnicas de análisis. En primer lugar, para analizar el efecto que tiene la posición de clase sobre las percepciones de conflicto social en Chile entre los años 1999, 2009 y 2019, se estiman modelos de regresión lineal con mínimos cuadrados ordinarios (OLS). Estos modelos permiten especificar la razón de cambio de la relación lineal entre variables independientes, como la posición de clase, sobre una dependiente continua, como el <span class="math inline">\(PSCi\)</span>.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> Asimismo, posibilitan conocer el peso relativo de cada variable independiente para predecir los cambios promedios sobre las percepciones de conflicto social, por lo que se vuelve una herramienta idónea <span class="citation">(<a href="referencias.html#ref-gillStatisticsSocialBehavioral2014a" role="doc-biblioref">Gill &amp; Heeringa, 2014</a>)</span>. En segundo lugar, para analizar y especificar el efecto de variables contextuales sobre variables individuales (relaciones macro/micro), se estiman modelos multinivel en series de tiempo o tendencia para 45 países entre los años 1999, 2009 y 2019. La principal razón es que estos modelos permiten plantear hipótesis sobre la relación entre las variables de contexto, en este caso económico-laborales e institucionales, con variables individuales como el índice de conflictos sociales percibidos <span class="math inline">\(PSCi\)</span>. Además, posibilitan plantear relaciones de interacción entre niveles lo cual es sumamente útil para analizar, por ejemplo, cómo cambia la relación entre la posición de clase y <span class="math inline">\(PSCi\)</span> a partir de la influencia de la desigualdad económica<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> <span class="citation">(<a href="referencias.html#ref-hoxMultilevelAnalysisTechniques2017a" role="doc-biblioref">Hox et al., 2017</a>)</span>.</p>
+<p>Esta investigación utiliza dos técnicas de análisis. En primer lugar, para analizar el efecto que tiene la posición de clase sobre las percepciones de conflicto social en Chile entre los años 1999, 2009 y 2019, se estiman modelos de regresión lineal con mínimos cuadrados ordinarios (OLS). Estos modelos permiten especificar la razón de cambio de la relación lineal entre variables independientes, como la posición de clase, sobre una dependiente continua, como el <span class="math inline">\(PSCi\)</span>.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> Asimismo, posibilitan conocer el peso relativo de cada variable independiente para predecir los cambios promedios sobre las percepciones de conflicto social, por lo que se vuelve una herramienta idónea <span class="citation">(<a href="referencias.html#ref-gillStatisticsSocialBehavioral2014a" role="doc-biblioref">Gill &amp; Heeringa, 2014</a>)</span>. En segundo lugar, para analizar y especificar el efecto de variables contextuales sobre variables individuales (relaciones macro/micro), se estiman modelos multinivel en series de tiempo o tendencia para 45 países entre los años 1999, 2009 y 2019. La principal razón es que estos modelos permiten plantear hipótesis sobre la relación entre las variables de contexto, en este caso económico-laborales e institucionales, con variables individuales como el índice de conflictos sociales percibidos <span class="math inline">\(PSCi\)</span>. Además, posibilitan plantear relaciones de interacción entre niveles lo cual es sumamente útil para analizar, por ejemplo, cómo cambia la relación entre la posición de clase y <span class="math inline">\(PSCi\)</span> a partir de la influencia de la desigualdad económica<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> <span class="citation">(<a href="referencias.html#ref-hoxMultilevelAnalysisTechniques2017a" role="doc-biblioref">Hox et al., 2017</a>)</span>.</p>
 
 </div>
 <!-- </div> -->
 <div class="footnotes">
 <hr />
-<ol start="13">
-<li id="fn13"><p>Ver <a href="apendice.html#apendice">Apéndice</a> para especificación de fórmula.<a href="métodos.html#fnref13" class="footnote-back">↩︎</a></p></li>
-<li id="fn14"><p>Ver <a href="apendice.html#apendice">Apéndice</a> para especificación de fórmula.<a href="métodos.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<ol start="4">
+<li id="fn4"><p>Ver <a href="apendice.html#apendice">Apéndice</a> para especificación de fórmula.<a href="métodos.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Ver <a href="apendice.html#apendice">Apéndice</a> para especificación de fórmula.<a href="métodos.html#fnref5" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
