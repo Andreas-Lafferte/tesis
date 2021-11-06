@@ -1,5 +1,5 @@
 --- 
-title: '<center>Percepciones de conflicto social en Chile y el mundo</center>'
+title: '<center>Ellos contra nosotros: las percepciones del conflicto social</center>'
 author: "<center>Andreas Lafferte Tamayo </center>"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -11,8 +11,9 @@ description: Tesis para optar al grado de Sociólogo de la Universidad de Chile
 link-citations: yes
 ---
 # Presentación {-}
+<div style="text-align: justify">
 
-La siguiente investigación se ha desarrollado en el marco de la tesis para optar al grado de Sociólogo de la Universidad de Chile. El profesor guía a cargo es el Dr. Juan Carlos Castillo Valenzuela.
+La siguiente investigación se ha desarrollado en el marco del proyecto de tesis para optar al grado de Sociólogo de la Universidad de Chile. El profesor guía a cargo es el Dr. Juan Carlos Castillo Valenzuela.
 
 [Estado]
 

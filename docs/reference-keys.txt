@@ -5,7 +5,6 @@ tab:tab-dep
 tab:tab-indep
 tab:tab-control
 eq:alpha
-eq:reg
 eq:mlm
 literature
 percepciones-subjetivas-del-conflicto-social
@@ -28,6 +27,5 @@ discussion
 conclusiones
 apendice
 variables-de-control-1
-alpha-de-cronbachs
-modelo-regresión-lineal
+alpha-ordinal
 modelo-multinivel
