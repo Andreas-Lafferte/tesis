@@ -3,9 +3,9 @@ fig:fig2
 fig:fig3
 tab:tab-dep
 tab:tab-indep
+eq:mlm
 tab:tab-control
 eq:alpha
-eq:mlm
 literature
 percepciones-subjetivas-del-conflicto-social
 determinantes-individuales-la-importancia-de-la-posición-de-clase-y-las-organizaciones-intermedias
@@ -28,4 +28,3 @@ conclusiones
 apendice
 variables-de-control-1
 alpha-ordinal
-modelo-multinivel

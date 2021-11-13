@@ -1,7 +1,8 @@
 ﻿var;descr;source
-Nivel 1;;
+Nivel individual;;
 Sexo;Sexo encuestado;ISSP
-Ingreso;Ingreso individual;ISSP
-Nivel 2;;
+Ingreso;Deciles de ingresos;ISSP
+Nivel contextual;;
 Riqueza país;GDP bruto por país;OCDE
+Desempleo;Tasa desempleo por país;OCDE
 Densidad sindical;Tasa de sindicalización neta por país;ICTWSS

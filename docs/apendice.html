@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-11-07" />
+<meta name="date" content="2021-11-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -147,7 +147,7 @@ Ellos contra nosotros: las percepciones del conflicto social
             <section class="normal" id="section-">
 <div id="apendice" class="section level1" number="6">
 <h1><span class="header-section-number">Capítulo 6</span> Apéndice</h1>
-<p>En el siguiente apéndice se presentan las variables de control de esta investigación, las fórmulas estadísticas para validación de <span class="math inline">\(PSCi\)</span> y se específica el modelo multinivel e tres niveles.</p>
+<p>En el siguiente apéndice se presentan las variables de control de esta investigación y la fórmula estadística para validación de <span class="math inline">\(PSCi\)</span>.</p>
 <div id="variables-de-control-1" class="section level4" number="6.0.0.1">
 <h4><span class="header-section-number">6.0.0.1</span> Variables de control</h4>
 <table class="table table-striped table-bordered" style="font-size: 14px; margin-left: auto; margin-right: auto;">
@@ -170,7 +170,7 @@ Fuente
 <tbody>
 <tr>
 <td style="text-align:left;width: 4 cm; ">
-Nivel 1
+Nivel individual
 </td>
 <td style="text-align:left;width: 6 cm; ">
 </td>
@@ -193,7 +193,7 @@ ISSP
 Ingreso
 </td>
 <td style="text-align:left;width: 6 cm; ">
-Ingreso individual
+Deciles de ingresos
 </td>
 <td style="text-align:left;width: 2 cm; ">
 ISSP
@@ -201,7 +201,7 @@ ISSP
 </tr>
 <tr>
 <td style="text-align:left;width: 4 cm; ">
-Nivel 2
+Nivel contextual
 </td>
 <td style="text-align:left;width: 6 cm; ">
 </td>
@@ -214,6 +214,17 @@ Riqueza país
 </td>
 <td style="text-align:left;width: 6 cm; ">
 GDP bruto por país
+</td>
+<td style="text-align:left;width: 2 cm; ">
+OCDE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 4 cm; ">
+Desempleo
+</td>
+<td style="text-align:left;width: 6 cm; ">
+Tasa desempleo por país
 </td>
 <td style="text-align:left;width: 2 cm; ">
 OCDE
@@ -236,45 +247,19 @@ ICTWSS
 <div id="alpha-ordinal" class="section level4" number="6.0.0.2">
 <h4><span class="header-section-number">6.0.0.2</span> Alpha Ordinal</h4>
 <p><span class="math display" id="eq:alpha">\[\begin{equation}
-\alpha = \frac{n}{n-1}( \frac{n(\widehat\lambda)^2 -\widehat\lambda^2} {n(\widehat\lambda)^2 + \widehat{u}^2}  )
+\alpha = \frac{n}{n-1}( \frac{n(\overline\lambda)^2 -\overline\lambda^2} {n(\overline\lambda)^2 + \overline{u}^2}  )
 \tag{6.1}
 \end{equation}\]</span></p>
 <p>Donde:</p>
 <ul>
 <li>n = número de ítems en la escala</li>
 <li><span class="math inline">\(\lambda\)</span> = la media aritmética de los pesos factoriales</li>
-<li><span class="math inline">\(\widehat\lambda^2\)</span> = la media aritmética de los cuadrados de los pesos factoriales</li>
-<li><span class="math inline">\(\widehat{u}^2\)</span> = la media aritmética de las unicidades de los pesos factoriales</li>
-</ul>
-</div>
-<div id="modelo-multinivel" class="section level4" number="6.0.0.3">
-<h4><span class="header-section-number">6.0.0.3</span> Modelo multinivel</h4>
-<p><span class="math display" id="eq:mlm">\[\begin{equation}
-PSCi_{ijk} = \gamma_{000}+\gamma_{100}X_{ijk}+\gamma_{010}Z_{jk}+\gamma_{001}Z_{k}+\gamma_{100010}X_{ijk}Z_{jk}+U_{0jk}+U_{1jk}X_{ijk}+\varepsilon_{ijk}
-\tag{6.2}
-\end{equation}\]</span></p>
-<p>Donde:</p>
-<ul>
-<li><span class="math inline">\(PSCi_{ij}\)</span> = representa la estimación del índice de conflictos sociales percibidos</li>
-<li><span class="math inline">\(\gamma_{000}\)</span> = representa el gran intercepto del modelo</li>
-<li><span class="math inline">\(\gamma_{100}\)</span> = representa el efecto fijo de la variable independiente de nivel indvidual</li>
-<li><span class="math inline">\(\gamma_{010}\)</span>= representa el efecto fijo de la variable independiente de nivel contextual para cada año-país</li>
-<li><span class="math inline">\(\gamma_{001}\)</span>= representa el efecto fijo de la variable independiente de nivel contextual para cada país</li>
-<li><span class="math inline">\(\gamma_{100010}\)</span> = representa el efecto de interacción entre niveles</li>
-<li><span class="math inline">\(U_{0jk}\)</span> = representa la variación aleatoria para el intercepto entre grupos</li>
-<li><span class="math inline">\(U_{1jk}\)</span> = representa la variación aleatoria de la pendiente entre los grupos</li>
-<li><span class="math inline">\(\varepsilon\)</span> = representa el error estándar</li>
-<li><span class="math inline">\(X\)</span> = representa cada variable independiente de nivel individual</li>
-<li><span class="math inline">\(Z\)</span> = representa cada variable independiente de nivel contextual</li>
-<li><span class="math inline">\(i\)</span> = representa cada individuo</li>
-<li><span class="math inline">\(j\)</span> = representa cada año</li>
-<li><span class="math inline">\(k\)</span> = representa cada país</li>
+<li><span class="math inline">\(\overline\lambda^2\)</span> = la media aritmética de los cuadrados de los pesos factoriales</li>
+<li><span class="math inline">\(\overline{u}^2\)</span> = la media aritmética de las unicidades de los pesos factoriales</li>
 </ul>
 
 </div>
 </div>
-
-
 
 
 

@@ -1,6 +1,6 @@
 # Apéndice {#apendice}
 
-En el siguiente apéndice se presentan las variables de control de esta investigación, las fórmulas estadísticas para validación de $PSCi$ y se específica el modelo multinivel e tres niveles.
+En el siguiente apéndice se presentan las variables de control de esta investigación y la fórmula estadística para validación de $PSCi$.
 
 #### Variables de control
 
@@ -27,7 +27,7 @@ kable(tab3,table_format,booktabs = T, linesep = "",col.names = colnames2, captio
 #### Alpha Ordinal
 
 \begin{equation}
-\alpha = \frac{n}{n-1}( \frac{n(\widehat\lambda)^2 -\widehat\lambda^2} {n(\widehat\lambda)^2 + \widehat{u}^2}  )
+\alpha = \frac{n}{n-1}( \frac{n(\overline\lambda)^2 -\overline\lambda^2} {n(\overline\lambda)^2 + \overline{u}^2}  )
 (\#eq:alpha)
 \end{equation}
 
@@ -35,32 +35,5 @@ Donde:
 
 * n = número de ítems en la escala
 * $\lambda$ = la media aritmética de los pesos factoriales
-* $\widehat\lambda^2$ = la media aritmética de los cuadrados de los pesos factoriales
-* $\widehat{u}^2$ = la media aritmética de las unicidades de los pesos factoriales
-
-#### Modelo multinivel
-
-\begin{equation}
-PSCi_{ijk} = \gamma_{000}+\gamma_{100}X_{ijk}+\gamma_{010}Z_{jk}+\gamma_{001}Z_{k}+\gamma_{100010}X_{ijk}Z_{jk}+U_{0jk}+U_{1jk}X_{ijk}+\varepsilon_{ijk}
-(\#eq:mlm)
-\end{equation}
-
-Donde: 
-
-- $PSCi_{ij}$ = representa la estimación del índice de conflictos sociales percibidos
-- $\gamma_{000}$ = representa el gran intercepto del modelo 
-- $\gamma_{100}$ = representa el efecto fijo de la variable independiente de nivel indvidual
-- $\gamma_{010}$= representa el efecto fijo de la variable independiente de nivel contextual para cada año-país
-- $\gamma_{001}$= representa el efecto fijo de la variable independiente de nivel contextual para cada país
-- $\gamma_{100010}$ = representa el efecto de interacción entre niveles 
-- $U_{0jk}$ = representa la variación aleatoria para el intercepto entre grupos 
-- $U_{1jk}$ = representa la variación aleatoria de la pendiente entre los grupos
-- $\varepsilon$ = representa el error estándar
-- $X$ = representa cada variable independiente de nivel individual
-- $Z$ = representa cada variable independiente de nivel contextual
-- $i$ = representa cada individuo
-- $j$ = representa cada año
-- $k$ = representa cada país
-
-
-
+* $\overline\lambda^2$ = la media aritmética de los cuadrados de los pesos factoriales
+* $\overline{u}^2$ = la media aritmética de las unicidades de los pesos factoriales
