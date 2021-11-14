@@ -30,13 +30,12 @@ names(issp99)
 
 ## Select 
 issp99 <- issp99 %>% select(v1,
-                            v2,
                             v3,
                             sex,
                             union,
                             x_prty,
                             party_lr,
-                            rincome,
+                            rincomer,
                             nemploy,
                             wrkgovt, 
                             wrksup,
@@ -56,15 +55,11 @@ issp99 <- rename_variables(issp99, v1 = "YEAR")
 issp99$YEAR <- as.numeric(issp99$YEAR)
 issp99$YEAR <- sjlabelled::set_label(issp99$YEAR, label = c("Año"))
 
-# 3.2 ID SUBJETC ----
-issp99 <- rename_variables(issp99, v2 = "ID_SUBJECT")
-issp99$ID_SUBJECT <- sjlabelled::set_label(issp99$ID_SUBJECT, label = c("ID individuo"))
-
-# 3.3 FACTOR ----
+# 3.2 FACTOR ----
 issp99 <- rename_variables(issp99, weight = "FACTOR")
 issp99$FACTOR <- sjlabelled::set_label(issp99$FACTOR, label = c("Factor expansion"))
 
-# 3.4 COUNTRY ----
+# 3.3 COUNTRY ----
 frq(issp99$v3)
 issp99 <- issp99 %>% mutate(COUNTRY = case_when(v3 == 1 ~ "Australia",
                                                 v3 == 2 | v3 == 3 ~ "Alemania",
@@ -96,20 +91,20 @@ issp99 <- issp99 %>% mutate(COUNTRY = case_when(v3 == 1 ~ "Australia",
                                                 TRUE ~ NA_character_))
 issp99$COUNTRY <- sjlabelled::set_label(issp99$COUNTRY, label = c("País"))
 
-# 3.5 SEX ----
+# 3.4 SEX ----
 frq(issp99$sex)
 issp99 <- issp99 %>% mutate(SEX = if_else(sex == 1, 'Hombre', 'Mujer', missing = NULL))
 issp99$SEX <- as.factor(issp99$SEX)
 issp99$SEX <- sjlabelled::set_label(issp99$SEX, label = c("Sexo"))
 
-# 3.6 UNION ----
+# 3.5 UNION ----
 frq(issp99$union)
 issp99$union <- car::recode(issp99$union, recodes = c("0 = NA; c(8,9) = NA"))
 issp99 <- issp99 %>% mutate(UNION = if_else(union ==  1, 'Si', 'No'))
 issp99$UNION <- as.factor(issp99$UNION)
 issp99$UNION <- sjlabelled::set_label(issp99$UNION, label = "Afiliación sindical")
 
-# 3.7 PARTY AFI ----
+# 3.6 PARTY AFI ----
 frq(issp99$x_prty)
 issp99 <- issp99 %>% mutate(PARTY_AFI = case_when(x_prty %in% c(101:106) ~ 'Si',
                                                   x_prty == 107 ~ 'No',
@@ -171,14 +166,14 @@ issp99 <- issp99 %>% mutate(PARTY_AFI = case_when(x_prty %in% c(101:106) ~ 'Si',
 issp99$PARTY_AFI <- as.factor(issp99$PARTY_AFI)
 issp99$PARTY_AFI <- sjlabelled::set_label(issp99$PARTY_AFI, label = c("Afiliación partidaria"))
 
-# 3.8 INCOME ----
-sjmisc::descr(issp99$rincome)
-issp99$rincome <- car::recode(issp99$rincome, recodes = c("c(999997,999998,999999) = NA"))
-issp99 <- rename_variables(issp99, rincome = "INCOME")
-issp99$INCOME <- as.numeric(issp99$INCOME)
-issp99$INCOME <- sjlabelled::set_label(issp99$INCOME, label = c("Ingreso"))
+# 3.7 INCOME ----
+frq(issp99$rincomer)
+issp99$rincomer <- car::recode(issp99$rincomer, recodes = c("c(97,98,99) = NA"))
+issp99 <- rename_variables(issp99, rincomer = "INCOME")
+issp99$INCOME <- as.factor(issp99$INCOME)
+issp99$INCOME <- sjlabelled::set_label(issp99$INCOME, label = c("Decil ingreso"))
 
-# 3.9 EDUCATION ----
+# 3.8 EDUCATION ----
 frq(issp99$educyrs) # We don't know if this is equal in every country; We use degree
 frq(issp99$degree)
 issp99 <- issp99 %>% mutate(EDUC = case_when(degree %in% c(1:6) ~ 'No',
@@ -189,7 +184,7 @@ issp99$EDUC <- sjlabelled::set_label(issp99$EDUC, label = c("Nivel educativo ter
 table(issp99$degree, useNA = "ifany")
 table(issp99$EDUC, useNA = "ifany")
 
-# 3.10 CLASS ESCHEME E.O WRIGHT----
+# 3.9 CLASS ESCHEME E.O WRIGHT----
 
 ## Employment relation
 frq(issp99$wrkgovt)
@@ -287,7 +282,7 @@ issp99$CLASS <- factor(issp99$CLASS,levels = c(1:9),
 issp99 %>% filter(!is.na(CLASS)) %>% count(CLASS) %>% mutate(prop = prop.table(n)) 
 issp99$CLASS <- sjlabelled::set_label(issp99$CLASS, label = c("Posición de clase"))
 
-# 3.11 PERCEIVED SOCIAL CONFLICT INDEX ----
+# 3.10 PERCEIVED SOCIAL CONFLICT INDEX ----
 ## Rich and poor 
 frq(issp99$v41)
 issp99 <- issp99 %>% mutate(CONFLICT_RP = case_when(v41 == 1 ~ 3,
@@ -343,29 +338,33 @@ sjPlot::plot_frq(na.omit(issp99$PSCi), type = "histogram", show.mean = TRUE) # F
 
 ## Cronbach's alpha
 matriz <- issp99 %>% select(CONFLICT_RP, CONFLICT_WCMC, CONFLICT_MW, CONFLICT_TB)
-psych::alpha(matriz) # coef = 0.81
+psych::alpha(matriz) # coef = 0.79
 
 ## Polychoric alpha ordinal (Likert scale)
 matriz_poly <- polychoric(matriz) 
-psych::alpha(matriz_poly$rho) # coef = 0.85
+psych::alpha(matriz_poly$rho) # coef = 0.84
 
 # View
 issp99 %>% 
   filter(!is.na(PSCi)) %>% 
-  count(PSCi) %>% 
-  mutate(proporcion = prop.table(n))
+  count(PSCi)
+
+# 3.11 ID SUBJETC ----
+issp99 <- tibble::rowid_to_column(issp99, "ID_SUBJECT")
+issp99$ID_SUBJECT <- sjlabelled::set_label(issp99$ID_SUBJECT, label = c("ID individuo"))
 
 # 4. Level 2 data ----
 issp99 <- issp99 %>% select(YEAR,
                             ID_SUBJECT,
                             COUNTRY,
-                            FACTOR,
                             SEX,
                             INCOME,
                             PARTY_AFI,
                             UNION,
                             CLASS,
-                            33:37)
+                            33:37,
+                            FACTOR)
+
 
 sapply(issp99, class)
 view(dfSummary(issp99, headings=FALSE, varnumbers = F, valid.col = T, na.col = T))
