@@ -1,9 +1,7 @@
 # Code 1: Process ISSP 1999
 
 # 1. Packages ----
-
 if (!require("pacman")) install.packages("pacman")
-
 pacman::p_load(tidyverse,
                dplyr,
                lubridate,
@@ -168,8 +166,8 @@ issp99$PARTY_AFI <- sjlabelled::set_label(issp99$PARTY_AFI, label = c("AfiliaciÃ
 
 # 3.7 INCOME ----
 frq(issp99$rincomer)
-issp99$rincomer <- car::recode(issp99$rincomer, recodes = c("c(97,98,99) = NA"))
-issp99 <- rename_variables(issp99, rincomer = "INCOME")
+issp99$rincomer <- car::recode(issp99$rincomer, recodes = c("0 = 1; c(97,98,99) = NA")) 
+issp99 <- rename_variables(issp99, rincomer = "INCOME") 
 issp99$INCOME <- as.factor(issp99$INCOME)
 issp99$INCOME <- sjlabelled::set_label(issp99$INCOME, label = c("Decil ingreso"))
 
@@ -244,17 +242,17 @@ issp99$ISCO88 <- substr(issp99$ISCO88, start = 1, stop = 2) # 2 digits
 
 ### Skills variable
 issp99 <- issp99 %>% mutate(skills = case_when(ISCO88 %in% c(1:25) ~ 'Expertos',
-                                                ISCO88 %in% c(30, 31, 32, 33, 34, 70, 71, 72, 73, 74, 75, 79) ~ 'Calificados',
-                                                ISCO88 %in% c(40, 41, 42, 51, 52, 61, 62, 80, 81, 82, 83, 84, 90, 91, 92, 93) ~ 'No calificados',
+                                                ISCO88 %in% c(30, 31, 32, 33, 34, 61, 70, 71, 72, 73, 74, 75, 79) ~ 'Calificados',
+                                                ISCO88 %in% c(40, 41, 42, 51, 52, 62, 80, 81, 82, 83, 84, 90, 91, 92, 93) ~ 'No calificados',
                                                 ISCO88 == 99 ~ NA_character_))
 
 issp99 %>% count(skills) %>% mutate(prop = prop.table(n))
 
-
 ## Education control effect
 issp99 <- issp99 %>% mutate(skillsA = if_else(skills =="Expertos" & EDUC=="Si", "Expertos",
-                                         if_else(skills == "Expertos" & EDUC=="No", "Calificados",
-                                                 if_else(is.na(skills), NA_character_, "No calificados"))))
+                                         if_else(skills == "Expertos" & EDUC=="No", "Calificados", skills))) %>% 
+                                                 mutate(skillsA = if_else(is.na(skillsA), skills, skillsA))
+                                                 
 
 
 issp99 %>% count(skills) %>% mutate(prop = prop.table(n))

@@ -207,7 +207,6 @@ issp09 <- issp09 %>%
                                               99999990 = NA; 99999997 = NA; 99999998 = NA; 99999999 = NA")))
   
 # ntile function without NAs
-
 ntile_na <- function(x,n)
 {
   notna <- !is.na(x)
@@ -217,7 +216,7 @@ ntile_na <- function(x,n)
 }
 
 issp09 <- issp09 %>%  
-  mutate_at(vars(22:62), ~ ntile_na(., 10))
+  mutate_at(vars(22:62), ~ ntile_na(., 10)) 
   
 issp09 %>% filter(COUNTRY == "Argentina") %>% count(AR_RINC) # works
 
@@ -290,8 +289,8 @@ table(issp09$ISCO88)
 
 ### Skills variable
 issp09 <- issp09 %>% mutate(skills = case_when(ISCO88 %in% c(10:24) ~ 'Expertos',
-                                               ISCO88 %in% c(30, 31, 32, 33, 34, 70, 71, 72, 73, 74) ~ 'Calificados',
-                                               ISCO88 %in% c(40, 41, 42, 50, 51, 52, 60, 61, 62, 80, 81, 82, 83, 90, 91, 92, 93) ~ 'No calificados',
+                                               ISCO88 %in% c(30, 31, 32, 33, 34, 60, 61, 70, 71, 72, 73, 74) ~ 'Calificados',
+                                               ISCO88 %in% c(40, 41, 42, 50, 51, 52, 62, 80, 81, 82, 83, 90, 91, 92, 93) ~ 'No calificados',
                                                ISCO88 == 99 ~ NA_character_))
 
 issp09 %>% count(skills) %>% mutate(prop = prop.table(n))
@@ -411,5 +410,4 @@ issp09 <- issp09 %>% select(YEAR,
                             75:79,
                             FACTOR)
 
-
-
+view(dfSummary(issp09, headings=FALSE, varnumbers = F, valid.col = T, na.col = T))
