@@ -88,7 +88,7 @@ issp19$UNION <- sjlabelled::set_label(issp19$UNION, label = c("Afiliación sindi
 frq(issp19$PARTY_LR)
 issp19 <- issp19 %>% mutate(PARTY_AFI = case_when(PARTY_LR %in% c(-9,-8,-7,-4,-1, 96) ~ NA_character_,
                                                   PARTY_LR %in% c(1:5) ~ "Si",
-                                                  PARTY_LR == 6 ~ "No")) # lot of NAs 60%
+                                                  PARTY_LR == 6 ~ "No")) # NAs 60%
 issp19$PARTY_AFI <- as.factor(issp19$PARTY_AFI)
 issp19$PARTY_AFI <- sjlabelled::set_label(issp19$PARTY_AFI, label = c("Afiliación partidaria"))
 
@@ -125,7 +125,17 @@ ntile_na <- function(x,n)
 issp19 <- issp19 %>% 
   mutate_at(vars(14:28), ~ ntile_na(., 10))
 
-issp19 %>% filter(COUNTRY == "Chile") %>% count(CL_RINC)
+issp19 %>% filter(COUNTRY == "Chile") %>% count(CL_RINC) # works
+
+df <- issp19 %>% select(14:28)
+df <- t(df)
+test <- colSums(df, na.rm = T)
+test <- as.data.frame(test)
+test$test <- car::recode(test$test, recodes = c("0 = NA"))
+
+issp19$INCOME <- test$test
+issp19$INCOME <- as.factor(issp19$INCOME)
+issp19$INCOME <- sjlabelled::set_label(issp19$INCOME, label = c("Decil ingreso"))
 
 # 3.8 EDUCATION ----
 frq(issp19$DEGREE) # 5 & 6 
@@ -266,10 +276,7 @@ matriz_poly <- polychoric(matriz)
 psych::alpha(matriz_poly$rho) # coef = 0.84
 
 # View
-issp19 %>% 
-  filter(!is.na(PSCi)) %>% 
-  count(PSCi) %>% 
-  mutate(proporcion = prop.table(n))
+issp19 %>% filter(!is.na(PSCi)) %>% count(PSCi)
 
 # 3.11 ID SUBJECT ----
 issp19 <- tibble::rowid_to_column(issp19, "ID_SUBJECT")
@@ -280,11 +287,11 @@ issp19 <- issp19 %>% select(YEAR,
                             ID_SUBJECT,
                             COUNTRY,
                             SEX,
-                            15:29,
+                            INCOME,
                             PARTY_AFI,
                             UNION,
                             CLASS,
-                            41:44,
+                            42:45,
                             FACTOR)
 
 sapply(issp19, class)

@@ -220,6 +220,16 @@ issp09 <- issp09 %>%
   
 issp09 %>% filter(COUNTRY == "Argentina") %>% count(AR_RINC) # works
 
+df <- issp09 %>% select(22:62)
+df <- t(df)
+test <- colSums(df,na.rm=T)
+test <- as.data.frame(test)
+test$test <- car::recode(test$test, recodes = c("0 = NA"))
+
+issp09$INCOME <- test$test
+issp09$INCOME <- as.factor(issp09$INCOME)
+issp09$INCOME <- sjlabelled::set_label(issp09$INCOME, label = c("Decil ingreso"))
+
 # 3.8 EDUCATION ----
 frq(issp09$DEGREE)
 issp09 <- issp09 %>% mutate(EDUC = case_when(DEGREE %in% c(0:4) ~ 'No',
@@ -403,11 +413,11 @@ issp09 <- issp09 %>% select(YEAR,
                             ID_SUBJECT,
                             COUNTRY,
                             SEX,
-                            23:63,
+                            INCOME,
                             PARTY_AFI,
                             UNION,
                             CLASS,
-                            75:79,
+                            76:80,
                             FACTOR)
 
 view(dfSummary(issp09, headings=FALSE, varnumbers = F, valid.col = T, na.col = T))
