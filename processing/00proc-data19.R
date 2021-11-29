@@ -37,6 +37,7 @@ issp19 <- issp19 %>% select(country,
                             NSUP,
                             ISCO08,
                             UNION,
+                            VOTE_LE,
                             PARTY_LR,
                             187:201,
                             WEIGHT)
@@ -91,6 +92,16 @@ issp19 <- issp19 %>% mutate(PARTY_AFI = case_when(PARTY_LR %in% c(-9,-8,-7,-4,-1
                                                   PARTY_LR == 6 ~ "No")) # NAs 60%
 issp19$PARTY_AFI <- as.factor(issp19$PARTY_AFI)
 issp19$PARTY_AFI <- sjlabelled::set_label(issp19$PARTY_AFI, label = c("Afiliación partidaria"))
+
+chile <- issp19 %>% filter(COUNTRY == "Chile") %>% select(VOTE_LE, PARTY_LR, SEX)
+chile <- chile %>% filter(PARTY_LR != 96, PARTY_LR != -1, PARTY_LR != -8)
+chile$party <- car::recode(chile$PARTY_LR, recodes = c("c(-9,-7) = NA"))
+
+
+df_select <- chile %>% select(party, SEX)
+df_select <- as_numeric(df_select)
+res <- TestMCARNormality(data=df_select)
+print(res)
 
 # 3.7 INCOME ----
 frq(issp19$CH_RINC)
