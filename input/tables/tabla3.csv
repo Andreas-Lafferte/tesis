@@ -3,6 +3,6 @@ Nivel individual;;
 Sexo;Sexo encuestado;ISSP
 Ingreso;Deciles de ingresos;ISSP
 Nivel contextual;;
-Riqueza país;GDP per cápita;OCDE
-Gasto social;Proporción del GDP destinada a gasto social;OCDE
-Densidad sindical;Tasa de sindicalización neta;ICTWSS
+Riqueza país;GDP per cápita;WIID
+Gasto social;Proporción del GDP destinada a gasto social;OCDE/EUROSTAT
+Densidad sindical;Tasa de sindicalización neta;ICTWSS/ILO
