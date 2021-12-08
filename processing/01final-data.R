@@ -12,7 +12,8 @@ pacman::p_load(tidyverse,
                summarytools,
                haven,
                stargazer,
-               magrittr)
+               magrittr,
+               psych)
 options(scipen=999)
 
 # 2. Data ----
@@ -81,7 +82,7 @@ db <- full_join(db, df, by = c("COUNTRY", "YEAR"))
 
 ## Cross-sectional effects
 
-# Country mean centered
+# Country mean
 db <- db %>% group_by(COUNTRY) %>% mutate(MEAN_RATIO = mean(RATIO_IC)) # MEAN RATIO_IC
 db %>% group_by(COUNTRY) %>% count(MEAN_RATIO) %>% print(n = nrow(.)) # View
 
@@ -90,16 +91,14 @@ db %>% group_by(COUNTRY) %>% count(MEAN_GDP) %>% print(n = nrow(.)) # View
 
 ## Longitudinal effects 
 
-# Difference country mean and country-year value
-
+# Mean centered
 db <- db %>% group_by(COUNTRY, YEAR) %>% 
-  mutate(LAG_RATIO = (MEAN_RATIO - RATIO_IC)) # LAG RATIO
+  mutate(LAG_RATIO = (RATIO_IC - MEAN_RATIO)) # LAG RATIO
 
 db %>% group_by(COUNTRY, YEAR) %>% count(LAG_RATIO) %>% print(n = nrow(.)) # View
 
-
 db <- db %>% group_by(COUNTRY, YEAR) %>% 
-  mutate(LAG_GDP = (MEAN_GDP - GDP)) # LAG GDP
+  mutate(LAG_GDP = (GDP - MEAN_GDP)) # LAG GDP
 
 db %>% group_by(COUNTRY, YEAR) %>% count(LAG_GDP) %>% print(n = nrow(.)) # View
 
