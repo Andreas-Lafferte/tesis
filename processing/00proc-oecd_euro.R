@@ -1,4 +1,4 @@
-# Code 6: Process Social Expenditure
+# Code 6: Process OECD - EURO
 
 # 1. Packages ----
 if (!require("pacman")) install.packages("pacman")
@@ -38,7 +38,7 @@ ocde <- ocde %>% group_by(LOCATION) %>%
          LOCATION == "CZE" & TIME %in% c(1999,2009,max(TIME)) |
          LOCATION == "DEU" & TIME %in% c(1999,2009,max(TIME)) |
          LOCATION == "DNK" & TIME %in% c(2009,max(TIME)) |
-         LOCATION == "ESP" & TIME == 2009 |
+         LOCATION == "ESP" & TIME %in% c(1999,2009) |
          LOCATION == "EST" & TIME == 2009 |
          LOCATION == "FIN" & TIME %in% c(2009,max(TIME)) |
          LOCATION == "FRA" & TIME == 2009 |
@@ -127,5 +127,6 @@ data$COUNTRY <- sjlabelled::set_label(data$COUNTRY, label = c('País'))
 data$YEAR <- sjlabelled::set_label(data$YEAR, label = c('Año'))
 data$SOC_EXPEND <- sjlabelled::set_label(data$SOC_EXPEND, label = c('Gasto social (%GDP)'))
 
+oecd <- data
 # 4 Save ----
-save(data, file = "~/GitHub/tesis/output/oecd_euro.RData")
+save(oecd, file = "../output/data/oecd_euro.RData")

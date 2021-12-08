@@ -12,8 +12,7 @@ pacman::p_load(tidyverse,
                summarytools,
                haven,
                stargazer,
-               magrittr,
-               Rilostat)
+               magrittr)
 options(scipen=999)
 
 # 2. Data ----
@@ -24,7 +23,7 @@ names(wiid_or)
 
 # 3. Processing -----
 
- # 3.1 Select and filter country's ----
+# 3.1 Select and filter country's ----
 wiid <- wiid_or %>% select(country, year, ratio_top20bottom20, 34:39, gdp, source_detailed)
 
 wiid <- wiid %>% filter(country %in% c("Germany", "Argentina", "Austria", "Australia", "Belgium", 
@@ -124,6 +123,7 @@ wiid <- wiid %>% filter(COUNTRY == "Argentina" & year == 2009 & source_detailed 
                           COUNTRY == "Eslovaquia" & year == 2009 & scale_detailed == "Square root" & source_detailed == "OECD.Stat" |
                           COUNTRY == "Eslovenia" & year == 2009 & scale_detailed == "Square root" & source_detailed == "OECD.Stat" |
                           COUNTRY == "Eslovenia" & year == 2019 & scale_detailed == "Square root" & source_detailed == "Eurostat microdata" |
+                          COUNTRY == "España" & year == 1999 & scale_detailed == "Square root" & source_detailed == "Eurostat microdata" |
                           COUNTRY == "España" & year == 2009 & scale_detailed == "Square root" & source_detailed == "OECD.Stat" |
                           COUNTRY == "Estonia" & year == 2009 & scale_detailed == "Square root" & source_detailed == "Eurostat microdata" |
                           COUNTRY == "Filipinas" & year == 2009 |
@@ -200,4 +200,4 @@ wiid <- rename_variables(wiid, gdp = "GDP")
 wiid$GDP <- sjlabelled::set_label(wiid$GDP, label = c('GDP Per capita USD'))
 
 # 4. Save ----
-save(wiid, file = "~/GitHub/tesis/output/wiid.RData")
+save(wiid, file = "../output/data/wiid.RData")

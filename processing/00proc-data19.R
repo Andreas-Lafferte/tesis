@@ -51,7 +51,7 @@ issp19$YEAR <- sjlabelled::set_label(issp19$YEAR, label = c("Año"))
 
 # 3.2 FACTOR ----
 issp19 <- rename_variables(issp19, WEIGHT = "FACTOR")
-issp19$FACTOR <- sjlabelled::set_label(issp19$FACTOR, label = c("Factor expansion"))
+issp19$FACTOR <- sjlabelled::set_label(issp19$FACTOR, label = c("Factor expansión"))
 
 # 3.3 COUNTRY ----
 frq(issp19$country)
@@ -92,16 +92,6 @@ issp19 <- issp19 %>% mutate(PARTY_AFI = case_when(PARTY_LR %in% c(-9,-8,-7,-4,-1
                                                   PARTY_LR == 6 ~ "No")) # NAs 60%
 issp19$PARTY_AFI <- as.factor(issp19$PARTY_AFI)
 issp19$PARTY_AFI <- sjlabelled::set_label(issp19$PARTY_AFI, label = c("Afiliación partidaria"))
-
-chile <- issp19 %>% filter(COUNTRY == "Chile") %>% select(VOTE_LE, PARTY_LR, SEX)
-chile <- chile %>% filter(PARTY_LR != 96, PARTY_LR != -1, PARTY_LR != -8)
-chile$party <- car::recode(chile$PARTY_LR, recodes = c("c(-9,-7) = NA"))
-
-
-df_select <- chile %>% select(party, SEX)
-df_select <- as_numeric(df_select)
-res <- TestMCARNormality(data=df_select)
-print(res)
 
 # 3.7 INCOME ----
 frq(issp19$CH_RINC)
@@ -269,6 +259,10 @@ frq(issp19$CONFLICT_MW)
 sjPlot::plot_frq(na.omit(issp19$CONFLICT_MW), type = "histogram", show.mean = TRUE)
 issp19$CONFLICT_MW <- sjlabelled::set_label(issp19$CONFLICT_MW, label = c("Conflictos: directivos - trabajadores"))
 
+## People at the top and people at the bottom 
+issp19$CONFLICT_TB <- NA
+issp19$CONFLICT_TB <- sjlabelled::set_label(issp19$CONFLICT_TB, label = c("Conflictos: gente de arriba - gente de abajo"))
+
 ## PSCI 
 issp19 <- issp19 %>% 
   rowwise() %>% 
@@ -289,13 +283,8 @@ psych::alpha(matriz_poly$rho) # coef = 0.84
 # View
 issp19 %>% filter(!is.na(PSCi)) %>% count(PSCi)
 
-# 3.11 ID SUBJECT ----
-issp19 <- tibble::rowid_to_column(issp19, "ID_SUBJECT")
-issp19$ID_SUBJECT <- sjlabelled::set_label(issp19$ID_SUBJECT, label = c("ID individuo"))
-
-# 4. Level 2 data ----
+# 4. Save ----
 issp19 <- issp19 %>% select(YEAR,
-                            ID_SUBJECT,
                             COUNTRY,
                             SEX,
                             INCOME,
@@ -306,4 +295,4 @@ issp19 <- issp19 %>% select(YEAR,
                             FACTOR)
 
 sapply(issp19, class)
-view(dfSummary(issp19, headings=FALSE, varnumbers = F, valid.col = T, na.col = T))
+save(issp19, file = "../output/data/issp19.RData")

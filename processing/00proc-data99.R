@@ -55,14 +55,14 @@ issp99$YEAR <- sjlabelled::set_label(issp99$YEAR, label = c("Año"))
 
 # 3.2 FACTOR ----
 issp99 <- rename_variables(issp99, weight = "FACTOR")
-issp99$FACTOR <- sjlabelled::set_label(issp99$FACTOR, label = c("Factor expansion"))
+issp99$FACTOR <- sjlabelled::set_label(issp99$FACTOR, label = c("Factor expansión"))
 
 # 3.3 COUNTRY ----
 frq(issp99$v3)
 issp99 <- issp99 %>% mutate(COUNTRY = case_when(v3 == 1 ~ "Australia",
                                                 v3 == 2 | v3 == 3 ~ "Alemania",
                                                 v3 == 4 ~ "Gran Bretaña",
-                                                v3 == 5 ~ "Irlanda del Norte",
+                                                v3 == 5 ~ "Irlanda",
                                                 v3 == 6 ~ "USA",
                                                 v3 == 7 ~ "Austria",
                                                 v3 == 8 ~ "Hungria",
@@ -347,22 +347,17 @@ issp99 %>%
   filter(!is.na(PSCi)) %>% 
   count(PSCi)
 
-# 3.11 ID SUBJETC ----
-issp99 <- tibble::rowid_to_column(issp99, "ID_SUBJECT")
-issp99$ID_SUBJECT <- sjlabelled::set_label(issp99$ID_SUBJECT, label = c("ID individuo"))
-
-# 4. Level 2 data ----
+# 4. Save ----
 issp99 <- issp99 %>% select(YEAR,
-                            ID_SUBJECT,
                             COUNTRY,
                             SEX,
                             INCOME,
                             PARTY_AFI,
                             UNION,
                             CLASS,
-                            33:37,
+                            32:35,
                             FACTOR)
 
 
 sapply(issp99, class)
-view(dfSummary(issp99, headings=FALSE, varnumbers = F, valid.col = T, na.col = T))
+save(issp99, file = "../output/data/issp99.RData")

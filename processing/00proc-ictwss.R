@@ -51,8 +51,14 @@ df <- rbind(df, df_2)
 ictwss <- ictwss %>% group_by(country) %>% filter(year == 1999| year == 2009| year == max(year))
 
 ictwss <- ictwss %>% .[-c(1,3,6,7,9,10,12,15,17,18,22,27,31,33,34,36,37,40,42,45,46,48,51,52,54,
-                          56,57,58,60,61,64,67,69,72,73,75,78,81,82,87,88,90,94,96,97,100,102,105,106,108,109,
+                          56,57,58,60,61,64,67,69,72,73,75,78,81,82,87,88,90,94,96,97,102,105,106,108,109,
                           111,112,114,117,120),]
+
+g <- ictwss %>% filter(country == "Hong Kong, China")
+g$EXT <- 0
+
+ictwss <- rbind(ictwss, g)
+ictwss <- ictwss[-c(26),]
 
 ictwss <- rbind(ictwss, df)
 
@@ -106,7 +112,7 @@ ict_control <- ict_control %>% filter(country == "Argentina" & year == 2009 |
                                         country == "Slovenia" & year %in% c(2009,2016) |
                                         country == "Slovak Republic" & year %in% c(1999,2009) |
                                         country == "South Africa" & year %in% c(2009,2018) |
-                                        country == "Spain" & year == 2009 |
+                                        country == "Spain" & year %in% c(1999,2009) |
                                         country == "Sweden" & year %in% c(1999,2009) |
                                         country == "Switzerland" & year %in% c(2009,2017) |
                                         country == "Taiwan, China" & year == 2009 |
@@ -243,4 +249,4 @@ ictwss$UD <- sjlabelled::set_label(ictwss$UD, label = c('Densidad sindical'))
 ictwss$AdjCov <- sjlabelled::set_label(ictwss$AdjCov, label = c('Cobertura ajustada negociación colectiva'))
 
 # 4. Save ----
-save(ictwss, file = "~/GitHub/tesis/output/ictwss.RData")
+save(ictwss, file = "../output/data/ictwss.RData")
