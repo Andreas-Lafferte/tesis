@@ -25,6 +25,7 @@ names(ictwss_or)
 
 # 3.1 Index ----
 ictwss <- ictwss_or %>% select(country, year, Coord, Type, Level, EXT)
+ictwss_new <- ictwss
 
 ictwss <- ictwss %>% filter(country != "Colombia", country != "Costa Rica", country != "India", 
                             country != "Indonesia", country != "Luxembourg", country != "Malaysia", 
@@ -62,7 +63,32 @@ ictwss <- ictwss[-c(26),]
 
 ictwss <- rbind(ictwss, df)
 
+# new data from issp 2019
+
+new_df <- ictwss_new %>% filter(country == "Bulgaria" & year == 2018|
+                              country == "United Kingdom" & year == 2018|
+                              country == "Iceland" & year == 2018|
+                              country == "Israel" & year == 2018|
+                              country == "Lithuania" & year == 2018|
+                              country == "Taiwan, China" & year == 2018)
+
+ictwss <- rbind(ictwss, new_df)
+
 ictwss$year <- car::recode(ictwss$year, recodes = c("2017 = 2019; 2018 = 2019"))
+
+labels_ictwss <- ictwss
+
+frq(ictwss$Coord)
+frq(ictwss$Type)
+frq(ictwss$Level)
+frq(ictwss$EXT)
+
+ictwss$Coord <- as.factor(ictwss$Coord)
+ictwss$Type <- as.factor(ictwss$Type)
+ictwss$Level <- as.factor(ictwss$Level)
+ictwss$EXT <- as.factor(ictwss$EXT)
+
+ictwss <- sjlabelled::copy_labels(ictwss, labels_ictwss)
 
 # 3.2 Control ----
 
@@ -82,7 +108,7 @@ ict_control <- ict_control %>% filter(country == "Argentina" & year == 2009 |
                                         country == "Australia" & year %in% c(1999,2008) |
                                         country == "Austria" & year == 2008 |
                                         country == "Belgium" & year == 2009 |
-                                        country == "Bulgaria" & year %in% c(1998,2009) |
+                                        country == "Bulgaria" & year %in% c(1998,2009, 2016) |
                                         country == "Canada" & year == 1999 |
                                         country == "Chile" & year %in% c(2000,2009,2016) |
                                         country == "Croatia" & year %in% c(2008,2018) |
@@ -95,14 +121,14 @@ ict_control <- ict_control %>% filter(country == "Argentina" & year == 2009 |
                                         country == "Germany" & year %in% c(1999,2009,2018) |
                                         country == "Hong Kong, China" & year == 2009 |
                                         country == "Hungary" & year %in% c(1998,2008) |
-                                        country == "Iceland" & year == 2008 |
+                                        country == "Iceland" & year %in% c(2008,2018) |
                                         country == "Ireland" & year == 1999 |
-                                        country == "Israel" & year == 2009 |
+                                        country == "Israel" & year %in% c(2009,2017) |
                                         country == "Italy" & year %in% c(2010,2018) |
                                         country == "Japan" & year %in% c(2009,2018) |
                                         country == "Korea, Republic of" & year == 2009 |
                                         country == "Latvia" & year %in% c(1999,2009) |
-                                        country == "Lithuania" & year == 2009 |
+                                        country == "Lithuania" & year %in% c(2009,2018) |
                                         country == "New Zealand" & year %in% c(1998,2010,2017) |
                                         country == "Norway" & year %in% c(1998,2008) |
                                         country == "Philippines" & year %in% c(2009,2016) |
@@ -115,9 +141,9 @@ ict_control <- ict_control %>% filter(country == "Argentina" & year == 2009 |
                                         country == "Spain" & year %in% c(1999,2009) |
                                         country == "Sweden" & year %in% c(1999,2009) |
                                         country == "Switzerland" & year %in% c(2009,2017) |
-                                        country == "Taiwan, China" & year == 2009 |
+                                        country == "Taiwan, China" & year %in% c(2009,2018)|
                                         country == "Turkey" & year == 2008 |
-                                        country == "United Kingdom" & year %in% c(1999,2009) |
+                                        country == "United Kingdom" & year %in% c(1999,2009, 2018) |
                                         country == "United States of America" & year %in% c(1999,2009))
 
 ict_control$year <- car::recode(ict_control$year, recodes = c("c(1998,1999,2000) = 1999; c(2008,2009,2010) = 2009; c(2016,2017,2018) = 2019"))
@@ -140,6 +166,8 @@ ud$year <- car::recode(ud$year, recodes = c("2012 = 2009; 2003 = 1999; 2000 = 19
 
 ict_control <- full_join(ict_control, ud, by = c("country", "year"))
 
+ict_control$UD[ict_control$country == "Taiwan, China" & ict_control$year == 2019] <- 32.7539503
+
 # Bargaining coveragee
 
 cbc <- Rilostat::get_ilostat("ILR_CBCT_NOC_RT_A")  %>% 
@@ -155,7 +183,7 @@ cbc <- cbc %>% filter(iso3c == "AUS" & year == 2000 |
                         iso3c == "DNK" & year == 2015 |
                         iso3c == "FIN" & year == 2015 |
                         iso3c == "CHN" & year == 2009 |
-                        iso3c == "ISL" & year == 2008 |
+                        iso3c == "ISL" & year %in% c(2008,2016) |
                         iso3c == "IRL" & year == 2000 |
                         iso3c == "ISR" & year == 2012 |
                         iso3c == "LVA" & year %in% c(2002,2009) |

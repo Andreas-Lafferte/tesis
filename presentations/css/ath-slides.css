@@ -150,12 +150,14 @@ figcaption {
 /* 
 Main title and section title slides
 */
+
 .main-title {
   color: #FFFFFF;
 }
 
 .main-title {
-  text-align: center;
+  background-image: url(presentations/ja.png)
+  text-align: left;
 }
 
 .main-title h1 {

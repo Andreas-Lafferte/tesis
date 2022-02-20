@@ -88,6 +88,8 @@ wiid <- wiid %>% group_by(COUNTRY) %>% filter(year >= 1996 & year <= 2001 |
                                            sharing_unit == 1,
                                            reference_unit == 1) %>% 
                                            select(COUNTRY, year, ratio_top20bottom20, resource_detailed, scale, scale_detailed, gdp, source_detailed)
+
+
 # 3.3 Recode and unit ----
 wiid$scale_detailed <- as.numeric(wiid$scale_detailed)
 wiid$scale_detailed <- car::recode(wiid$scale_detailed, recodes = c("101 = 'Per capita'; 201 = 'Equivalente'; 
@@ -107,6 +109,7 @@ wiid <- wiid %>% filter(COUNTRY == "Argentina" & year == 2009 & source_detailed 
                           COUNTRY == "Belgica" & year == 2009 & scale_detailed == "Square root" & source_detailed == "Luxembourg Income Study (LIS)" |
                           COUNTRY == "Bulgaria" & year == 1999 |
                           COUNTRY == "Bulgaria" & year == 2009 & scale_detailed == "Square root" & source_detailed == "OECD.Stat" |
+                          COUNTRY == "Bulgaria" & year == 2019 & scale_detailed == "Square root" & source_detailed == "Eurostat microdata" |
                           COUNTRY == "Canada" & year == 1999 & scale_detailed == "Square root" & source_detailed == "OECD.Stat" |
                           COUNTRY == "Chile" & year == 1999 |
                           COUNTRY == "Chile" & year == 2009 & scale_detailed == "Square root" & source_detailed == "Luxembourg Income Study (LIS)" |
@@ -133,17 +136,21 @@ wiid <- wiid %>% filter(COUNTRY == "Argentina" & year == 2009 & source_detailed 
                           COUNTRY == "Francia" & year == 2009 & scale_detailed == "Square root" & source_detailed == "OECD.Stat" |
                           COUNTRY == "Gran Bretaña" & year == 1999 & scale_detailed == "Square root" & source_detailed == "OECD.Stat" |
                           COUNTRY == "Gran Bretaña" & year == 2009 & scale_detailed == "Square root" & source_detailed == "Luxembourg Income Study (LIS)" |
+                          COUNTRY == "Gran Bretaña" & year == 2019 & scale_detailed == "Square root" & source_detailed == "Luxembourg Income Study (LIS)" |
                           COUNTRY == "Hungria" & year == 1999 & scale_detailed == "Per capita" & source_detailed == "PovcalNet" |
                           COUNTRY == "Hungria" & year == 2009 & scale_detailed == "Square root" & source_detailed == "Luxembourg Income Study (LIS)" |
                           COUNTRY == "Irlanda" & year == 1999 & scale_detailed == "Square root" & source_detailed == "Eurostat microdata" |
                           COUNTRY == "Islandia" & year == 2009 & scale_detailed == "Square root" & source_detailed == "Eurostat microdata" |
+                          COUNTRY == "Islandia" & year == 2018 & scale_detailed == "Square root" & source_detailed == "Eurostat microdata" |
                           COUNTRY == "Israel" & year == 2009  & scale_detailed == "Square root" & source_detailed == "Luxembourg Income Study (LIS)" |
+                          COUNTRY == "Israel" & year == 2018  & scale_detailed == "Square root" & source_detailed == "Luxembourg Income Study (LIS)" |
                           COUNTRY == "Italia" & year == 2009 & scale_detailed == "Square root" & source_detailed == "OECD.Stat" |
                           COUNTRY == "Italia" & year == 2019 & scale_detailed == "Square root" & source_detailed == "Eurostat microdata" |
                           COUNTRY == "Japon" & year == 2009 & scale_detailed == "Square root" & source_detailed == "Luxembourg Income Study (LIS)" |
                           COUNTRY == "Letonia" & year == 1999 |
                           COUNTRY == "Letonia" & year == 2009 & ratio_top20bottom20 == 6.90 |
                           COUNTRY == "Lituania" & year == 2009 & ratio_top20bottom20 == 7.50 |
+                          COUNTRY == "Lituania" & year == 2019 & scale_detailed == "Square root" & source_detailed == "Eurostat microdata" |
                           COUNTRY == "Noruega" & year == 1999 |
                           COUNTRY == "Noruega" & year == 2009 & scale_detailed == "Square root" & source_detailed == "OECD.Stat" |
                           COUNTRY == "Nueva Zelanda" & year == 1998 |
@@ -165,12 +172,12 @@ wiid <- wiid %>% filter(COUNTRY == "Argentina" & year == 2009 & source_detailed 
                           COUNTRY == "Suiza" & year == 2009 & scale_detailed == "Square root" & source_detailed == "Luxembourg Income Study (LIS)" |
                           COUNTRY == "Suiza" & year == 2019 & scale_detailed == "Square root" & source_detailed == "Eurostat microdata" |
                           COUNTRY == "Taiwan" & year == 2010 & scale_detailed == "Square root" & source_detailed == "Luxembourg Income Study (LIS)" |
+                          COUNTRY == "Taiwan" & year == 2016 & scale_detailed == "Square root" & source_detailed == "Luxembourg Income Study (LIS)" |
                           COUNTRY == "Turquia" & year == 2009 & scale_detailed == "Square root" & source_detailed == "OECD.Stat" | 
                           COUNTRY == "USA" & year == 1999 & scale_detailed == "Square root" & source_detailed == "Luxembourg Income Study (LIS)" |
                           COUNTRY == "USA" & year == 2009 & scale_detailed == "Square root" & source_detailed == "Luxembourg Income Study (LIS)")
 
-
-wiid <- wiid[-c(8,21,30,41,52,55),]
+wiid <- distinct(wiid, COUNTRY, year, .keep_all= TRUE) 
 
 wiid <- wiid %>% select(COUNTRY, year, ratio_top20bottom20, gdp)
 
@@ -184,7 +191,7 @@ wiid <- rbind(wiid, a)
 
 wiid <- wiid %>% mutate(year = case_when(year %in% c(1997, 1998, 1999, 2000, 2004) ~ 1999,
                                 year %in% c(2008, 2009, 2010) ~ 2009,
-                                year %in% c(2015, 2017, 2018, 2019) ~ 2019,
+                                year %in% c(2015, 2016, 2017, 2018, 2019) ~ 2019,
                                 TRUE ~ NA_real_))
 
 wiid$COUNTRY <- sjlabelled::set_label(wiid$COUNTRY, label = c('País'))

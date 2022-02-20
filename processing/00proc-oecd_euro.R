@@ -42,15 +42,15 @@ ocde <- ocde %>% group_by(LOCATION) %>%
          LOCATION == "EST" & TIME == 2009 |
          LOCATION == "FIN" & TIME %in% c(2009,max(TIME)) |
          LOCATION == "FRA" & TIME == 2009 |
-         LOCATION == "GBR" & TIME %in% c(1999,2009) |
+         LOCATION == "GBR" & TIME %in% c(1999,2009, max(TIME)) |
          LOCATION == "HUN" & TIME %in% c(1999,2009) |
          LOCATION == "IRL" & TIME == 1999 |
-         LOCATION == "ISL" & TIME == 2009 |
-         LOCATION == "ISR" & TIME == 2009 |
+         LOCATION == "ISL" & TIME %in% c(2009, max(TIME)) |
+         LOCATION == "ISR" & TIME %in% c(2009, max(TIME)) |
          LOCATION == "ITA" & TIME %in% c(2009, max(TIME)) |
          LOCATION == "JPN" & TIME %in% c(2009, max(TIME)) |
          LOCATION == "KOR" & TIME == 2009 |
-         LOCATION == "LTU" & TIME == 2009 |
+         LOCATION == "LTU" & TIME %in% c(2009, max(TIME)) |
          LOCATION == "LVA" & TIME %in% c(1999,2009) |
          LOCATION == "NOR" & TIME %in% c(1999,2009) |
          LOCATION == "NZL" & TIME %in% c(1999,2009,max(TIME)) |
@@ -100,7 +100,7 @@ ocde <- ocde %>% mutate(country = case_when(country == "AUS" ~ "Australia",
                                          year %in% c(2017,2018,2019) ~ 2019))
 
 # 3.2 EURO STAT ----
-euro <- euro %>% group_by(GEO) %>% filter(GEO == "Bulgaria" & TIME %in% c(1999,2009) |
+euro <- euro %>% group_by(GEO) %>% filter(GEO == "Bulgaria" & TIME %in% c(1999,2009,2019) |
                                             GEO == "Cyprus" & TIME %in% c(1999,2009) |
                                             GEO == "Croatia" & TIME %in% c(2009,2019)) %>% 
   select(country = GEO, year = TIME, value = Value) %>% mutate(year = as.numeric(year),

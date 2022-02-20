@@ -1,6 +1,8 @@
 # Code 2: Process ISSP 2009
 
-# 1. Packages ----
+
+# 1. Packages -------------------------------------------------------------
+
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse,
                dplyr,
@@ -19,15 +21,22 @@ pacman::p_load(tidyverse,
                magrittr)
 options(scipen=999)
 
-# 2. Data ----
+
+# 2. Data -----------------------------------------------------------------
+
+
 issp09 <- read_dta("../input/data/ISSP2009.dta")
 sapply(issp09, class)
 names(issp09)
 
-# 3. Processing ----
+
+# 3. Processing -----------------------------------------------------------
+
+
 issp09 <- issp09 %>% select(V3, 
                             V5,
                             SEX,
+                            AGE,
                             DEGREE,
                             UNION,
                             WEIGHT,
@@ -36,16 +45,10 @@ issp09 <- issp09 %>% select(V3,
                             V42,
                             V43,
                             V64,
+                            V66,
                             ISCO88,
                             NEMPLOY,
                             WRKSUP,
-                            PARTY_LR,
-                            CL_PRTY,
-                            CN_PRTY,
-                            CY_PRTY,
-                            HU_PRTY,
-                            IL_PRTY,
-                            TW_PRTY,
                             141:181)
 str(issp09)
 
@@ -110,54 +113,33 @@ issp09$SEX <- as.numeric(issp09$SEX)
 issp09$SEX <- car::recode(issp09$SEX, recodes = c("9 = NA; 1 = 'Hombre'; 2 = 'Mujer'"), as.factor = T)
 issp09$SEX <- sjlabelled::set_label(issp09$SEX, label = c("Sexo"))
 
-# 3.5 UNION ----
+
+# 3.5 AGE ----
+frq(issp09$AGE)
+issp09$AGE <- set_na(issp09$AGE, na = c(99), drop.levels = T, as.tag = F)
+issp09$AGE <- as.numeric(issp09$AGE)
+issp09$AGE <- sjlabelled::set_label(issp09$AGE, label = c("Edad"))
+
+# 3.6 UNION ----
 frq(issp09$UNION)
 issp09$UNION <- as.numeric(issp09$UNION)
 issp09$UNION <- car::recode(issp09$UNION, recodes = c("0 = NA; c(8,9) = NA; c(1,2) = 'Si'; 3 = 'No'"), as.factor = T)
 issp09$UNION <- sjlabelled::set_label(issp09$UNION, label = "Afiliación sindical")
 
-# 3.6 PARTY AFILIATION ----
-frq(issp09$CL_PRTY)
-issp09$CL_PRTY <- as.numeric(issp09$CL_PRTY)
-issp09$CL_PRTY <- car::recode(issp09$CL_PRTY, recodes = c("0 = NA; c(1,2,3,4,5,6,7,8,9,10,95) = 'Si'; 96 = 'No'; c(98,99) = NA"), as.factor = T)
+# 3.7 SUBJECTIVE SOCIAL CLASS ----
+frq(issp09$V66)
+issp09 <- issp09 %>% mutate(SUBJEC_CLASS = case_when(V66 == 1 ~ "6.Clase baja",
+                                                     V66 == 2 ~ "5.Clase trabajadora",
+                                                     V66 == 3 ~ "4.Clase media-baja",
+                                                     V66 == 4 ~ "3.Clase media",
+                                                     V66 == 5 ~ "2.Clase media_alta",
+                                                     V66 == 6 ~ "1.Clase alta",
+                                                     TRUE ~ NA_character_))
 
-frq(issp09$CN_PRTY)
-issp09$CN_PRTY <- as.numeric(issp09$CN_PRTY)
-issp09$CN_PRTY <- car::recode(issp09$CN_PRTY, recodes = c("0 = NA; c(1,3,95) = 'Si'; 96 = 'No'"), as.factor = T)
+issp09$SUBJEC_CLASS <- as.factor(issp09$SUBJEC_CLASS)
+issp09$SUBJEC_CLASS <- sjlabelled::set_label(issp09$SUBJEC_CLASS, label = c("Clase social subjetiva"))
 
-frq(issp09$CY_PRTY)
-issp09$CY_PRTY <- as.numeric(issp09$CY_PRTY)
-issp09$CY_PRTY <- car::recode(issp09$CY_PRTY, recodes = c("0 = NA; c(1,2,3,4,5,6,7,9) = 'Si'; 96 = 'No'; c(97,98) = NA"), as.factor = T)
-
-frq(issp09$HU_PRTY)
-issp09$HU_PRTY <- as.numeric(issp09$HU_PRTY)
-issp09$HU_PRTY <- car::recode(issp09$HU_PRTY, recodes = c("0 = NA; c(1,2,3,4,5,6,7,8,9,95) = 'Si'; 96 = 'No'; c(97,99) = NA"), as.factor = T)
-
-# israel don't used
-
-frq(issp09$TW_PRTY)
-issp09$TW_PRTY <- as.numeric(issp09$TW_PRTY)
-issp09$TW_PRTY <- car::recode(issp09$TW_PRTY, recodes = c("0 = NA; c(1,2,3,4,6,95) = 'Si'; 96 = 'No'; c(97,98) = NA"), as.factor = T)
-
-# final var
-frq(issp09$PARTY_LR)
-issp09 <- issp09 %>% mutate(PARTY_AFI = case_when(PARTY_LR %in% c(1:6) ~ 'Si',
-                                                  CL_PRTY == "Si" ~ 'Si',
-                                                  CN_PRTY == "Si" ~ 'Si',
-                                                  CY_PRTY == "Si" ~ 'Si',
-                                                  HU_PRTY == "Si" ~ 'Si',
-                                                  TW_PRTY == "Si" ~ 'Si',
-                                                  PARTY_LR == 7 ~ 'No',
-                                                  CL_PRTY == "No" ~ 'No',
-                                                  CN_PRTY == "No" ~ 'No',
-                                                  CY_PRTY == "No" ~ 'No',
-                                                  HU_PRTY == "No" ~ 'No',
-                                                  TW_PRTY == "No" ~ 'No',
-                                                  PARTY_LR %in% c(8:9) ~ NA_character_))
-issp09$PARTY_AFI <- as.factor(issp09$PARTY_AFI)
-issp09$PARTY_AFI <- sjlabelled::set_label(issp09$PARTY_AFI, label = c("Afiliación partidaria"))
-
-# 3.7 INCOME ----
+# 3.8 INCOME ----
 frq(issp09$AR_RINC)
 frq(issp09$AT_RINC)
 frq(issp09$AU_RINC)
@@ -201,8 +183,8 @@ frq(issp09$VE_RINC)
 frq(issp09$ZA_RINC)
 
 issp09 <- issp09 %>% 
-  mutate_at(vars(22:62), ~ as.numeric(.)) %>% 
-  mutate_at(vars(22:62), funs(car::recode(. ,"999990 = NA; 999997 = NA; 999998 = NA; 999999 = NA; 
+  mutate_at(vars(17:57), ~ as.numeric(.)) %>% 
+  mutate_at(vars(17:57), funs(car::recode(. ,"999990 = NA; 999997 = NA; 999998 = NA; 999999 = NA; 
                                               9999990 = NA; 9999997 = NA; 9999998 = NA; 9999999 = NA;
                                               99999990 = NA; 99999997 = NA; 99999998 = NA; 99999999 = NA")))
   
@@ -216,11 +198,11 @@ ntile_na <- function(x,n)
 }
 
 issp09 <- issp09 %>%  
-  mutate_at(vars(22:62), ~ ntile_na(., 10)) 
+  mutate_at(vars(17:57), ~ ntile_na(., 10)) 
   
 issp09 %>% filter(COUNTRY == "Argentina") %>% count(AR_RINC) # works
 
-df <- issp09 %>% select(22:62)
+df <- issp09 %>% select(17:57)
 df <- t(df)
 test <- colSums(df,na.rm=T)
 test <- as.data.frame(test)
@@ -230,8 +212,22 @@ issp09$INCOME <- test$test
 issp09$INCOME <- as.factor(issp09$INCOME)
 issp09$INCOME <- sjlabelled::set_label(issp09$INCOME, label = c("Decil ingreso"))
 
-# 3.8 EDUCATION ----
+# 3.9 EDUCATION ----
 frq(issp09$DEGREE)
+
+# For control var
+issp09 <- issp09 %>% mutate(DEGREE_1 = case_when(DEGREE == 0 ~ "Primaria incompleta o menos",
+                                               DEGREE == 1 ~ "Primaria completa",
+                                               DEGREE == 2 ~ "Secundaria incompleta",
+                                               DEGREE == 3 ~ "Secundaria completa",
+                                               DEGREE == 4 ~ "Universitaria incompleta",
+                                               DEGREE == 5 ~ "Universitaria completa",
+                                               TRUE ~ NA_character_))
+
+issp09$DEGREE_1 <- as.factor(issp09$DEGREE_1)
+issp09$DEGREE_1 <- sjlabelled::set_label(issp09$DEGREE_1, label = c("Nivel educativo"))
+
+# For control skills in class var
 issp09 <- issp09 %>% mutate(EDUC = case_when(DEGREE %in% c(0:4) ~ 'No',
                                              DEGREE == 5 ~ 'Si',
                                              TRUE ~ NA_character_))
@@ -240,7 +236,7 @@ issp09$EDUC <- sjlabelled::set_label(issp09$EDUC, label = c("Nivel educativo ter
 table(issp09$DEGREE, useNA = "ifany")
 table(issp09$EDUC, useNA = "ifany")
 
-# 3.9 CLASS ESCHEME E.O WRIGHT ----
+# 3.10 CLASS ESCHEME E.O WRIGHT ----
 
 # Employment relation
 frq(issp09$V64)
@@ -336,7 +332,7 @@ issp09$CLASS <- factor(issp09$CLASS,levels = c(1:9),
 issp09 %>% filter(!is.na(CLASS)) %>% count(CLASS) %>% mutate(prop = prop.table(n)) 
 issp09$CLASS <- sjlabelled::set_label(issp09$CLASS, label = c("Posición de clase"))
 
-# 3.10 PERCEIVED SOCIAL CONFLICT INDEX ----
+# 3.11 PERCEIVED SOCIAL CONFLICT INDEX ----
 ## Rich and poor 
 frq(issp09$V40)
 issp09 <- issp09 %>% mutate(CONFLICT_RP = case_when(V40 == 1 ~ 3,
@@ -408,11 +404,13 @@ issp09 %>%
 issp09 <- issp09 %>% select(YEAR,
                             COUNTRY,
                             SEX,
+                            AGE,
+                            DEGREE = DEGREE_1,
                             INCOME,
-                            PARTY_AFI,
+                            SUBJEC_CLASS,
                             UNION,
                             CLASS,
-                            75:78,
+                            71:74,
                             FACTOR)
 
 sapply(issp09, class)

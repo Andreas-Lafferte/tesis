@@ -7,7 +7,6 @@ output:
   xaringan::moon_reader:
     lib_dir: "libs"
     nature:
-      seal: false
       ratio: '16:9'
       highlightStyle: github
       highlightLines: true
@@ -16,7 +15,7 @@ output:
         scroll: false
       beforeInit: "https://jciturras.github.io/ayudantia-sol3051/slides/00-intro-r/macros.js"
     css: ["css/xaringan-themer.css","https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css", "css/ath-inferno-fonts.css"]
-    # seal: false # esto omite title slide automática  
+    seal: true # esto omite title slide automática  
 ---
 class: center, middle
 

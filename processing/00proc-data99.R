@@ -1,6 +1,8 @@
 # Code 1: Process ISSP 1999
 
-# 1. Packages ----
+
+# 1. Packages -------------------------------------------------------------
+
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse,
                dplyr,
@@ -19,20 +21,23 @@ pacman::p_load(tidyverse,
                magrittr)
 options(scipen=999)
 
-# 2. Data ----
+
+# 2. Data -----------------------------------------------------------------
+
 issp99 <- read_dta("../input/data/ISSP1999.dta")
 sapply(issp99, class)
 names(issp99)
 
-# 3. Processing ----
+
+# 3. Processing -----------------------------------------------------------
 
 ## Select 
 issp99 <- issp99 %>% select(v1,
                             v3,
                             sex,
+                            age,
                             union,
-                            x_prty,
-                            party_lr,
+                            class,
                             rincomer,
                             nemploy,
                             wrkgovt, 
@@ -95,85 +100,57 @@ issp99 <- issp99 %>% mutate(SEX = if_else(sex == 1, 'Hombre', 'Mujer', missing =
 issp99$SEX <- as.factor(issp99$SEX)
 issp99$SEX <- sjlabelled::set_label(issp99$SEX, label = c("Sexo"))
 
-# 3.5 UNION ----
+# 3.5 AGE ----
+frq(issp99$age)
+issp99$age <- set_na(issp99$age, na = c(98,99), drop.levels = T, as.tag = F)
+issp99$age <- as.numeric(issp99$age)
+issp99 <- rename_variables(issp99, age = "AGE")
+issp99$AGE <- sjlabelled::set_label(issp99$AGE, label = c("Edad"))
+
+# 3.6 UNION ----
 frq(issp99$union)
 issp99$union <- car::recode(issp99$union, recodes = c("0 = NA; c(8,9) = NA"))
 issp99 <- issp99 %>% mutate(UNION = if_else(union ==  1, 'Si', 'No'))
 issp99$UNION <- as.factor(issp99$UNION)
 issp99$UNION <- sjlabelled::set_label(issp99$UNION, label = "Afiliación sindical")
 
-# 3.6 PARTY AFI ----
-frq(issp99$x_prty)
-issp99 <- issp99 %>% mutate(PARTY_AFI = case_when(x_prty %in% c(101:106) ~ 'Si',
-                                                  x_prty == 107 ~ 'No',
-                                                  x_prty %in% c(201:208) ~ 'Si',
-                                                  x_prty %in% c(295,296) ~ 'No',
-                                                  x_prty %in% c(301:308) ~ 'Si',
-                                                  x_prty %in% c(395,396) ~ 'No',
-                                                  x_prty %in% c(401:408) ~ 'Si',
-                                                  x_prty %in% c(493:496) ~ 'No',
-                                                  x_prty %in% c(501:511) ~ 'Si',
-                                                  x_prty %in% c(513:514) ~ 'No',
-                                                  x_prty %in% c(601:602) ~ 'Si',
-                                                  x_prty %in% c(603:605) ~ 'No',
-                                                  x_prty %in% c(606:607) ~ 'Si',
-                                                  x_prty == 695 ~ 'No',
-                                                  x_prty %in% c(701:705) ~ 'Si',
-                                                  x_prty %in% c(795:796) ~ 'No',
-                                                  x_prty %in% c(801:810) ~ 'Si',
-                                                  x_prty == 895 ~ 'No',
-                                                  x_prty %in% c(1201:1208) ~ 'Si',
-                                                  x_prty %in% c(1295:1296) ~ 'No',
-                                                  x_prty %in% c(1301:1307) ~ 'Si',
-                                                  x_prty %in% c(1395:1396) ~ 'No',
-                                                  x_prty %in% c(1401:1418) ~ 'Si',
-                                                  x_prty %in% c(1495:1496) ~ 'No',
-                                                  x_prty %in% c(1501:1509) ~ 'Si',
-                                                  x_prty %in% c(1595:1596) ~ 'No',
-                                                  x_prty %in% c(1601:1612) ~ 'Si',
-                                                  x_prty %in% c(1695:1696) ~ 'No',
-                                                  x_prty %in% c(1701:1706) ~ 'Si',
-                                                  x_prty %in% c(1707:1708) ~ 'No',
-                                                  x_prty %in% c(1801:1809) ~ 'Si',
-                                                  x_prty %in% c(1895:1896) ~ 'No',
-                                                  x_prty %in% c(1901:1907) ~ 'Si',
-                                                  x_prty == 1908 ~ 'No',
-                                                  x_prty == 1911 ~ 'No',
-                                                  x_prty %in% c(2001:2005) ~ 'Si',
-                                                  x_prty %in% c(2006:2008) ~ 'No',
-                                                  x_prty %in% c(2101:2114) ~ 'Si',
-                                                  x_prty == 2115 ~ 'No',
-                                                  x_prty %in% c(2116:2132) ~ 'Si',
-                                                  x_prty %in% c(2201:2216) ~ 'Si',
-                                                  x_prty %in% c(2217:2218) ~ 'No',
-                                                  x_prty %in% c(2401:2407) ~ 'Si',
-                                                  x_prty %in% c(2408:2409) ~ 'No',
-                                                  x_prty %in% c(2501:2507) ~ 'Si',
-                                                  x_prty == 2508 ~ 'No',
-                                                  x_prty == 2510 ~ 'No',
-                                                  x_prty == 2513 ~ 'Si',
-                                                  x_prty %in% c(2601:2620) ~ 'Si',
-                                                  x_prty == 2697 ~ 'No',
-                                                  x_prty %in% c(2701:2707) ~ 'Si',
-                                                  x_prty %in% c(2708:2709) ~ 'No',
-                                                  x_prty %in% c(2901:2908) ~ 'Si',
-                                                  x_prty %in% c(2909:2910) ~ 'No',
-                                                  x_prty %in% c(3301:3316) ~ 'Si',
-                                                  x_prty %in% c(3317:3318) ~ 'No',
-                                                  TRUE ~ NA_character_))
-issp99$PARTY_AFI <- as.factor(issp99$PARTY_AFI)
-issp99$PARTY_AFI <- sjlabelled::set_label(issp99$PARTY_AFI, label = c("Afiliación partidaria"))
+# 3.7 SUBJECTIVE SOCIAL CLASS ----
+frq(issp99$class)
+issp99 <- issp99 %>% mutate(SUBJEC_CLASS = case_when(class == 1 ~ "6.Clase baja",
+                                                     class == 2 ~ "5.Clase trabajadora",
+                                                     class == 3 ~ "4.Clase media-baja",
+                                                     class == 4 ~ "3.Clase media",
+                                                     class == 5 ~ "2.Clase media_alta",
+                                                     class == 6 ~ "1.Clase alta",
+                                                     TRUE ~ NA_character_))
 
-# 3.7 INCOME ----
+issp99$SUBJEC_CLASS <- as.factor(issp99$SUBJEC_CLASS)
+issp99$SUBJEC_CLASS <- sjlabelled::set_label(issp99$SUBJEC_CLASS, label = c("Clase social subjetiva"))
+
+# 3.8 INCOME ----
 frq(issp99$rincomer)
 issp99$rincomer <- car::recode(issp99$rincomer, recodes = c("0 = 1; c(97,98,99) = NA")) 
 issp99 <- rename_variables(issp99, rincomer = "INCOME") 
 issp99$INCOME <- as.factor(issp99$INCOME)
 issp99$INCOME <- sjlabelled::set_label(issp99$INCOME, label = c("Decil ingreso"))
 
-# 3.8 EDUCATION ----
+# 3.9 EDUCATION ----
 frq(issp99$educyrs) # We don't know if this is equal in every country; We use degree
 frq(issp99$degree)
+
+## For control var
+issp99 <- issp99 %>% mutate(DEGREE = case_when(degree %in% c(1,2) ~ "Primaria incompleta o menos",
+                                               degree == 3 ~ "Primaria completa",
+                                               degree == 4 ~ "Secundaria incompleta",
+                                               degree == 5 ~ "Secundaria completa",
+                                               degree == 6 ~ "Universitaria incompleta",
+                                               degree == 7 ~ "Universitaria completa",
+                                               TRUE ~ NA_character_))
+
+issp99$DEGREE <- as.factor(issp99$DEGREE)
+issp99$DEGREE <- sjlabelled::set_label(issp99$DEGREE, label = c("Nivel educativo"))
+
+## For control skills in class var
 issp99 <- issp99 %>% mutate(EDUC = case_when(degree %in% c(1:6) ~ 'No',
                                              degree == 7 ~ 'Si',
                                              TRUE ~ NA_character_))
@@ -182,7 +159,7 @@ issp99$EDUC <- sjlabelled::set_label(issp99$EDUC, label = c("Nivel educativo ter
 table(issp99$degree, useNA = "ifany")
 table(issp99$EDUC, useNA = "ifany")
 
-# 3.9 CLASS ESCHEME E.O WRIGHT----
+# 3.10 CLASS ESCHEME E.O WRIGHT----
 
 ## Employment relation
 frq(issp99$wrkgovt)
@@ -280,7 +257,7 @@ issp99$CLASS <- factor(issp99$CLASS,levels = c(1:9),
 issp99 %>% filter(!is.na(CLASS)) %>% count(CLASS) %>% mutate(prop = prop.table(n)) 
 issp99$CLASS <- sjlabelled::set_label(issp99$CLASS, label = c("Posición de clase"))
 
-# 3.10 PERCEIVED SOCIAL CONFLICT INDEX ----
+# 3.11 PERCEIVED SOCIAL CONFLICT INDEX ----
 ## Rich and poor 
 frq(issp99$v41)
 issp99 <- issp99 %>% mutate(CONFLICT_RP = case_when(v41 == 1 ~ 3,
@@ -347,15 +324,18 @@ issp99 %>%
   filter(!is.na(PSCi)) %>% 
   count(PSCi)
 
-# 4. Save ----
+# 4. Save -----------------------------------------------------------------
+
 issp99 <- issp99 %>% select(YEAR,
                             COUNTRY,
                             SEX,
+                            AGE,
+                            DEGREE,
                             INCOME,
-                            PARTY_AFI,
+                            SUBJEC_CLASS,
                             UNION,
                             CLASS,
-                            32:35,
+                            33:36,
                             FACTOR)
 
 

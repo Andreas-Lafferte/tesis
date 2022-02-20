@@ -49,6 +49,9 @@ p{
 .remark-slide-content h1 {
     font-size: 55px;
     color: #0066cc;
+    background-image: url(presentations/ja.png);
+    background-position: 98% 95%;
+    background-size: 150px
 }
 .remark-slide-content h2 {
     font-size: 45px;
@@ -103,16 +106,24 @@ a, a > code {
 .inverse h1, .inverse h2, .inverse h3 {
   color: #f3f3f3;
 }
-.title-slide, .title-slide h1, .title-slide h2, .title-slide h3 {
-  color: white;
-}
+
 .title-slide {
   background-color: #5362d9;
-  
+  background-image: url(presentations/ja.png);
+  background-position: 98% 95%;
+  background-size: 150px;
+  text-align:left;
+  vertical-align: top;
 }
+
 .title-slide .remark-slide-number {
   display: none;
 }
+
+.title-slide, .title-slide h1, .title-slide h2, .title-slide h3 {
+  color: white;
+}
+
 /* Two-column layout */
 .left-column {
   width: 50%;

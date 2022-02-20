@@ -32,7 +32,7 @@ names(issp99)
 names(issp09)
 names(issp19)
 
-## Join issp
+## Join ISSP
 
 db <- rbind(issp99,issp09)
 db <- rbind(db,issp19)
@@ -42,15 +42,18 @@ db <- tibble::rowid_to_column(db, "ID_SUBJECT")
 
 db$ID_SUBJECT <- sjlabelled::set_label(db$ID_SUBJECT, label = c("ID individuo"))
 db$SEX <- sjlabelled::set_label(db$SEX, label = c("Sexo"))
+db$DEGREE <- sjlabelled::set_label(db$DEGREE, label = c("Nivel educativo"))
+db$SUBJEC_CLASS <- sjlabelled::set_label(db$SUBJEC_CLASS, label = c("Clase social subjetiva"))
 db$UNION <- sjlabelled::set_label(db$UNION, label = c("Afiliación sindical"))
 db$INCOME <- sjlabelled::set_label(db$INCOME, label = c("Decil ingreso"))
 db$CLASS <- sjlabelled::set_label(db$CLASS, label = c("Posición de clase"))
-db$PARTY_AFI <- sjlabelled::set_label(db$PARTY_AFI, label = c("Afiliación partidaria"))
 
 ## PSCi
 db <- db %>% 
   rowwise() %>%
   mutate(PSCi = sum(CONFLICT_RP, CONFLICT_WCMC, CONFLICT_MW, na.rm = F))
+
+db$PSCi <- scale(db$PSCi) # standardized Z scores
 
 db$PSCi <- sjlabelled::set_label(db$PSCi, label = c("Perceived Social Conflict Index"))
 frq(db$PSCi)
@@ -58,13 +61,15 @@ sjPlot::plot_frq(na.omit(db$PSCi), type = "histogram", show.mean = TRUE)
 
 ## Cronbach's alpha
 matriz <- db %>% select(CONFLICT_RP, CONFLICT_WCMC, CONFLICT_MW)
-psych::alpha(matriz) # coef = 0.77
+psych::alpha(matriz) # coef = 0.78
 
 ## Polychoric alpha ordinal (Likert scale)
 matriz_poly <- polychoric(matriz) 
 psych::alpha(matriz_poly$rho) # coef = 0.83
 
-db %>% filter(!is.na(PSCi)) %>% count(PSCi)
+db <- as.data.frame(db) # remove Rowwise type
+
+db %>% filter(!is.na(PSCi)) %>% count(PSCi) %>% mutate(prop = prop.table(n))
 
 # 3.2 WIID, ICTWSS, OECD ----
 names(wiid)
@@ -159,7 +164,7 @@ db <- db %>% mutate(ISO_COUNTRY = case_when(COUNTRY == "Alemania" ~ "DEU",
 db$ISO_COUNTRY <- sjlabelled::set_label(db$ISO_COUNTRY, label = c("Código ISO país"))
 
 # 4. Save ----
-db <- db %>% select(ID_SUBJECT, YEAR, COUNTRY, ISO_COUNTRY, SEX, INCOME, PARTY_AFI, UNION, 
-                    CLASS, CONFLICT_RP, CONFLICT_WCMC, CONFLICT_MW, CONFLICT_TB, PSCi, 15:27, FACTOR)
+db <- db %>% select(ID_SUBJECT, YEAR, COUNTRY, ISO_COUNTRY, SEX, AGE, DEGREE, INCOME, SUBJEC_CLASS, UNION, 
+                    CLASS, CONFLICT_RP, CONFLICT_WCMC, CONFLICT_MW, CONFLICT_TB, PSCi, 17:29, FACTOR)
 
 save(db, file = "../output/data/db-proc.RData")

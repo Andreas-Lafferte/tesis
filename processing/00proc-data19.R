@@ -1,6 +1,9 @@
 # Code 3: Process ISSP 2019
 
-# 1. Packages ----
+
+# 1. Packages -------------------------------------------------------------
+
+
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse,
                dplyr,
@@ -19,17 +22,25 @@ pacman::p_load(tidyverse,
                magrittr)
 options(scipen=999)
 
-# 2. Data ----
-issp19 <- read_dta("../input/data/ISSP2019.dta")
+
+# 2. Data -----------------------------------------------------------------
+
+
+issp19 <- read_dta("../input/data/ZA7600_v2-0-0.dta")
 sapply(issp19, class)
 names(issp19)
 
-# 3. Processing ----
+
+# 3. Processing -----------------------------------------------------------
+
+
 issp19 <- issp19 %>% select(country,
                             v36,
                             v37,
                             v38,
+                            v61,
                             SEX,
+                            AGE,
                             DEGREE,
                             WORK,
                             EMPREL,
@@ -37,9 +48,7 @@ issp19 <- issp19 %>% select(country,
                             NSUP,
                             ISCO08,
                             UNION,
-                            VOTE_LE,
-                            PARTY_LR,
-                            187:201,
+                            222:243,
                             WEIGHT)
 
 str(issp19)
@@ -70,6 +79,13 @@ issp19 <- issp19 %>% mutate(COUNTRY = case_when(country == 152 ~ "Chile",
                                                 country == 710 ~ "Sudafrica",
                                                 country == 756 ~ "Suiza",
                                                 country == 764 ~ "Tailandia",
+                                                country == 100 ~ "Bulgaria",
+                                                country == 158 ~ "Taiwan",
+                                                country == 352 ~ "Islandia",
+                                                country == 376 ~ "Israel",
+                                                country == 440 ~ "Lituania",
+                                                country == 826 ~ "Gran Bretaña",
+                                                country == 740 ~ "Surinam",
                                                 TRUE ~ NA_character_))
 issp19$COUNTRY <- sjlabelled::set_label(issp19$COUNTRY, label = c("País"))
 
@@ -79,21 +95,34 @@ issp19$SEX <- as.numeric(issp19$SEX)
 issp19$SEX <- car::recode(issp19$SEX, recodes = c("-9 = NA; 1 = 'Hombre'; 2 = 'Mujer'"), as.factor = T)
 issp19$SEX <- sjlabelled::set_label(issp19$SEX, label = c("Sexo"))
 
-# 3.5 UNION ----
+
+# 3.5 AGE ----
+frq(issp19$AGE)
+issp19$AGE <- set_na(issp19$AGE, na = c(-9), drop.levels = T, as.tag = F)
+issp19$AGE <- as.numeric(issp19$AGE)
+issp19$AGE <- sjlabelled::set_label(issp19$AGE, label = c("Edad"))
+
+# 3.6 UNION ----
 frq(issp19$UNION)
 issp19$UNION <- as.numeric(issp19$UNION)
 issp19$UNION <- car::recode(issp19$UNION, recodes = c("c(-9,-7,-4) = NA; 1 = 'Si'; 2 = 'Si'; 3 = 'No'"), as.factor = T)
 issp19$UNION <- sjlabelled::set_label(issp19$UNION, label = c("Afiliación sindical"))
 
-# 3.6 PARTY AFILIATION ----
-frq(issp19$PARTY_LR)
-issp19 <- issp19 %>% mutate(PARTY_AFI = case_when(PARTY_LR %in% c(-9,-8,-7,-4,-1, 96) ~ NA_character_,
-                                                  PARTY_LR %in% c(1:5) ~ "Si",
-                                                  PARTY_LR == 6 ~ "No")) # NAs 60%
-issp19$PARTY_AFI <- as.factor(issp19$PARTY_AFI)
-issp19$PARTY_AFI <- sjlabelled::set_label(issp19$PARTY_AFI, label = c("Afiliación partidaria"))
 
-# 3.7 INCOME ----
+# 3.7 SUBJECTIVE SOCIAL CLASS ----
+frq(issp19$v61)
+issp19 <- issp19 %>% mutate(SUBJEC_CLASS = case_when(v61 == 1 ~ "6.Clase baja",
+                                                     v61 == 2 ~ "5.Clase trabajadora",
+                                                     v61 == 3 ~ "4.Clase media-baja",
+                                                     v61 == 4 ~ "3.Clase media",
+                                                     v61 == 5 ~ "2.Clase media_alta",
+                                                     v61 == 6 ~ "1.Clase alta",
+                                                     TRUE ~ NA_character_))
+
+issp19$SUBJEC_CLASS <- as.factor(issp19$SUBJEC_CLASS)
+issp19$SUBJEC_CLASS <- sjlabelled::set_label(issp19$SUBJEC_CLASS, label = c("Clase social subjetiva"))
+
+# 3.8 INCOME ----
 frq(issp19$CH_RINC)
 frq(issp19$RU_RINC)
 frq(issp19$CL_RINC)
@@ -109,10 +138,16 @@ frq(issp19$PH_RINC)
 frq(issp19$SI_RINC)
 frq(issp19$TH_RINC)
 frq(issp19$ZA_RINC)
+frq(issp19$BG_RINC)
+frq(issp19$GB_RINC)
+frq(issp19$IS_RINC)
+frq(issp19$TW_RINC)
+frq(issp19$LT_RINC)
+frq(issp19$IL_RINC)
 
 issp19 <- issp19 %>% 
-  mutate_at(vars(14:28), ~ as.numeric(.)) %>% 
-  mutate_at(vars(14:28), funs(car::recode(. ,"-9 = NA; -8 = NA; -7 = NA; -2 = NA")))
+  mutate_at(vars(15:36), ~ as.numeric(.)) %>% 
+  mutate_at(vars(15:36), funs(car::recode(. ,"-9 = NA; -8 = NA; -7 = NA; -2 = NA")))
 
 # ntile function without NAs
 ntile_na <- function(x,n)
@@ -124,11 +159,11 @@ ntile_na <- function(x,n)
 }
 
 issp19 <- issp19 %>% 
-  mutate_at(vars(14:28), ~ ntile_na(., 10))
+  mutate_at(vars(15:36), ~ ntile_na(., 10))
 
 issp19 %>% filter(COUNTRY == "Chile") %>% count(CL_RINC) # works
 
-df <- issp19 %>% select(14:28)
+df <- issp19 %>% select(15:36)
 df <- t(df)
 test <- colSums(df, na.rm = T)
 test <- as.data.frame(test)
@@ -138,8 +173,22 @@ issp19$INCOME <- test$test
 issp19$INCOME <- as.factor(issp19$INCOME)
 issp19$INCOME <- sjlabelled::set_label(issp19$INCOME, label = c("Decil ingreso"))
 
-# 3.8 EDUCATION ----
+# 3.9 EDUCATION ----
 frq(issp19$DEGREE) # 5 & 6 
+
+# For control var
+issp19 <- issp19 %>% mutate(DEGREE_1 = case_when(DEGREE == 0 ~ "Primaria incompleta o menos",
+                                                 DEGREE == 1 ~ "Primaria completa",
+                                                 DEGREE == 2 ~ "Secundaria incompleta",
+                                                 DEGREE == 3 ~ "Secundaria completa",
+                                                 DEGREE == 4 ~ "Universitaria incompleta",
+                                                 DEGREE %in% c(5,6) ~ "Universitaria completa",
+                                                 TRUE ~ NA_character_))
+
+issp19$DEGREE_1 <- as.factor(issp19$DEGREE_1)
+issp19$DEGREE_1 <- sjlabelled::set_label(issp19$DEGREE_1, label = c("Nivel educativo"))
+
+# For control skills in class var
 issp19 <- issp19 %>% mutate(EDUC = case_when(DEGREE %in% c(0:4) ~ 'No',
                                              DEGREE %in% c(5:6) ~ 'Si',
                                              TRUE ~ NA_character_))
@@ -148,7 +197,7 @@ issp19$EDUC <- sjlabelled::set_label(issp19$EDUC, label = c("Nivel educativo ter
 table(issp19$DEGREE, useNA = "ifany")
 table(issp19$EDUC, useNA = "ifany")
 
-# 3.9 CLASS ESCHEME E.O WRIGHT ----
+# 3.10 CLASS ESCHEME E.O WRIGHT ----
 
 ## Employment relation
 issp19 <- issp19 %>% filter(WORK != 3)
@@ -224,7 +273,7 @@ issp19$CLASS <- factor(issp19$CLASS,levels = c(1:9),
 issp19 %>% filter(!is.na(CLASS)) %>% count(CLASS) %>% mutate(prop = prop.table(n)) 
 issp19$CLASS <- sjlabelled::set_label(issp19$CLASS, label = c("Posición de clase"))
 
-# 3.10 PERCEIVED SOCIAL CONFLICT INDEX ----
+# 3.11 PERCEIVED SOCIAL CONFLICT INDEX ----
 
 ## Rich and poor
 frq(issp19$v36)
@@ -287,11 +336,13 @@ issp19 %>% filter(!is.na(PSCi)) %>% count(PSCi)
 issp19 <- issp19 %>% select(YEAR,
                             COUNTRY,
                             SEX,
+                            AGE,
+                            DEGREE = DEGREE_1,
                             INCOME,
-                            PARTY_AFI,
+                            SUBJEC_CLASS,
                             UNION,
                             CLASS,
-                            42:45,
+                            50:53,
                             FACTOR)
 
 sapply(issp19, class)
