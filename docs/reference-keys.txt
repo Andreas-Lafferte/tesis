@@ -1,5 +1,4 @@
 fig:fig1
-fig:fig2
 fig:fig3
 tab:tab-dep
 tab:tab-indep

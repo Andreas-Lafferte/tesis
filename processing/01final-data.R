@@ -53,7 +53,7 @@ db <- db %>%
   rowwise() %>%
   mutate(PSCi = sum(CONFLICT_RP, CONFLICT_WCMC, CONFLICT_MW, na.rm = F))
 
-db$PSCi <- scale(db$PSCi) # standardized Z scores
+#db$PSCi <- scale(db$PSCi) # standardized Z scores
 
 db$PSCi <- sjlabelled::set_label(db$PSCi, label = c("Perceived Social Conflict Index"))
 frq(db$PSCi)
