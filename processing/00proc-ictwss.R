@@ -14,6 +14,7 @@ pacman::p_load(tidyverse,
                stargazer,
                magrittr,
                Rilostat)
+
 options(scipen=999)
 
 # 2. Data ----
@@ -21,10 +22,15 @@ ictwss_or <- haven::read_dta(url("https://aias.s3.eu-central-1.amazonaws.com/web
 sapply(ictwss_or, class)
 names(ictwss_or)
 
+df_j <- read_dta("../input/data/corporatism_3-0_v1211.dta")
+sapply(df_j, class)
+names(df_j)
+
 # 3. Processing ----
 
-# 3.1 Index ----
-ictwss <- ictwss_or %>% select(country, year, Coord, Type, Level, EXT)
+# 3.1 ICTWSS ----
+ictwss <- ictwss_or %>% select(country, year, Coord, Type, Level, EXT, WC_STRUCT,
+                               WC_RIGHTS, Govint)
 ictwss_new <- ictwss
 
 ictwss <- ictwss %>% filter(country != "Colombia", country != "Costa Rica", country != "India", 
@@ -45,7 +51,8 @@ df <- ictwss %>% filter(country == "Denmark" & year == 2018|
                           country == "Slovenia" & year == 2017|
                           country == "Switzerland" & year == 2017)
 
-df_2 <- ictwss_or %>% filter(country == "Slovak Republic" & year %in% c(1999,2009)) %>% select(country, year, Coord, Type, Level, EXT)
+df_2 <- ictwss_or %>% filter(country == "Slovak Republic" & year %in% c(1999,2009)) %>% select(country, year, Coord, Type, Level, EXT, WC_STRUCT,
+                                                                                               WC_RIGHTS, Govint)
 
 df <- rbind(df, df_2)
 
@@ -82,13 +89,9 @@ frq(ictwss$Coord)
 frq(ictwss$Type)
 frq(ictwss$Level)
 frq(ictwss$EXT)
-
-ictwss$Coord <- as.factor(ictwss$Coord)
-ictwss$Type <- as.factor(ictwss$Type)
-ictwss$Level <- as.factor(ictwss$Level)
-ictwss$EXT <- as.factor(ictwss$EXT)
-
-ictwss <- sjlabelled::copy_labels(ictwss, labels_ictwss)
+frq(ictwss$WC_STRUCT)
+frq(ictwss$WC_RIGHTS)
+frq(ictwss$Govint)
 
 # 3.2 Control ----
 
@@ -211,7 +214,7 @@ cbc <- cbc[-c(1)]
 
 ict_control <- full_join(ict_control, cbc, by = c("country", "year"))
 
-# 3.3 Final data ----
+# 3.3 Final data ICTWSS ----
 
 ict_control <- ict_control %>% mutate(UDA = if_else(is.na(UD), ud, UD))
 ict_control <- ict_control %>% mutate(COV = if_else(is.na(AdjCov), cbc, AdjCov))
@@ -263,18 +266,124 @@ ictwss <- ictwss %>% mutate(COUNTRY = case_when(country == "Argentina" ~ "Argent
                                                 country == "United States of America" ~ "USA",
                                                 TRUE ~ NA_character_)) 
 
-ictwss <- ictwss %>% select(COUNTRY, YEAR = year, COORD = Coord, TYPE = Type, LEVEL = Level, EXT, UD, AdjCov)
+ictwss <- ictwss %>% select(COUNTRY, YEAR = year, COORD = Coord, TYPE = Type, GOVINT = Govint, LEVEL = Level, EXT, WC_STRUCT, WC_RIGHTS, UD, AdjCov)
 ictwss <- ictwss[-c(1)]
+
+# 3.4 Jahn Index ----
+
+frq(df_j$iso)
+frq(df_j$year)
+
+df_j <- df_j %>% filter(year >= 1996 & year <= max(year)) %>% 
+  mutate(country = case_when(iso == 32 ~ "Argentina",
+                             iso == 36 ~ "Australia",
+                             iso == 40 ~ "Austria",
+                             iso == 56 ~ "Belgica",
+                             iso == 100 ~ "Bulgaria",
+                             iso == 124 ~ "Canada",
+                             iso == 152 ~ "Chile",
+                             iso == 158 ~ "Taiwan",
+                             iso == 191 ~ "Croacia",
+                             iso == 196 ~ "Chipre",
+                             iso == 203 ~ "Rep Checa",
+                             iso == 208 ~ "Dinamarca",
+                             iso == 233 ~ "Estonia",
+                             iso == 246 ~ "Finlandia",
+                             iso == 250 ~ "Francia",
+                             iso == 276 ~ "Alemania",
+                             iso == 348 ~ "Hungria",
+                             iso == 372 ~ "Irlanda",
+                             iso == 376 ~ "Israel",
+                             iso == 380 ~ "Italia",
+                             iso == 392 ~ "Japon",
+                             iso == 410 ~ "Corea del Sur",
+                             iso == 428 ~ "Letonia",
+                             iso == 440 ~ "Lituania",
+                             iso == 554 ~ "Nueva Zelanda",
+                             iso == 578 ~ "Noruega",
+                             iso == 616 ~ "Polonia",
+                             iso == 620 ~ "Portugal",
+                             iso == 703 ~ "Eslovaquia",
+                             iso == 705 ~ "Eslovenia",
+                             iso == 710 ~ "Sudafrica",
+                             iso == 724 ~ "España",
+                             iso == 752 ~ "Suecia",
+                             iso == 756 ~ "Suiza",
+                             iso == 792 ~ "Turquia",
+                             iso == 826 ~ "Gran Bretaña",
+                             iso == 840 ~ "USA",
+                             TRUE ~ NA_character_ )) %>% 
+  filter(!is.na(country)) %>% 
+  select(country, year, CorpAll) 
+
+df_j[is.na(df_j$CorpAll),]
+
+df_j <- df_j %>% 
+  filter(year %in% c(1999,2009,2017:2019),
+        !is.na(CorpAll)) %>% 
+  group_by(country) %>% 
+  filter(year == 1999 | year == 2009 | year == max(year)) %>% 
+  mutate(year = if_else(year == max(year), 2019, year)) 
+
+ictwss %>% group_by(COUNTRY, YEAR) %>% select(COUNTRY, YEAR) %>%
+  arrange(desc(COUNTRY)) %>% print(n = nrow(.))
+
+df_j <- df_j %>% filter(country == "Alemania" & year %in% c(1999,2009,2019) |
+                          country == "Argentina" & year == 2009 |
+                          country == "Australia" & year %in% c(1999,2009) |
+                          country == "Austria" & year == 2009 |
+                          country == "Belgica" & year == 2009 |
+                          country == "Bulgaria" & year %in% c(1999,2009,2019) |
+                          country == "Canada" & year == 1999 |
+                          country == "Chile" & year %in% c(1999,2009,2019) |
+                          country == "Chipre" & year %in% c(1999,2009) |
+                          country == "Corea del Sur" & year == 2009 |
+                          country == "Croacia" & year %in% c(2009,2019) |
+                          country == "Dinamarca" & year %in% c(2009,2019) |
+                          country == "Eslovaquia" & year %in% c(1999,2009) |
+                          country == "Eslovenia" & year %in% c(2009,2019) |
+                          country == "España" & year %in% c(1999,2009) |
+                          country == "Estonia" & year == 2009 |
+                          country == "Finlandia" & year %in% c(2009,2019) |
+                          country == "Francia" & year == 2009 |
+                          country == "Gran Bretaña" & year %in% c(1999,2009,2019) |
+                          country == "Hungria" & year %in% c(1999,2009) |
+                          country == "Irlanda" & year == 1999 |
+                          country == "Israel" & year %in% c(2009,2019) |
+                          country == "Italia" & year %in% c(2009,2019) |
+                          country == "Japon" & year %in% c(2009,2019) |
+                          country == "Letonia" & year %in% c(1999,2009) |
+                          country == "Lituania" & year %in% c(2009,2019) |
+                          country == "Noruega" & year %in% c(1999,2009) |
+                          country == "Nueva Zelanda" & year %in% c(1999,2009,2019) |
+                          country == "Polonia" & year %in% c(1999,2009) |
+                          country == "Portugal" & year == 2009 |
+                          country == "Rep Checa" & year %in% c(1999,2009,2019) |
+                          country == "Sudafrica" & year %in% c(2009,2019) |
+                          country == "Suecia" & year %in% c(1999,2009) |
+                          country == "Suiza" & year %in% c(2009,2019) |
+                          country == "Taiwan" & year %in% c(2009,2019) |
+                          country == "Turquia" & year == 2009 |
+                          country == "USA" & year %in% c(1999,2009)) %>% 
+  rename(COUNTRY = country,
+         YEAR = year)
+
+ictwss <- full_join(ictwss, df_j, by = c("COUNTRY", "YEAR"))
+
 
 # Labels
 ictwss$COUNTRY <- sjlabelled::set_label(ictwss$COUNTRY, label = c('País'))
 ictwss$YEAR <- sjlabelled::set_label(ictwss$YEAR, label = c('Año'))
 ictwss$COORD <- sjlabelled::set_label(ictwss$COORD, label = c('Coordinación salarial'))
-ictwss$TYPE <- sjlabelled::set_label(ictwss$TYPE, label = c('Tipo coordinación salarial'))
+ictwss$GOVINT <- sjlabelled::set_label(ictwss$GOVINT, label = c('Intervención estatal negociación salarial'))
 ictwss$LEVEL <- sjlabelled::set_label(ictwss$LEVEL, label = c('Nivel predominante negociación salarial'))
 ictwss$EXT <- sjlabelled::set_label(ictwss$EXT, label = c('Clausula extensión negociación colectiva'))
+ictwss$WC_STRUCT <- sjlabelled::set_label(ictwss$WC_STRUCT, label = c('Estructura representación consejos empresa'))
+ictwss$WC_RIGHTS <- sjlabelled::set_label(ictwss$WC_RIGHTS, label = c('Derechos consejos empresa'))
 ictwss$UD <- sjlabelled::set_label(ictwss$UD, label = c('Densidad sindical'))
 ictwss$AdjCov <- sjlabelled::set_label(ictwss$AdjCov, label = c('Cobertura ajustada negociación colectiva'))
+ictwss$TYPE <- sjlabelled::set_label(ictwss$TYPE, label = c('Tipo coordinación salarial'))
+ictwss$CorpAll <- sjlabelled::set_label(ictwss$CorpAll, label = c('Indice corporativismo'))
 
 # 4. Save ----
 save(ictwss, file = "../output/data/ictwss.RData")

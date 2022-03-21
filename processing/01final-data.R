@@ -165,6 +165,9 @@ db$ISO_COUNTRY <- sjlabelled::set_label(db$ISO_COUNTRY, label = c("Código ISO p
 
 # 4. Save ----
 db <- db %>% select(ID_SUBJECT, YEAR, COUNTRY, ISO_COUNTRY, SEX, AGE, DEGREE, INCOME, SUBJEC_CLASS, UNION, 
-                    CLASS, CONFLICT_RP, CONFLICT_WCMC, CONFLICT_MW, CONFLICT_TB, PSCi, 17:29, FACTOR)
+                    CLASS, CONFLICT_RP, CONFLICT_WCMC, CONFLICT_MW, CONFLICT_TB, PSCi, RATIO_IC, CorpAll, GDP,
+                    UD, AdjCov, 29:33, FACTOR)
+
+db <- db %>% filter(!is.na(PSCi))
 
 save(db, file = "../output/data/db-proc.RData")
