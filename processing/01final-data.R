@@ -13,7 +13,8 @@ pacman::p_load(tidyverse,
                haven,
                stargazer,
                magrittr,
-               psych)
+               psych, 
+               gtsummary)
 options(scipen=999)
 
 # 2. Data ----
@@ -169,5 +170,7 @@ db <- db %>% select(ID_SUBJECT, YEAR, COUNTRY, ISO_COUNTRY, SEX, AGE, DEGREE, IN
                     UD, AdjCov, 29:33, FACTOR)
 
 db <- db %>% filter(!is.na(PSCi))
+
+db <- as_tibble(db)
 
 save(db, file = "../output/data/db-proc.RData")

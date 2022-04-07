@@ -216,16 +216,17 @@ issp09$INCOME <- sjlabelled::set_label(issp09$INCOME, label = c("Decil ingreso")
 frq(issp09$DEGREE)
 
 # For control var
-issp09 <- issp09 %>% mutate(DEGREE_1 = case_when(DEGREE == 0 ~ "Primaria incompleta o menos",
-                                               DEGREE == 1 ~ "Primaria completa",
-                                               DEGREE == 2 ~ "Secundaria incompleta",
-                                               DEGREE == 3 ~ "Secundaria completa",
-                                               DEGREE == 4 ~ "Universitaria incompleta",
-                                               DEGREE == 5 ~ "Universitaria completa",
-                                               TRUE ~ NA_character_))
+issp09 <- issp09 %>% mutate(DEGREE_1 = case_when(DEGREE == 0 ~ "1.Primaria incompleta o menos",
+                                                 DEGREE == 1 ~ "2.Primaria completa",
+                                                 DEGREE == 2 ~ "3.Secundaria incompleta",
+                                                 DEGREE == 3 ~ "4.Secundaria completa",
+                                                 DEGREE == 4 ~ "5.Universitaria incompleta",
+                                                 DEGREE == 5 ~ "6.Universitaria completa",
+                                                 TRUE ~ NA_character_))
 
 issp09$DEGREE_1 <- as.factor(issp09$DEGREE_1)
 issp09$DEGREE_1 <- sjlabelled::set_label(issp09$DEGREE_1, label = c("Nivel educativo"))
+
 
 # For control skills in class var
 issp09 <- issp09 %>% mutate(EDUC = case_when(DEGREE %in% c(0:4) ~ 'No',

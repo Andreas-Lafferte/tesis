@@ -114,6 +114,8 @@ issp99 <- issp99 %>% mutate(UNION = if_else(union ==  1, 'Si', 'No'))
 issp99$UNION <- as.factor(issp99$UNION)
 issp99$UNION <- sjlabelled::set_label(issp99$UNION, label = "Afiliación sindical")
 
+
+
 # 3.7 SUBJECTIVE SOCIAL CLASS ----
 frq(issp99$class)
 issp99 <- issp99 %>% mutate(SUBJEC_CLASS = case_when(class == 1 ~ "6.Clase baja",
@@ -139,16 +141,17 @@ frq(issp99$educyrs) # We don't know if this is equal in every country; We use de
 frq(issp99$degree)
 
 ## For control var
-issp99 <- issp99 %>% mutate(DEGREE = case_when(degree %in% c(1,2) ~ "Primaria incompleta o menos",
-                                               degree == 3 ~ "Primaria completa",
-                                               degree == 4 ~ "Secundaria incompleta",
-                                               degree == 5 ~ "Secundaria completa",
-                                               degree == 6 ~ "Universitaria incompleta",
-                                               degree == 7 ~ "Universitaria completa",
+issp99 <- issp99 %>% mutate(DEGREE = case_when(degree %in% c(1,2) ~ "1.Primaria incompleta o menos",
+                                               degree == 3 ~ "2.Primaria completa",
+                                               degree == 4 ~ "3.Secundaria incompleta",
+                                               degree == 5 ~ "4.Secundaria completa",
+                                               degree == 6 ~ "5.Universitaria incompleta",
+                                               degree == 7 ~ "6.Universitaria completa",
                                                TRUE ~ NA_character_))
 
 issp99$DEGREE <- as.factor(issp99$DEGREE)
 issp99$DEGREE <- sjlabelled::set_label(issp99$DEGREE, label = c("Nivel educativo"))
+
 
 ## For control skills in class var
 issp99 <- issp99 %>% mutate(EDUC = case_when(degree %in% c(1:6) ~ 'No',

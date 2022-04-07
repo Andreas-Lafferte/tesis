@@ -95,7 +95,6 @@ issp19$SEX <- as.numeric(issp19$SEX)
 issp19$SEX <- car::recode(issp19$SEX, recodes = c("-9 = NA; 1 = 'Hombre'; 2 = 'Mujer'"), as.factor = T)
 issp19$SEX <- sjlabelled::set_label(issp19$SEX, label = c("Sexo"))
 
-
 # 3.5 AGE ----
 frq(issp19$AGE)
 issp19$AGE <- set_na(issp19$AGE, na = c(-9), drop.levels = T, as.tag = F)
@@ -177,12 +176,12 @@ issp19$INCOME <- sjlabelled::set_label(issp19$INCOME, label = c("Decil ingreso")
 frq(issp19$DEGREE) # 5 & 6 
 
 # For control var
-issp19 <- issp19 %>% mutate(DEGREE_1 = case_when(DEGREE == 0 ~ "Primaria incompleta o menos",
-                                                 DEGREE == 1 ~ "Primaria completa",
-                                                 DEGREE == 2 ~ "Secundaria incompleta",
-                                                 DEGREE == 3 ~ "Secundaria completa",
-                                                 DEGREE == 4 ~ "Universitaria incompleta",
-                                                 DEGREE %in% c(5,6) ~ "Universitaria completa",
+issp19 <- issp19 %>% mutate(DEGREE_1 = case_when(DEGREE == 0 ~ "1.Primaria incompleta o menos",
+                                                 DEGREE == 1 ~ "2.Primaria completa",
+                                                 DEGREE == 2 ~ "3.Secundaria incompleta",
+                                                 DEGREE == 3 ~ "4.Secundaria completa",
+                                                 DEGREE == 4 ~ "5.Universitaria incompleta",
+                                                 DEGREE %in% c(5,6) ~ "6.Universitaria completa",
                                                  TRUE ~ NA_character_))
 
 issp19$DEGREE_1 <- as.factor(issp19$DEGREE_1)

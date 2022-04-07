@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2.2 Variables | thesis.knit</title>
+  <meta name="description" content="Tesis para optar al grado de Sociólogo de la Universidad de Chile" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2.2 Variables | thesis.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Tesis para optar al grado de Sociólogo de la Universidad de Chile" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2.2 Variables | thesis.knit" />
+  
+  <meta name="twitter:description" content="Tesis para optar al grado de Sociólogo de la Universidad de Chile" />
+  
+
+
+
+<meta name="date" content="2022-04-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="datos.html"/>
+<link rel="next" href="métodos.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.3/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Ellos contra nosotros: las percepciones del conflicto social</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="chapter" data-level="" data-path="resumen.html"><a href="resumen.html"><i class="fa fa-check"></i>Resumen</a></li>
+<li class="chapter" data-level="" data-path="prólogo.html"><a href="prólogo.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i>Introducción</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#pregunta-de-investigación"><i class="fa fa-check"></i>Pregunta de investigación</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#objetivo"><i class="fa fa-check"></i>Objetivo</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#objetivos-específicos"><i class="fa fa-check"></i>Objetivos específicos</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#estructura-de-investigación"><i class="fa fa-check"></i>Estructura de investigación</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>1</b> Desigualdades y conflicto social: un marco analítico</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="percepciones-subjetivas-del-conflicto-social.html"><a href="percepciones-subjetivas-del-conflicto-social.html"><i class="fa fa-check"></i><b>1.1</b> Percepciones subjetivas del conflicto social</a></li>
+<li class="chapter" data-level="1.2" data-path="determinantes-individuales-de-las-percepciones-de-conflicto-social.html"><a href="determinantes-individuales-de-las-percepciones-de-conflicto-social.html"><i class="fa fa-check"></i><b>1.2</b> Determinantes individuales de las percepciones de conflicto social</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="determinantes-individuales-de-las-percepciones-de-conflicto-social.html"><a href="determinantes-individuales-de-las-percepciones-de-conflicto-social.html#posición-de-clase"><i class="fa fa-check"></i><b>1.2.1</b> Posición de clase</a></li>
+<li class="chapter" data-level="1.2.2" data-path="determinantes-individuales-de-las-percepciones-de-conflicto-social.html"><a href="determinantes-individuales-de-las-percepciones-de-conflicto-social.html#organizaciones-intermedias"><i class="fa fa-check"></i><b>1.2.2</b> Organizaciones intermedias</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="determinantes-contextuales-de-las-percepciones-de-conflicto-social.html"><a href="determinantes-contextuales-de-las-percepciones-de-conflicto-social.html"><i class="fa fa-check"></i><b>1.3</b> Determinantes contextuales de las percepciones de conflicto social</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="determinantes-contextuales-de-las-percepciones-de-conflicto-social.html"><a href="determinantes-contextuales-de-las-percepciones-de-conflicto-social.html#desigualdad-económica"><i class="fa fa-check"></i><b>1.3.1</b> Desigualdad económica</a></li>
+<li class="chapter" data-level="1.3.2" data-path="determinantes-contextuales-de-las-percepciones-de-conflicto-social.html"><a href="determinantes-contextuales-de-las-percepciones-de-conflicto-social.html#marcos-institucionales"><i class="fa fa-check"></i><b>1.3.2</b> Marcos institucionales</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="method.html"><a href="method.html"><i class="fa fa-check"></i><b>2</b> Método</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>2.1</b> Datos</a></li>
+<li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2.2</b> Variables</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="variables.html"><a href="variables.html#variable-dependiente"><i class="fa fa-check"></i><b>2.2.1</b> Variable dependiente</a></li>
+<li class="chapter" data-level="2.2.2" data-path="variables.html"><a href="variables.html#variables-independientes"><i class="fa fa-check"></i><b>2.2.2</b> Variables independientes</a></li>
+<li class="chapter" data-level="2.2.3" data-path="variables.html"><a href="variables.html#variables-de-control"><i class="fa fa-check"></i><b>2.2.3</b> Variables de control</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="métodos.html"><a href="métodos.html"><i class="fa fa-check"></i><b>2.3</b> Métodos</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="application.html"><a href="application.html"><i class="fa fa-check"></i><b>3</b> Resultados</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="análisis-descriptivo.html"><a href="análisis-descriptivo.html"><i class="fa fa-check"></i><b>3.1</b> Análisis descriptivo</a></li>
+<li class="chapter" data-level="3.2" data-path="modelos.html"><a href="modelos.html"><i class="fa fa-check"></i><b>3.2</b> Modelos</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="discussion.html"><a href="discussion.html"><i class="fa fa-check"></i><b>4</b> Discusión</a></li>
+<li class="chapter" data-level="5" data-path="conclusiones.html"><a href="conclusiones.html"><i class="fa fa-check"></i><b>5</b> Conclusiones</a></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="chapter" data-level="6" data-path="apendice.html"><a href="apendice.html"><i class="fa fa-check"></i><b>6</b> Apéndice</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/Andreas-Lafferte" target="blank">Andreas Lafferte - Github <i class="fa fa-github"></i></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><center>
+Ellos contra nosotros: las percepciones del conflicto social
+</center></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="variables" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Variables</h2>
+<div style="text-align: justify">
+
+
+<div id="variable-dependiente" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Variable dependiente</h3>
+<p>La variable dependiente de esta investigación es el nivel de conflicto percibido por los individuos, medido a través de un índice de conflictos sociales percibidos (Perceived Social Conflict Index - <span class="math inline">\(PSCi\)</span>). Estudios anteriores han utilizado y validado este índice<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> <span class="citation">(<a href="referencias.html#ref-hadlerSocialConflictPerception2017a" role="doc-biblioref">Hadler, 2017</a>; <a href="referencias.html#ref-hertelConflictPerceptions272019a" role="doc-biblioref">Hertel &amp; Schöneck, 2019</a>; <a href="referencias.html#ref-kelleyClassClassConflict1995a" role="doc-biblioref">Kelley &amp; Evans, 1995</a>)</span>, por lo que se opta por utilizar el <span class="math inline">\(PSCi\)</span> como variable dependiente con el fin de poder establecer comparaciones con la literatura existente.
+Este es un índice sumativo de tres indicadores que responden a la pregunta: <em>“En todos los países hay diferencias o incluso conflictos entre los distintos grupos sociales. En su opinión, en el país de referencia ¿cuánto conflicto hay entre…?”</em>. Los valores de respuesta de estos indicadores corresponden a una escala Likert de 1 a 4 detallados en la Tabla N° <a href="variables.html#tab:tab-dep">2.1</a>. Siguiendo la misma estrategia empleada por Hertel &amp; Schöneck <span class="citation">(<a href="referencias.html#ref-hertelConflictPerceptions272019a" role="doc-biblioref">2019</a>)</span>, estos indicadores fueron recodificados en un rango de valores de 0 (“no existen conflictos”) a 3 (“muy fuertes conflictos”), para luego crear una escala aditiva continua de 0 a 9. Cuanto más altos sean los valores obtenidos, mayores serán los niveles de <span class="math inline">\(PSCi\)</span>. El Alpha Ordinal para <span class="math inline">\(PSCi\)</span> es aceptable (<span class="math inline">\(\alpha\)</span> = 0.83), indicando que es internamente consistente en tanto los indicadores miden una misma dimensión latente.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
+<table class="table table-striped table-bordered" style="font-size: 14px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:tab-dep">Tabla 2.1: </span>Indicadores variable dependiente
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Indicador
+</th>
+<th style="text-align:left;">
+Categorías de respuesta
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 2 cm; ">
+Qa.Conflictos: ¿entre los pobres y los ricos?
+</td>
+<td style="text-align:left;width: 7 cm; ">
+<ol style="list-style-type: decimal">
+<li>Conflictos muy fuertes a (4) No existen conflictos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2 cm; ">
+Qb.Conflictos: ¿entre la clase obrera y la clase media?
+</td>
+<td style="text-align:left;width: 7 cm; ">
+<ol style="list-style-type: decimal">
+<li>Conflictos muy fuertes a (4) No existen conflictos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2 cm; ">
+Qc.Conflictos: ¿entre la dirección y los trabajadores?
+</td>
+<td style="text-align:left;width: 7 cm; ">
+<ol style="list-style-type: decimal">
+<li>Conflictos muy fuertes a (4) No existen conflictos
+</td>
+</tr>
+</tbody>
+</table></li>
+</ol></li>
+</ol></li>
+</ol>
+</div>
+<div id="variables-independientes" class="section level3" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Variables independientes</h3>
+<p>La Tabla <a href="variables.html#tab:tab-indep">2.2</a> muestra las variables independientes, su descripción y respectivas fuentes de datos. Estas variables se distinguen en dos niveles: el individual y el contextual.</p>
+<p><em><strong>Determinantes de nivel individual</strong></em></p>
+<p>La posición de clase es medida a partir del esquema de clases de Erik Olin Wright <span class="citation">(<a href="referencias.html#ref-wrightClassCountsComparative1997a" role="doc-biblioref">1997</a>)</span>. Este esquema de clases se sustenta en tres distinciones o criterios: (i) si se posee propiedad privada sobre los medios de producción -distinguiendo entre propietarios y no propietarios-, (ii) el nivel de calificación del empleo -distinguiendo entre asalariados expertos, calificados y no calificados-, y (iii) la posesión de bienes de organización o autoridad en el trabajo -distinguiendo entre asalariados que supervisan a otros y quienes no-. Para el primer criterio se utilizan variables referiadas a la situación de propiedad (si emplea o no a una cantidad determinada de personas) y a la situación de trabajo asalariado (si forma parte de la fuerza de trabajo y si es empleado o autoempleado). Para el segundo criterio se utilizan las calificaciones a partir de la clasificación CIUO a 2 dígitos. En los años 1999 y 2009 los dígitos se basaron en la CIUO-88, mientras que para el 2019 se utilizó la CIU-08. En todos los años se corrigió el grupo de los <em>“expertos”</em> a partir del nivel educacional, definiendo como <em>“expertos”</em> a quienes estuvieran empleados en ocupaciones CIUO pertenecientes a los grupos 1 y 2 y que, a su vez, tuvieran un nivel educacional terciario completo o superior <span class="citation">(<a href="referencias.html#ref-wrightClassCountsComparative1997a" role="doc-biblioref">Wright, 1997, p. 153</a>)</span>. Para el útimo criterio se utiliza la variable autoridad para diferenciar entre quienes supervisan el trabajo de otros y quienes no. Por lo tanto, en esta investigación se utiliza el esquema de Wright en su versión colapsada de nueve clases <span class="citation">(<a href="referencias.html#ref-wrightClassCountsComparative1997a" role="doc-biblioref">Wright, 1997</a>)</span>. Cabe mencionar que si bien este esquema de clases posee una debilidad comparativa entre países por la ausencia de indicadores sobre los niveles de autoridad, es teóricamente más adecuado para estudiar distintas actitudes y percepciones subjetivas vinculadas a la clase <span class="citation">(<a href="referencias.html#ref-svallforsMoralEconomyClass2006a" role="doc-biblioref">Svallfors, 2006</a>)</span>.</p>
+<p>La afiliación sindical se mide como una variable <em>dummy</em> en donde 0 indica que nunca ha pertenecido a un sindicato y 1 que si pertenece o ha pertenecido a un sindicato.</p>
+<p><em><strong>Determinantes de nivel contextual</strong></em></p>
+<p>La desigualdad económica es medida a través del ratio interquintil S80/S20 sobre el ingreso familiar disponible post transferencias y post impuestos. En detalle, este indicador busca medir la participación del ingreso de los individuos en la distribución total dividiendo a la población en quintiles. El ratio interquintil S80/S20 representa la proporción del ingreso promedio obtenido por el quintil superior (20% más rico) en relación con la proporción obtenida por el quintil inferior (20% más pobre). Sus valores oscilan entre 1, indicando una distribución del ingreso perfectamente equitativa, hasta el infinito, indicando la proporción en que el ingreso promedio del 20% superior es mayor al ingreso promedio del 20% inferior. En los casos en que la información no estaba disponible para un año determinado, se utilizó la información del año anterior o el más cercano al que faltaba.</p>
+<p>El nivel de corporativismo se mide a través del índice desarrollado por Jahn <span class="citation">(<a href="referencias.html#ref-jahnChangingGuardTrends2016" role="doc-biblioref">2016</a>)</span> a partir de la base de datos de Visser <span class="citation">(<a href="referencias.html#ref-visserDataBaseInstitutional2019" role="doc-biblioref">2019</a>)</span> <a href="https://www.ictwss.org/">ICTWSS</a>. Este índice sumativo se basa en los puntajes estandarizados de 8 indicadores que dan cuenta de las dimensiones estructurales, funcionales y de alcance del corporativismo <span class="citation">(<a href="referencias.html#ref-jahnChangingGuardTrends2016" role="doc-biblioref">Jahn, 2016</a>)</span>. Estos indicadores son: i) el nivel de centralización sindical, ii) la estructura de representación de los consejos de empresa, iii) los derechos de los consejos de empresa, iv) el grado de intervención del gobierno en la negociación salarial, v) el nivel predominante de la negociación colectiva, vi) el grado de concertación política, vii) el nivel de coordinación de la negociación salarial y viii) la extensión de la negociación colectiva. Este índice se encuentra disponible para un total de 46 países entre los años 1960-2019, variando en su composición según la información disponible de los respectivos indicadores para cada año-país. Los valores de este índice se encuentran estandarizados en puntajes <span class="math inline">\(z\)</span>, implicando que cuanto más alto sea el puntaje obtenido, mayor será el nivel de corporativismo. Igualmente, en los casos en que la información de este índice no estaba disponible para un año determinado, se utilizó la información del año anterior o el más cercano al que faltaba.</p>
+<p>Para conocer los posibles cambios en el tiempo de los factores contextuales de los países, se utiliza la variable tiempo medida como el año de aplicación de la encuesta, tomando los valores de: 1999, 2009 o 2019.</p>
+<table class="table table-striped table-bordered" style="font-size: 14px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:tab-indep">Tabla 2.2: </span>Variables independientes
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Descripción
+</th>
+<th style="text-align:left;">
+Fuente
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 4 cm; ">
+Nivel individual
+</td>
+<td style="text-align:left;width: 6 cm; ">
+</td>
+<td style="text-align:left;width: 2 cm; ">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 4 cm; ">
+Posición de clase
+</td>
+<td style="text-align:left;width: 6 cm; ">
+Esquema de clases E.O. Wright
+</td>
+<td style="text-align:left;width: 2 cm; ">
+ISSP
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 4 cm; ">
+Afiliación sindical
+</td>
+<td style="text-align:left;width: 6 cm; ">
+Pertenencia a sindicato
+</td>
+<td style="text-align:left;width: 2 cm; ">
+ISSP
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 4 cm; ">
+Nivel contextual
+</td>
+<td style="text-align:left;width: 6 cm; ">
+</td>
+<td style="text-align:left;width: 2 cm; ">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 4 cm; ">
+Desigualdad económica
+</td>
+<td style="text-align:left;width: 6 cm; ">
+Concentración ingreso S80/S20
+</td>
+<td style="text-align:left;width: 2 cm; ">
+WIID
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 4 cm; ">
+Índice corporativismo
+</td>
+<td style="text-align:left;width: 6 cm; ">
+Nivel de corporativismo
+</td>
+<td style="text-align:left;width: 2 cm; ">
+ICTWSS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 4 cm; ">
+Tiempo
+</td>
+<td style="text-align:left;width: 6 cm; ">
+Año aplicación encuesta
+</td>
+<td style="text-align:left;width: 2 cm; ">
+ISSP
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="variables-de-control" class="section level3" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Variables de control</h3>
+<p>Se controlará por variables que han sido utilizadas en investigaciones previas. A nivel individual, se incluye la edad (en años), el nivel educacional y el sexo de los encuestados para controlar efectos de composición de la población. A nivel contextual, se controla por tres variables que han demostrado importantes efectos sobre las percepciones de conflicto social, estas son: el nivel de riqueza del país medido por el GDP (Gross Domestic Product) per cápita, el gasto social como proporción del GDP y la densidad sindical del país. Este último factor también se incluye para controlar el efecto del índice de corporativismo <span class="citation">(<a href="referencias.html#ref-kenworthyQuantitativeIndicatorsCorporatism2003a" role="doc-biblioref">Kenworthy, 2003</a>)</span>. La descripción y fuentes de donde serán extraídos estos datos se detallan en la Tabla N° <a href="apendice.html#tab:tab-control">6.1</a> del <a href="apendice.html#apendice">Apéndice</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="9">
+<li id="fn9"><p>En otras investigaciones como la de Hertel &amp; Schöneck <span class="citation">(<a href="referencias.html#ref-hertelConflictPerceptions272019a" role="doc-biblioref">2019, p. 14</a>)</span>, el Alpha de Cronbach’s tiene un valor cercano a 0.83, lo cual es satisfactorio.<a href="variables.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>En esta investigación se utiliza el Alpha Ordinal debido a la naturaleza politómica de los indicadores y a sus niveles de medición ordinal. Ver <a href="apendice.html#apendice">Apéndice</a> para especificación de fórmula.<a href="variables.html#fnref10" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="métodos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-method.Rmd",
+"text": "https://github.com/Andreas-Lafferte/tesis/edit/master/%s"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["thesis.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
