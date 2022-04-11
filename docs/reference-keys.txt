@@ -8,11 +8,11 @@ eq:alpha
 literature
 percepciones-subjetivas-del-conflicto-social
 determinantes-individuales-de-las-percepciones-de-conflicto-social
-posición-de-clase
-organizaciones-intermedias
+la-persistente-relevancia-de-la-posición-de-clase
+el-rol-de-las-organizaciones-intermedias
 determinantes-contextuales-de-las-percepciones-de-conflicto-social
-desigualdad-económica
-marcos-institucionales
+desigualdad-económica-y-polarización-social
+la-institucionalización-del-conflicto-social
 method
 datos
 variables

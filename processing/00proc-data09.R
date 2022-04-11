@@ -24,14 +24,11 @@ options(scipen=999)
 
 # 2. Data -----------------------------------------------------------------
 
-
 issp09 <- read_dta("../input/data/ISSP2009.dta")
 sapply(issp09, class)
 names(issp09)
 
-
 # 3. Processing -----------------------------------------------------------
-
 
 issp09 <- issp09 %>% select(V3, 
                             V5,
@@ -49,7 +46,12 @@ issp09 <- issp09 %>% select(V3,
                             ISCO88,
                             NEMPLOY,
                             WRKSUP,
-                            141:181)
+                            141:181,
+                            PARTY_LR,
+                            CL_PRTY,
+                            CY_PRTY,
+                            HU_PRTY,
+                            TW_PRTY)
 str(issp09)
 
 # 3.1 YEAR ----
@@ -125,6 +127,24 @@ frq(issp09$UNION)
 issp09$UNION <- as.numeric(issp09$UNION)
 issp09$UNION <- car::recode(issp09$UNION, recodes = c("0 = NA; c(8,9) = NA; c(1,2) = 'Si'; 3 = 'No'"), as.factor = T)
 issp09$UNION <- sjlabelled::set_label(issp09$UNION, label = "Afiliación sindical")
+
+
+# 3.7 POLITICAL IDENTIFICATION ----
+frq(issp09$PARTY_LR)
+frq(issp09$CL_PRTY)
+
+issp09 <- issp09 %>% mutate(IDEOLOGY = case_when(PARTY_LR %in% c(1,2) ~ "Izquierda",
+                                       PARTY_LR == 3  ~ "Centro",
+                                       PARTY_LR %in% c(4,5) ~ "Derecha",
+                                       PARTY_LR %in% c(6,7) ~ "Sin identificación",
+                                       CL_PRTY %in% c(3,5,8) ~ "Izquierda",
+                                       CL_PRTY %in% c(1,6,7) ~ "Centro",
+                                       CL_PRTY %in% c(2,4,9,10) ~ "Derecha",
+                                       CL_PRTY %in% c(95,96) ~ "Sin identificación",
+                                       TRUE ~ NA_character_)) 
+
+
+
 
 # 3.7 SUBJECTIVE SOCIAL CLASS ----
 frq(issp09$V66)

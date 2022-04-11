@@ -37,6 +37,7 @@ issp99 <- issp99 %>% select(v1,
                             sex,
                             age,
                             union,
+                            party_lr,
                             class,
                             rincomer,
                             nemploy,
@@ -114,9 +115,17 @@ issp99 <- issp99 %>% mutate(UNION = if_else(union ==  1, 'Si', 'No'))
 issp99$UNION <- as.factor(issp99$UNION)
 issp99$UNION <- sjlabelled::set_label(issp99$UNION, label = "Afiliación sindical")
 
+# 3.7 POLITICAL IDENTIFICATION ----
+frq(issp99$party_lr)
+issp99 <- issp99 %>% mutate(IDEOLOGY = case_when(party_lr %in% c(1,2) ~ "Izquierda",
+                                                 party_lr == 3 ~ "Centro",
+                                                 party_lr %in% c(4,5) ~ "Derecha",
+                                                 party_lr %in% c(6,7) ~ "Sin identificación",
+                                                 TRUE ~ NA_character_))
+issp99$IDEOLOGY <- as.factor(issp99$IDEOLOGY)
+issp99$IDEOLOGY <- sjlabelled::set_label(issp99$IDEOLOGY, label = c("Identificación política"))
 
-
-# 3.7 SUBJECTIVE SOCIAL CLASS ----
+# 3.8 SUBJECTIVE SOCIAL CLASS ----
 frq(issp99$class)
 issp99 <- issp99 %>% mutate(SUBJEC_CLASS = case_when(class == 1 ~ "6.Clase baja",
                                                      class == 2 ~ "5.Clase trabajadora",
@@ -129,14 +138,14 @@ issp99 <- issp99 %>% mutate(SUBJEC_CLASS = case_when(class == 1 ~ "6.Clase baja"
 issp99$SUBJEC_CLASS <- as.factor(issp99$SUBJEC_CLASS)
 issp99$SUBJEC_CLASS <- sjlabelled::set_label(issp99$SUBJEC_CLASS, label = c("Clase social subjetiva"))
 
-# 3.8 INCOME ----
+# 3.9 INCOME ----
 frq(issp99$rincomer)
 issp99$rincomer <- car::recode(issp99$rincomer, recodes = c("0 = 1; c(97,98,99) = NA")) 
 issp99 <- rename_variables(issp99, rincomer = "INCOME") 
 issp99$INCOME <- as.factor(issp99$INCOME)
 issp99$INCOME <- sjlabelled::set_label(issp99$INCOME, label = c("Decil ingreso"))
 
-# 3.9 EDUCATION ----
+# 3.10 EDUCATION ----
 frq(issp99$educyrs) # We don't know if this is equal in every country; We use degree
 frq(issp99$degree)
 
@@ -162,7 +171,7 @@ issp99$EDUC <- sjlabelled::set_label(issp99$EDUC, label = c("Nivel educativo ter
 table(issp99$degree, useNA = "ifany")
 table(issp99$EDUC, useNA = "ifany")
 
-# 3.10 CLASS ESCHEME E.O WRIGHT----
+# 3.11 CLASS ESCHEME E.O WRIGHT----
 
 ## Employment relation
 frq(issp99$wrkgovt)
@@ -260,7 +269,7 @@ issp99$CLASS <- factor(issp99$CLASS,levels = c(1:9),
 issp99 %>% filter(!is.na(CLASS)) %>% count(CLASS) %>% mutate(prop = prop.table(n)) 
 issp99$CLASS <- sjlabelled::set_label(issp99$CLASS, label = c("Posición de clase"))
 
-# 3.11 PERCEIVED SOCIAL CONFLICT INDEX ----
+# 3.12 PERCEIVED SOCIAL CONFLICT INDEX ----
 ## Rich and poor 
 frq(issp99$v41)
 issp99 <- issp99 %>% mutate(CONFLICT_RP = case_when(v41 == 1 ~ 3,
@@ -337,8 +346,9 @@ issp99 <- issp99 %>% select(YEAR,
                             INCOME,
                             SUBJEC_CLASS,
                             UNION,
+                            IDEOLOGY,
                             CLASS,
-                            33:36,
+                            35:38,
                             FACTOR)
 
 
