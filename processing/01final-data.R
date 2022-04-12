@@ -44,9 +44,10 @@ db <- tibble::rowid_to_column(db, "ID_SUBJECT")
 db$ID_SUBJECT <- sjlabelled::set_label(db$ID_SUBJECT, label = c("ID individuo"))
 db$SEX <- sjlabelled::set_label(db$SEX, label = c("Sexo"))
 db$DEGREE <- sjlabelled::set_label(db$DEGREE, label = c("Nivel educativo"))
-db$SUBJEC_CLASS <- sjlabelled::set_label(db$SUBJEC_CLASS, label = c("Clase social subjetiva"))
-db$UNION <- sjlabelled::set_label(db$UNION, label = c("Afiliación sindical"))
 db$INCOME <- sjlabelled::set_label(db$INCOME, label = c("Decil ingreso"))
+db$SUBJEC_CLASS <- sjlabelled::set_label(db$SUBJEC_CLASS, label = c("Identidad de clase"))
+db$UNION <- sjlabelled::set_label(db$UNION, label = c("Afiliación sindical"))
+db$IDEOLOGY <- sjlabelled::set_label(db$IDEOLOGY, label = c("Identificación política"))
 db$CLASS <- sjlabelled::set_label(db$CLASS, label = c("Posición de clase"))
 
 ## PSCi
@@ -165,9 +166,9 @@ db <- db %>% mutate(ISO_COUNTRY = case_when(COUNTRY == "Alemania" ~ "DEU",
 db$ISO_COUNTRY <- sjlabelled::set_label(db$ISO_COUNTRY, label = c("Código ISO país"))
 
 # 4. Save ----
-db <- db %>% select(ID_SUBJECT, YEAR, COUNTRY, ISO_COUNTRY, SEX, AGE, DEGREE, INCOME, SUBJEC_CLASS, UNION, 
+db <- db %>% select(ID_SUBJECT, YEAR, COUNTRY, ISO_COUNTRY, SEX, AGE, DEGREE, INCOME, IDEOLOGY, SUBJEC_CLASS, UNION, 
                     CLASS, CONFLICT_RP, CONFLICT_WCMC, CONFLICT_MW, CONFLICT_TB, PSCi, RATIO_IC, CorpAll, GDP,
-                    UD, AdjCov, 29:33, FACTOR)
+                    UD, 30:34, FACTOR)
 
 db <- db %>% filter(!is.na(PSCi))
 

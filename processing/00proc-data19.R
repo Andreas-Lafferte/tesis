@@ -49,7 +49,11 @@ issp19 <- issp19 %>% select(country,
                             ISCO08,
                             UNION,
                             222:243,
-                            WEIGHT)
+                            WEIGHT,
+                            PARTY_LR,
+                            BG_PRTY,
+                            SR_PRTY,
+                            TW_PRTY)
 
 str(issp19)
 
@@ -108,7 +112,35 @@ issp19$UNION <- car::recode(issp19$UNION, recodes = c("c(-9,-7,-4) = NA; 1 = 'Si
 issp19$UNION <- sjlabelled::set_label(issp19$UNION, label = c("Afiliación sindical"))
 
 
-# 3.7 SUBJECTIVE SOCIAL CLASS ----
+
+# 3.7 POLICIAL IDENTIFICATION ----
+frq(issp19$PARTY_LR)
+frq(issp19$BG_PRTY)
+frq(issp19$SR_PRTY)
+frq(issp19$TW_PRTY)
+
+issp19 <- issp19 %>% mutate(IDEOLOGY = case_when(PARTY_LR %in% c(1,2) ~ "Izquierda",
+                                       PARTY_LR == 3 ~ "Centro",
+                                       PARTY_LR %in% c(4,5) ~ "Derecha",
+                                       PARTY_LR %in% c(-4,6) ~ "Sin identificación",
+                                       BG_PRTY %in% c(2,9) ~ "Izquierda",
+                                       BG_PRTY %in% c(4,6,7) ~ "Centro",
+                                       BG_PRTY %in% c(1,3,5,8,12,13) ~ "Derecha",
+                                       BG_PRTY == -4 ~ "Sin identificación",
+                                       SR_PRTY %in% c(1,4) ~ "Izquierda",
+                                       SR_PRTY %in% c(2,3,5) ~ "Centro",
+                                       SR_PRTY %in% c(-4,95) ~ "Sin identificación",
+                                       TW_PRTY %in% c(2) ~ "Izquierda",
+                                       TW_PRTY %in% c(1,3) ~ "Derecha",
+                                       TW_PRTY == -4 ~ "Sin identificación",
+                                       TRUE ~ NA_character_))
+
+
+issp19$IDEOLOGY <- as.factor(issp19$IDEOLOGY)
+issp19$IDEOLOGY <- sjlabelled::set_label(issp19$IDEOLOGY, label = c("Identificación política"))
+
+
+# 3.8 SUBJECTIVE SOCIAL CLASS ----
 frq(issp19$v61)
 issp19 <- issp19 %>% mutate(SUBJEC_CLASS = case_when(v61 == 1 ~ "6.Clase baja",
                                                      v61 == 2 ~ "5.Clase trabajadora",
@@ -121,7 +153,7 @@ issp19 <- issp19 %>% mutate(SUBJEC_CLASS = case_when(v61 == 1 ~ "6.Clase baja",
 issp19$SUBJEC_CLASS <- as.factor(issp19$SUBJEC_CLASS)
 issp19$SUBJEC_CLASS <- sjlabelled::set_label(issp19$SUBJEC_CLASS, label = c("Clase social subjetiva"))
 
-# 3.8 INCOME ----
+# 3.9 INCOME ----
 frq(issp19$CH_RINC)
 frq(issp19$RU_RINC)
 frq(issp19$CL_RINC)
@@ -172,7 +204,7 @@ issp19$INCOME <- test$test
 issp19$INCOME <- as.factor(issp19$INCOME)
 issp19$INCOME <- sjlabelled::set_label(issp19$INCOME, label = c("Decil ingreso"))
 
-# 3.9 EDUCATION ----
+# 3.10 EDUCATION ----
 frq(issp19$DEGREE) # 5 & 6 
 
 # For control var
@@ -196,7 +228,7 @@ issp19$EDUC <- sjlabelled::set_label(issp19$EDUC, label = c("Nivel educativo ter
 table(issp19$DEGREE, useNA = "ifany")
 table(issp19$EDUC, useNA = "ifany")
 
-# 3.10 CLASS ESCHEME E.O WRIGHT ----
+# 3.11 CLASS ESCHEME E.O WRIGHT ----
 
 ## Employment relation
 issp19 <- issp19 %>% filter(WORK != 3)
@@ -272,7 +304,7 @@ issp19$CLASS <- factor(issp19$CLASS,levels = c(1:9),
 issp19 %>% filter(!is.na(CLASS)) %>% count(CLASS) %>% mutate(prop = prop.table(n)) 
 issp19$CLASS <- sjlabelled::set_label(issp19$CLASS, label = c("Posición de clase"))
 
-# 3.11 PERCEIVED SOCIAL CONFLICT INDEX ----
+# 3.12 PERCEIVED SOCIAL CONFLICT INDEX ----
 
 ## Rich and poor
 frq(issp19$v36)
@@ -340,8 +372,9 @@ issp19 <- issp19 %>% select(YEAR,
                             INCOME,
                             SUBJEC_CLASS,
                             UNION,
+                            IDEOLOGY,
                             CLASS,
-                            50:53,
+                            55:58,
                             FACTOR)
 
 sapply(issp19, class)

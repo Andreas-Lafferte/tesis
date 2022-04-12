@@ -52,6 +52,7 @@ issp09 <- issp09 %>% select(V3,
                             CY_PRTY,
                             HU_PRTY,
                             TW_PRTY)
+
 str(issp09)
 
 # 3.1 YEAR ----
@@ -132,6 +133,9 @@ issp09$UNION <- sjlabelled::set_label(issp09$UNION, label = "Afiliación sindica
 # 3.7 POLITICAL IDENTIFICATION ----
 frq(issp09$PARTY_LR)
 frq(issp09$CL_PRTY)
+frq(issp09$CY_PRTY)
+frq(issp09$HU_PRTY)
+frq(issp09$TW_PRTY)
 
 issp09 <- issp09 %>% mutate(IDEOLOGY = case_when(PARTY_LR %in% c(1,2) ~ "Izquierda",
                                        PARTY_LR == 3  ~ "Centro",
@@ -141,9 +145,21 @@ issp09 <- issp09 %>% mutate(IDEOLOGY = case_when(PARTY_LR %in% c(1,2) ~ "Izquier
                                        CL_PRTY %in% c(1,6,7) ~ "Centro",
                                        CL_PRTY %in% c(2,4,9,10) ~ "Derecha",
                                        CL_PRTY %in% c(95,96) ~ "Sin identificación",
+                                       CY_PRTY %in% c(1,2,3) ~ "Izquierda",
+                                       CY_PRTY %in% c(4,7,9) ~ "Derecha",
+                                       CY_PRTY %in% c(5,6) ~ "Centro",
+                                       CY_PRTY %in% c(96) ~ "Sin identificación",
+                                       HU_PRTY %in% c(3,4,7) ~ "Izquierda",
+                                       HU_PRTY %in% c(2) ~ "Centro",
+                                       HU_PRTY %in% c(1,5,6,8,9) ~ "Derecha",
+                                       HU_PRTY %in% c(95,96) ~ "Sin identificación",
+                                       TW_PRTY %in% c(2,4,6) ~ "Izquierda",
+                                       TW_PRTY %in% c(1,3) ~ "Derecha",
+                                       TW_PRTY %in% c(95,96) ~ "Sin identificación",
                                        TRUE ~ NA_character_)) 
 
-
+issp09$IDEOLOGY <- as.factor(issp09$IDEOLOGY)
+issp09$IDEOLOGY <- sjlabelled::set_label(issp09$IDEOLOGY, label = c("Identificación política"))
 
 
 # 3.7 SUBJECTIVE SOCIAL CLASS ----
@@ -430,8 +446,9 @@ issp09 <- issp09 %>% select(YEAR,
                             INCOME,
                             SUBJEC_CLASS,
                             UNION,
+                            IDEOLOGY,
                             CLASS,
-                            71:74,
+                            77:80,
                             FACTOR)
 
 sapply(issp09, class)
