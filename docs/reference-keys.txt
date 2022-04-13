@@ -18,6 +18,8 @@ datos
 variables
 variable-dependiente
 variables-independientes
+determinantes-de-nivel-individual
+determinantes-de-nivel-contextual
 variables-de-control
 métodos
 application
