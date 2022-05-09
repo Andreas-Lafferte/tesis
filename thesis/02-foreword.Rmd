@@ -4,13 +4,6 @@ output:
   html_document: default
 ---
 
-# Prólogo {-}
+# Agradecimientos {-}
 <div style="text-align: justify">
 
-1. How do conflicting groups arise from
-the structure of society?
-2. What forms can the struggles among
-such groups assume?
-3. How does the conflict among such
-groups effect a change in the social structures
-?

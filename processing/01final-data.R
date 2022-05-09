@@ -22,6 +22,7 @@ load("../output/data/issp99.RData")
 load("../output/data/issp09.RData")
 load("../output/data/issp19.RData")
 load("../output/data/wiid.RData")
+load("../output/data/swiid.RData")
 load("../output/data/ictwss.RData")
 load("../output/data/oecd_euro.RData")
 
@@ -73,13 +74,15 @@ db <- as.data.frame(db) # remove Rowwise type
 
 db %>% filter(!is.na(PSCi)) %>% count(PSCi) %>% mutate(prop = prop.table(n))
 
-# 3.2 WIID, ICTWSS, OECD ----
+# 3.2 WIID, SWIID, ICTWSS, OECD ----
 names(wiid)
 names(ictwss)
 names(oecd)
+names(swiid_summary)
 
 df <- full_join(wiid, ictwss, by = c("COUNTRY", "YEAR"))
 df <- full_join(df, oecd, by = c("COUNTRY", "YEAR"))
+df <- full_join(df, swiid_summary, by = c("COUNTRY", "YEAR"))
 
 # 3.3 Join data ----
 
@@ -154,6 +157,7 @@ db <- db %>% mutate(ISO_COUNTRY = case_when(COUNTRY == "Alemania" ~ "DEU",
                                          COUNTRY == "Sudafrica" ~ "ZAF",
                                          COUNTRY == "Suecia" ~ "SWE",
                                          COUNTRY == "Suiza" ~ "CHE",
+                                         COUNTRY == "Surinam" ~ "SUR",
                                          COUNTRY == "Tailandia" ~ "THA",
                                          COUNTRY == "Taiwan" ~ "TWN",
                                          COUNTRY == "Turquia" ~ "TUR",
@@ -167,8 +171,8 @@ db$ISO_COUNTRY <- sjlabelled::set_label(db$ISO_COUNTRY, label = c("Código ISO p
 
 # 4. Save ----
 db <- db %>% select(ID_SUBJECT, YEAR, COUNTRY, ISO_COUNTRY, SEX, AGE, DEGREE, INCOME, IDEOLOGY, SUBJEC_CLASS, UNION, 
-                    CLASS, CONFLICT_RP, CONFLICT_WCMC, CONFLICT_MW, CONFLICT_TB, PSCi, RATIO_IC, CorpAll, GDP,
-                    UD, 30:34, FACTOR)
+                    CLASS, CONFLICT_RP, CONFLICT_WCMC, CONFLICT_MW, CONFLICT_TB, PSCi, GINI, RATIO_IC, CorpAll, GDP,
+                    UD, SOC_EXPEND, 32:35, FACTOR)
 
 db <- db %>% filter(!is.na(PSCi))
 

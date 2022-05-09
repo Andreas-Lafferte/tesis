@@ -189,4 +189,28 @@ db %>% group_by(COUNTRY, YEAR) %>%
   theme(plot.title = element_text(size = 12), 
         axis.title = element_text(size = 11),
         plot.caption = element_text(size = 10))
-  
+
+
+# modelo ----
+
+a <- lm(PSCi ~ SUBJEC_CLASS, data = db)
+b <- lm(PSCi ~ SUBJEC_CLASS + UNION, data = db)
+c <- lm(PSCi ~ SUBJEC_CLASS + UNION + relevel(IDEOLOGY,ref="Derecha"), data = db)
+d <- lm(PSCi ~ SUBJEC_CLASS + UNION + relevel(IDEOLOGY,ref="Derecha") + SEX + AGE, data = db)
+
+sjPlot::tab_model(list(a,b,c,d), show.ci=FALSE, p.style = "stars", dv.labels = c("Modelo 1", "Modelo 2", "Modelo 3", "Modelo 4"),string.pred = "Predictores", string.est = "β")
+
+
+
+results_1 <- lmer(PSCi ~ 1 + CLASS + UNION + (1 | COUNTRY), data = db)
+
+results_2 <- lmer(PSCi ~ 1 + CLASS + UNION + SEX + AGE + SUBJEC_CLASS + (1 | COUNTRY), data = db)
+
+results_3 <- lmer(PSCi ~ 1 + CLASS + UNION + SEX + AGE + SUBJEC_CLASS + RATIO_IC + CorpAll + (1 | COUNTRY), data = db)
+
+results_4 <- lmer(PSCi ~ 1 + CLASS + UNION + SEX + AGE + SUBJEC_CLASS + RATIO_IC + CorpAll + GDP + UD + SOC_EXPEND + (1 | COUNTRY), data = db)
+
+results_5 <- lmer(PSCi ~ 1 + CLASS + UNION + SEX + AGE + SUBJEC_CLASS + RATIO_IC + CorpAll + GDP + UD + SOC_EXPEND + CLASS*RATIO_IC + (1 | COUNTRY), data = db)
+
+
+sjPlot::tab_model(list(results_1, results_2, results_3, results_4, results_5), show.ci=FALSE, p.style = "stars", dv.labels = c("Modelo 1", "Modelo 2", "Modelo 3", "Modelo 4"),string.pred = "Predictores", string.est = "β")
