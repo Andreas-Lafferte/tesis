@@ -50,7 +50,6 @@ sjPlot::plot_frq(db$PSCi,
   theme_classic() +
   labs(caption = "Fuente: Elaboración propia en base a ISSP (1999-2019)")
 
-
 # independent N1
 
 db %>% select(CLASS, UNION) %>% 
@@ -84,7 +83,7 @@ db[which.min(db$LAG_RATIO),][,c(2,3)]
 
 # control N1
 
-db %>% select(SEX, DEGREE, INCOME) %>% 
+db %>% select(SEX, IDEOLOGY, SUBJEC_CLASS) %>% 
   sjmisc::frq(., weights = db$FACTOR)
 
 db %>% select(AGE) %>% 
