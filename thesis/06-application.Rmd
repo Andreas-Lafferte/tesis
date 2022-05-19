@@ -1,6 +1,298 @@
 # Resultados {#application}
+<div style="text-align: justify">
 
-## Análisis descriptivo
+```{r database, message=TRUE, warning=TRUE, include=FALSE, paged.print=TRUE}
+
+if (!require("pacman")) install.packages("pacman")
+
+pacman::p_load(tidyverse, dplyr, stringr, sjmisc, kableExtra, summarytools, 
+               DT, gtsummary, stargazer, magrittr, janitor, htmlTable, 
+               gridExtra, psych, lessR, ggrepel, ggthemes, sjlabelled, 
+               ggpubr, RColorBrewer, sjPlot, ggpubr)
+
+options(scipen=999)
+
+load("../output/data/db-proc.RData")
+load("../output/data/df2-proc.RData")
+
+names(db)
+
+
+```
+
+
+## Descriptivos
+<div style="text-align: justify">
+
+Comenzar con resumen de Tabla 1 estadísticos descriptivos de nivel individual.En concreto, se detalla el valor promedio de PSCi para el total de casos y luego se detalla su valor en los respectivos. Se resalta la alta desviación estándar en los datos lo cual podría asociarse a la presencia de distintos países en los países u olas bajo estudio.
+
+
+Ejemplo: 
+
+
+Esta investigación trabaja sobre una muestra de 81.488 individuos anidados en 43 países, los cuales poseen, en promedio, un moderado nivel de conflicto percibido reflejado en una media de 3.94 en una escala que va de 0 (no existen conflictos) a 9 (existen muy fuertes conflictos), tal como indica la Tabla 3.1. Mirando en detalle la media de PSCi para los años bajo estudio se puede dar cuenta de que el nivel de conflicto percibido es relativamente estable y moderado durante el tiempo, oscilando entre un valor promedio mínimo de 3.75 para el año 2019 y un valor máximo de 4.05 en el 2009. Ahora bien, un elemento a destacar es que, considerando la distribución y escala de PSCi, existe una considerable dispersión en los datos respecto al valor total del promedio de PSCi (DE=2.09), así como para su valor en los respectivos años 1999 (DE=1.87), 2009 (DE=2.14) y 2019 (DE= 2.08). Posiblemente, esta alta variación en los datos respecto a la media de PSCi podría estar asociada a la presencia de diferentes países en cada año/ola bajo estudio, abriendo la interrogante sobre el rol contextual de los países (Hertel & Shöneck, 2019). 
+
+
+```{r include=FALSE}
+reset_gtsummary_theme()
+theme_gtsummary_compact(set_theme = T)
+theme_gtsummary_language(language = "es", decimal.mark = ".", big.mark = ",", set_theme = T)
+
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+         
+options(kableExtra.html.bsTable = T)
+options(knitr.kable.NA = '')
+
+
+db %>% select(YEAR, PSCi, CLASS, UNION, AGE, SEX, IDEOLOGY, SUBJEC_CLASS) %>% 
+  gtsummary::tbl_summary(by = YEAR,
+                         missing = "no",
+                         type = list(all_continuous()~ 'continuous2'),
+                         statistic = all_continuous() ~ c("{mean} ({sd})", 
+                                                          "{min}, {max}")) %>% 
+  add_n(last = F, statistic = "{N_nonmiss}") %>% 
+  add_overall(., last = T, col_label = "**Total**, N = 81,488") %>% 
+  bold_labels(.) %>% 
+  modify_spanning_header(all_stat_cols() ~ "**Valores**") %>%
+  modify_footnote(update = all_stat_cols() ~ "Media (DE); Rango (Min, Max); Frecuencia (%)") %>% 
+  modify_header(update = list(label ~ "**Variable**")) %>% 
+  modify_caption("Estadísticos descriptivos nivel individual") %>% 
+  gtsummary::as_kable_extra(strip_md_bold = T) %>%
+  kableExtra::kable_styling(latex_options = "hold_position", font_size = 14, position = "center") %>%
+   kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = F) %>% 
+  kableExtra::row_spec(row = c(1,4,14,17,20,23,28),bold = T) %>%
+  kableExtra::add_footnote(label = "Fuente: Elaboración propia en base a ISSP 1999-2019")
+
+
+```
+
+Descripción de distribución de frecuencias para la posición de clase y la afiliación sindical, comenzando con los totales y luego mencionando su estabilidad en entre los años. Ejemplo:
+
+A nivel individual, la Tabla 3.1. muestra una clara tendencia en la distribución de las frecuencias de la posición de clase: la gran mayoría de los individuos -más de un tercio de la muestra- se ubican en la posición de clase trabajadora no calificada (34%). A esta categoría le siguen la clase de trabajadores calificados (18%) y la pequeña burguesía (15%). Luego, se encuentran las posiciones asociadas típicamente a las clases medias siguiendo un orden descendente: supervisores calificados (10%), expertos sin autoridad (6.9%) y expertos directivos (5.4%). Por su parte, la clase de supervisores no calificados, que se asocia comúnmente a posiciones de clase trabajadora, es minoritaria respecto a las posiciones de clases medias pues solo alcanza a concentrar un 5.6% del total de los casos. Finalmente, las posiciones de clase minoritarias corresponden a la de los pequeños empleadores y a la de los capitalistas o grandes propietarios, con un 3.5% y un 1.2% de los casos respectivamente. Observando la distribución de esta variable en el tiempo se puede notar un patrón estable al recién descrito, con la excepción del año 2019 en donde la proporción de individuos pertenecientes a la pequeña burguesía supera en 4 puntos porcentuales a la proporción de individuos de la clase de trabajadores calificados (14%). En cuanto a la afiliación sindical, se puede concluir que la mayoría de los individuos de la muestra no forman parte de alguna organización sindical (60%) en comparación a quienes sí son miembros o han estado afiliados a sindicatos (40%). Tal distribución se repite en los años 1999 y 2019, en donde casi tres quintas partes de los encuestados no forman parte de organizaciones sindicales, mientras que para el año 2009 esta diferencia se reduce levemente en cerca de un 10%. 
+
+
+Se finaliza mencionando la descripción de datos de las variables de control: edad, sexo, identificación política e identidad de clase.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+
+df %>% select(YEAR, RATIO_IC, CorpAll, GDP, SOC_EXPEND, UD) %>% 
+  gtsummary::tbl_summary(by = YEAR,
+                         missing = "no",
+                         type = list(all_continuous()~ 'continuous2'),
+                         statistic = all_continuous() ~ c("{mean} ({sd})", 
+                                                          "{min}, {max}")) %>% 
+  add_n(last = F, statistic = "{N_nonmiss}") %>% 
+  add_overall(., last = T, col_label = "**Total**, N = 81") %>% 
+  bold_labels(.) %>% 
+  modify_spanning_header(all_stat_cols() ~ "**Valores**") %>%
+  modify_footnote(update = all_stat_cols() ~ "Media (DE); Rango (Min, Max)") %>% 
+  modify_header(update = list(label ~ "**Variable**")) %>% 
+  modify_caption("Estadísticos descriptivos nivel contextual") %>% 
+  gtsummary::as_kable_extra(strip_md_bold = T) %>%
+  kableExtra::kable_styling(latex_options = "hold_position", font_size = 14, position = "center") %>%
+   kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = F) %>% 
+  kableExtra::row_spec(row = c(1,4,7,10,13),bold = T) %>%
+  kableExtra::add_footnote(label = "Fuente: Elaboración propia en base a WIID, ICTWSS y OCDE")
+
+```
+
+
+
+
+Se sigue con la Tabla 2 que muestra los estadísticos descriptivos de nivel individual, mencionando los valores promedios totales para el Ratio 80/20 y para el índice de corporativismo. Tambíen se mencionan la alta variación en los datos materializado en una alta desviación estandar para estos indicadores, ejemplificando con los valores mínimos y máximos. 
+
+Se termina mencionando las variables de control de nivel 2: GDP, gasto social y densidad sindical. 
+
+Una de las primeras preguntas que deben ir siendo respondidas antes de realizar estimaciones multinivel es si, al menos descriptivamente, el nivel de conflicto percibido tiende a varíar entre las unidades de nivel contextual, esto es, los países. El gráfico 2 busca representar lo anterior mostrando la evolución del promedio de PSCi para cada país a través del tiempo. Aquí se describe el grafico con una interpretación general de la tendencia y enfocandose en países especificos.
+
+
+```{r echo=FALSE, fig.asp=1.5, out.width='80%', message=FALSE, warning=FALSE, fig.align='default', }
+
+my_colors <- RColorBrewer::brewer.pal(10, "Blues")[8]
+
+formatter <- function(...){
+  function(x) format(round(x, 1), ...)
+}
+
+db %>% group_by(COUNTRY, YEAR) %>% 
+  summarise(promedio = round(mean(PSCi), digits = 1)) %>% 
+  ggplot(aes(x = YEAR, y = promedio)) +
+  geom_line(colour = my_colors) + 
+  geom_point(colour = my_colors)+
+  scale_x_continuous(breaks=seq(1999, 2019, 10)) +
+  facet_wrap(.~COUNTRY, ncol = 5, scales = "fixed") + # for thesis uses 8 in ncol and free_y in scales
+  scale_y_continuous(labels = formatter(nsmall = 1)) +
+  geom_hline(aes(yintercept = 3.9), linetype = "dashed", color = "gray40") +
+  theme_classic() + # and classic theme
+  labs(x = "Año", 
+       y = "Promedio PSCi", 
+       title = "Evolución percepciones de conflicto social entre 1999 y 2019") +
+  theme(plot.title = element_text(size = 12), 
+        axis.title = element_text(size = 11),
+        plot.caption = element_text(size = 10))
+
+
+
+```
+
+
+
+En cuanto a la asociación entre variables, las tablas 3 y 4 nos muestran el promedio de PSCi para la posición de clase y la afiliación sindical, respectivamente. Aqui se describe la asociación entre cada categoría de clase y el promedio de PSCi, así como el test de ANOVA para conocer si existen difererencias significativas entre las categorías de clase. 
+
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+tot1 <- db %>% select(PSCi, CLASS) %>% 
+  filter(!is.na(PSCi)&!is.na(CLASS)) %>% 
+  group_by(CLASS) %>% 
+  summarise(total = mean(x = PSCi, na.rm = T)) %>% 
+  mutate(total = round(total, digits = 2))
+
+db %>% select(PSCi, CLASS, YEAR) %>% 
+  filter(!is.na(PSCi)&!is.na(CLASS)) %>% 
+  mutate(YEAR = as_factor(YEAR)) %>% 
+  group_by(YEAR, CLASS) %>% 
+  summarise(promedio = mean(x = PSCi, na.rm = T)) %>% 
+  mutate(promedio = round(promedio, digits = 2)) %>% 
+  pivot_wider(names_from = YEAR, values_from = c(promedio)) %>% 
+  add_column(tot1[2]) %>% 
+  knitr::kable(format = "html", row.names = F, col.names = c("Posición de clase", "1999", "2009", "2019", "Total"), caption = "Tabla 2. Promedio PSCi por categoría de clase según año") %>% kableExtra::kable_styling(latex_options = "hold_position", font_size = 14, position = "center") %>% 
+   kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = F) %>% 
+  add_header_above(c("Variable independiente" = 1, "Año" = 4)) %>% 
+  kableExtra::column_spec(1, width = "9.85cm") %>%
+  kableExtra::column_spec(2, width = "6.85cm") %>% 
+  kableExtra::footnote(
+           number = c(""),
+           general_title = "F=139.59  df=8  Cohen's f=0.117  p=0.000 ", number_title = "F=139.59  df=8  Cohen's f=0.117  p=0.000 ",
+           footnote_as_chunk = T, title_format = c("italic")
+           )
+
+```
+
+Aquí se describe la asociación de la condición de afiliación sindical y el promedio de PSCi, indicando si existen diferencias significativas entre quienes están afiliados y quienes no.
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+tot2 <- db %>% select(PSCi, UNION) %>% 
+  filter(!is.na(PSCi)&!is.na(UNION)) %>% 
+  group_by(UNION) %>% 
+  summarise(total = mean(x = PSCi, na.rm = T)) %>% 
+  mutate(total = round(total, digits = 2))
+
+
+db %>% select(PSCi, UNION, YEAR) %>% 
+  filter(!is.na(PSCi)&!is.na(UNION)) %>% 
+  mutate(YEAR = as_factor(YEAR)) %>% 
+  group_by(YEAR, UNION) %>% 
+  summarise(promedio = round(mean(PSCi, na.rm = T), digits = 2)) %>% 
+  pivot_wider(names_from = YEAR, values_from = promedio) %>% 
+  add_column(tot2[2]) %>% 
+  knitr::kable(format = "html", row.names = F, col.names = c("Afiliación sindical", "1999", "2009", "2019", "Total"), caption = "Promedio PSCi por afiliación sindical según año") %>% kableExtra::kable_styling(latex_options = "hold_position", font_size = 14, position = "center") %>% 
+   kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = F) %>% 
+  add_header_above(c("Variable dependiente" = 1, "Año" = 4)) %>% 
+  kableExtra::column_spec(1, width = "9.85cm") %>%
+  kableExtra::column_spec(2, width = "6.85cm") %>% 
+  kableExtra::footnote(
+           number = c(""),
+           general_title = "F=553.7  df=1  Cohen's f=0.083  p=0.000 ", number_title = "F=553.7  df=1  Cohen's f=0.083  p=0.000 ",
+           footnote_as_chunk = T, title_format = c("italic")
+           )
+
+```
+
+
+
+Ahora pasamos a la sección bivariada de nivel contextual. Primero se comienza describiendo la asociación y valor del coef de correlación entre el Ratio 80/20 y el promedio de PSCi por país y año, tal como se muestra en el grafico 3. Se detalla tambien el grado en que los datos(países) se ajustan a la estimación de la recta pues hay países como Sudafrica que figuran como casos extremos. 
+
+
+
+
+```{r graf2, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.asp=0.8, out.width='80%', fig.align='default'}
+
+dat_text <- data.frame(
+  label = c("R = 0.77, p = 0.0002", "R = 0.26, p = 0.11", "R = 0.59, p = 0.0078"),
+  YEAR   = c("1999", "2009", "2019"),
+  PSCi = c(8.0, 8.0, 8.0),
+  RATIO_IC = c(30,30,30))
+
+db %>% select(ISO_COUNTRY, YEAR, PSCi, RATIO_IC) %>% 
+  na.omit() %>% 
+  group_by(ISO_COUNTRY, YEAR) %>% 
+  summarise_all(mean, na.rm = T) %>% 
+  ggplot(aes(x = RATIO_IC, y = PSCi, label = ISO_COUNTRY)) +
+  geom_point(size = 1.5, alpha = 0.8, colour = my_colors) +
+  geom_smooth(stat = "smooth", position = "identity", method = "lm", 
+              colour = "#1f1f1f", size = 1) +
+  geom_text_repel(aes(label=ISO_COUNTRY), size=2.5, show.legend = FALSE, colour = my_colors) + 
+  facet_wrap(.~YEAR, scales = "fixed") +
+  scale_y_continuous("Promedio PSCi", limits = c(1, 9),
+                     breaks = seq(1, 9, 1),
+                     labels = formatter(nsmall = 1)) +
+  scale_x_continuous("Ratio S80/S20", limits = c(0, 50),
+                     breaks = seq(0, 50, 10)) +
+  labs(x = "Ratio S80/S20", 
+       y = "Promedio PSCi", 
+       title = "Promedio de conflicto social percibido y Ratio 80/20 por país y año") +
+  theme(plot.title = element_text(size = 12), 
+        axis.title = element_text(size = 11),
+        plot.caption = element_text(size = 10))+
+  theme_classic() +
+  geom_text(data = dat_text,
+            mapping = aes(x = RATIO_IC, y = PSCi, label = label))
+
+```
+
+
+
+
+Se finaliza con la descripción de la asociación y del coef de correlación entre el grado de corporativismo de los países y su nivel promedio de PSCi según año, indicando nuevamente cómo se dsitribuyen los casos en torno a la recta. 
+
+
+
+
+```{r graf3, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.asp=0.8, out.width='80%', fig.align='default'}
+
+dat_text2 <- data.frame(
+  label = c("R = -0.51, p = 0.038", "R = -0.068, p = 0.7", "R = 0.029, p = 0.92"),
+  YEAR   = c("1999", "2009", "2019"),
+  PSCi = c(8.0, 8.0, 8.0),
+  CorpAll = c(0.0,0.0,0.0))
+
+
+db %>% select(ISO_COUNTRY, YEAR, PSCi, CorpAll) %>% 
+  na.omit() %>% 
+  group_by(ISO_COUNTRY, YEAR) %>% 
+  summarise_all(mean, na.rm = T) %>% 
+  ggplot(aes(x = CorpAll, y = PSCi, label = ISO_COUNTRY)) +
+  geom_point(size = 1.5, alpha = 0.8, colour = my_colors) +
+  geom_smooth(stat = "smooth", position = "identity", method = "lm", 
+              colour = "#1f1f1f", size = 1) +
+  geom_text_repel(aes(label=ISO_COUNTRY), size=2.5, show.legend = FALSE, colour = my_colors) + 
+  facet_wrap(.~YEAR, scales = "fixed") +
+  scale_y_continuous("Promedio PSCi", limits = c(1, 9),
+                     breaks = seq(1, 9, 1),
+                     labels = formatter(nsmall = 1)) +
+  scale_x_continuous("Índice Corporativismo", limits = c(-1.5, 1.5),
+                     breaks = seq(-1.5, 1.5, 0.5)) +
+  labs(x = "Índice Corporativismo", 
+       y = "Promedio PSCi", 
+       title = "Promedio de conflicto social percibido y grado de corporativismo por país y año") +
+  theme(plot.title = element_text(size = 12), 
+        axis.title = element_text(size = 11),
+        plot.caption = element_text(size = 10))+
+  theme_classic() +
+  geom_text(data = dat_text2,
+            mapping = aes(x = CorpAll, y = PSCi, label = label))
+
+```
+
+
 
 
 ## Modelos

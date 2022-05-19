@@ -131,7 +131,7 @@ issp99 <- issp99 %>% mutate(SUBJEC_CLASS = case_when(class == 1 ~ "6.Clase baja"
                                                      class == 2 ~ "5.Clase trabajadora",
                                                      class == 3 ~ "4.Clase media-baja",
                                                      class == 4 ~ "3.Clase media",
-                                                     class == 5 ~ "2.Clase media_alta",
+                                                     class == 5 ~ "2.Clase media-alta",
                                                      class == 6 ~ "1.Clase alta",
                                                      TRUE ~ NA_character_))
 

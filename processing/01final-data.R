@@ -52,11 +52,11 @@ db$IDEOLOGY <- sjlabelled::set_label(db$IDEOLOGY, label = c("Identificación pol
 db$CLASS <- sjlabelled::set_label(db$CLASS, label = c("Posición de clase"))
 
 ## PSCi
+
 db <- db %>% 
   rowwise() %>%
   mutate(PSCi = sum(CONFLICT_RP, CONFLICT_WCMC, CONFLICT_MW, na.rm = F))
 
-#db$PSCi <- scale(db$PSCi) # standardized Z scores
 
 db$PSCi <- sjlabelled::set_label(db$PSCi, label = c("Perceived Social Conflict Index"))
 frq(db$PSCi)
@@ -84,45 +84,50 @@ df <- full_join(wiid, ictwss, by = c("COUNTRY", "YEAR"))
 df <- full_join(df, oecd, by = c("COUNTRY", "YEAR"))
 df <- full_join(df, swiid_summary, by = c("COUNTRY", "YEAR"))
 
-# 3.3 Join data ----
+df <- df %>% select(COUNTRY, YEAR, RATIO_IC, CorpAll, GDP, SOC_EXPEND, UD, GINI)
 
-db <- full_join(db, df, by = c("COUNTRY", "YEAR"))
-
-# 3.4 Cross-sectional and Longitudinal effects ----
+# 3.2.1 Cross-sectional and Longitudinal effects ----
 
 ## Cross-sectional effects
 
 # Country mean
-db <- db %>% group_by(COUNTRY) %>% mutate(MEAN_RATIO = mean(RATIO_IC)) # MEAN RATIO_IC
-db %>% group_by(COUNTRY) %>% count(MEAN_RATIO) %>% print(n = nrow(.)) # View
+df <- df %>% group_by(COUNTRY) %>% 
+  mutate(MEAN_RATIO = mean(RATIO_IC, na.rm = T), # MEAN RATIO
+         MEAN_CorpAll = mean(CorpAll, na.rm = T), # MEAN CorpAll
+         MEAN_GDP = mean(GDP, na.rm = T)) %>% # MEAN GDP
+    ungroup()
 
-db <- db %>% group_by(COUNTRY) %>% mutate(MEAN_GDP = mean(GDP)) # MEAN GDP
-db %>% group_by(COUNTRY) %>% count(MEAN_GDP) %>% print(n = nrow(.)) # View
+df %>% group_by(COUNTRY) %>% count(MEAN_RATIO) %>% print(n = nrow(.)) # View
+
 
 ## Longitudinal effects 
 
 # Mean centered
-db <- db %>% group_by(COUNTRY, YEAR) %>% 
-  mutate(LAG_RATIO = (RATIO_IC - MEAN_RATIO)) # LAG RATIO
 
-db %>% group_by(COUNTRY, YEAR) %>% count(LAG_RATIO) %>% print(n = nrow(.)) # View
+df <- df %>% mutate(LAG_RATIO = (RATIO_IC - MEAN_RATIO), # LAG RATIO
+                    LAG_GDP = (GDP - MEAN_GDP)) # LAG GDP
 
-db <- db %>% group_by(COUNTRY, YEAR) %>% 
-  mutate(LAG_GDP = (GDP - MEAN_GDP)) # LAG GDP
+df %>% group_by(COUNTRY) %>% count(LAG_RATIO) %>% print(n = nrow(.)) # View
 
-db %>% group_by(COUNTRY, YEAR) %>% count(LAG_GDP) %>% print(n = nrow(.)) # View
+df[sapply(df, is.nan)] <- NA
 
-# 3.5 Labels ----
+# 3.3 Join data ----
+
+db <- full_join(db, df, by = c("COUNTRY", "YEAR"))
+
+# 3.4 Labels ----
 db$MEAN_RATIO <- sjlabelled::set_label(db$MEAN_RATIO, label = c("Promedio Ratio S80/S20"))
 db$MEAN_GDP <- sjlabelled::set_label(db$MEAN_GDP, label = c("Promedio GDP"))
+db$MEAN_CorpAll <- sjlabelled::set_label(db$MEAN_CorpAll, label = c("Promedio Corporativismo"))
 db$LAG_RATIO <- sjlabelled::set_label(db$LAG_RATIO, label = c("Lag Ratio S80/S20"))
 db$LAG_GDP <- sjlabelled::set_label(db$LAG_GDP, label = c("Lag GDP"))
+db$GINI <- sjlabelled::set_label(db$GINI, label = c("Gini"))
 
-
-# 3.6 ISO code ----
+# 3.5 ISO code ----
 db <- db %>% mutate(ISO_COUNTRY = case_when(COUNTRY == "Alemania" ~ "DEU",
                                          COUNTRY == "Argentina" ~ "ARG",
                                          COUNTRY == "Australia" ~ "AUS",
+                                         COUNTRY == "Austria" ~ "AUT",
                                          COUNTRY == "Belgica" ~ "BEL",
                                          COUNTRY == "Bulgaria" ~ "BGR",
                                          COUNTRY == "Canada" ~ "CAN",
@@ -169,13 +174,21 @@ db <- db %>% mutate(ISO_COUNTRY = case_when(COUNTRY == "Alemania" ~ "DEU",
 
 db$ISO_COUNTRY <- sjlabelled::set_label(db$ISO_COUNTRY, label = c("Código ISO país"))
 
+db$WAVE <- as.factor(db$YEAR)
+db$COUNTRY_WAVE <- do.call(paste, c(db[c("ISO_COUNTRY", "WAVE")], sep = "_"))
+
+db$WAVE <- sjlabelled::set_label(db$WAVE, label = c("Ola"))
+db$COUNTRY_WAVE <- sjlabelled::set_label(db$COUNTRY_WAVE, label = c("País-ola"))
+
+
 # 4. Save ----
-db <- db %>% select(ID_SUBJECT, YEAR, COUNTRY, ISO_COUNTRY, SEX, AGE, DEGREE, INCOME, IDEOLOGY, SUBJEC_CLASS, UNION, 
+db <- db %>% select(ID_SUBJECT, YEAR, COUNTRY, ISO_COUNTRY, WAVE, COUNTRY_WAVE, SEX, AGE, DEGREE, INCOME, IDEOLOGY, SUBJEC_CLASS, UNION, 
                     CLASS, CONFLICT_RP, CONFLICT_WCMC, CONFLICT_MW, CONFLICT_TB, PSCi, GINI, RATIO_IC, CorpAll, GDP,
-                    UD, SOC_EXPEND, 32:35, FACTOR)
+                    UD, SOC_EXPEND, MEAN_RATIO, MEAN_CorpAll, MEAN_GDP, LAG_RATIO, LAG_GDP, FACTOR)
 
 db <- db %>% filter(!is.na(PSCi))
 
 db <- as_tibble(db)
 
 save(db, file = "../output/data/db-proc.RData")
+save(df, file = "../output/data/df2-proc.RData")
