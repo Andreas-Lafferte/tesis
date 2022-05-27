@@ -58,7 +58,7 @@ sjPlot::plot_frq(db$CLASS,
 
 # independent N2
 
-df %>% select(RATIO_IC, CorpAll, MEAN_RATIO, LAG_RATIO) %>% 
+df %>% select(RATIO_IC, CorpAll) %>% 
   summarytools::descr(.) 
 
 df[which.max(df$RATIO_IC),][,c(1,2)]
@@ -67,16 +67,9 @@ df[which.min(df$RATIO_IC),][,c(1,2)]
 df[which.max(df$CorpAll),][,c(1,2)]
 df[which.min(df$CorpAll),][,c(1,2)]
 
-df[which.max(df$MEAN_RATIO),][,c(1,2)]
-df[which.min(df$MEAN_RATIO),][,c(1,2)]
-
-df[which.max(df$LAG_RATIO),][,c(1,2)]
-df[which.min(df$LAG_RATIO),][,c(1,2)]
-
-
 # control N1
 
-db %>% select(SEX, IDEOLOGY, SUBJEC_CLASS) %>% 
+db %>% select(SEX, IDEOLOGY) %>% 
   sjmisc::frq(., weights = db$FACTOR)
 
 db %>% select(AGE) %>% 
@@ -91,15 +84,9 @@ sjPlot::plot_frq(db$AGE,
   labs(caption = "Fuente: Elaboración propia en base a ISSP (1999-2019)")
 
 
-sjPlot::plot_frq(db$SUBJEC_CLASS, 
-                 weight.by = db$FACTOR,
-                 type = "histogram", 
-                 show.mean = TRUE,
-                 geom.colors = "#2171b5")
-
 # control N2
 
-df %>% select(GDP, MEAN_GDP, LAG_GDP, SOC_EXPEND, UD) %>% 
+df %>% select(GDP, SOC_EXPEND, UD) %>% 
   summarytools::descr(.)
 
 df %>% group_by(COUNTRY, YEAR) %>% 
@@ -116,13 +103,6 @@ df[which.min(df$SOC_EXPEND),][,c(1,2)]
 df[which.max(df$UD),][,c(1,2)]
 df[which.min(df$UD),][,c(1,2)]
 
-df[which.max(df$MEAN_GDP),][,c(1,2)]
-df[which.min(df$MEAN_GDP),][,c(1,2)]
-
-df[which.max(df$LAG_GDP),][,c(1,2)]
-df[which.min(df$LAG_GDP),][,c(1,2)]
-
-
 ### 3.1.1 Descriptive table ----
 
 reset_gtsummary_theme()
@@ -130,14 +110,13 @@ theme_gtsummary_compact(set_theme = T)
 theme_gtsummary_language(language = "es", decimal.mark = ".", big.mark = ",", set_theme = T)
                           
 
-db %>% select(YEAR, PSCi, CLASS, UNION, AGE, SEX, IDEOLOGY, SUBJEC_CLASS) %>% 
-  gtsummary::tbl_summary(by = YEAR,
+db %>% select(PSCi, CLASS, UNION, AGE, SEX, IDEOLOGY) %>% 
+  gtsummary::tbl_summary(
                          missing = "no",
                          type = list(all_continuous()~ 'continuous2'),
                          statistic = all_continuous() ~ c("{mean} ({sd})", 
                                                           "{min}, {max}")) %>% 
   add_n(last = F, statistic = "{N_nonmiss}") %>% 
-  add_overall(., last = T, col_label = "**Total**, N = 81,488") %>% 
   bold_labels(.) %>% 
   modify_spanning_header(all_stat_cols() ~ "**Valores**") %>%
   modify_footnote(update = all_stat_cols() ~ "Media (DE); Rango (Min, Max); Frecuencia (%)") %>% 
@@ -147,14 +126,13 @@ db %>% select(YEAR, PSCi, CLASS, UNION, AGE, SEX, IDEOLOGY, SUBJEC_CLASS) %>%
   gt::tab_source_note(gt::md("Fuente: Elaboración propia en base a ISSP 1999-2019"))
 
 
-df %>% select(YEAR, RATIO_IC, CorpAll, GDP, SOC_EXPEND, UD) %>% 
-  gtsummary::tbl_summary(by = YEAR,
+df %>% select(RATIO_IC, CorpAll, GDP, SOC_EXPEND, UD) %>% 
+  gtsummary::tbl_summary(
                          missing = "no",
                          type = list(all_continuous()~ 'continuous2'),
                          statistic = all_continuous() ~ c("{mean} ({sd})", 
                                                           "{min}, {max}")) %>% 
   add_n(last = F, statistic = "{N_nonmiss}") %>% 
-  add_overall(., last = T, col_label = "**Total**, N = 81") %>% 
   bold_labels(.) %>% 
   modify_spanning_header(all_stat_cols() ~ "**Valores**") %>%
   modify_footnote(update = all_stat_cols() ~ "Media (DE); Rango (Min, Max)") %>% 
@@ -184,10 +162,7 @@ db %>% group_by(COUNTRY, YEAR) %>%
   theme_classic() + # and classic theme
   labs(x = "Año", 
        y = "Promedio PSCi", 
-       title = "Evolución percepciones de conflicto social entre 1999 y 2019", 
-       caption = "Nota1: Países con una sola observación representados por un punto
-       Nota2: Línea horizontal representa promedio para todos los países y años
-       Fuente: Elaboración propia en base a ISSP 1999-2019") +
+       title = "Evolución percepciones de conflicto social entre 1999 y 2019") +
   theme(plot.title = element_text(size = 12), 
         axis.title = element_text(size = 11),
         plot.caption = element_text(size = 10))
@@ -195,23 +170,16 @@ db %>% group_by(COUNTRY, YEAR) %>%
 #2171b5
 ## 3.1.3 Association table CLASS, UNION and PSCi ----
 
-# total CLASS
-
-db %>% select(PSCi, CLASS, YEAR) %>% 
-  filter(!is.na(PSCi)&!is.na(CLASS)) %>% 
-  group_by(YEAR) %>% 
-  summarise(n= n())
-
 # Table CLASS - Mean PSCi by Year
 
-db %>% select(PSCi, CLASS, YEAR) %>% 
+db %>% select(PSCi, CLASS, YEAR, FACTOR) %>% 
   filter(!is.na(PSCi)&!is.na(CLASS)) %>% 
   mutate(YEAR = as_factor(YEAR)) %>% 
   group_by(YEAR, CLASS) %>% 
-  summarise(promedio = mean(x = PSCi, na.rm = T)) %>% 
+  summarise(promedio = weighted.mean(x = PSCi, w = FACTOR, na.rm = T)) %>% 
   mutate(promedio = round(promedio, digits = 2)) %>% 
-  pivot_wider(names_from = YEAR, values_from = c(promedio)) %>% 
-  add_row(CLASS = 'Total observaciones', `1999` = 10369,  `2009` = 36244, `2019` = 25624)
+  pivot_wider(names_from = YEAR, values_from = c(promedio)) 
+
 
 oneway.test(PSCi ~ CLASS, data = db) # there is significance differences between categories of class
 kruskal.test(PSCi ~ CLASS, data = db) #non parametric
@@ -220,22 +188,15 @@ kruskal.test(PSCi ~ CLASS, data = db) #non parametric
 t <- db %>% filter(!is.na(PSCi)&!is.na(CLASS)) %>% as.data.frame()
 ANOVA(PSCi ~ CLASS, data =t)
 
-# total Union
-
-db %>% select(PSCi, UNION, YEAR) %>% 
-  filter(!is.na(PSCi)&!is.na(UNION)) %>% 
-  mutate(YEAR = as_factor(YEAR)) %>% 
-  group_by(YEAR) %>% summarise(n = n())
 
 # Table Union - Mean PSCi by Year
 
-db %>% select(PSCi, UNION, YEAR) %>% 
+db %>% select(PSCi, UNION, YEAR, FACTOR) %>% 
   filter(!is.na(PSCi)&!is.na(UNION)) %>% 
   mutate(YEAR = as_factor(YEAR)) %>% 
   group_by(YEAR, UNION) %>% 
-  summarise(promedio = mean(PSCi, na.rm = T)) %>% 
-  pivot_wider(names_from = YEAR, values_from = promedio) %>% 
-  add_row(UNION = 'Total observaciones', `1999` = 11785,  `2009` = 40723, `2019` = 25629)
+  summarise(promedio = weighted.mean(x = PSCi, w = FACTOR, na.rm = T)) %>% 
+  pivot_wider(names_from = YEAR, values_from = promedio)
 
 oneway.test(PSCi ~ UNION, data = db) # there is significance differences between union and non-union
 kruskal.test(PSCi ~ UNION, data = db)
@@ -246,10 +207,10 @@ ANOVA(PSCi ~ UNION, data = t2)
 
 ## Country - Mean PSCi
 
-db %>% select(PSCi, ISO_COUNTRY) %>% 
+db %>% select(PSCi, ISO_COUNTRY, FACTOR) %>% 
   filter(!is.na(PSCi)) %>% 
   group_by(ISO_COUNTRY) %>% 
-  summarise(promedio = mean(PSCi, na.rm = T)) %>% 
+  summarise(promedio = weighted.mean(x = PSCi, w = FACTOR, na.rm = T)) %>% 
   print(n = nrow(.))
 
 t3 <- db %>% filter(!is.na(PSCi)&!is.na(ISO_COUNTRY)) %>% as.data.frame()
@@ -258,18 +219,23 @@ ANOVA(PSCi ~ ISO_COUNTRY, data = t3) # careful with the residual values for coun
 
 ## 3.1.4 Correlation matrix ----
 
-db %>% select(PSCi, CLASS, UNION, AGE, SEX, IDEOLOGY, SUBJEC_CLASS,
+lab_cor <- c("Perceived Social Conflict Index", "Posicion de clase",
+             "Afiliacion sindical", "Edad", "Sexo", "Identificacion politica",
+             "Ratio 80/20", "Indice corporativismo", 
+             "GDP Per capita", "Gasto social (%GDP)", "Densidad sindical")
+
+db %>% select(PSCi, CLASS, UNION, AGE, SEX, IDEOLOGY,
               RATIO_IC, CorpAll, GDP, SOC_EXPEND, UD) %>% 
-  mutate_at(vars(1:12), ~ as_numeric(.)) %>% 
-  sjPlot::tab_corr(., triangle = "lower")
- 
+  mutate_at(vars(1:11), ~ as_numeric(.)) %>% 
+  sjPlot::tab_corr(., triangle = "lower", var.labels = lab_cor)
+
 
 ## 3.1.5 Ratio IC and PSCi by Country and Year ----
 
 # Option 1
 
 dat_text <- data.frame(
-  label = c("R = 0.77, p = 0.0002", "R = 0.26, p = 0.11", "R = 0.59, p = 0.0078"),
+  label = c("R = 0.71", "R = 0.26", "R = 0.51"),
   YEAR   = c("1999", "2009", "2019"),
   PSCi = c(1.5, 1.5, 1.5),
   RATIO_IC = c(35,35,35))
@@ -292,8 +258,7 @@ db %>% select(ISO_COUNTRY, YEAR, PSCi, RATIO_IC) %>%
                      breaks = seq(0, 45, 10)) +
   labs(x = "Ratio S80/S20", 
        y = "Promedio PSCi", 
-       title = "Promedio de conflicto social percibido y Ratio 80/20 por país y año", 
-       caption = " Fuente: Elaboración propia en base a ISSP 1999-2019") +
+       title = "Promedio de conflicto social percibido y Ratio 80/20 por país y año") +
   theme(plot.title = element_text(size = 12), 
         axis.title = element_text(size = 11),
         plot.caption = element_text(size = 10))+
@@ -307,7 +272,7 @@ db %>% select(ISO_COUNTRY, YEAR, PSCi, RATIO_IC) %>%
 ## 3.1.6 CorpALL and PSCi by Country and Year ----
 
 dat_text2 <- data.frame(
-  label = c("R = -0.51, p = 0.038", "R = -0.068, p = 0.7", "R = 0.029, p = 0.92"),
+  label = c("R = -0.55", "R = -0.12", "R = -0.04"),
   YEAR   = c("1999", "2009", "2019"),
   PSCi = c(1.5, 1.5, 1.5),
   CorpAll = c(1.0,1.0,1.0))
@@ -338,14 +303,6 @@ db %>% select(ISO_COUNTRY, YEAR, PSCi, CorpAll) %>%
   theme_classic() +
   geom_text(data = dat_text2,
             mapping = aes(x = CorpAll, y = PSCi, label = label))
-
-
-
-
-
-
-
-
 
 
 # option 2 ----
@@ -386,40 +343,3 @@ ggscatter(cater2, x = "CorpAll", y = "PSCi", color = "#2127b5",palette = "Blues"
           cor.coef.size = 4,
           ggtheme = theme_classic(),
           font.label = c(8, "plain"))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# modelo ----
-
-a <- lm(PSCi ~ SUBJEC_CLASS, data = db)
-b <- lm(PSCi ~ SUBJEC_CLASS + UNION, data = db)
-c <- lm(PSCi ~ SUBJEC_CLASS + UNION + relevel(IDEOLOGY,ref="Derecha"), data = db)
-d <- lm(PSCi ~ SUBJEC_CLASS + UNION + relevel(IDEOLOGY,ref="Derecha") + SEX + AGE, data = db)
-
-sjPlot::tab_model(list(a,b,c,d), show.ci=FALSE, p.style = "stars", dv.labels = c("Modelo 1", "Modelo 2", "Modelo 3", "Modelo 4"),string.pred = "Predictores", string.est = "β")
-
-
-
-results_1 <- lmer(PSCi2 ~ 1 + CLASS + UNION + (1 | COUNTRY), data = db)
-
-results_2 <- lmer(PSCi2 ~ 1 + CLASS + UNION + SEX + AGE + IDEOLOGY + (1 | COUNTRY), data = db)
-
-results_3 <- lmer(PSCi2 ~ 1 + CLASS + UNION + SEX + AGE + IDEOLOGY + RATIO_IC + CorpAll + (1 | COUNTRY), data = db)
-
-results_4 <- lmer(PSCi2 ~ 1 + CLASS + UNION + SEX + AGE + IDEOLOGY + RATIO_IC + CorpAll + GDP + UD + SOC_EXPEND + (1 | COUNTRY), data = db)
-
-results_5 <- lmer(PSCi2 ~ 1 + CLASS + UNION + SEX + AGE + IDEOLOGY + RATIO_IC + CorpAll + GDP + UD + SOC_EXPEND + CLASS*RATIO_IC + (1 | COUNTRY), data = db)
-
-
-sjPlot::tab_model(list(results_1, results_2, results_3, results_4, results_5), show.ci=FALSE, p.style = "stars", dv.labels = c("Modelo 1", "Modelo 2", "Modelo 3", "Modelo 4"),string.pred = "Predictores", string.est = "β")

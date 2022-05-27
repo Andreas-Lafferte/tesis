@@ -3,10 +3,13 @@ fig:fig3
 tab:tab-dep
 tab:tab-indep
 eq:mlm
-tab:unnamed-chunk-10
-tab:unnamed-chunk-11
-tab:unnamed-chunk-13
-tab:unnamed-chunk-14
+tab:tab-desc1
+tab:tab-desc2
+fig:fig4
+tab:tab-bi1
+tab:tab-bi2
+fig:fig5
+fig:fig6
 tab:tab-control
 eq:alpha
 literature

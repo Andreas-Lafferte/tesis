@@ -14,7 +14,8 @@ pacman::p_load(tidyverse,
                stargazer,
                magrittr,
                psych, 
-               gtsummary)
+               gtsummary,
+               datawizard)
 options(scipen=999)
 
 # 2. Data ----
@@ -39,10 +40,8 @@ names(issp19)
 db <- rbind(issp99,issp09)
 db <- rbind(db,issp19)
 
-## ID subject and labels
-db <- tibble::rowid_to_column(db, "ID_SUBJECT")
+## Labels
 
-db$ID_SUBJECT <- sjlabelled::set_label(db$ID_SUBJECT, label = c("ID individuo"))
 db$SEX <- sjlabelled::set_label(db$SEX, label = c("Sexo"))
 db$DEGREE <- sjlabelled::set_label(db$DEGREE, label = c("Nivel educativo"))
 db$INCOME <- sjlabelled::set_label(db$INCOME, label = c("Decil ingreso"))
@@ -86,109 +85,119 @@ df <- full_join(df, swiid_summary, by = c("COUNTRY", "YEAR"))
 
 df <- df %>% select(COUNTRY, YEAR, RATIO_IC, CorpAll, GDP, SOC_EXPEND, UD, GINI)
 
-# 3.2.1 Cross-sectional and Longitudinal effects ----
-
-## Cross-sectional effects
-
-# Country mean
-df <- df %>% group_by(COUNTRY) %>% 
-  mutate(MEAN_RATIO = mean(RATIO_IC, na.rm = T), # MEAN RATIO
-         MEAN_CorpAll = mean(CorpAll, na.rm = T), # MEAN CorpAll
-         MEAN_GDP = mean(GDP, na.rm = T)) %>% # MEAN GDP
-    ungroup()
-
-df %>% group_by(COUNTRY) %>% count(MEAN_RATIO) %>% print(n = nrow(.)) # View
-
-
-## Longitudinal effects 
-
-# Mean centered
-
-df <- df %>% mutate(LAG_RATIO = (RATIO_IC - MEAN_RATIO), # LAG RATIO
-                    LAG_GDP = (GDP - MEAN_GDP)) # LAG GDP
-
-df %>% group_by(COUNTRY) %>% count(LAG_RATIO) %>% print(n = nrow(.)) # View
-
-df[sapply(df, is.nan)] <- NA
-
-# 3.3 Join data ----
+# 3.3 Join data and Transforming variables ----
 
 db <- full_join(db, df, by = c("COUNTRY", "YEAR"))
 
-# 3.4 Labels ----
-db$MEAN_RATIO <- sjlabelled::set_label(db$MEAN_RATIO, label = c("Promedio Ratio S80/S20"))
-db$MEAN_GDP <- sjlabelled::set_label(db$MEAN_GDP, label = c("Promedio GDP"))
-db$MEAN_CorpAll <- sjlabelled::set_label(db$MEAN_CorpAll, label = c("Promedio Corporativismo"))
-db$LAG_RATIO <- sjlabelled::set_label(db$LAG_RATIO, label = c("Lag Ratio S80/S20"))
-db$LAG_GDP <- sjlabelled::set_label(db$LAG_GDP, label = c("Lag GDP"))
-db$GINI <- sjlabelled::set_label(db$GINI, label = c("Gini"))
+## CGM Ratio 80/20
+db <- db %>% mutate(C_RATIO = center(RATIO_IC))
 
-# 3.5 ISO code ----
+db %>% select(COUNTRY, RATIO_IC) %>% 
+  mutate(centrada = center(RATIO_IC))
+
+db %>% select(COUNTRY, RATIO_IC) %>% 
+  mutate(promed = mean(RATIO_IC, na.rm = T),
+         centrada = (RATIO_IC - promed)) # verified
+
+## GDP log y center CGM
+db$GDP_LOG <- log(db$GDP)
+
+db <- db %>% mutate(C_GDP = center(GDP_LOG))
+
+
+## SOC_EXPEND center CGM
+db <- db %>% mutate(C_SOCEXPEND = center(SOC_EXPEND))
+
+## UD center CGM
+db <- db %>% mutate(C_UD = center(UD))
+
+
+# 3.4 ISO code and Labels ----
+
 db <- db %>% mutate(ISO_COUNTRY = case_when(COUNTRY == "Alemania" ~ "DEU",
-                                         COUNTRY == "Argentina" ~ "ARG",
-                                         COUNTRY == "Australia" ~ "AUS",
-                                         COUNTRY == "Austria" ~ "AUT",
-                                         COUNTRY == "Belgica" ~ "BEL",
-                                         COUNTRY == "Bulgaria" ~ "BGR",
-                                         COUNTRY == "Canada" ~ "CAN",
-                                         COUNTRY == "Chile" ~ "CHL",
-                                         COUNTRY == "China" ~ "CHN",
-                                         COUNTRY == "Chipre" ~ "CYP",
-                                         COUNTRY == "Corea del Sur" ~ "KOR",
-                                         COUNTRY == "Croacia" ~ "HRV",
-                                         COUNTRY == "Dinamarca" ~ "DNK",
-                                         COUNTRY == "Eslovaquia" ~ "SVK",
-                                         COUNTRY == "Eslovenia" ~ "SVN",
-                                         COUNTRY == "España" ~ "ESP",
-                                         COUNTRY == "Estonia" ~ "EST",
-                                         COUNTRY == "Filipinas" ~ "PHL",
-                                         COUNTRY == "Finlandia" ~ "FIN",
-                                         COUNTRY == "Francia" ~ "FRA",
-                                         COUNTRY == "Gran Bretaña" ~ "GBR",
-                                         COUNTRY == "Hungria" ~ "HUN",
-                                         COUNTRY == "Irlanda" ~ "IRL",
-                                         COUNTRY == "Islandia" ~ "ISL",
-                                         COUNTRY == "Israel" ~ "ISR",
-                                         COUNTRY == "Italia" ~ "ITA",
-                                         COUNTRY == "Japon" ~ "JPN",
-                                         COUNTRY == "Letonia" ~ "LVA",
-                                         COUNTRY == "Lituania" ~ "LTU",
-                                         COUNTRY == "Noruega" ~ "NOR",
-                                         COUNTRY == "Nueva Zelanda" ~ "NZL",
-                                         COUNTRY == "Polonia" ~ "POL",
-                                         COUNTRY == "Portugal" ~ "PRT",
-                                         COUNTRY == "Rep Checa" ~ "CZE",
-                                         COUNTRY == "Rusia" ~ "RUS",
-                                         COUNTRY == "Sudafrica" ~ "ZAF",
-                                         COUNTRY == "Suecia" ~ "SWE",
-                                         COUNTRY == "Suiza" ~ "CHE",
-                                         COUNTRY == "Surinam" ~ "SUR",
-                                         COUNTRY == "Tailandia" ~ "THA",
-                                         COUNTRY == "Taiwan" ~ "TWN",
-                                         COUNTRY == "Turquia" ~ "TUR",
-                                         COUNTRY == "Ucrania" ~ "UKR",
-                                         COUNTRY == "USA" ~ "USA",
-                                         COUNTRY == "Venezuela" ~ "VEN",
-                                         TRUE ~ NA_character_))
-
-
-db$ISO_COUNTRY <- sjlabelled::set_label(db$ISO_COUNTRY, label = c("Código ISO país"))
-
+                                            COUNTRY == "Argentina" ~ "ARG",
+                                            COUNTRY == "Australia" ~ "AUS",
+                                            COUNTRY == "Austria" ~ "AUT",
+                                            COUNTRY == "Belgica" ~ "BEL",
+                                            COUNTRY == "Bulgaria" ~ "BGR",
+                                            COUNTRY == "Canada" ~ "CAN",
+                                            COUNTRY == "Chile" ~ "CHL",
+                                            COUNTRY == "China" ~ "CHN",
+                                            COUNTRY == "Chipre" ~ "CYP",
+                                            COUNTRY == "Corea del Sur" ~ "KOR",
+                                            COUNTRY == "Croacia" ~ "HRV",
+                                            COUNTRY == "Dinamarca" ~ "DNK",
+                                            COUNTRY == "Eslovaquia" ~ "SVK",
+                                            COUNTRY == "Eslovenia" ~ "SVN",
+                                            COUNTRY == "España" ~ "ESP",
+                                            COUNTRY == "Estonia" ~ "EST",
+                                            COUNTRY == "Filipinas" ~ "PHL",
+                                            COUNTRY == "Finlandia" ~ "FIN",
+                                            COUNTRY == "Francia" ~ "FRA",
+                                            COUNTRY == "Gran Bretaña" ~ "GBR",
+                                            COUNTRY == "Hungria" ~ "HUN",
+                                            COUNTRY == "Irlanda" ~ "IRL",
+                                            COUNTRY == "Islandia" ~ "ISL",
+                                            COUNTRY == "Israel" ~ "ISR",
+                                            COUNTRY == "Italia" ~ "ITA",
+                                            COUNTRY == "Japon" ~ "JPN",
+                                            COUNTRY == "Letonia" ~ "LVA",
+                                            COUNTRY == "Lituania" ~ "LTU",
+                                            COUNTRY == "Noruega" ~ "NOR",
+                                            COUNTRY == "Nueva Zelanda" ~ "NZL",
+                                            COUNTRY == "Polonia" ~ "POL",
+                                            COUNTRY == "Portugal" ~ "PRT",
+                                            COUNTRY == "Rep Checa" ~ "CZE",
+                                            COUNTRY == "Rusia" ~ "RUS",
+                                            COUNTRY == "Sudafrica" ~ "ZAF",
+                                            COUNTRY == "Suecia" ~ "SWE",
+                                            COUNTRY == "Suiza" ~ "CHE",
+                                            COUNTRY == "Surinam" ~ "SUR",
+                                            COUNTRY == "Tailandia" ~ "THA",
+                                            COUNTRY == "Taiwan" ~ "TWN",
+                                            COUNTRY == "Turquia" ~ "TUR",
+                                            COUNTRY == "Ucrania" ~ "UKR",
+                                            COUNTRY == "USA" ~ "USA",
+                                            COUNTRY == "Venezuela" ~ "VEN",
+                                            TRUE ~ NA_character_))
+## Wave
 db$WAVE <- as.factor(db$YEAR)
 db$COUNTRY_WAVE <- do.call(paste, c(db[c("ISO_COUNTRY", "WAVE")], sep = "_"))
 
+## Labels
+db$ISO_COUNTRY <- sjlabelled::set_label(db$ISO_COUNTRY, label = c("Código ISO país"))
 db$WAVE <- sjlabelled::set_label(db$WAVE, label = c("Ola"))
 db$COUNTRY_WAVE <- sjlabelled::set_label(db$COUNTRY_WAVE, label = c("País-ola"))
+db$C_RATIO <- sjlabelled::set_label(db$C_RATIO, label = c("Ratio S80/S20 [CGM]"))
+db$C_GDP <- sjlabelled::set_label(db$C_GDP, label = c("GDP Per capita [CGM]"))
+db$C_SOCEXPEND <- sjlabelled::set_label(db$C_SOCEXPEND, label = c("Gasto social %GDP [CGM]"))
+db$C_UD <- sjlabelled::set_label(db$C_UD, label = c("Densidad sindical [CGM]"))
+db$GINI <- sjlabelled::set_label(db$GINI, label = c("Gini"))
 
+# 3.5  Final data ----
+
+db_original <- db %>% as_tibble(.) #original
+
+db <- db %>% select(YEAR, COUNTRY, ISO_COUNTRY, WAVE, COUNTRY_WAVE, SEX, AGE,
+                    IDEOLOGY, UNION, CLASS, PSCi, GINI, RATIO_IC, CorpAll, 
+                    GDP, GDP_LOG, UD, SOC_EXPEND, C_RATIO, C_GDP, C_SOCEXPEND, C_UD, 
+                    FACTOR)
+
+db <- db %>% as_tibble(.)
+
+db <- db %>% na.omit()
+
+db <- tibble::rowid_to_column(db, "ID_SUBJECT")
+
+db$ID_SUBJECT <- sjlabelled::set_label(db$ID_SUBJECT, label = c("ID individuo"))
+
+df_original <- df
+
+df <- df %>% na.omit()
+df <- df %>% filter(!COUNTRY %in% c("Japon", "Canada", "Irlanda"))
+df <- df %>% as_tibble(.)
 
 # 4. Save ----
-db <- db %>% select(ID_SUBJECT, YEAR, COUNTRY, ISO_COUNTRY, WAVE, COUNTRY_WAVE, SEX, AGE, DEGREE, INCOME, IDEOLOGY, SUBJEC_CLASS, UNION, 
-                    CLASS, CONFLICT_RP, CONFLICT_WCMC, CONFLICT_MW, CONFLICT_TB, PSCi, GINI, RATIO_IC, CorpAll, GDP,
-                    UD, SOC_EXPEND, MEAN_RATIO, MEAN_CorpAll, MEAN_GDP, LAG_RATIO, LAG_GDP, FACTOR)
-
-db <- db %>% filter(!is.na(PSCi))
-
-db <- as_tibble(db)
 
 save(db, file = "../output/data/db-proc.RData")
 save(df, file = "../output/data/df2-proc.RData")

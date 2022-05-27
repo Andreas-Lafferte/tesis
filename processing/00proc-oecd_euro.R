@@ -24,8 +24,8 @@ sapply(euro, class)
 
 # 3. Processing ----
 
-# Input China 2009
-# No data for Taiwan, South Africa and Russia
+# Input China 2009 y South Africa 2009/2019
+# No data for Taiwan and Russia
 
 # 3.1 OECD ----
 ocde <- ocde %>% group_by(LOCATION) %>% 
@@ -108,10 +108,12 @@ euro <- euro %>% group_by(GEO) %>% filter(GEO == "Bulgaria" & TIME %in% c(1999,2
 
 euro$country <- car::recode(euro$country, recodes = c("'Cyprus' = 'Chipre'; 'Croatia' = 'Croacia'"))
 
-# 3.3 ECLAC and STATISTA ----
+# 3.3 WORLD BANK, ECLAC and STATISTA ----
 
 a <- rbind(c('Argentina', 2009, 10.5),
-           c('China', 2009, 25.65)) %>% as.data.frame()
+           c('China', 2009, 25.65),
+           c('Sudafrica', 2009, 28.9),
+           c('Sudafrica', 2019, 34.5)) %>% as.data.frame()
 
 names(a)<-c("country","year","value")
 
