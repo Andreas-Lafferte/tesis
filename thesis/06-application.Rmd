@@ -302,12 +302,15 @@ fig6
 
 
 ## Modelos
+<div style="text-align: justify">
+
+En esta sección se presentan los resultados de los modelos multinivel para los 33 países bajo estudio entre los años 1999, 2009 y 2019. Con el fin de facilitar el contraste de hipótesis, esta sección se subdivide en cinco apartados. Primero, y como es usual, se comienza estimando un modelo nulo o de base en el que se descompone la varianza de PSCi a nivel individual y contextual con el propósito de conocer si el conflicto percibido varía entre países (Hox, et al., 2017). Segundo, se estiman modelos con interceptos aleatorios incluyendo los predictores de nivel individual tanto de hipótesis como de control. Tercero, se realiza la misma estimación anterior pero ahora incluyendo los predictores de nivel contextual. Cuarto, se presentan los análisis de los modelos con pendiente aleatoria e interacción entre niveles mediante un gráfico de valores predichos. Por último, se presentan los estadísticos de bondad de ajuste de los modelos a través de pruebas de razón de verosimilitud y se cierra con un resumen de los principales hallazgos.
+
+De acuerdo con la Tabla 3.4, la correlación intraclase para el modelo nulo es igual a 0.217 (ICC =[0.913/(0.913+3.294)]), lo cual indica la cantidad de varianza de PSCi que puede atribuirse a la estructura de agrupación en la población, en este caso, los países (Hox et al., 2017). Esto significa que cerca de un 22% de la varianza total del conflicto percibido en los individuos se asocia a características específicas de los países, asentando como precedente que existen diferencias significativas entre estos respecto al nivel de conflicto social percibido. 
 
 
-Aqui modelos MLM
 
-
-```{r model, message=FALSE, warning=FALSE, include=FALSE, results='asis'}
+```{r, message=FALSE, warning=FALSE, include=FALSE, results='asis'}
 
 # Null model
 model_0 <- lmer(PSCi ~ 1 + (1 | COUNTRY), 
@@ -362,12 +365,28 @@ model_5 <- lmer(PSCi ~ 1 + CLASS + UNION + AGE + SEX + relevel(IDEOLOGY,ref="Der
 
 
 
-```{r tab-model, echo=FALSE, results='asis'}
-htmlreg(l = list(model_0, model_2, model_3, model_4, model_5),dcolumn = TRUE , type = "html", doctype = FALSE, digits = 2)
+```{r model, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+tabmodel <- htmlreg(l = list(model_0, model_2, model_3, model_4, model_5),dcolumn = TRUE , type = "html", doctype = FALSE, digits = 2,caption = "**Tabla 3.4.** Modelos multinivel con interceptos aleatorios para 33 países entre 1999-2019", label = "tab:model", caption.above = T )
+
+tabmodel
 ```
+
+
+
+### Determinantes de nivel individual
+
+
+### Determinantes de nivel contextual
+
+
+### Interacción entre niveles
+
+
+### Ajuste global y resumen de hallazgos
 
 
 
 
 
 # Discusión {#discussion}
+<div style="text-align: justify">

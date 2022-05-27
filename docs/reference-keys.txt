@@ -32,6 +32,10 @@ métodos
 application
 descriptivos
 modelos
+determinantes-de-nivel-individual-1
+determinantes-de-nivel-contextual-1
+interacción-entre-niveles
+ajuste-global-y-resumen-de-hallazgos
 discussion
 conclusiones
 apendice
