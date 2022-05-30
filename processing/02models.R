@@ -56,46 +56,31 @@ model_1 <- lmer(PSCi ~ 1 + CLASS +
 model_2 <- lmer(PSCi ~ 1 + CLASS + UNION +
                   (1 | COUNTRY), data = db, weights = FACTOR, REML = T)
 
-# Model 3: Class + Union + Controls N1
-model_3 <- lmer(PSCi ~ 1 + CLASS + UNION + AGE + SEX + relevel(IDEOLOGY,ref="Derecha") + 
+
+model_3 <- lmer(PSCi ~ 1 + CLASS + UNION + C_RATIO + CorpAll + WAVE +
                   (1 | COUNTRY), data = db, weights = FACTOR, REML = T)
 
-# Model 4: Individual predictors + RATIO + CorpAll 
 model_4 <- lmer(PSCi ~ 1 + CLASS + UNION + AGE + SEX + relevel(IDEOLOGY,ref="Derecha") + 
-                  C_RATIO + CorpAll + WAVE +
-                  (1 | COUNTRY), data = db, weights = FACTOR, REML = T)
-
-# Model 5: Individual + Contextual + Controls N1 and N2
-model_5 <- lmer(PSCi ~ 1 + CLASS + UNION + AGE + SEX + IDEOLOGY + 
-                    C_RATIO + CorpAll + C_GDP + C_SOCEXPEND + C_UD +
-                    WAVE + 
-                    (1 | COUNTRY), data = db, weights = FACTOR, REML = T)
-
-
-
-
-
-
-model_6 <- lmer(PSCi ~ 1 + CLASS + UNION + AGE + SEX + IDEOLOGY + 
                   C_RATIO + CorpAll + C_GDP + C_SOCEXPEND + C_UD +
                   WAVE + 
-                  (1 + CLASS | COUNTRY), data = db, weights = FACTOR, REML = T)
+                  (1 | COUNTRY), data = db, weights = FACTOR, REML = T)
+
+
+model_5 <- lmer(PSCi ~ 1 + CLASS + UNION + AGE + SEX + relevel(IDEOLOGY,ref="Derecha") +  
+                   C_GDP + C_RATIO + CorpAll +
+                  (1 | COUNTRY), data = db, weights = FACTOR, REML = T)
 
 
 
 
-screenreg(list(model_0, model_2, model_3, model_4, model_5),  stars = c(0.01,0.05,0.1), digits = 3)
 
 
 
-compare_performance(model_0, model_2, model_3, model_4, model_5,rank = TRUE)
+screenreg(list(model_0, model_2, model_3, model_4, model_5),  stars = c(0.001,0.01,0.05), digits = 2)
 
 
 
-anova(model_0, model_2, model_3, model_4, model_5)
-
-
-
+# ----
 
 # Nota: antes de correr una interaccion entre niveles hay que dar cuenta de si la variable 
 # que interesa (esto es la var que se ve afectada por otra) varia entre grupos. 

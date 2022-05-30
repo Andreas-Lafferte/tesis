@@ -122,39 +122,22 @@ Se controlará por variables que han sido utilizadas en investigaciones previas.
 
 <div style="text-align: justify">
 
-Para responder a la pregunta y objetivos de investigación, se estiman modelos de regresión multinivel híbridos para 43 países entre los años 1999, 2009 y 2019. Los modelos multinivel permiten analizar estructuras de datos complejas, en donde las unidades de análisis están anidadas en grupos ordenados jerárquicamente (individuos anidados en países) y en donde el valor esperado de una unidad dada en la variable dependiente depende del grupo(s) al que pertenece [@hoxMultilevelAnalysisTechniques2017a]. Además, estos modelos permiten plantear interacciones entre niveles con el fin de conocer cómo la relación entre la variable dependiente y una variable independiente de nivel individual cambia en función de otra variable independiente de nivel contextual [@hoxMultilevelAnalysisTechniques2017a].
+Para responder a la pregunta y objetivos de investigación, se estiman modelos de regresión multinivel para 33 países entre los años 1999, 2009 y 2019. La principal razón es que estos modelos permiten analizar estructuras de datos complejas, en donde las unidades de análisis están anidadas en grupos ordenados jerárquicamente (individuos anidados en países) y en donde el valor esperado de una unidad dada en la variable dependiente depende del grupo(s) al que pertenece [@hoxMultilevelAnalysisTechniques2017a]. Lo anterior implica que estos modelos estiman tanto los efectos fijos de las variables independientes a través de los grupos, así como también sus efectos aleatorios que varían de grupo en grupo [@gelmanAnalysisVarianceWhy2005]. Además, estos modelos permiten plantear interacciones entre niveles con el fin de conocer cómo la relación entre la variable dependiente y una variable independiente de nivel individual cambia en función de otra variable independiente de nivel contextual [@hoxMultilevelAnalysisTechniques2017a].
 
-En vista de que la base de datos posee una estructura de encuestas longitudinales comparativas [@schmidt-catranRandomEffectsMultilevel2016], los individuos encuestados en las diferentes olas son anidados tanto en países como en años (1999/2009/2019). Esto implica que el diseño multinivel de esta investigación distingue tres niveles: *individuos* = nivel 1; *año-país* = nivel 2; y *país* = nivel 3. En detalle, en estos modelos cada encuestado/individuo (nivel 1) es observado en un país específico y en un momento específico (nivel 2), y cada año-país es una única observación de un país (nivel 3) que se observa repetidas veces [@fairbrotherTwoMultilevelModeling2014]. Esta estructura de tres niveles permite distinguir entre los efectos transversales de los países (nivel 3) y los efectos longitudinales dentro de los países (nivel 2). Además, incorpora efectos aleatorios en dichos niveles, lo cual es especialmente recomendable cuando se estudian países ya que disminuye la heterogeneidad no observada entre estos grupos [@schmidt-catranMultilevelModelsAnalysis2019].
+En vista del tipo de hipótesis planteadas en esta investigación, los modelos multinivel son estimados mediante interceptos aleatorios e interacciones entre niveles. En consecuencia, la ecuación de los modelos multinivel estimados es la siguiente \@ref(eq:mlm):
 
-Para lograr lo anterior, se utilizan dos técnicas o extensiones de los modelos multinivel propuestas por Fairbrother [-@fairbrotherTwoMultilevelModeling2014, pp. 124-127]. Primero, se realiza un centrado al promedio del grupo/país de la variable contextual de interés, con el fin de diferenciar el componente transversal (media global de la variable de un país: $\overline{Z}$) del componente longitudinal (la diferencia entre la media global de la variable de un país y el valor de esa variable en un tiempo específico de un país: $Z$ - $\overline{Z}$). Se incluye también una variable *tiempo* como control para revelar si la variable dependiente tiende a crecer más rápido en los países que experimentan un aumento más acelerado de la variable contextual de interés [@fairbrotherDoesInequalityErode2013]. Segundo, se aplica la técnica de las curvas de crecimiento (“growth-curves”) a nivel *país* para conocer si el efecto de un valor determinado de alguna variable contextual que no varíe en el tiempo conduce a un cambio más rápido o más lento en la variable dependiente mediante un término de interacción entre la variable contextual y la variable *tiempo* [@fairbrotherTwoMultilevelModeling2014]. Cabe mencionar que, sin perjuicio de lo anterior, el interés principal de esta investigación recae en los efectos transversales de los países, así como en los efectos de interacción entre niveles.
 
-En consecuencia, el modelo multinivel estimado es el siguiente \@ref(eq:mlm):
 
 \begin{equation}
-PSCi_{ijk} = \beta_{0} + \beta_{1}X_{ijk} + \beta_{2}\overline{Z}_{k} + \beta_{3}Z_{jkM} + \beta_{4}time_{jk} + \beta_{5}X_{ijk}\overline{Z}_{k} + \beta_{6}Z_{k}time_{jk} + v_{0k} + u_{0jk} + e_{ijk}
+PSCi_{ij} = \beta_{0} + \beta_{1}X_{ij} + \beta_{2}Z_{j} + \beta_{3}X_{ij}{Z}_{j} +  u_{0j} + u_{1j}X_{ij} + e_{ij}
 (\#eq:mlm)
 \end{equation}
 
-Donde: 
 
-- $PSCi_{ijk}$ = representa la estimación del índice de conflictos sociales percibidos
-- $\beta_{0}$ = representa el gran intercepto del modelo
-- $\beta_{1}$ = representa el efecto fijo de cada variable independiente de nivel individual
-- $\beta_{2}$ = representa el efecto transversal de cada variable independiente de nivel contextual para cada país 
-- $\beta_{3}$ = representa el efecto longitudinal de cada variable independiente de nivel contextual para cada año-país
-- $\beta_{4}$ = representa el efecto de la variable tiempo para controlar tendencias temporales simultáneas
-- $\beta_{5}$ = representa el efecto de interacción entre niveles
-- $\beta_{6}$ = representa el efecto de la curva de crecimiento ("growth-curve") 
-- $v_{0k}$ = representa el efecto aleatorio de los países
-- $u_{0jk}$ = representa el efecto aleatorio de cada año-país
-- $e_{ijk}$ = representa el error estándar
-- $X$ = representa cada variable de nivel individual
-- $Z$ = representa cada variable de nivel contextual
-- $\overline{Z}$ = representa el componente transveral a partir de la media global de la variable $Z$ de nivel contextual para cada país
-- $Z_{jkM}$ = representa el componente longitudinal a partir del centrado al promedio de la variable $Z$ de nivel contextual para cada año-país
-- $i$ = representa cada indiviuo
-- $j$ = representa cada año
-- $k$ = representa cada país
+
+En esta ecuación de regresión, $PSCi_{ij}$ representa la estimación del índice de conflictos sociales percibidos para cada individuo $i$ (nivel 1) en cada país $j$ (nivel 2) mediante una función lineal en donde: $\beta_{0}$ es el gran intercepto del modelo, $\beta_{1}$ es el efecto fijo de cada variable independiente $X$ de nivel individual, $\beta_{2}$ es el efecto fijo de cada variable independiente $Z$ de nivel contextual para cada país, $\beta_{3}$ es el efecto de interacción entre niveles, $u_{0j}$ es el efecto (variación) aleatorio del intercepto a través de los países, $u_{1j}$ es el efecto (variación) aleatorio de la pendiente a través de los países para una variable independiente $X$ de nivel individual y $e_{ij}$ es el error estándar. 
+
+
 
 [^9]: La realización del módulo 2019 para todos los países aún continúa en desarrollo debido a las complicaciones producidas por la pandemia del COVID-19. De momento, existe información para 22 países y 35.127 casos.
 
