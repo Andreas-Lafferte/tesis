@@ -115,16 +115,16 @@ kable(tab2,table_format,booktabs = T, linesep = "",col.names = colnames2, captio
 
 ### Variables de control
 
-Se controlará por variables que han sido utilizadas en investigaciones previas. A nivel individual, se incluye la edad (en años), el sexo (0 = hombre, 1 = mujer) y la identificación política (izquierda, centro, derecha y sin identificación) de los encuestados para controlar efectos de composición de la población. A nivel contextual, se controla por tres variables que han demostrado importantes efectos sobre las percepciones de conflicto social, estas son: el nivel de riqueza del país medido por el GDP (Gross Domestic Product) per cápita, el gasto social como proporción del GDP y la densidad sindical del país. Este último factor también se incluye para controlar el posible efecto del índice de corporativismo [@kenworthyQuantitativeIndicatorsCorporatism2003a]. La descripción y fuentes de donde serán extraídos estos datos se detallan en la Tabla N° \@ref(tab:tab-control) del [Apéndice](#apendice).
+Se controlará por variables que han sido utilizadas en investigaciones previas. A nivel individual, se incluye la edad (en años), el sexo (0 = hombre, 1 = mujer) y la identificación política (izquierda, centro, derecha y sin identificación) de los encuestados para controlar efectos de composición de la población. A nivel contextual, se controla por tres variables que han demostrado importantes efectos sobre las percepciones de conflicto social, estas son: el nivel de riqueza del país medido por el GDP (Gross Domestic Product) per cápita, el gasto social como proporción del GDP y la densidad sindical del país. Este último factor también se incluye para controlar el posible efecto del índice de corporativismo [@kenworthyQuantitativeIndicatorsCorporatism2003a]. La descripción y fuentes de donde serán extraídos estos datos se detallan en la Tabla N° \@ref(tab:tab-control) del [Apéndice](#apendicea).
 
 
 ## Métodos
 
 <div style="text-align: justify">
 
-Para responder a la pregunta y objetivos de investigación, se estiman modelos de regresión multinivel para 33 países entre los años 1999, 2009 y 2019. La principal razón es que estos modelos permiten analizar estructuras de datos complejas, en donde las unidades de análisis están anidadas en grupos ordenados jerárquicamente (individuos anidados en países) y en donde el valor esperado de una unidad dada en la variable dependiente depende del grupo(s) al que pertenece [@hoxMultilevelAnalysisTechniques2017a]. Lo anterior implica que estos modelos estiman tanto los efectos fijos de las variables independientes a través de los grupos, así como también sus efectos aleatorios que varían de grupo en grupo [@gelmanAnalysisVarianceWhy2005]. Además, estos modelos permiten plantear interacciones entre niveles con el fin de conocer cómo la relación entre la variable dependiente y una variable independiente de nivel individual cambia en función de otra variable independiente de nivel contextual [@hoxMultilevelAnalysisTechniques2017a].
+Para responder a la pregunta y objetivos de investigación, se estiman modelos de regresión multinivel para 33 países entre los años 1999, 2009 y 2019. La razón principal es que estos modelos permiten analizar estructuras de datos complejas, en donde las unidades de análisis están anidadas en grupos ordenados jerárquicamente (individuos anidados en países) y en donde el valor esperado de una unidad dada en la variable dependiente depende del grupo(s) al que pertenece [@hoxMultilevelAnalysisTechniques2017a]. Lo anterior implica que estos modelos estiman tanto los efectos fijos de las variables independientes a través de los grupos, así como también sus efectos aleatorios que varían de grupo en grupo [@gelmanAnalysisVarianceWhy2005]. Además, estos modelos permiten plantear interacciones entre niveles con el fin de conocer cómo la relación entre la variable dependiente y una variable independiente de nivel individual cambia en función de otra variable independiente de nivel contextual [@hoxMultilevelAnalysisTechniques2017a].
 
-En vista del tipo de hipótesis planteadas en esta investigación, los modelos multinivel son estimados mediante interceptos aleatorios e interacciones entre niveles. En consecuencia, la ecuación de los modelos multinivel estimados es la siguiente \@ref(eq:mlm):
+Teniendo en cuenta el tipo de hipótesis planteadas en esta investigación, los modelos multinivel se estiman utilizando interceptos aleatorios e interacciones entre niveles. En consecuencia, la ecuación de los modelos multinivel estimados es la siguiente \@ref(eq:mlm):
 
 
 
@@ -135,12 +135,12 @@ PSCi_{ij} = \beta_{0} + \beta_{1}X_{ij} + \beta_{2}Z_{j} + \beta_{3}X_{ij}{Z}_{j
 
 
 
-En esta ecuación de regresión, $PSCi_{ij}$ representa la estimación del índice de conflictos sociales percibidos para cada individuo $i$ (nivel 1) en cada país $j$ (nivel 2) mediante una función lineal en donde: $\beta_{0}$ es el gran intercepto del modelo, $\beta_{1}$ es el efecto fijo de cada variable independiente $X$ de nivel individual, $\beta_{2}$ es el efecto fijo de cada variable independiente $Z$ de nivel contextual para cada país, $\beta_{3}$ es el efecto de interacción entre niveles, $u_{0j}$ es el efecto (variación) aleatorio del intercepto a través de los países, $u_{1j}$ es el efecto (variación) aleatorio de la pendiente a través de los países para una variable independiente $X$ de nivel individual y $e_{ij}$ es el error estándar. 
+En esta ecuación de regresión, $PSCi_{ij}$ representa la estimación del índice de conflictos sociales percibidos para cada individuo $i$ (nivel 1) en cada país $j$ (nivel 2) mediante una función lineal donde: $\beta_{0}$ es el gran intercepto del modelo, $\beta_{1}$ es el efecto fijo de cada variable independiente de nivel individual $X$, $\beta_{2}$ es el efecto fijo de cada variable independiente de nivel contextual $Z$ para cada país, $\beta_{3}$ es el efecto de interacción entre niveles, $u_{0j}$ es el efecto aleatorio del intercepto entre países, $u_{1j}$ es el efecto aleatorio de la pendiente entre países para una variable independiente de nivel individual $X$ y $e_{ij}$ es el error estándar. 
 
-
+Todos los análisis se realizaron con el paquete estadístico _lme4_ [@batesFittingLinearMixedEffects2015] del software R [@rcoreteamLanguageEnvironmentStatistical2020]. 
 
 [^9]: La realización del módulo 2019 para todos los países aún continúa en desarrollo debido a las complicaciones producidas por la pandemia del COVID-19. De momento, existe información para 22 países y 35.127 casos.
 
 [^10]: En otras investigaciones como la de Hertel & Schöneck [-@hertelConflictPerceptions272019a, p.14], el Alpha de Cronbach's tiene un valor cercano a 0.83, lo cual es satisfactorio.
 
-[^11]: En esta investigación se utiliza el Alpha Ordinal debido a la naturaleza politómica de los indicadores y a sus niveles de medición ordinal. Ver [Apéndice](#apendice) para especificación de fórmula. 
+[^11]: En esta investigación se utiliza el Alpha Ordinal debido a la naturaleza politómica de los indicadores y a sus niveles de medición ordinal. Ver [Apéndice](#apendicea) para especificación de fórmula. 

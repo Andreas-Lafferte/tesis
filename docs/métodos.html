@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2022-05-30" />
+<meta name="date" content="2022-06-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -129,7 +129,20 @@
 <li class="chapter" data-level="4" data-path="discussion.html"><a href="discussion.html"><i class="fa fa-check"></i><b>4</b> Discusión</a></li>
 <li class="chapter" data-level="5" data-path="conclusiones.html"><a href="conclusiones.html"><i class="fa fa-check"></i><b>5</b> Conclusiones</a></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
-<li class="chapter" data-level="6" data-path="apendice.html"><a href="apendice.html"><i class="fa fa-check"></i><b>6</b> Apéndice</a></li>
+<li class="chapter" data-level="" data-path="apéndice.html"><a href="apéndice.html"><i class="fa fa-check"></i>Apéndice</a>
+<ul>
+<li class="chapter" data-level="" data-path="apendicea.html"><a href="apendicea.html"><i class="fa fa-check"></i>Apéndice A</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="apendicea.html"><a href="apendicea.html#variables-de-control-1"><i class="fa fa-check"></i><b>5.0.1</b> Variables de control</a></li>
+<li class="chapter" data-level="5.0.2" data-path="apendicea.html"><a href="apendicea.html#alpha-ordinal"><i class="fa fa-check"></i><b>5.0.2</b> Alpha Ordinal</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="apendiceb.html"><a href="apendiceb.html"><i class="fa fa-check"></i>Apéndice B</a>
+<ul>
+<li class="chapter" data-level="5.0.3" data-path="apendiceb.html"><a href="apendiceb.html#tabla-bivariada"><i class="fa fa-check"></i><b>5.0.3</b> Tabla bivariada</a></li>
+<li class="chapter" data-level="5.0.4" data-path="apendiceb.html"><a href="apendiceb.html#matriz-de-correlaciones"><i class="fa fa-check"></i><b>5.0.4</b> Matriz de correlaciones</a></li>
+<li class="chapter" data-level="5.0.5" data-path="apendiceb.html"><a href="apendiceb.html#chequeo-multicolinealidad"><i class="fa fa-check"></i><b>5.0.5</b> Chequeo multicolinealidad</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/Andreas-Lafferte" target="blank">Andreas Lafferte - Github <i class="fa fa-github"></i></a></li>
 
@@ -156,13 +169,14 @@ Ellos contra nosotros: las percepciones del conflicto social
 <h2><span class="header-section-number">2.3</span> Métodos</h2>
 <div style="text-align: justify">
 
-<p>Para responder a la pregunta y objetivos de investigación, se estiman modelos de regresión multinivel para 33 países entre los años 1999, 2009 y 2019. La principal razón es que estos modelos permiten analizar estructuras de datos complejas, en donde las unidades de análisis están anidadas en grupos ordenados jerárquicamente (individuos anidados en países) y en donde el valor esperado de una unidad dada en la variable dependiente depende del grupo(s) al que pertenece <span class="citation">(<a href="referencias.html#ref-hoxMultilevelAnalysisTechniques2017a" role="doc-biblioref">Hox et al., 2017</a>)</span>. Lo anterior implica que estos modelos estiman tanto los efectos fijos de las variables independientes a través de los grupos, así como también sus efectos aleatorios que varían de grupo en grupo <span class="citation">(<a href="referencias.html#ref-gelmanAnalysisVarianceWhy2005" role="doc-biblioref">Gelman, 2005</a>)</span>. Además, estos modelos permiten plantear interacciones entre niveles con el fin de conocer cómo la relación entre la variable dependiente y una variable independiente de nivel individual cambia en función de otra variable independiente de nivel contextual <span class="citation">(<a href="referencias.html#ref-hoxMultilevelAnalysisTechniques2017a" role="doc-biblioref">Hox et al., 2017</a>)</span>.</p>
-<p>En vista del tipo de hipótesis planteadas en esta investigación, los modelos multinivel son estimados mediante interceptos aleatorios e interacciones entre niveles. En consecuencia, la ecuación de los modelos multinivel estimados es la siguiente <a href="métodos.html#eq:mlm">(2.1)</a>:</p>
+<p>Para responder a la pregunta y objetivos de investigación, se estiman modelos de regresión multinivel para 33 países entre los años 1999, 2009 y 2019. La razón principal es que estos modelos permiten analizar estructuras de datos complejas, en donde las unidades de análisis están anidadas en grupos ordenados jerárquicamente (individuos anidados en países) y en donde el valor esperado de una unidad dada en la variable dependiente depende del grupo(s) al que pertenece <span class="citation">(<a href="referencias.html#ref-hoxMultilevelAnalysisTechniques2017a" role="doc-biblioref">Hox et al., 2017</a>)</span>. Lo anterior implica que estos modelos estiman tanto los efectos fijos de las variables independientes a través de los grupos, así como también sus efectos aleatorios que varían de grupo en grupo <span class="citation">(<a href="referencias.html#ref-gelmanAnalysisVarianceWhy2005" role="doc-biblioref">Gelman, 2005</a>)</span>. Además, estos modelos permiten plantear interacciones entre niveles con el fin de conocer cómo la relación entre la variable dependiente y una variable independiente de nivel individual cambia en función de otra variable independiente de nivel contextual <span class="citation">(<a href="referencias.html#ref-hoxMultilevelAnalysisTechniques2017a" role="doc-biblioref">Hox et al., 2017</a>)</span>.</p>
+<p>Teniendo en cuenta el tipo de hipótesis planteadas en esta investigación, los modelos multinivel se estiman utilizando interceptos aleatorios e interacciones entre niveles. En consecuencia, la ecuación de los modelos multinivel estimados es la siguiente <a href="métodos.html#eq:mlm">(2.1)</a>:</p>
 <p><span class="math display" id="eq:mlm">\[\begin{equation}
 PSCi_{ij} = \beta_{0} + \beta_{1}X_{ij} + \beta_{2}Z_{j} + \beta_{3}X_{ij}{Z}_{j} +  u_{0j} + u_{1j}X_{ij} + e_{ij}
 \tag{2.1}
 \end{equation}\]</span></p>
-<p>En esta ecuación de regresión, <span class="math inline">\(PSCi_{ij}\)</span> representa la estimación del índice de conflictos sociales percibidos para cada individuo <span class="math inline">\(i\)</span> (nivel 1) en cada país <span class="math inline">\(j\)</span> (nivel 2) mediante una función lineal en donde: <span class="math inline">\(\beta_{0}\)</span> es el gran intercepto del modelo, <span class="math inline">\(\beta_{1}\)</span> es el efecto fijo de cada variable independiente <span class="math inline">\(X\)</span> de nivel individual, <span class="math inline">\(\beta_{2}\)</span> es el efecto fijo de cada variable independiente <span class="math inline">\(Z\)</span> de nivel contextual para cada país, <span class="math inline">\(\beta_{3}\)</span> es el efecto de interacción entre niveles, <span class="math inline">\(u_{0j}\)</span> es el efecto (variación) aleatorio del intercepto a través de los países, <span class="math inline">\(u_{1j}\)</span> es el efecto (variación) aleatorio de la pendiente a través de los países para una variable independiente <span class="math inline">\(X\)</span> de nivel individual y <span class="math inline">\(e_{ij}\)</span> es el error estándar.</p>
+<p>En esta ecuación de regresión, <span class="math inline">\(PSCi_{ij}\)</span> representa la estimación del índice de conflictos sociales percibidos para cada individuo <span class="math inline">\(i\)</span> (nivel 1) en cada país <span class="math inline">\(j\)</span> (nivel 2) mediante una función lineal donde: <span class="math inline">\(\beta_{0}\)</span> es el gran intercepto del modelo, <span class="math inline">\(\beta_{1}\)</span> es el efecto fijo de cada variable independiente de nivel individual <span class="math inline">\(X\)</span>, <span class="math inline">\(\beta_{2}\)</span> es el efecto fijo de cada variable independiente de nivel contextual <span class="math inline">\(Z\)</span> para cada país, <span class="math inline">\(\beta_{3}\)</span> es el efecto de interacción entre niveles, <span class="math inline">\(u_{0j}\)</span> es el efecto aleatorio del intercepto entre países, <span class="math inline">\(u_{1j}\)</span> es el efecto aleatorio de la pendiente entre países para una variable independiente de nivel individual <span class="math inline">\(X\)</span> y <span class="math inline">\(e_{ij}\)</span> es el error estándar.</p>
+<p>Todos los análisis se realizaron con el paquete estadístico <em>lme4</em> <span class="citation">(<a href="referencias.html#ref-batesFittingLinearMixedEffects2015" role="doc-biblioref">Bates et al., 2015</a>)</span> del software R <span class="citation">(<a href="referencias.html#ref-rcoreteamLanguageEnvironmentStatistical2020" role="doc-biblioref">R Core Team, 2020</a>)</span>.</p>
 
 </div>
 <!-- </div> -->

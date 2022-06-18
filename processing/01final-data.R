@@ -40,6 +40,19 @@ names(issp19)
 db <- rbind(issp99,issp09)
 db <- rbind(db,issp19)
 
+### Relevel ideology
+
+frq(db$IDEOLOGY)
+levels(db$IDEOLOGY)
+
+db$IDEOLOGY <- car::recode(db$IDEOLOGY, recodes = c("'Derecha' = 'Derecha'; 
+                                                'Centro' = 'Centro';
+                                                'Izquierda' = 'Izquierda';
+                                                'Sin identificación' = 'Sin identificación'")) %>% 
+  factor(., levels = c("Derecha", "Centro", "Izquierda", "Sin identificación"),
+         labels = c("Derecha", "Centro", "Izquierda", "Sin identificación"))
+
+
 ## Labels
 
 db$SEX <- sjlabelled::set_label(db$SEX, label = c("Sexo"))
@@ -111,6 +124,14 @@ db <- db %>% mutate(C_SOCEXPEND = center(SOC_EXPEND))
 ## UD center CGM
 db <- db %>% mutate(C_UD = center(UD))
 
+## AGE center CWC (group mean)
+
+db <- db %>% group_by(COUNTRY) %>% 
+  mutate(mean.age = mean(AGE, na.rm = T)) %>% 
+  ungroup() %>% 
+  group_by(COUNTRY) %>% 
+  mutate(C_AGE = AGE - mean.age)
+
 
 # 3.4 ISO code and Labels ----
 
@@ -173,6 +194,7 @@ db$C_GDP <- sjlabelled::set_label(db$C_GDP, label = c("GDP Per capita [CGM]"))
 db$C_SOCEXPEND <- sjlabelled::set_label(db$C_SOCEXPEND, label = c("Gasto social %GDP [CGM]"))
 db$C_UD <- sjlabelled::set_label(db$C_UD, label = c("Densidad sindical [CGM]"))
 db$GINI <- sjlabelled::set_label(db$GINI, label = c("Gini"))
+db$C_AGE <- sjlabelled::set_label(db$C_AGE, label = c("Edad [CWC]"))
 
 # 3.5  Final data ----
 
@@ -181,7 +203,7 @@ db_original <- db %>% as_tibble(.) #original
 db <- db %>% select(YEAR, COUNTRY, ISO_COUNTRY, WAVE, COUNTRY_WAVE, SEX, AGE,
                     IDEOLOGY, UNION, CLASS, PSCi, GINI, RATIO_IC, CorpAll, 
                     GDP, GDP_LOG, UD, SOC_EXPEND, C_RATIO, C_GDP, C_SOCEXPEND, C_UD, 
-                    FACTOR)
+                    C_AGE, FACTOR)
 
 db <- db %>% as_tibble(.)
 

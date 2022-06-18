@@ -1,8 +1,12 @@
-# Apéndice {#apendice}
+# Apéndice {-}
+
+## Apéndice A {- #apendicea}
+
+<div style="text-align: justify">
 
 En el siguiente apéndice se presentan las variables de control de esta investigación y la fórmula estadística para validación de $PSCi$.
 
-#### Variables de control
+### Variables de control
 
 ```{r include=FALSE}
 cap3 <- "Variables de control"
@@ -24,7 +28,7 @@ kable(tab3,table_format,booktabs = T, linesep = "",col.names = colnames2, captio
   collapse_rows(columns = 1:2,valign = "middle")
 
 ```
-#### Alpha Ordinal
+### Alpha Ordinal
 
 \begin{equation}
 \alpha = \frac{n}{n-1}( \frac{n(\overline\lambda)^2 -\overline\lambda^2} {n(\overline\lambda)^2 + \overline{u}^2}  )
@@ -37,3 +41,93 @@ Donde:
 * $\lambda$ = la media aritmética de los pesos factoriales
 * $\overline\lambda^2$ = la media aritmética de los cuadrados de los pesos factoriales
 * $\overline{u}^2$ = la media aritmética de las unicidades de los pesos factoriales
+
+
+## Apéndice B {- #apendiceb}
+
+<div style="text-align: justify">
+
+En el siguiente apéndice se presentan las tablas y gráficos de los análisis estadísticos descriptivos y multivariados. 
+
+### Tabla bivariada
+
+```{r tabi, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(tidyverse)  # For ggplot, dplyr, and friends
+
+options(scipen=999)
+
+load("../output/data/db-proc.RData")
+
+a <- db %>% select(PSCi, var = CLASS, FACTOR) %>% 
+  group_by(var) %>% 
+  summarise(promedio = weighted.mean(x = PSCi, w = FACTOR, na.rm = T)) %>% 
+  mutate(promedio = round(promedio, digits = 2))
+
+b <- db %>% select(PSCi, var = UNION, FACTOR) %>% 
+  group_by(var) %>% 
+  summarise(promedio = weighted.mean(x = PSCi, w = FACTOR, na.rm = T)) %>% 
+  mutate(promedio = round(promedio, digits = 2))
+
+tabi <- rbind(a, b)
+
+tabi$stas <- ""
+
+tabi$stas[tabi$var=="9.Trabajadores no calificados"] <- "Anova Welch, F(8, 6844.2) = 92.8, p = <0.001, omega^2 = 0.10, n = 39,853"
+
+tabi$stas[tabi$var=="Si"] <- "T test, t(37428.30) = 16.33, p = <0.001; Cohen's d = 0.17, n = 39,853"
+
+ kableExtra::kable(tabi, format = "html", booktabs = T, col.names = c("Indicador", "Valor PSCi", "Estadísticos varianza"), caption = "Promedio conflicto percibido según clase social y afiliación sindical") %>% 
+  kableExtra::kable_styling(latex_options = "hold_position", font_size = 14, position = "center") %>%
+   kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = T) %>% column_spec(column = 1, width = "2 cm", ) %>%
+  column_spec(column = 2,width = "12 cm") %>% 
+  column_spec(column = 3,width = "5 cm") %>% 
+  pack_rows("Posición de clase", 1, 9) %>% 
+  pack_rows("Afiliación sindical", 10, 11)
+
+
+```
+(ref:tabi) Hola
+
+
+### Matriz de correlaciones
+
+```{r matriz, include=FALSE}
+
+library(patchwork)  # For combining ggplot plots
+library(GGally)     # For scatterplot matrices
+library(broom) # For converting model objects to data frames
+library(ggstatsplot)
+
+
+ttc <- db %>% select(PSCi, CLASS, UNION, AGE, SEX, IDEOLOGY,
+                     RATIO_IC, CorpAll, GDP, SOC_EXPEND, UD) %>% 
+  mutate_at(vars(1:11), ~ as_numeric(.)) 
+
+```
+
+```{r fig8, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.asp=0.8, out.width='85%', fig.align='default', fig.cap="(ref:fig8)"}
+
+
+fig8 <- ggcorrmat(
+  data     = ttc,
+  colors   = c("#E16462", "white", "#0D0887"),
+  title    = NULL,
+  subtitle = NULL,
+  cor.vars.names = c("PSCi", "Clase", "Sindicato", "Edad", "Sexo", "Ideologia", "Ratio 80/20",
+                     "Corporativismo", "GDP", "Gasto social", "Densidad sindical")) + 
+  labs(x = NULL, y = NULL) +
+  theme_minimal() + 
+  theme(plot.title = element_text(size = 12), 
+        axis.title = element_text(size = 11),
+        plot.caption = element_text(size = 10),
+        legend.title = element_text(size = 14),
+        plot.margin = margin(t = 1, r = 1, b = 1, l = 1)) +
+  theme(panel.grid = element_blank())
+
+fig8
+```
+(ref:fig8) Matriz de correlaciones de Pearson. Fuente: Elaboración propia en base a [ISSP (1999-2019)](https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality), [WIID](https://www.wider.unu.edu/database/world-income-inequality-database-wiid#WIIDcomp), [ICTWSS](https://www.ictwss.org/) y [OCDE](https://data.oecd.org/economy.htm#profile-GDP%20and%20spending). 
+
+
+### Chequeo multicolinealidad
