@@ -87,8 +87,6 @@ tabi$stas[tabi$var=="Si"] <- "T test, t(37428.30) = 16.33, p = <0.001; Cohen's d
 
 
 ```
-(ref:tabi) Hola
-
 
 ### Matriz de correlaciones
 

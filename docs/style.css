@@ -80,8 +80,8 @@
 
 /* link effects */
 .book .book-body .page-wrapper .page-inner section.normal a {
-    color: #0000eb;
-    background-image: linear-gradient(180deg,transparent 90%, #0000eb 0);
+    color: #4183c4;
+    background-image: linear-gradient(180deg,transparent 90%, #4183c4 0);
     background-size: 0 100%;
     background-repeat: no-repeat;
     text-decoration: none;
@@ -182,8 +182,7 @@ i {
 
 
 .book .book-summary ul.summary li a:hover, .book .book-summary ul.summary li.active>a {
-  color: #ffffff;  /*#6197D5*/
-  background-color: #5362d9;
+
 }
 
 /* so that before and after aren't treated the same as the toc, because why would they? */
@@ -199,8 +198,6 @@ i {
 
 .book .book-summary ul.summary li.before a:hover,
 .book .book-summary ul.summary li.before li.active>a {
-  color: #ffffff;  /*#6197D5*/
-  background-color: #5362d9;
   text-decoration: none;
 }
 
@@ -249,7 +246,7 @@ i {
 /* headers */
 
 h1, h2, h3, h4, h5 {
-  color:#5362d9;
+  color:#323232;
   font-family: 'Roboto Condensed';
 }
 
@@ -339,7 +336,6 @@ code span.st {
 
 /* creative commons, github icons */
 .fab .fa-creative-commons, .fa-creative-commons-sa, .fa-creative-commons-by, .fa-github, .fa-lg {
-  color: #5362d9;
   background-color: transparent;
 }
 
