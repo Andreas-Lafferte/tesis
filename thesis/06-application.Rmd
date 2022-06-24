@@ -11,7 +11,7 @@ pacman::p_load(tidyverse, sjmisc, kableExtra, sjPlot,
                influence.ME, janitor, lessR, ggrepel, ggpubr,
                performance, ggrepel, ggthemes, flexplot,
                sjlabelled, RColorBrewer, stats, car, texreg,
-               scales, GGally, broom, table1, cowplot)
+               scales, GGally, broom, table1, cowplot, ggeffects)
 
 options(scipen=999)
 
@@ -247,17 +247,16 @@ g5
 (ref:fig9) Promedio de conflicto percibido y nivel de corporativismo, por país y año. Fuente: Elaboración propia en base a [ISSP (1999-2019)](https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality) e [ICTWSS](https://www.ictwss.org/).
 
 
-En segundo lugar, la asociación entre las percepciones de conflicto social y el grado de corporativismo de los países demuestra, en general, una dirección negativa: a medida que existe mayor grado de corporativismo en un país, menores tienden a ser los valores promedio de las percepciones de conflicto social (ver Figura \@ref(fig:fig9)). Esta relación se mantiene consistente al miar la serie completa puesto que el coeficiente de correlación es negativo y significativo al 95% de confianza (ver Figura \@ref(fig:fig8) en el Apéndice). Sin embargo, también es posible notar que tal asociación se ha debilitado a través del tiempo pues, como indica la Figura \@ref(fig:fig9), tanto la pendiente como la correlación entre $PSCi$ y el índice de corporativismo de los países han disminuido con el pasar de los años. En 1999 se observa la asociación más fuerte y significativa entre estas variables (*r* = -.55, p < .05), mientras que en el 2009 esta relación se debilita en su fuerza y pierde toda significancia (*r* = -.12 p > .1) además de que existe una mayor dispersión de los países en torno a la recta, y ya para el año 2019 la relación sigue siendo negativa pero está muy cerca de ser neutra (*r* = -.04 p > .1). Con todo, estos resultados permiten apoyar parcialmente lo planteado por la $H_{4}$, aunque estableciendo la posibilidad de que el tiempo esté afectando la relación entre el corporativismo de los países y las percepciones de conflicto social.
+En segundo lugar, la asociación entre las percepciones de conflicto social y el grado de corporativismo de los países demuestra, en general, una dirección negativa: a medida que existe mayor grado de corporativismo en un país, menores tienden a ser los valores promedio de las percepciones de conflicto social (ver Figura \@ref(fig:fig9)). Esta relación se mantiene consistente al mirar la serie completa puesto que el coeficiente de correlación es negativo y significativo al 95% de confianza (ver Figura \@ref(fig:fig8) en el Apéndice). Sin embargo, también es posible notar que tal asociación se ha debilitado a través del tiempo pues, como indica la Figura \@ref(fig:fig9), tanto la pendiente como el coeficiente de correlación entre $PSCi$ y el índice de corporativismo han disminuido con el pasar de los años. En 1999 se observa la asociación más fuerte y significativa entre estas variables (*r* = -.55, p < .05), mientras que en el 2009 esta relación se debilita en su fuerza y pierde toda significancia (*r* = -.12 p > .1) además de que existe una mayor dispersión de los países en torno a la recta, y ya para el año 2019 la relación sigue siendo negativa pero está muy cerca de ser neutra (*r* = -.04 p > .1). Con todo, estos resultados permiten apoyar parcialmente lo planteado por la $H_{4}$, aunque estableciendo la posibilidad de que el tiempo esté afectando la relación entre el corporativismo de los países y las percepciones de conflicto social.
 
-En síntesis, los resultados descriptivos aportan tres elementos importantes. Primero, que las percepciones de conflicto social varían entre países pero que, contrario a lo esperado hipotéticamente ($H_{5}$), estas han tendido a disminuir a través del tiempo. Segundo, que a nivel individual quienes son parte de las clases subordinadas tienden a percibir mayores conflictos que quienes son parte de las clases privilegiadas ($H_{1}$), mientras que quienes son miembros de sindicatos no perciben mayores conflictos sociales que quienes no son miembros ($H_{2}$). Tercero, que a nivel contextual las percepciones de conflicto social tienden a ser mayores en países con altos niveles de desigualdad económica ($H_{3a}$) y menores en países con altos niveles de corporativismo ($H_{4}$), aunque esta última relación se ha atenuado durante el tiempo
+En síntesis, los resultados descriptivos aportan tres elementos importantes. Primero, que las percepciones de conflicto social varían entre países pero que, contrario a lo esperado hipotéticamente ($H_{5}$), estas han tendido a disminuir a través del tiempo. Segundo, que a nivel individual quienes son parte de las clases subordinadas tienden a percibir mayores conflictos que quienes son parte de las clases privilegiadas ($H_{1}$), mientras que quienes son miembros de sindicatos no perciben mayores conflictos sociales que quienes no son miembros ($H_{2}$). Tercero, que a nivel contextual las percepciones de conflicto social tienden a ser mayores en países con altos niveles de desigualdad económica ($H_{3a}$) y menores en países con altos niveles de corporativismo ($H_{4}$), aunque esta última relación se ha atenuado durante el tiempo.
 
 ## Modelos
 <div style="text-align: justify">
 
-En esta sección se presentan los resultados de los modelos multinivel para los 33 países bajo estudio entre los años 1999, 2009 y 2019. Con el fin de facilitar el contraste de hipótesis, esta sección se subdivide en cinco apartados. Primero, y como es usual, se comienza estimando un modelo nulo o de base en el que se descompone la varianza de PSCi a nivel individual y contextual con el propósito de conocer si el conflicto percibido varía entre países (Hox, et al., 2017). Segundo, se estiman modelos con interceptos aleatorios incluyendo los predictores de nivel individual tanto de hipótesis como de control. Tercero, se realiza la misma estimación anterior pero ahora incluyendo los predictores de nivel contextual. Cuarto, se presentan los análisis de los modelos con pendiente aleatoria e interacción entre niveles mediante un gráfico de valores predichos. Por último, se presentan los estadísticos de bondad de ajuste de los modelos a través de pruebas de razón de verosimilitud y se cierra con un resumen de los principales hallazgos.
+En esta sección se presentan los resultados de los modelos multinivel para los 33 países bajo estudio entre los años 1999, 2009 y 2019. Siguiendo una estrategía de análisis que va desde lo simple a lo complejo, se calculan cinco modelos [@hoxMultilevelAnalysisTechniques2017a]. Como es usual, se comienza estimando un modelo nulo o de base (no mostrado) en el que solo se descompone la varianza de $PSCi$ a nivel individual y contextual con el fin de conocer si el conflicto percibido varía entre países. El Modelo 1 corresponde a un modelo con interceptos aleatorios en el que se incluyen las variables independientes de nivel individual, mientras que en el Modelo 2 se añaden las variables independientes de nivel contextual. En el Modelo 3 se replica la misma estimación que en el Modelo 2 pero se incorporan las variables de control. Por último, en el Modelo 4 se trabaja con las mismas variables que en el Modelo 3, sin embargo, se diferencia en que añade la estimación de la pendiente aleatoria y la interacción entre niveles. La sección finaliza reportando los estadísticos de bondad de ajuste de los modelos y se cierra con un resumen de los principales hallazgos.
 
-De acuerdo con la Tabla 3.4, la correlación intraclase para el modelo nulo es igual a 0.217 (ICC =[0.913/(0.913+3.294)]), lo cual indica la cantidad de varianza de PSCi que puede atribuirse a la estructura de agrupación en la población, en este caso, los países (Hox et al., 2017). Esto significa que cerca de un 22% de la varianza total del conflicto percibido en los individuos se asocia a características específicas de los países, asentando como precedente que existen diferencias significativas entre estos respecto al nivel de conflicto social percibido. 
-
+En la Tabla \@ref(tab:model) se presentan los resultados de los modelos multinivel. La correlación intraclase (ICC) para el modelo nulo es igual a 0.217, lo cual indica la cantidad de varianza de $PSCi$ que puede atribuirse a la estructura de agrupación en la población, en este caso, los países [ICC en base a @hoxMultilevelAnalysisTechniques2017a]. Esto significa que cerca de un 22% de la varianza total del conflicto percibido por los individuos se asocia a características específicas de los países, asentando como precedente que existen diferencias significativas entre estos respecto al nivel de percepción de conflicto.
 
 
 ```{r, message=FALSE, warning=FALSE, include=FALSE, results='asis'}
@@ -283,7 +282,7 @@ plot(inf_m0, which="cook",
      ylab="País", width=60, height=40)
 
 # Influential countries: South Korea and Hungary. 
-# The first two are the two with the highest average PSCi.
+# This are the two countries with the highest average PSCi in the sample.
 
 
 # Model 1: Only Class
@@ -300,32 +299,45 @@ model_3 <- lmer(PSCi ~ 1 + CLASS + UNION + C_RATIO + CorpAll + WAVE +
 
 # Model 4: Class + Union + Ratio + CorpAll + WAVE + Controls N1 & N2
 model_4 <- lmer(PSCi ~ 1 + CLASS + UNION + C_RATIO + CorpAll + WAVE +
-                  C_AGE + SEX + IDEOLOGY + C_GDP +
-                  C_SOCEXPEND + C_UD +
+                  (C_AGE)^2 + SEX + IDEOLOGY + C_SOCEXPEND + C_UD +
                   (1 | COUNTRY), data = db, weights = FACTOR, REML = T)
+
+# Model 5: Class + Union + Ratio + CorpAll + WAVE + Controls N1 & N2 + Random Slope CLASS
+model_5 <- readRDS("~/GitHub/tesis/output/model_5.rds")
+
+# Model 6: Class + Union + Ratio + CorpAll + WAVE + Controls N1 & N2 + Random Slope CLASS + Interaction
+model_6 <- readRDS("~/GitHub/tesis/output/model_6.rds")
+
+
+screenreg(list(model_2, model_3, model_4, model_6))
+
+## Extract for table
+model_2.e <- extract(model = model_2, include.deviance = T, include.loglik = F,
+                     include.variance = F)
+
+model_3.e <- extract(model = model_3, include.deviance = T, include.loglik = F,
+                     include.variance = F)
+
+model_4.e <- extract(model = model_4, include.deviance = T, include.loglik = F,
+                     include.variance = F)
+
+model_6.e <- readRDS("~/GitHub/tesis/output/model_6e.rds")
 
 ```
 
-```{r model, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
-
-model_0 <- extract(model = model_0, include.deviance = T, include.loglik = F)
-
-model_2 <- extract(model = model_2, include.deviance = T, include.loglik = F)
-
-model_3 <- extract(model = model_3, include.deviance = T, include.loglik = F)
-
-model_4 <- extract(model = model_4, include.deviance = T, include.loglik = F)
+```{r model, echo=FALSE, message=FALSE, warning=FALSE, results='asis', cache=TRUE}
 
 
+capmo <- "Modelos de regresión multinivel para las percepciones de conflicto social"
 
-tabmodel <- texreg::htmlreg(l = list(model_0, model_2, model_3, model_4),
-                    custom.model.names = c("Modelo 0", "Modelo 1", "Modelo 2", "Modelo 3"),
-                    custom.coef.names = c("Intercepto", "2.Pequeños empleadores", "3.Pequeña burguesia", "4.Expertos directivos", "5.Expertos sin autoridad", "6.Supervisores calificados", "7.Supervisores no calificados", "8.Trabajadores calificados", "9.Trabajadores no calificados", "Miembro sindicato (ref: No)", "Ratio S80/S20", "Corporativismo", "2009", "2019", "Edad (en años)", "Mujer (ref: Hombre)", "Centro", "Izquierda", "Sin identificación", "GDP per capita", "Gasto social (%GDP)", "Densidad sindical"),
+texreg::htmlreg(l = list(model_2.e, model_3.e, model_4.e, model_6.e),
+                    custom.model.names = c("Modelo 1", "Modelo 2", "Modelo 3", "Modelo 4"),
+                    custom.coef.names = c("Intercepto", "2.Pequeños empleadores", "3.Pequeña burguesia", "4.Expertos directivos", "5.Expertos sin autoridad", "6.Supervisores calificados", "7.Supervisores no calificados", "8.Trabajadores calificados", "9.Trabajadores no calificados", "Miembro sindicato (ref: No)", "Ratio 80/20", "Corporativismo", "2009", "2019", "Edad (en años)", "Mujer (ref: Hombre)", "Centro", "Izquierda", "Sin identificación", "Gasto social (%GDP)", "Densidad sindical","2.Pequeños empleadores x Ratio 80/20", "3.Pequeña burguesia x Ratio 80/20", "4.Expertos directivos x Ratio 80/20", "5.Expertos sin autoridad x Ratio 80/20", "6.Supervisores calificados x Ratio 80/20", "7.Supervisores no calificados x Ratio 80/20", "8.Trabajadores calificados x Ratio 80/20", "9.Trabajadores no calificados x Ratio 80/20"),
                     groups = list("<b>Efectos fijos</b>" = 1, "Posición de clase (ref: 1.Capitalistas)" = 2:9,
                       "Tiempo (ref: 1999)" = 13:14,
-                      "Identificación política (ref: Derecha)" = 17:19),stars = c(0.01,0.05,0.1), custom.gof.rows = list("<b>Efectos aleatorios</b>" = c(" ", " ", " ", " "), "<b>Ajuste modelo</b>" = c(" ", " ", " ", " ")),
-                    custom.gof.names = c("AIC", "BIC", "-2*log-likelihood", "N observaciones", "N países", "$\\tau_{00}$ (varianza nivel país)", "$\\sigma^2$ (varianza nivel individual)"),
-                    reorder.gof = c(1,9,8,6,7,2,3,4,5),
+                      "Identificación política (ref: Derecha)" = 17:19, "<b>Interacciones entre niveles</b> (ref: 1.Capitalistas x Ratio 80/20)" = 22:29),stars = c(0.01,0.05,0.1), custom.gof.rows = list("<b>Efectos aleatorios</b>" = c(" ", " ", " ", " "), "<b>Ajuste modelo</b>" = c(" ", " ", " ", " "), "$\\tau_{00}$ (varianza nivel país)" = c("0.89", "2.23", "2.49", "2.67"), "$\\sigma^2$ (varianza nivel individual)" = c("3.26", "3.22", "3.19", "3.18")),
+                    custom.gof.names = c("AIC", "BIC", "-2*log-likelihood", "N observaciones", "N países"),
+                    reorder.gof = c(1,4,3,8,9,2,5,6,7),
                     dcolumn = TRUE , 
                     type = "html", 
                     doctype = FALSE, 
@@ -334,13 +346,10 @@ tabmodel <- texreg::htmlreg(l = list(model_0, model_2, model_3, model_4),
                     scalebox = 0.5,
                     float.pos = "H", 
                     digits = 2,
-                    caption = "**Tabla 3.4** Modelos multinivel con interceptos aleatorios para 33 países entre 1999-2019", 
-                    label = "tab:model", 
+                    caption = paste("(\\#tab:model)",capmo),
                     caption.above = T,
-                    custom.note = "\n**Nota**: Estimación de máxima verosimilitud restringida, coeficientes no estandarizados. Errores estándar entre paréntesis (SE). Variables de nivel contextual centradas a sus grandes medias (CGM). Variable 'edad' centrada al promedio de los países (CWC). Datos ponderados. <br>  $^{***}$ p < 0.01; $^{**}$ p < 0.05; $^{*}$ p < 0.1")
+                    custom.note = "\n**Nota**: Estimación de máxima verosimilitud restringida, coeficientes no estandarizados. Errores estándar entre paréntesis (SE). Variables de nivel contextual centradas a sus grandes medias (CGM). Variable 'edad' centrada al promedio de los países (CWC). Efectos aleatorios del Modelo 4 no mostrados por parsimonia. Datos ponderados. <br>  $^{***}$ p < 0.01; $^{**}$ p < 0.05; $^{*}$ p < 0.1")
 
-
-tabmodel
 ```
 
 ### Determinantes de nivel individual
@@ -350,6 +359,22 @@ tabmodel
 
 
 ### Interacción entre niveles
+
+```{r fig10, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.asp=0.6, out.width='100%', fig.align='default', fig.cap="(ref:fig10)"}
+
+g6 <- ggpredict(model_6, terms = c("CLASS", "C_RATIO [minmax]")) %>% 
+  plot(ci.style = "errorbar", connect.lines = TRUE, show.title = FALSE) + 
+  scale_color_manual(values = c("#E16462", "#0D0887"), name="Ratio 80/20", labels = c("Mínimo", "Máximo")) +
+  scale_y_continuous(limits = c(0, 15), 
+                     breaks = seq(0, 15, 5),
+                     labels = formatter(nsmall = 1)) +
+  my_pretty_theme +
+  theme(axis.text.x = element_text(angle = -70, 
+                                   vjust = -2))
+
+g6
+```
+
 
 
 ### Ajuste global y resumen de hallazgos
@@ -364,5 +389,4 @@ tabmodel
 
 
 
-# Discusión {#discussion}
-<div style="text-align: justify">
+

@@ -8,10 +8,13 @@ fig:fig4
 fig:fig5
 fig:fig7
 fig:fig9
+tab:model
+fig:fig10
 tab:tab-control
 eq:alpha
 tab:tabi
 fig:fig8
+fig:fig11
 literature
 percepciones-subjetivas-del-conflicto-social
 determinantes-individuales-de-las-percepciones-de-conflicto-social
@@ -37,7 +40,7 @@ determinantes-de-nivel-contextual-1
 interacción-entre-niveles
 ajuste-global-y-resumen-de-hallazgos
 discussion
-conclusiones
+conclusion
 variables-de-control-1
 alpha-ordinal
 tabla-bivariada
