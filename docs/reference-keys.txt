@@ -38,7 +38,7 @@ modelos
 determinantes-de-nivel-individual-1
 determinantes-de-nivel-contextual-1
 interacción-entre-niveles
-ajuste-global-y-resumen-de-hallazgos
+ajuste-global
 discussion
 conclusion
 variables-de-control-1

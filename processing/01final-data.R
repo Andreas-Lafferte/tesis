@@ -29,7 +29,8 @@ load("../output/data/oecd_euro.RData")
 
 # 3. Processing ----
 
-# 3.1 ISSP ----
+
+# 3.1 Individual level variables (ISSP) ----
 
 names(issp99)
 names(issp09)
@@ -40,7 +41,7 @@ names(issp19)
 db <- rbind(issp99,issp09)
 db <- rbind(db,issp19)
 
-### Relevel ideology
+### Re-level ideology
 
 frq(db$IDEOLOGY)
 levels(db$IDEOLOGY)
@@ -53,24 +54,12 @@ db$IDEOLOGY <- car::recode(db$IDEOLOGY, recodes = c("'Derecha' = 'Derecha';
          labels = c("Derecha", "Centro", "Izquierda", "Sin identificación"))
 
 
-## Labels
-
-db$SEX <- sjlabelled::set_label(db$SEX, label = c("Sexo"))
-db$DEGREE <- sjlabelled::set_label(db$DEGREE, label = c("Nivel educativo"))
-db$INCOME <- sjlabelled::set_label(db$INCOME, label = c("Decil ingreso"))
-db$SUBJEC_CLASS <- sjlabelled::set_label(db$SUBJEC_CLASS, label = c("Identidad de clase"))
-db$UNION <- sjlabelled::set_label(db$UNION, label = c("Afiliación sindical"))
-db$IDEOLOGY <- sjlabelled::set_label(db$IDEOLOGY, label = c("Identificación política"))
-db$CLASS <- sjlabelled::set_label(db$CLASS, label = c("Posición de clase"))
-
-## PSCi
+## Dependent variable: PSCi
 
 db <- db %>% 
   rowwise() %>%
   mutate(PSCi = sum(CONFLICT_RP, CONFLICT_WCMC, CONFLICT_MW, na.rm = F))
 
-
-db$PSCi <- sjlabelled::set_label(db$PSCi, label = c("Perceived Social Conflict Index"))
 frq(db$PSCi)
 sjPlot::plot_frq(na.omit(db$PSCi), type = "histogram", show.mean = TRUE) 
 
@@ -86,7 +75,8 @@ db <- as.data.frame(db) # remove Rowwise type
 
 db %>% filter(!is.na(PSCi)) %>% count(PSCi) %>% mutate(prop = prop.table(n))
 
-# 3.2 WIID, SWIID, ICTWSS, OECD ----
+# 3.2 Contextual level variables (WIID, SWIID, ICTWSS, OECD) ----
+
 names(wiid)
 names(ictwss)
 names(oecd)
@@ -98,9 +88,23 @@ df <- full_join(df, swiid_summary, by = c("COUNTRY", "YEAR"))
 
 df <- df %>% select(COUNTRY, YEAR, RATIO_IC, CorpAll, GDP, SOC_EXPEND, UD, GINI)
 
-# 3.3 Join data and Transforming variables ----
+# 3.3 Final data and transforming variables ----
 
 db <- full_join(db, df, by = c("COUNTRY", "YEAR"))
+
+db_original <- db %>% as_tibble(.) #original
+
+db <- db %>% select(everything(), -DEGREE, -SUBJEC_CLASS, -INCOME, -GINI, -starts_with("CONFLICT"))
+
+db <- db %>% na.omit()
+
+df_original <- df
+
+df <- df %>% na.omit()
+df <- df %>% filter(!COUNTRY %in% c("Japon", "Canada", "Irlanda"))
+df <- df %>% as_tibble(.)
+
+# 3.4 Transforming variables ----
 
 ## CGM Ratio 80/20
 db <- db %>% mutate(C_RATIO = center(RATIO_IC))
@@ -117,7 +121,6 @@ db$GDP_LOG <- log(db$GDP)
 
 db <- db %>% mutate(C_GDP = center(GDP_LOG))
 
-
 ## SOC_EXPEND center CGM
 db <- db %>% mutate(C_SOCEXPEND = center(SOC_EXPEND))
 
@@ -132,9 +135,12 @@ db <- db %>% group_by(COUNTRY) %>%
   group_by(COUNTRY) %>% 
   mutate(C_AGE = AGE - mean.age)
 
+# 3.5 Identification variables ----
 
-# 3.4 ISO code and Labels ----
+# ID subject
+db <- tibble::rowid_to_column(db, "ID_SUBJECT")
 
+# ISO code
 db <- db %>% mutate(ISO_COUNTRY = case_when(COUNTRY == "Alemania" ~ "DEU",
                                             COUNTRY == "Argentina" ~ "ARG",
                                             COUNTRY == "Australia" ~ "AUS",
@@ -181,11 +187,28 @@ db <- db %>% mutate(ISO_COUNTRY = case_when(COUNTRY == "Alemania" ~ "DEU",
                                             COUNTRY == "USA" ~ "USA",
                                             COUNTRY == "Venezuela" ~ "VEN",
                                             TRUE ~ NA_character_))
+
 ## Wave
 db$WAVE <- as.factor(db$YEAR)
 db$COUNTRY_WAVE <- do.call(paste, c(db[c("ISO_COUNTRY", "WAVE")], sep = "_"))
 
+# 3.6 Final data ----
+
+db <- db %>% select(YEAR, COUNTRY, ISO_COUNTRY, WAVE, COUNTRY_WAVE, SEX, AGE,
+                    IDEOLOGY, UNION, CLASS, PSCi, RATIO_IC, CorpAll, GDP, GDP_LOG, 
+                    UD, SOC_EXPEND, C_RATIO, C_GDP, C_SOCEXPEND, C_UD, C_AGE, FACTOR)
+
+db <- db %>% as_tibble(.)
+
 ## Labels
+
+db$ID_SUBJECT <- sjlabelled::set_label(db$ID_SUBJECT, label = c("ID individuo"))
+db$YEAR <- sjlabelled::set_label(db$YEAR, label = c("Año"))
+db$SEX <- sjlabelled::set_label(db$SEX, label = c("Sexo"))
+db$AGE <- sjlabelled::set_label(db$AGE, label = c("Edad"))
+db$UNION <- sjlabelled::set_label(db$UNION, label = c("Afiliación sindical"))
+db$IDEOLOGY <- sjlabelled::set_label(db$IDEOLOGY, label = c("Identificación política"))
+db$CLASS <- sjlabelled::set_label(db$CLASS, label = c("Posición de clase"))
 db$ISO_COUNTRY <- sjlabelled::set_label(db$ISO_COUNTRY, label = c("Código ISO país"))
 db$WAVE <- sjlabelled::set_label(db$WAVE, label = c("Ola"))
 db$COUNTRY_WAVE <- sjlabelled::set_label(db$COUNTRY_WAVE, label = c("País-ola"))
@@ -193,31 +216,17 @@ db$C_RATIO <- sjlabelled::set_label(db$C_RATIO, label = c("Ratio S80/S20 [CGM]")
 db$C_GDP <- sjlabelled::set_label(db$C_GDP, label = c("GDP Per capita [CGM]"))
 db$C_SOCEXPEND <- sjlabelled::set_label(db$C_SOCEXPEND, label = c("Gasto social %GDP [CGM]"))
 db$C_UD <- sjlabelled::set_label(db$C_UD, label = c("Densidad sindical [CGM]"))
-db$GINI <- sjlabelled::set_label(db$GINI, label = c("Gini"))
 db$C_AGE <- sjlabelled::set_label(db$C_AGE, label = c("Edad [CWC]"))
+db$FACTOR <- sjlabelled::set_label(db$FACTOR, label = c("Factor expansión"))
+db$COUNTRY <- sjlabelled::set_label(db$COUNTRY, label = c("País"))
+db$PSCi <- sjlabelled::set_label(db$PSCi, label = c("Perceived Social Conflict Index"))
+db$RATIO_IC <- sjlabelled::set_label(db$RATIO_IC, label = c("Ratio S80/S20"))
+db$GDP <- sjlabelled::set_label(db$GDP, label = c("GDP per capita USD"))
+db$GDP_LOG <- sjlabelled::set_label(db$GDP_LOG, label = c("Log GDP per capita USD"))
+db$CorpAll <- sjlabelled::set_label(db$CorpAll, label = c("Indice corporativismo"))
+db$UD <- sjlabelled::set_label(db$UD, label = c("Densidad sindical"))
+db$SOC_EXPEND <- sjlabelled::set_label(db$SOC_EXPEND, label = c("Gasto social (%GDP)"))
 
-# 3.5  Final data ----
-
-db_original <- db %>% as_tibble(.) #original
-
-db <- db %>% select(YEAR, COUNTRY, ISO_COUNTRY, WAVE, COUNTRY_WAVE, SEX, AGE,
-                    IDEOLOGY, UNION, CLASS, PSCi, GINI, RATIO_IC, CorpAll, 
-                    GDP, GDP_LOG, UD, SOC_EXPEND, C_RATIO, C_GDP, C_SOCEXPEND, C_UD, 
-                    C_AGE, FACTOR)
-
-db <- db %>% as_tibble(.)
-
-db <- db %>% na.omit()
-
-db <- tibble::rowid_to_column(db, "ID_SUBJECT")
-
-db$ID_SUBJECT <- sjlabelled::set_label(db$ID_SUBJECT, label = c("ID individuo"))
-
-df_original <- df
-
-df <- df %>% na.omit()
-df <- df %>% filter(!COUNTRY %in% c("Japon", "Canada", "Irlanda"))
-df <- df %>% as_tibble(.)
 
 # 4. Save ----
 

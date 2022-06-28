@@ -100,6 +100,8 @@ screenreg(list(model_2, model_3, model_4, model_6),
 
 res_anova1 <- anova(model_0, model_2, model_3, model_4, model_6) # compare to null/baseline model 
 
+saveRDS(res_anova1, file = "../output/deviancetest.rds")
+
 res_anova2 <- anova(model_4, model_6) # compare ri model and interaction model
 
 performance::test_likelihoodratio(model_4, model_5) # compares ri model and re slope model
@@ -116,7 +118,7 @@ compare_performance(model_0, model_2, model_3, model_4, model_6, rank = T)
 ## 3.3. Plot interaction ----
 
 # plot random slope
-plot_model(model_5.1, type = "re",
+plot_model(model_5, type = "re",
            show.legend = F,
            show.values = T,
            facet.grid = F,
@@ -124,26 +126,29 @@ plot_model(model_5.1, type = "re",
            y.offset = .4,
            value.offset = .4)
 
-ggpredict(model_5.1, terms = c("COUNTRY", "CLASS"), type = "re") %>% plot() + coord_flip() 
+ggpredict(model_5, terms = c("COUNTRY", "CLASS"), type = "re") %>% plot() + coord_flip() 
 
 # plot interaction term
-plot_model(model_6.1, type = "int", pred.type = "re", mdrt.values = "meansd") # option 1
+plot_model(model_6, type = "int", pred.type = "re", mdrt.values = "meansd") # option 1
 
-ggpredict(model_6.1, terms = c("CLASS", "C_RATIO [meansd]")) %>% plot(ci.style = "errorbar")
+ggpredict(model_6, terms = c("CLASS", "C_RATIO [meansd]")) %>% plot(ci.style = "errorbar", connect.lines = TRUE)
 
-plot_model(model_6.1, terms = c("C_RATIO", "CLASS"), type = "pred", pred.type = "re")
+plot_model(model_6, terms = c("C_RATIO", "CLASS"), type = "pred", pred.type = "re")
  
 
 
 # ver si en vez del meansd hay que usar min max en el grafico para desigualdad
 
 
-plot_model(model_6.1, type = "int", mdrt.values = "minmax")
+plot_model(model_6, type = "int", mdrt.values = "minmax")
 
 
-ggpredict(model_6.1, terms = c("CLASS", "C_RATIO [minmax]")) %>% 
+ggpredict(model_6, terms = c("CLASS", "C_RATIO [minmax]")) %>% 
   plot(ci.style = "errorbar", connect.lines = TRUE, show.title = FALSE, dot.size = 1.5) + 
-  scale_color_manual(values = c("#E16462", "#0D0887"), name="Ratio 80/20", labels = c("Mínimo", "Máximo")) 
+  scale_color_manual(values = c("#E16462", "#0D0887"), name="Ratio 80/20", labels = c("Mínimo", "Máximo")) +
+  scale_y_continuous(limits = c(0, 15), 
+                     breaks = seq(0, 15, 2.5),
+                     labels = formatter(nsmall = 1))
 
 
 
@@ -170,6 +175,14 @@ p[p$group %in% c("-3.68", "37.69"), ] %>% plot(ci.style = "errorbar")
 ggpredict(model_5, terms = c("CLASS"), type = "random") %>% plot()
 
 
+ggpredict(model_6, terms = c("CLASS", "C_RATIO [minmax]")) %>% 
+  plot(ci.style = "errorbar", connect.lines = TRUE, show.title = FALSE) + 
+  scale_color_manual(values = c("#E16462", "#0D0887"), name="Ratio 80/20", labels = c("Mínimo", "Máximo")) +
+  scale_y_continuous(limits = c(0, 15), 
+                     breaks = seq(0, 15, 2.5),
+                     labels = formatter(nsmall = 1)) +
+  my_pretty_theme +
+  theme(axis.text.x = element_text(size = 6))
 
 
 
