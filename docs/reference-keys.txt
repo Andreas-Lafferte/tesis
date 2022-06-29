@@ -10,6 +10,7 @@ fig:fig7
 fig:fig9
 tab:model
 fig:fig10
+tab:fit
 tab:tab-control
 eq:alpha
 tab:tabi
@@ -38,7 +39,7 @@ modelos
 determinantes-de-nivel-individual-1
 determinantes-de-nivel-contextual-1
 interacción-entre-niveles
-ajuste-global
+ajuste-comparativo
 discussion
 conclusion
 variables-de-control-1
