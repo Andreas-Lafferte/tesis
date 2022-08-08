@@ -68,7 +68,7 @@ options(knitr.kable.NA = '')
 ## Descriptivos
 <div style="text-align: justify">
 
-Antes de proceder con el análisis de los modelos, en esta sección se presentan los análisis descriptivos uni y bivariados de las variables principales de este estudio con el fin de realizar una primera aproximación al contraste de hipótesis. Para ello, se comienza reportando los estadísticos descriptivos de la variable dependiente y de las variables independientes. Luego, se examina la manera en que las percepciones de conflicto social varían entre países como una antesala al modelamiento multinivel. Por último, se desarrollan análisis bivariados relacionando el índice de conflictos sociales percibidos con la posición de clase y la membresía sindical a nivel individual, y con la desigualdad económica y el nivel de corporativismo de los países a nivel contextual.
+Antes de proceder con el análisis de los modelos, en esta sección se presentan los análisis descriptivos uni y bivariados de las variables principales de este estudio con el fin de realizar una primera aproximación al contraste de hipótesis. Para ello, se comienza reportando los estadísticos descriptivos de la variable dependiente y de las variables independientes. Luego, se examina la manera en que las percepciones de conflicto social varían entre países como una antesala al modelamiento multinivel. Por último, se desarrollan análisis bivariados relacionando el índice de conflictos sociales percibidos con la posición de clase y la membresía sindical a nivel individual, y con la desigualdad económica y el corporativismo de los países a nivel contextual.
 
 En la Tabla \@ref(tab:tab-desc1) se reportan los estadísticos descriptivos para todas las variables incluidas en el análisis. Como se puede observar, esta investigación trabaja sobre una muestra de 39.853 individuos anidados en 33 países, los cuales poseen, en promedio, un moderado nivel de conflicto percibido reflejado en una media de 3.78 puntos en una escala que va de 0 (no existen conflictos) a 9 (existen muy fuertes conflictos). Ahora bien, es importante notar que tomando en cuenta la distribución y escala de $PSCi$, la dispersión de los datos respecto al promedio es considerable (DE = 2.03). Esta alta variación en los datos podría estar asociada a la presencia de distintos países en las diferentes olas-años bajo estudio, abriendo la interrogante sobre el rol contextual de los países. 
 
@@ -389,10 +389,11 @@ g6 <- ggpredict(model_6, terms = c("CLASS", "C_RATIO [minmax]")) %>%
                      labels = formatter(nsmall = 1)) +
   my_pretty_theme +
   theme(axis.text.x = element_text(size = 6,
-                                   angle = -70,
-                                   vjust = -2))
+                                   angle = -90,
+                                   vjust = -0.0))
 
 g6
+
 ```
 (ref:fig10) Valores predichos de $PSCi$ en función de las categorías de clase con diferentes niveles de concentración del ingreso (Ratio 80/20). Los puntos muestran los valores predichos; las barras representan los intervalos de confianza del 95%. Fuente: Elaboración propia en base a [ISSP (1999-2019)](https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality) y [WIID](https://www.wider.unu.edu/database/world-income-inequality-database-wiid#WIIDcomp).
 
