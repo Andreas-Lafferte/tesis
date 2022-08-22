@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2022-08-08" />
+<meta name="date" content="2022-08-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -170,10 +170,13 @@ Ellos contra nosotros: las percepciones del conflicto social
 <div style="text-align: justify">
 
 <p>En esta sección se presentan los resultados de los modelos multinivel para los 33 países bajo estudio entre los años 1999, 2009 y 2019. Siguiendo una estrategía de análisis de complejidad creciente, se calculan seis modelos <span class="citation">(<a href="referencias.html#ref-hoxMultilevelAnalysisTechniques2017a" role="doc-biblioref">Hox et al., 2017</a>)</span>. Como es usual, se comienza estimando un modelo nulo o de base (<em>i.e.</em> sin predictores) en el que solo se descompone la varianza de <span class="math inline">\(PSCi\)</span> a nivel individual y contextual con el fin de conocer si el conflicto percibido varía entre países. El Modelo 1 corresponde a un modelo con interceptos aleatorios en el que se incluyen las variables independientes de nivel individual, mientras que en el Modelo 2 se añaden las variables independientes de nivel contextual. En el Modelo 3 se replica la misma estimación que en el Modelo 2 pero se incorporan las variables de control. Luego, se calcula un modelo (no presentado) que trabaja con las mismas variables que en el Modelo 3, sin embargo, se diferencia en que añade la estimación de la pendiente aleatoria. Por último, en el Modelo 4 se estima un modelo que incorpora tanto la pendiente aleatoria como la interacción entre niveles. La sección finaliza reportando los estadísticos de bondad de ajuste de los modelos y se cierra con un resumen de los hallazgos principales.</p>
-<p>Los resultados de los modelos multinivel son presentados en la Tabla <a href="modelos.html#tab:model">3.2</a>. La correlación intraclase (ICC) para el modelo nulo (no mostrado) es igual a 0.217, lo cual indica la cantidad de varianza de <span class="math inline">\(PSCi\)</span> que puede atribuirse a la estructura de agrupación en la población, en este caso, los países <span class="citation">(ICC en base a <a href="referencias.html#ref-hoxMultilevelAnalysisTechniques2017a" role="doc-biblioref">Hox et al., 2017, p. 13</a>)</span>. Esto significa que cerca de un 22% de la varianza total del conflicto percibido por los individuos se asocia a características específicas de los países, asentando como precedente que existen diferencias significativas entre estos respecto al nivel de percepción de conflicto.</p>
+<p>Los resultados de los modelos multinivel son presentados en la Tabla <a href="modelos.html#tab:model1">3.2</a>. La correlación intraclase (ICC) para el modelo nulo (no mostrado) es igual a 0.217, lo cual indica la cantidad de varianza de <span class="math inline">\(PSCi\)</span> que puede atribuirse a la estructura de agrupación en la población, en este caso, los países <span class="citation">(ICC en base a <a href="referencias.html#ref-hoxMultilevelAnalysisTechniques2017a" role="doc-biblioref">Hox et al., 2017, p. 13</a>)</span>. Esto significa que cerca de un 22% de la varianza total del conflicto percibido por los individuos se asocia a características específicas de los países, asentando como precedente que existen diferencias significativas entre estos respecto al nivel de percepción de conflicto.</p>
+<div id="determinantes-de-nivel-individual-1" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Determinantes de nivel individual</h3>
+<p>Dentro de los distintos factores individuales que influyen en las percepciones de conflicto social, la posición de clase es un predictor particularmente relevante para este estudio. Como sugiere la Tabla <a href="modelos.html#tab:model1">3.2</a>, en todos los modelos el efecto de pertenecer a posiciones de clase subordinadas es positivo y estadísticamente significativo. En detalle, en el Modelo 1 se observa que, manteniendo los demás predictores constantes, quienes se ubican en la posición de clase trabajadora no calificada obtienen, en promedio, 0.54 puntos adicionales en la escala de percepción de conflictos en comparación a quienes se ubican en la posición de clase capitalista, siendo estadísticamente significativo al 99% de confianza. Similarmente, quienes pertenecen a la clase de trabajadores calificados (<span class="math inline">\(\beta\)</span> = 0.40, SE = 0.20, p &lt; .01) y quienes pertenecen a la clase de los supervisores no calificados (<span class="math inline">\(\beta\)</span> = 0.57, SE = 0.28, p &lt; .01) también obtienen mayores puntuaciones promedio en la escala de <span class="math inline">\(PSCi\)</span> en comparación a quienes pertenecen a la clase de los capitalistas o grandes propietarios. Llamativo es el caso de la clase de los supervisores no calificados pues, al compararla con las otras posiciones de clase subordinadas y medias, los individuos de esta clase poseen el coeficiente de mayor tamaño. Por su parte, los resultados del Modelo 1 también sugieren que quienes forman parte de las clases medias o “contradictorias,” como los supervisores calificados (<span class="math inline">\(\beta\)</span> = 0.21, SE = 0.09) o los expertos sin autoridad (<span class="math inline">\(\beta\)</span> = 0.19, SE = 0.09), poseen mayores percepciones de conflicto social respecto a los individuos de clase capitalista, ambos significativos al 95% de confianza. Por último, no se puede dejar de mencionar lo que ocurre con la clase de la pequeña burguesía puesto que, aunque forma parte de las clases privilegiadas, quienes se ubican en esta clase perciben, en promedio, mayores conflictos sociales que los individuos de clase capitalista (<span class="math inline">\(\beta\)</span> = 0.28, SE = 0.09, p &lt; .01). Con todo, estos resultados entregan evidencia favorable para la <span class="math inline">\(H_{1}\)</span>, la cual establecía que los individuos de clases subordinadas tenderían a percibir mayor conflicto social que los individuos de clases privilegiadas. Cabe mencionar que los coeficientes de la posición de clase no son excesivamente grandes considerando la escala de <span class="math inline">\(PSCi\)</span>, sin embargo, estos efectos son estadísticamente robustos y se mantienen significativos aún controlando por otras variables en los modelos siguientes.</p>
 <table class="texreg" style="margin: 10px auto;border-collapse: collapse;border-spacing: 0px;color: #000000;border-top: 2px solid #000000;">
 <caption>
-<span id="tab:model">Tabla 3.2: </span> Modelos de regresión multinivel para las percepciones de conflicto social en 33 países entre 1999-2019
+<span id="tab:model1">Tabla 3.2: </span> Modelos de regresión multinivel con interceptos aleatorios para las percepciones de conflicto social en 33 países entre 1999-2019
 </caption>
 <thead>
 <tr>
@@ -188,9 +191,6 @@ Modelo 2
 </th>
 <th style="padding-left: 5px;padding-right: 5px;">
 Modelo 3
-</th>
-<th style="padding-left: 5px;padding-right: 5px;">
-Modelo 4
 </th>
 </tr>
 </thead>
@@ -208,84 +208,24 @@ Modelo 4
 <td style="padding-left: 5px;padding-right: 5px;">
  
 </td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
 </tr>
 <tr>
 <td style="padding-left: 5px;padding-right: 5px;">
      Intercepto
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-3.50<sup>***</sup>
+3.50 (0.18)<sup>***</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-3.56<sup>***</sup>
+3.56 (0.27)<sup>***</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-3.32<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-3.32<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.18)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.27)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.29)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.30)
+3.32 (0.29)<sup>***</sup>
 </td>
 </tr>
 <tr>
 <td style="padding-left: 5px;padding-right: 5px;">
 Posición de clase (ref: 1.Capitalistas)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
  
@@ -302,33 +242,13 @@ Posición de clase (ref: 1.Capitalistas)
      2.Pequeños empleadores
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.05
+0.05 (0.09)
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.06
+0.06 (0.09)
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.03
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.00
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.12)
+0.03 (0.09)
 </td>
 </tr>
 <tr>
@@ -336,33 +256,13 @@ Posición de clase (ref: 1.Capitalistas)
      3.Pequeña burguesia
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.28<sup>***</sup>
+0.28 (0.09)<sup>***</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.31<sup>***</sup>
+0.31 (0.09)<sup>***</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.23<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.23<sup>**</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.10)
+0.23 (0.09)<sup>***</sup>
 </td>
 </tr>
 <tr>
@@ -370,33 +270,13 @@ Posición de clase (ref: 1.Capitalistas)
      4.Expertos directivos
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
--0.04
+-0.04 (0.09)
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
--0.01
+-0.01 (0.09)
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
--0.11
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.14
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.11)
+-0.11 (0.09)
 </td>
 </tr>
 <tr>
@@ -404,33 +284,13 @@ Posición de clase (ref: 1.Capitalistas)
      5.Expertos sin autoridad
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.19<sup>**</sup>
+0.19 (0.09)<sup>**</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.21<sup>**</sup>
+0.21 (0.09)<sup>**</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.04
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.03
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.11)
+0.04 (0.09)
 </td>
 </tr>
 <tr>
@@ -438,33 +298,13 @@ Posición de clase (ref: 1.Capitalistas)
      6.Supervisores calificados
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.21<sup>**</sup>
+0.21 (0.09)<sup>**</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.22<sup>**</sup>
+0.22 (0.09)<sup>**</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.14
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.14
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
+0.14 (0.09)
 </td>
 </tr>
 <tr>
@@ -472,33 +312,13 @@ Posición de clase (ref: 1.Capitalistas)
      7.Supervisores no calificados
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.57<sup>***</sup>
+0.57 (0.09)<sup>***</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.60<sup>***</sup>
+0.60 (0.09)<sup>***</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.48<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.47<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.10)
+0.48 (0.09)<sup>***</sup>
 </td>
 </tr>
 <tr>
@@ -506,33 +326,13 @@ Posición de clase (ref: 1.Capitalistas)
      8.Trabajadores calificados
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.40<sup>***</sup>
+0.40 (0.09)<sup>***</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.41<sup>***</sup>
+0.41 (0.08)<sup>***</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.28<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.29<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.08)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.08)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.10)
+0.28 (0.08)<sup>***</sup>
 </td>
 </tr>
 <tr>
@@ -540,33 +340,13 @@ Posición de clase (ref: 1.Capitalistas)
      9.Trabajadores no calificados
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.54<sup>***</sup>
+0.54 (0.08)<sup>***</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.56<sup>***</sup>
+0.56 (0.08)<sup>***</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.41<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.42<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.08)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.08)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.08)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
+0.41 (0.08)<sup>***</sup>
 </td>
 </tr>
 <tr>
@@ -574,33 +354,13 @@ Posición de clase (ref: 1.Capitalistas)
 Miembro sindicato (ref: No)
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.04<sup>*</sup>
+0.04 (0.02)<sup>*</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.05<sup>***</sup>
+0.05 (0.02)<sup>***</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.09<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.09<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.02)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.02)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.02)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.02)
+0.09 (0.02)<sup>***</sup>
 </td>
 </tr>
 <tr>
@@ -611,30 +371,10 @@ Ratio 80/20
  
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.16<sup>***</sup>
+0.16 (0.01)<sup>***</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.21<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.23<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.02)
+0.21 (0.01)<sup>***</sup>
 </td>
 </tr>
 <tr>
@@ -645,55 +385,15 @@ Corporativismo
  
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
--1.41<sup>***</sup>
+-1.41 (0.12)<sup>***</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
--1.05<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--1.05<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.12)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.13)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.12)
+-1.05 (0.13)<sup>***</sup>
 </td>
 </tr>
 <tr>
 <td style="padding-left: 5px;padding-right: 5px;">
 Tiempo (ref: 1999)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
  
@@ -713,30 +413,10 @@ Tiempo (ref: 1999)
  
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
--0.24<sup>***</sup>
+-0.24 (0.03)<sup>***</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
--0.01
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.01
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.03)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.05)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.04)
+-0.01 (0.05)
 </td>
 </tr>
 <tr>
@@ -747,30 +427,10 @@ Tiempo (ref: 1999)
  
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
--0.33<sup>***</sup>
+-0.33 (0.04)<sup>***</sup>
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
--0.09
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.09
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.04)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.05)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.05)
+-0.09 (0.05)
 </td>
 </tr>
 <tr>
@@ -784,27 +444,7 @@ Edad (en años)
  
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
--0.01<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.01<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.00)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.00)
+-0.01 (0.00)<sup>***</sup>
 </td>
 </tr>
 <tr>
@@ -818,52 +458,12 @@ Mujer (ref: Hombre)
  
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.18<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.18<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.02)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.02)
+0.18 (0.02)<sup>***</sup>
 </td>
 </tr>
 <tr>
 <td style="padding-left: 5px;padding-right: 5px;">
 Identificación política (ref: Derecha)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
  
@@ -886,27 +486,7 @@ Identificación política (ref: Derecha)
  
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
--0.03
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.03
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.03)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.03)
+-0.03 (0.03)
 </td>
 </tr>
 <tr>
@@ -920,27 +500,7 @@ Identificación política (ref: Derecha)
  
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.20<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.20<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.02)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.02)
+0.20 (0.02)<sup>***</sup>
 </td>
 </tr>
 <tr>
@@ -954,27 +514,7 @@ Identificación política (ref: Derecha)
  
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.21<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.21<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.03)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.03)
+0.21 (0.03)<sup>***</sup>
 </td>
 </tr>
 <tr>
@@ -988,27 +528,7 @@ Gasto social (%GDP)
  
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
--0.05<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.05<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
+-0.05 (0.01)<sup>***</sup>
 </td>
 </tr>
 <tr>
@@ -1022,341 +542,12 @@ Densidad sindical
  
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
-0.02<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.02<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.00)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.00)
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-<b>Interacciones entre niveles</b> (ref: 1.Capitalistas <span class="math inline">\(\times\)</span> Ratio 80/20)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-     2.Pequeños empleadores <span class="math inline">\(\times\)</span> Ratio 80/20
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.03<sup>*</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-     3.Pequeña burguesia <span class="math inline">\(\times\)</span> Ratio 80/20
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.02
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-     4.Expertos directivos <span class="math inline">\(\times\)</span> Ratio 80/20
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.04<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-     5.Expertos sin autoridad <span class="math inline">\(\times\)</span> Ratio 80/20
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.03<sup>**</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-     6.Supervisores calificados <span class="math inline">\(\times\)</span> Ratio 80/20
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.02
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-     7.Supervisores no calificados <span class="math inline">\(\times\)</span> Ratio 80/20
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.01
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-     8.Trabajadores calificados <span class="math inline">\(\times\)</span> Ratio 80/20
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.02
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-     9.Trabajadores no calificados <span class="math inline">\(\times\)</span> Ratio 80/20
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.02
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
+0.02 (0.00)<sup>***</sup>
 </td>
 </tr>
 <tr style="border-top: 1px solid #000000;">
 <td style="padding-left: 5px;padding-right: 5px;">
 <b>Efectos aleatorios</b>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
  
@@ -1381,9 +572,6 @@ Densidad sindical
 <td style="padding-left: 5px;padding-right: 5px;">
 3.19
 </td>
-<td style="padding-left: 5px;padding-right: 5px;">
-3.18
-</td>
 </tr>
 <tr>
 <td style="padding-left: 5px;padding-right: 5px;">
@@ -1398,16 +586,10 @@ Densidad sindical
 <td style="padding-left: 5px;padding-right: 5px;">
 2.49
 </td>
-<td style="padding-left: 5px;padding-right: 5px;">
-2.67
-</td>
 </tr>
 <tr>
 <td style="padding-left: 5px;padding-right: 5px;">
 N observaciones
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-39853
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
 39853
@@ -1432,16 +614,10 @@ N países
 <td style="padding-left: 5px;padding-right: 5px;">
 33
 </td>
-<td style="padding-left: 5px;padding-right: 5px;">
-33
-</td>
 </tr>
 <tr>
 <td style="padding-left: 5px;padding-right: 5px;">
 <b>Ajuste modelo</b>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
- 
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
  
@@ -1466,9 +642,6 @@ AIC
 <td style="padding-left: 5px;padding-right: 5px;">
 163253.23
 </td>
-<td style="padding-left: 5px;padding-right: 5px;">
-163335.00
-</td>
 </tr>
 <tr>
 <td style="padding-left: 5px;padding-right: 5px;">
@@ -1482,9 +655,6 @@ BIC
 </td>
 <td style="padding-left: 5px;padding-right: 5px;">
 163450.87
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-163979.47
 </td>
 </tr>
 <tr style="border-bottom: 2px solid #000000;">
@@ -1500,6 +670,193 @@ BIC
 <td style="padding-left: 5px;padding-right: 5px;">
 163090.12
 </td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="font-size: 0.8em;" colspan="4">
+<strong>Nota</strong>: Estimación de máxima verosimilitud restringida, coeficientes no estandarizados. Errores estándar entre paréntesis (SE). Variables de nivel contextual centradas a sus grandes medias (CGM). Variable ‘edad’ centrada al promedio de los países (CWC). Datos ponderados. <br> <span class="math inline">\(^{***}\)</span> p &lt; 0.01; <span class="math inline">\(^{**}\)</span> p &lt; 0.05; <span class="math inline">\(^{*}\)</span> p &lt; 0.1
+</td>
+</tr>
+</tfoot>
+</table>
+<p><br/></p>
+<p>Respecto a la segunda hipótesis (<span class="math inline">\(H_{2}\)</span>) de esta investigación, los resultados del Modelo 1 indican que, con un 90% de confianza, existe evidencia a favor de que quienes son miembros de sindicatos perciben más conflicto que quienes no lo son. En efecto, el valor esperado de <span class="math inline">\(PSCi\)</span> para quienes son miembros de sindicatos es 0.04 puntos mayor en comparación a quienes no son miembros en los 33 países bajo estudio manteniendo los demás predictores constantes. Si se comparan estos resultados con el Modelo 3 se puede dar cuenta de que el coeficiente de la afiliación sindical se incrementa en 0.05 puntos y que la significancia estadística aumenta al 99% de confianza. Este aumento se explica mayormente por la incorporación de dos variables: la edad y el tiempo. En concreto, este cambio podría estar indicando que buena parte del efecto de la membresía sindical se encuentra comprendido en la relación de <span class="math inline">\(PSCi\)</span> con la edad de los individuos y con el tiempo u ola de aplicación de la encuesta.</p>
+<p>A nivel individual, los resultados del Modelo 3 también muestran que existen otros hallazgos relevantes respecto a las variables de control. En línea con lo sostenido en investigaciones anteriores, los modelos sugieren que las mujeres tienden a percibir mayores conflictos que los hombres y que a mayor edad las personas perciben menos conflictos sociales. Sin embargo, los resultados sobre la identificación política de los individuos aportan elementos nuevos a la investigación comparada ya que, como se observa en la Tabla <a href="modelos.html#tab:model1">3.2</a>, las personas que se autoidentifican como de izquierda (<span class="math inline">\(\beta\)</span> = 0.20, SE = 0.02, p &lt; .01) y quienes no se identifican con ninguna posición del espectro político (<span class="math inline">\(\beta\)</span> = 0.21, SE = 0.03, p &lt; .01) obtienen mayores puntuaciones promedio en la escala de <span class="math inline">\(PSCi\)</span> en comparación a personas que se identifican políticamente como de derecha.</p>
+</div>
+<div id="determinantes-de-nivel-contextual-1" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Determinantes de nivel contextual</h3>
+<p>En relación a los factores de nivel contextual, el Modelo 2 muestra los resultados de la desigualdad económica y el grado de corporativismo de los países ingresados como efectos fijos. De acuerdo con este modelo, el coeficiente de regresión de la concentración del ingreso es 0.16, lo cual significa que, ceteris paribus, por cada unidad que aumenta la concentración del ingreso, la puntuación media en la escala de percepción de conflictos se incrementa en 0.16 puntos con un 99% de confianza. Este valor no posee aparentemente un efecto de gran tamaño, pero es relevante cuando se consideran los valores mínimos y máximos de la concentración del ingreso. Esta variable (centrada al gran promedio) se mueve un rango de -3.55 a 37.82, por lo que la diferencia predicha entre el país más desigual y el país con menor desigualdad es de 5.48 (diferencia = 34.27 <span class="math inline">\(\times\)</span> 0.16 = 5.48) puntos promedios en la escala de <span class="math inline">\(PSCi\)</span>. Además, en los modelos siguientes la dirección positiva del efecto y la significancia estadística de la concentración del ingreso se mantienen e inclusive incrementa el tamaño del coeficiente al incorporar las variables de control. Con todo, estos resultados permiten sostener que en países con mayores niveles de desigualdad económica las percepciones de conflicto tienden a ser mayores, entregando apoyo favorable a la <span class="math inline">\(H_{3}\)</span>.</p>
+<p>Por su parte, el grado de corporativismo de los países muestra un efecto negativo y estadísticamente significativo. Los resultados del Modelo 2 sugieren que, manteniendo las demás variables constantes y con un 99% de confianza, un aumento en el índice de corporativismo de una desviación estándar respecto a la media de los países disminuye en -1.41 puntos los valores en el índice de conflictos sociales percibidos. Como se observa en la Tabla <a href="modelos.html#tab:model1">3.2</a>, el tamaño de este coeficiente va decreciendo (ajustando) a medida que se van complejizando los modelos, particularmente al momento de introducir el gasto social de los países como control (Modelo 3). Ahora bien, una de las preocupaciones específicas que resultaron de los análisis en la sección descriptiva era que el tiempo podría estar afectando la relación entre las percepciones de conflicto social y el corporativismo de los países en función de que la asociación entre estas variables se ha difuminado durante el tiempo. En otros modelos no mostrados, se constata que cuando se ingresa la variable tiempo el coeficiente del índice de corporativismo se reduce aunque mínimamente. De cualquier modo, estos resultados permiten sostener lo planteado por la <span class="math inline">\(H_{4}\)</span> ya que, consistente con esta, las percepciones de conflicto social tienden a ser menores a medida que los países poseen mayores niveles de corporativismo.</p>
+<p>En relación al factor temporal, los resultados del Modelo 2 indican que el tiempo posee un efecto negativo y significativo. Como se recordará, en esta investigación se planteó de manera exploratoria que las percepciones de conflicto social tenderían a aumentar a través del tiempo (<span class="math inline">\(H_{5}\)</span>). No obstante, la evidencia no permite sostener lo establecido hipotéticamente ya que, al contrario, el conflicto percibido se reduce sistemáticamente a medida que aumenta el tiempo en los 33 países bajo estudio. En específico, tomando al año 1999 como categoría de referencia, el valor promedio en la escala de <span class="math inline">\(PSCi\)</span> disminuye en -0.24 puntos en el año 2009 y -0.33 puntos en el 2019, manteniendo las demás variables constantes y con un 99% de confianza. En consecuencia, no existe evidencia a favor de que el tiempo produzca un incremento en el conflicto percibido.</p>
+<p>Por último, distintos elementos pueden destacarse en relación a las variables de control de nivel contextual. Primero, es importante mencionar que en estos modelos no se incluyó el GDP per capita de los países debido que presentaba serios problemas de multicolinealidad con la variable tiempo (ver Figura <a href="apendiceb.html#fig:fig11">5.2</a> del <a href="apendiceb.html#apendiceb">Apéndice</a>). Segundo, el Modelo 3 da cuenta de que el gasto social de los países posee un efecto negativo y estadísticamente significativo (<span class="math inline">\(\beta\)</span> = -0.05 , SE = 0.01, p &lt; .01), lo cual es consistente con lo encontrado en investigaciones anteriores. Tercero, el efecto de la densidad sindical de los países es positivo y significativo (<span class="math inline">\(\beta\)</span> = 0.02 , SE = 0.00, p &lt; .01), lo cual quiere decir que a mayor densidad sindical de los países mayores tienden a ser las percepciones de conflicto social en los individuos. Este último hallazgo establece un desafío a las investigaciones comparadas puesto que, contrario a lo consensuado, pareciera ser que en países con mayor poder sindical se estarían desarrollando percepciones más orientadas hacia el conflicto.</p>
+</div>
+<div id="interacción-entre-niveles" class="section level3" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Interacción entre niveles</h3>
+<p>Como se ha demostrado, tanto la posición de clase de los individuos como el nivel de desigualdad económica de los países tienen un efecto significativo y positivo en la escala de percepción de conflictos. Ahora, resta examinar la hipótesis sobre que la relación entre la posición de clase y el conflicto percibido puede variar en función de (<em>i.e.</em> es moderada por) el nivel de desigualdad económica de los países.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a></p>
+<table class="texreg" style="margin: 10px auto;border-collapse: collapse;border-spacing: 0px;color: #000000;border-top: 2px solid #000000;">
+<caption>
+<span id="tab:model2">Tabla 3.3: </span> Modelo de regresión multinivel con interacción entre niveles para las percepciones de conflicto social en 33 países entre 1999-2019
+</caption>
+<thead>
+<tr>
+<th style="padding-left: 5px;padding-right: 5px;">
+ 
+</th>
+<th style="padding-left: 5px;padding-right: 5px;">
+Modelo 4
+</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-top: 1px solid #000000;">
+<td style="padding-left: 5px;padding-right: 5px;">
+<b>Interacciones entre niveles</b> (ref: 1.Capitalistas <span class="math inline">\(\times\)</span> Ratio 80/20)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+     2.Pequeños empleadores <span class="math inline">\(\times\)</span> Ratio 80/20
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.03 (0.01)<sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+     3.Pequeña burguesia <span class="math inline">\(\times\)</span> Ratio 80/20
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.02 (0.01)
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+     4.Expertos directivos <span class="math inline">\(\times\)</span> Ratio 80/20
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.04 (0.01)<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+     5.Expertos sin autoridad <span class="math inline">\(\times\)</span> Ratio 80/20
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.03 (0.01)<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+     6.Supervisores calificados <span class="math inline">\(\times\)</span> Ratio 80/20
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.02 (0.01)
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+     7.Supervisores no calificados <span class="math inline">\(\times\)</span> Ratio 80/20
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.01 (0.01)
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+     8.Trabajadores calificados <span class="math inline">\(\times\)</span> Ratio 80/20
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.02 (0.01)
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+     9.Trabajadores no calificados <span class="math inline">\(\times\)</span> Ratio 80/20
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.02 (0.01)
+</td>
+</tr>
+<tr style="border-top: 1px solid #000000;">
+<td style="padding-left: 5px;padding-right: 5px;">
+Controles
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+SI
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+<b>Efectos aleatorios</b>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+<span class="math inline">\(\sigma^2\)</span> (varianza nivel individual)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+3.18
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+<span class="math inline">\(\tau_{00}\)</span> (varianza nivel país)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+2.67
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+N observaciones
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+39853
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+N países
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+33
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+<b>Ajuste modelo</b>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+AIC
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+163335.00
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+BIC
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+163979.47
+</td>
+</tr>
+<tr style="border-bottom: 2px solid #000000;">
+<td style="padding-left: 5px;padding-right: 5px;">
+-2*log-likelihood
+</td>
 <td style="padding-left: 5px;padding-right: 5px;">
 163005.43
 </td>
@@ -1507,44 +864,29 @@ BIC
 </tbody>
 <tfoot>
 <tr>
-<td style="font-size: 0.8em;" colspan="5">
-<strong>Nota</strong>: Estimación de máxima verosimilitud restringida, coeficientes no estandarizados. Errores estándar entre paréntesis (SE). Variables de nivel contextual centradas a sus grandes medias (CGM). Variable ‘edad’ centrada al promedio de los países (CWC). Efectos aleatorios del Modelo 4 no mostrados por parsimonia. Datos ponderados. <br> <span class="math inline">\(^{***}\)</span> p &lt; 0.01; <span class="math inline">\(^{**}\)</span> p &lt; 0.05; <span class="math inline">\(^{*}\)</span> p &lt; 0.1
+<td style="font-size: 0.8em;" colspan="2">
+<strong>Nota</strong>: Estimación de máxima verosimilitud restringida, coeficientes no estandarizados. Errores estándar entre paréntesis (SE). Variables de nivel contextual centradas a sus grandes medias (CGM). Efectos aleatorios del Modelo 4 no mostrados por parsimonia. Modelo 4 controla por las variables utilizadas en los modelos anteriores. Datos ponderados. <br> <span class="math inline">\(^{***}\)</span> p &lt; 0.01; <span class="math inline">\(^{**}\)</span> p &lt; 0.05; <span class="math inline">\(^{*}\)</span> p &lt; 0.1
 </td>
 </tr>
 </tfoot>
 </table>
-<div id="determinantes-de-nivel-individual-1" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> Determinantes de nivel individual</h3>
-<p>Dentro de los distintos factores individuales que influyen en las percepciones de conflicto social, la posición de clase es un predictor particularmente relevante para este estudio. Como sugiere la Tabla <a href="modelos.html#tab:model">3.2</a>, en todos los modelos el efecto de pertenecer a posiciones de clase subordinadas es positivo y estadísticamente significativo. En detalle, en el Modelo 1 se observa que, manteniendo los demás predictores constantes, quienes se ubican en la posición de clase trabajadora no calificada obtienen, en promedio, 0.54 puntos adicionales en la escala de percepción de conflictos en comparación a quienes se ubican en la posición de clase capitalista, siendo estadísticamente significativo al 99% de confianza. Similarmente, quienes pertenecen a la clase de trabajadores calificados (<span class="math inline">\(\beta\)</span> = 0.40, SE = 0.20, p &lt; .01) y quienes pertenecen a la clase de los supervisores no calificados (<span class="math inline">\(\beta\)</span> = 0.57, SE = 0.28, p &lt; .01) también obtienen mayores puntuaciones promedio en la escala de <span class="math inline">\(PSCi\)</span> en comparación a quienes pertenecen a la clase de los capitalistas o grandes propietarios. Llamativo es el caso de la clase de los supervisores no calificados pues, al compararla con las otras posiciones de clase subordinadas y medias, los individuos de esta clase poseen el coeficiente de mayor tamaño. Por su parte, los resultados del Modelo 1 también sugieren que quienes forman parte de las clases medias o “contradictorias,” como los supervisores calificados (<span class="math inline">\(\beta\)</span> = 0.21, SE = 0.09) o los expertos sin autoridad (<span class="math inline">\(\beta\)</span> = 0.19, SE = 0.09), poseen mayores percepciones de conflicto social respecto a los individuos de clase capitalista, ambos significativos al 95% de confianza. Por último, no se puede dejar de mencionar lo que ocurre con la clase de la pequeña burguesía puesto que, aunque forma parte de las clases privilegiadas, quienes se ubican en esta clase perciben, en promedio, mayores conflictos sociales que los individuos de clase capitalista (<span class="math inline">\(\beta\)</span> = 0.28, SE = 0.09, p &lt; .01). Con todo, estos resultados entregan evidencia favorable para rechazar la hipótesis nula, por lo cual la <span class="math inline">\(H_{1}\)</span> que establecía que los individuos de clases subordinadas tenderían a percibir mayor conflicto social que los individuos de clases privilegiadas debe ser aceptada. Cabe mencionar que los coeficientes de la posición de clase no son excesivamente grandes considerando la escala de <span class="math inline">\(PSCi\)</span>, sin embargo, estos efectos son estadísticamente robustos y se mantienen significativos aún controlando por otras variables en los modelos siguientes.</p>
-<p>Respecto a la segunda hipótesis (<span class="math inline">\(H_{2}\)</span>) de esta investigación, los resultados del Modelo 1 indican que, con un 90% de confianza, se puede rechazar la hipótesis nula sobre que no existen diferencias en el nivel de conflicto percibido entre quienes son miembros de sindicatos y quienes no lo son. En efecto, el valor esperado de <span class="math inline">\(PSCi\)</span> para quienes son miembros de sindicatos es 0.04 puntos mayor en comparación a quienes no son miembros en los 33 países bajo estudio manteniendo los demás predictores constantes. Si se comparan estos resultados con el Modelo 3 se puede dar cuenta de que el coeficiente de la afiliación sindical se incrementa en 0.05 puntos y que la significancia estadística aumenta al 99% de confianza. Este aumento se explica mayormente por la incorporación de dos variables: la edad y el tiempo. En concreto, este cambio podría estar indicando que buena parte del efecto de la membresía sindical se encuentra comprendido en la relación de <span class="math inline">\(PSCi\)</span> con la edad de los individuos y con el tiempo u ola de aplicación de la encuesta.</p>
-<p>A nivel individual, los resultados del Modelo 3 también muestran que existen otros hallazgos relevantes respecto a las variables de control. En línea con lo sostenido en investigaciones anteriores, los modelos confirman que las mujeres tienden a percibir mayores conflictos que los hombres y que a mayor edad las personas perciben menos conflictos sociales. Sin embargo, los resultados sobre la identificación política de los individuos aportan elementos nuevos a la investigación comparada ya que, como se observa en la Tabla <a href="modelos.html#tab:model">3.2</a>, las personas que se autoidentifican como de izquierda (<span class="math inline">\(\beta\)</span> = 0.20, SE = 0.02, p &lt; .01) y quienes no se identifican con ninguna posición del espectro político (<span class="math inline">\(\beta\)</span> = 0.21, SE = 0.03, p &lt; .01) obtienen mayores puntuaciones promedio en la escala de <span class="math inline">\(PSCi\)</span> en comparación a personas que se identifican políticamente como de derecha.</p>
-</div>
-<div id="determinantes-de-nivel-contextual-1" class="section level3" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Determinantes de nivel contextual</h3>
-<p>En relación a los factores de nivel contextual, el Modelo 2 muestra los resultados de la desigualdad económica y el grado de corporativismo de los países ingresados como efectos fijos. De acuerdo con este modelo, el coeficiente de regresión de la concentración del ingreso es 0.16, lo cual significa que, ceteris paribus, por cada unidad que aumenta la concentración del ingreso, la puntuación media en la escala de percepción de conflictos se incrementa en 0.16 puntos con un 99% de confianza. Este valor no se ve muy grande, pero es relevante cuando se consideran los valores mínimos y máximos de la concentración del ingreso. Esta variable (centrada al gran promedio) se mueve un rango de -3.55 a 37.82, por lo que la diferencia predicha entre el país más desigual y el país con menor desigualdad es de 5.48 (diferencia = 34.27 <span class="math inline">\(\times\)</span> 0.16 = 5.48) puntos promedios en la escala de <span class="math inline">\(PSCi\)</span>. Además, en los modelos siguientes la dirección positiva del efecto y la significancia estadística de la concentración del ingreso se mantienen e inclusive incrementa el tamaño del coeficiente al incorporar las variables de control. Con todo, estos resultados permiten sostener que en países con mayores niveles de desigualdad económica las percepciones de conflicto social tienden a ser mayores, entregando apoyo favorable a la <span class="math inline">\(H_{3}\)</span>.</p>
-<p>Por su parte, el grado de corporativismo de los países muestra un efecto negativo y estadísticamente significativo. Los resultados del Modelo 2 sugieren que, manteniendo las demás variables constantes y con un 99% de confianza, un aumento en el índice de corporativismo de una desviación estándar respecto a la media de los países disminuye en -1.41 puntos los valores en el índice de conflictos sociales percibidos. Como se observa en la Tabla <a href="modelos.html#tab:model">3.2</a>, el tamaño de este coeficiente va decreciendo (ajustando) a medida que se van complejizando los modelos, particularmente al momento de introducir el gasto social de los países como control (Modelo 3). Ahora bien, una de las preocupaciones específicas que resultaron de los análisis en la sección descriptiva era que el tiempo podría estar afectando la relación entre las percepciones de conflicto social y el corporativismo de los países en función de que la asociación entre estas variables se ha difuminado durante el tiempo. En otros modelos no mostrados, se constata que cuando se ingresa la variable tiempo el coeficiente del índice de corporativismo se parcializa aunque marginalmente. De cualquier modo, estos resultados permiten sostener lo planteado por la <span class="math inline">\(H_{4}\)</span> ya que, consistente con esta, las percepciones de conflicto social tienden a ser menores a medida que los países poseen mayores niveles de corporativismo.</p>
-<p>En relación al factor temporal, los resultados del Modelo 2 indican que el tiempo posee un efecto negativo y significativo. Como se recordará, en esta investigación se planteó de manera exploratoria que las percepciones de conflicto social tenderían a aumentar a través del tiempo (<span class="math inline">\(H_{5}\)</span>). No obstante, la evidencia no permite sostener lo establecido hipotéticamente ya que, al contrario, el conflicto percibido se reduce sistemáticamente a medida que aumenta el tiempo en los 33 países bajo estudio. En específico, tomando al año 1999 como categoría de referencia, el valor promedio en la escala de <span class="math inline">\(PSCi\)</span> disminuye en -0.24 puntos en el año 2009 y -0.33 puntos en el 2019, manteniendo las demás variables constantes y con un 99% de confianza. En consecuencia, se acepta la hipótesis nula respecto a que el tiempo no produce un incremento en el conflicto percibido.</p>
-<p>Por último, distintos elementos pueden destacarse en relación a las variables de control de nivel contextual. Primero, es importante mencionar que en estos modelos no se incluyó el GDP per capita de los países debido que presentaba serios problemas de multicolinealidad con la variable tiempo (ver Figura <a href="apendiceb.html#fig:fig11">5.2</a> del <a href="apendiceb.html#apendiceb">Apéndice</a>). Segundo, el Modelo 3 da cuenta de que el gasto social de los países posee un efecto negativo y estadísticamente significativo (<span class="math inline">\(\beta\)</span> = -0.05 , SE = 0.01, p &lt; .01), lo cual es consistente con lo encontrado en investigaciones anteriores. Tercero, el efecto de la densidad sindical de los países es positivo y significativo (<span class="math inline">\(\beta\)</span> = 0.02 , SE = 0.00, p &lt; .01), lo cual quiere decir que a mayor densidad sindical de los países mayores tienden a ser las percepciones de conflicto social en los individuos. Este último hallazgo establece un desafío a las investigaciones comparadas puesto que, contrario a lo consensuado, pareciera ser que en países con mayor poder sindical se estarían desarrollando actitudes más orientadas hacia el conflicto.</p>
-</div>
-<div id="interacción-entre-niveles" class="section level3" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> Interacción entre niveles</h3>
-<p>Como se ha demostrado, tanto la posición de clase de los individuos como el nivel de desigualdad económica de los países tienen un efecto significativo y positivo en la escala de percepción de conflictos. Ahora, resta examinar la hipótesis sobre que la relación entre la posición de clase y el conflicto percibido puede variar en función de (<em>i.e.</em> es moderada por) el nivel de desigualdad económica de los países.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a></p>
-<p>De acuerdo con los resultados del Modelo 4, la <span class="math inline">\(H_{3b}\)</span> que establecía que a mayores niveles de desigualdad económica los individuos de clases subordinadas aumentarían su percepción de conflicto social y que los individuos de clases privilegiadas la mantendrían o disminuirían debe ser rechazada. En términos generales, no existe evidencia que sustente lo planteado hipotéticamente ya que, por un lado, todos los coeficientes de las categorías de clase son negativos, lo cual indica que a mayor concentración del ingreso las clases más bajas/subordinados perciben menos conflicto que los individuos de clase capitalista y, por el otro, solo tres categorías de clase muestran coeficientes estadísticamente significativos. En específico, los resultados de la interacción dan cuenta que, por ejemplo, por cada unidad que aumenta la concentración del ingreso, el efecto de pertenecer a la clase de los expertos directivos disminuye en -0.04 puntos en la escala de <span class="math inline">\(PSCi\)</span> en comparación a los individuos de clase capitalista, una disminución significativa al 99% de confianza. Similarmente, en países con mayor desigualdad económica, los expertos sin autoridad (<span class="math inline">\(\beta\)</span> = -0.03, SE = 0.01, p &lt; .05) y los pequeños empleadores (<span class="math inline">\(\beta\)</span> = -0.03, SE = 0.01, p &lt; .1) perciben menores (no mayores) conflictos sociales que los individuos de clase capitalista. Por su parte, las posiciones de clase subordinadas -como los trabajadores no calificados, calificados y supervisores no calificados-, no muestran coeficientes significativos y, más allá de este hecho, la dirección de los efectos es negativa.</p>
+<p><br/></p>
+<p>En la Tabla <a href="modelos.html#tab:model2">3.3</a> se muestran los resultados de las interacciones entre niveles. De acuerdo con el Modelo 4, la <span class="math inline">\(H_{3b}\)</span> que establecía que a mayores niveles de desigualdad económica los individuos de clases subordinadas aumentarían su percepción de conflicto social y los individuos de clases privilegiadas la mantendrían o disminuirían, debe ser rechazada. En términos generales, no existe evidencia que sustente lo planteado hipotéticamente ya que, por un lado, todos los coeficientes de las categorías de clase son negativos, lo cual indica que a mayor concentración del ingreso las clases más bajas/subordinados perciben menos conflicto que los individuos de clase capitalista y, por el otro, solo tres categorías de clase muestran coeficientes estadísticamente significativos. En específico, los resultados de la interacción dan cuenta que, por ejemplo, por cada unidad que aumenta la concentración del ingreso, el efecto de pertenecer a la clase de los expertos directivos disminuye en -0.04 puntos en la escala de <span class="math inline">\(PSCi\)</span> en comparación a los individuos de clase capitalista, una disminución significativa al 99% de confianza. Similarmente, en países con mayor desigualdad económica, los expertos sin autoridad (<span class="math inline">\(\beta\)</span> = -0.03, SE = 0.01, p &lt; .05) y los pequeños empleadores (<span class="math inline">\(\beta\)</span> = -0.03, SE = 0.01, p &lt; .1) perciben menores (no mayores) conflictos sociales que los individuos de clase capitalista. Por su parte, las posiciones de clase subordinadas -como los trabajadores no calificados, calificados y supervisores no calificados-, no muestran coeficientes significativos y, más allá de este hecho, la dirección de los efectos es negativa.</p>
 <div class="figure"><span id="fig:fig10"></span>
 <img src="thesis_files/figure-html/fig10-1.png" alt="Valores predichos de \(PSCi\) en función de las categorías de clase con diferentes niveles de concentración del ingreso (Ratio 80/20). Los puntos muestran los valores predichos; las barras representan los intervalos de confianza del 95%. Fuente: Elaboración propia en base a ISSP (1999-2019) y WIID." width="100%"  />
 <p class="caption">
-Figura 3.5: Valores predichos de <span class="math inline">\(PSCi\)</span> en función de las categorías de clase con diferentes niveles de concentración del ingreso (Ratio 80/20). Los puntos muestran los valores predichos; las barras representan los intervalos de confianza del 95%. Fuente: Elaboración propia en base a <a href="https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality">ISSP (1999-2019)</a> y <a href="https://www.wider.unu.edu/database/world-income-inequality-database-wiid#WIIDcomp">WIID</a>.
+Figura 3.6: Valores predichos de <span class="math inline">\(PSCi\)</span> en función de las categorías de clase con diferentes niveles de concentración del ingreso (Ratio 80/20). Los puntos muestran los valores predichos; las barras representan los intervalos de confianza del 95%. Fuente: Elaboración propia en base a <a href="https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality">ISSP (1999-2019)</a> y <a href="https://www.wider.unu.edu/database/world-income-inequality-database-wiid#WIIDcomp">WIID</a>.
 </p>
 </div>
 
-<p>Para ilustrar esta relación, en la Figura <a href="modelos.html#fig:fig10">3.5</a> se grafican los valores predichos de <span class="math inline">\(PSCi\)</span> para cada categoría de clase según los niveles mínimos y máximos de la concentración del ingreso.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> En términos sustantivos, cuatro elementos pueden notificarse. Primero, en países con baja desigualdad económica no existen mayores diferencias entre las posiciones de clase respecto a la percepción de conflicto ya que, como se observa, las variaciones en el patrón son mínimas. Segundo, en países con alta desigualdad económica si se pueden observar leves diferencias entre las categorías de clase respecto al valor esperado en la escala de <span class="math inline">\(PSCi\)</span>. Particularmente, los pequeños empleadores, los expertos directivos y los expertos sin autoridad presentan diferencias significativas que constatan con los coeficientes del Modelo 4. Tercero, en contextos de alta desigualdad estas tres categorías de clase tienden a percibir menores conflictos sociales que los individuos pertenecientes a la clase capitalista. Y cuarto, los individuos de clases subordinadas no perciben mayores conflictos que los individuos de clase capitalista cuando la desigualdad aumenta sino que, al contrario, perciben menos tensiones sociales.</p>
+<p>Para ilustrar esta relación, en la Figura <a href="modelos.html#fig:fig10">3.6</a> se grafican los valores predichos de <span class="math inline">\(PSCi\)</span> para cada categoría de clase según los niveles mínimos y máximos de la concentración del ingreso.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> En términos sustantivos, cuatro elementos pueden notarse. Primero, en países con baja desigualdad económica no existen mayores diferencias entre las posiciones de clase respecto a la percepción de conflicto ya que, como se observa, las variaciones en el patrón son mínimas. Segundo, en países con alta desigualdad económica si se pueden observar leves diferencias entre las categorías de clase respecto al valor esperado en la escala de <span class="math inline">\(PSCi\)</span>. Particularmente, los pequeños empleadores, los expertos directivos y los expertos sin autoridad presentan diferencias significativas que coinciden con los coeficientes del Modelo 4. Tercero, en contextos de alta desigualdad estas tres categorías de clase tienden a percibir menores conflictos sociales que los individuos pertenecientes a la clase capitalista. Y cuarto, los individuos de clases subordinadas no perciben mayores conflictos que los individuos de clase capitalista cuando la desigualdad aumenta sino que, al contrario, perciben menos tensiones sociales.</p>
 </div>
 <div id="ajuste-comparativo" class="section level3" number="3.2.4">
 <h3><span class="header-section-number">3.2.4</span> Ajuste comparativo</h3>
-<p>En relación al ajuste de los modelos, en la Tabla <a href="modelos.html#tab:fit">3.3</a> se presentan los estadísticos del análisis de devianza (likelihood ratio test) incluyendo los modelos 1 al 4 y el modelo nulo. La prueba de razón de verosimilitud se utiliza para comparar modelos anidados y determinar cuál se ajusta mejor a los datos. De acuerdo con esta prueba, se puede notificar que los modelos más complejos incrementan significativamente el ajuste. Tomando como ejemplo el Modelo nulo y el Modelo 2, la prueba de razón de verosimilitud es estadísticamente significativa, <span class="math inline">\(\chi^2\)</span> (13) = 909.14 [394.56+514.58], p &lt; .001, lo cual indica que un modelo con interceptos aleatorios que incorpora la posición de clase y la afiliación sindical a nivel individual, y la concentración del ingreso y el corporativismo a nivel contextual, se ajusta significativamente mejor a los datos que un modelo nulo o sin predictores. Además, tanto el AIC como el BIC son menores en el Modelo 2, lo cual representa un mejor ajuste. En cuanto a la comparación entre modelos que incluyen predictores, la diferencia de la devianza entre el Modelo 2 y el Modelo 3 es significativa <span class="math inline">\(\chi^2\)</span> (7) = 354.72, p &lt; .001, por lo cual se puede determinar que un modelo que añade los predictores de control mejora sustantivamente el ajuste de la estimación. Así también, los valores del AIC y el BIC son menores en este modelo en comparación al Modelo 2.</p>
+<p>En relación al ajuste de los modelos, en la Tabla <a href="modelos.html#tab:fit">3.4</a> se presentan los estadísticos del análisis de devianza (likelihood ratio test) incluyendo los modelos 1 al 4 y el modelo nulo. La prueba de razón de verosimilitud se utiliza para comparar modelos anidados y determinar cuál se ajusta mejor a los datos. De acuerdo con esta prueba, se puede advertir que los modelos más complejos incrementan significativamente el ajuste. Tomando como ejemplo el Modelo nulo y el Modelo 2, la prueba de razón de verosimilitud es estadísticamente significativa, <span class="math inline">\(\chi^2\)</span> (13) = 909.14 [394.56+514.58], p &lt; .001, lo cual indica que un modelo con interceptos aleatorios que incorpora la posición de clase y la afiliación sindical a nivel individual, y la concentración del ingreso y el corporativismo a nivel contextual, se ajusta significativamente mejor a los datos que un modelo nulo o sin predictores. Además, tanto el AIC como el BIC son menores en el Modelo 2, lo cual representa un mejor ajuste. En cuanto a la comparación entre modelos que incluyen predictores, la diferencia de la devianza entre el Modelo 2 y el Modelo 3 es significativa <span class="math inline">\(\chi^2\)</span> (7) = 354.72, p &lt; .001, por lo cual se puede determinar que un modelo que añade los predictores de control mejora sustantivamente el ajuste de la estimación. Así también, los valores del AIC y el BIC son menores en este modelo en comparación al Modelo 2.</p>
 <table class="table table table-striped table-hover table-condensed table-responsive" style="font-size: 15px; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
-<span id="tab:fit">Tabla 3.3: </span>Estadísticos de bondad de ajuste
+<span id="tab:fit">Tabla 3.4: </span>Estadísticos de bondad de ajuste
 </caption>
 <thead>
 <tr>
@@ -1693,8 +1035,9 @@ Modelo 4
 </tr>
 </tfoot>
 </table>
-<p>Por último, cabe preguntarse por si el Modelo 4, que incluye la interacción entre niveles y la pendiente aleatoria, ajusta mejor que el Modelo 3 que solo utiliza interceptos aleatorios ya que, como se observa en la Tabla <a href="modelos.html#tab:model">3.2</a>, solo tres coeficientes de la interacción resultaron significativos y medidas de ajuste como el AIC o el BIC aumentaron levemente<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>. Los resultados de la Tabla <a href="modelos.html#tab:fit">3.3</a> sugieren que, a pesar de lo anterior, un modelo que incorpora la interacción entre la posición de clase de los individuos y la concentración del ingreso de los países se ajusta significativamente mejor a los datos, <span class="math inline">\(\chi^2\)</span> (52) = 84.69, p &lt; .01, que un modelo con interceptos aleatorios y que asume coeficientes de regresión constantes entre los países. Por tanto, y aunque la diferencia de la devianza es pequeña, se puede concluir que el Modelo 4 que incorpora tanto los efectos fijos de las variables independientes como la pendiente aleatoria y la interacción entre niveles representa la mejor estimación de las percepciones de conflicto social en los 33 países bajo estudio entre los años 1999-2019.</p>
-<p>En síntesis, los resultados de los modelos multinivel entregan evidencia a favor de cuatro de las seis hipótesis planteadas en la revisión de literatura. Respecto a la <span class="math inline">\(H_{1}\)</span>, los modelos confirman que los individuos que pertenecen a posiciones de clase subordinadas perciben mayor conflicto social que los individuos pertenecientes a las clases privilegiadas. Para la <span class="math inline">\(H_{2}\)</span>, se encontró una relación positiva y significativa entre la afiliación sindical y el conflicto percibido: quienes son miembros de sindicatos perciben mayores conflictos que los no miembros. En relación a la <span class="math inline">\(H_{3a}\)</span> y <span class="math inline">\(H_{4}\)</span>, los resultados dan cuenta que, en línea con estas hipótesis, los individuos de países con mayor desigualdad económica tienden a percibir mayores conflictos, mientras que los individuos de países con mayores grados de corporativismo tienden a percibir menores conflictos sociales. Sin embargo, no existe evidencia que sustente lo planteado por la <span class="math inline">\(H_{3b}\)</span> ya que los individuos de clases subordinadas no perciben mayores conflictos sociales que los individuos de clases privilegiadas a medida que la desigualdad económica aumenta. Finalmente, los resultados tampoco entregan evidencia que apoye la <span class="math inline">\(H_{5}\)</span> puesto que, al contrario de lo esperado, las percepciones de conflicto social se han reducido sistemáticamente con el paso del tiempo.</p>
+<p><br/></p>
+<p>Por último, cabe preguntarse por si el Modelo 4, que incluye la interacción entre niveles y la pendiente aleatoria, ajusta mejor que el Modelo 3 que solo utiliza interceptos aleatorios ya que, como se observa en la Tabla <a href="modelos.html#tab:model2">3.3</a>, solo tres coeficientes de la interacción resultaron significativos y medidas de ajuste como el AIC o el BIC aumentaron levemente<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>. Los resultados de la Tabla <a href="modelos.html#tab:fit">3.4</a> sugieren que, a pesar de lo anterior, un modelo que incorpora la interacción entre la posición de clase de los individuos y la concentración del ingreso de los países se ajusta significativamente mejor a los datos, <span class="math inline">\(\chi^2\)</span> (52) = 84.69, p &lt; .01, que un modelo con interceptos aleatorios y que asume coeficientes de regresión constantes entre los países. Por tanto, y aunque la diferencia de la devianza es pequeña, se puede concluir que el Modelo 4 que incorpora tanto los efectos fijos de las variables independientes como la pendiente aleatoria y la interacción entre niveles representa la mejor estimación de las percepciones de conflicto social en los 33 países bajo estudio entre los años 1999-2019.</p>
+<p>En síntesis, los resultados de los modelos multinivel entregan evidencia a favor de cuatro de las seis hipótesis planteadas en la revisión de literatura. Respecto a la <span class="math inline">\(H_{1}\)</span>, los modelos sugieren que los individuos que pertenecen a posiciones de clase subordinadas perciben mayor conflicto social que los individuos pertenecientes a las clases privilegiadas. Para la <span class="math inline">\(H_{2}\)</span>, se encontró una relación positiva y significativa entre la afiliación sindical y el conflicto percibido: quienes son miembros de sindicatos perciben mayores conflictos que los no miembros. En relación a la <span class="math inline">\(H_{3a}\)</span> y <span class="math inline">\(H_{4}\)</span>, los resultados dan cuenta que, en línea con estas hipótesis, los individuos de países con mayor desigualdad económica tienden a percibir mayores conflictos, mientras que los individuos de países con mayores grados de corporativismo tienden a percibir menores conflictos sociales. Sin embargo, no existe evidencia que sustente lo planteado por la <span class="math inline">\(H_{3b}\)</span> ya que los individuos de clases subordinadas no perciben mayores conflictos sociales que los individuos de clases privilegiadas a medida que la desigualdad económica aumenta. Finalmente, los resultados tampoco entregan evidencia que apoye la <span class="math inline">\(H_{5}\)</span> puesto que, al contrario de lo esperado, las percepciones de conflicto social se han reducido sistemáticamente con el paso del tiempo.</p>
 
 </div>
 </div>

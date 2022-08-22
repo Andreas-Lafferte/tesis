@@ -58,7 +58,7 @@ db$IDEOLOGY <- car::recode(db$IDEOLOGY, recodes = c("'Derecha' = 'Derecha';
 
 db <- db %>% 
   rowwise() %>%
-  mutate(PSCi = sum(CONFLICT_RP, CONFLICT_WCMC, CONFLICT_MW, na.rm = F))
+  mutate(PSCi = sum(CONFLICT_RP, CONFLICT_WCMC, CONFLICT_MW, na.rm = F)) 
 
 frq(db$PSCi)
 sjPlot::plot_frq(na.omit(db$PSCi), type = "histogram", show.mean = TRUE) 
@@ -94,7 +94,7 @@ db <- full_join(db, df, by = c("COUNTRY", "YEAR"))
 
 db_original <- db %>% as_tibble(.) #original
 
-db <- db %>% select(everything(), -DEGREE, -SUBJEC_CLASS, -INCOME, -GINI, -starts_with("CONFLICT"))
+db <- db %>% select(everything(), -DEGREE, -SUBJEC_CLASS, -INCOME, -GINI, -CONFLICT_TB)
 
 db <- db %>% na.omit()
 
@@ -196,7 +196,7 @@ db$COUNTRY_WAVE <- do.call(paste, c(db[c("ISO_COUNTRY", "WAVE")], sep = "_"))
 
 db <- db %>% select(YEAR, COUNTRY, ISO_COUNTRY, WAVE, COUNTRY_WAVE, SEX, AGE,
                     IDEOLOGY, UNION, CLASS, PSCi, RATIO_IC, CorpAll, GDP, GDP_LOG, 
-                    UD, SOC_EXPEND, C_RATIO, C_GDP, C_SOCEXPEND, C_UD, C_AGE, FACTOR)
+                    UD, SOC_EXPEND, C_RATIO, C_GDP, C_SOCEXPEND, C_UD, C_AGE, FACTOR, starts_with("CONFLICT"))
 
 db <- db %>% as_tibble(.)
 
@@ -226,6 +226,9 @@ db$GDP_LOG <- sjlabelled::set_label(db$GDP_LOG, label = c("Log GDP per capita US
 db$CorpAll <- sjlabelled::set_label(db$CorpAll, label = c("Indice corporativismo"))
 db$UD <- sjlabelled::set_label(db$UD, label = c("Densidad sindical"))
 db$SOC_EXPEND <- sjlabelled::set_label(db$SOC_EXPEND, label = c("Gasto social (%GDP)"))
+db$CONFLICT_RP <- sjlabelled::set_label(db$CONFLICT_RP, label = c("Conflictos: ricos - pobres"))
+db$CONFLICT_WCMC <- sjlabelled::set_label(db$CONFLICT_WCMC, label = c("Conflictos: clase obrera - clase media"))
+db$CONFLICT_MW <- sjlabelled::set_label(db$CONFLICT_MW, label = c("Conflictos: directivos - trabajadores"))
 
 
 # 4. Save ----

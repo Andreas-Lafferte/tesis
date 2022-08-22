@@ -3,7 +3,10 @@
 <div style="text-align: justify">
 
 ```{r include=FALSE}
-pacman::p_load(tidyverse, kableExtra, knitr)
+pacman::p_load(tidyverse, kableExtra, knitr, summarytools)
+
+options(scipen=999)
+load("../output/data/db-proc.RData")
 ```
 
 ```{r include=FALSE}
@@ -36,28 +39,41 @@ La variable dependiente de esta investigación es el nivel de conflicto percibid
 
 
 ```{r include=FALSE}
-cap1 <- "Indicadores variable dependiente"
-```
 
-```{r tab-dep, echo=FALSE}
-tab <- read.csv(file = "../input/tables/Tablas1.csv", header = 1, sep = ";", encoding = "UTF-8")
-colnames <- c("Indicador", "Categorías de respuesta") 
+db <- db %>% 
+  mutate_at(vars(starts_with("CONFLICT")), ~ car::recode(.,c("0 = 'No existen conflictos'; 1= 'Conflictos no muy fuertes'; 2='Conflictos fuertes'; 3='Conflictos muy fuertes'"), as.factor = T))
 
-kable(tab,table_format,booktabs = T, linesep = "",col.names = colnames, caption = cap1) %>%
-  kable_styling(
-    full_width = T,
-    latex_options = c("hold_position"),
-    position = "center",
-    font_size = 14,
-    bootstrap_options=c("striped", "bordered")) %>%
-  column_spec(column = 1, width = "2 cm", ) %>%
-  column_spec(column = 2,width = "7 cm") %>%
-  collapse_rows(columns = 1:2,valign = "middle")
+db$CONFLICT_MW <- factor(db$CONFLICT_MW, levels = c("No existen conflictos", "Conflictos no muy fuertes", "Conflictos fuertes", "Conflictos muy fuertes"))
+
+db$CONFLICT_RP <- factor(db$CONFLICT_RP, levels = c("No existen conflictos", "Conflictos no muy fuertes", "Conflictos fuertes", "Conflictos muy fuertes"))
+
+db$CONFLICT_WCMC <- factor(db$CONFLICT_WCMC, levels = c("No existen conflictos", "Conflictos no muy fuertes", "Conflictos fuertes", "Conflictos muy fuertes"))
 
 ```
-\begin{center}
-Fuente: elaboración propia
-\end{center}
+
+
+```{r tab-dep, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+
+st_options(footnote = NA)
+
+tab <- db %>% select(starts_with("CONFLICT")) %>% 
+  dfSummary(.,justify = "c",
+               plain.ascii = FALSE,
+               style = "grid",
+               tmp.img.dir = "tmp",
+               graph.magnif = TRUE,
+               headings = F,  # encabezado
+               varnumbers = F, # num variable
+               na.col = F,    # missing
+               valid.col = F,
+               labels.col = F)
+
+tab$Variable <- c("Conflictos: gente pobre - gente rica", "Conflictos: clase obrera - clase media", "Conflictos: directivos - trabajadores")
+
+tab <- rename(tab, Indicator = Variable)
+
+kable(print(tab), format = "pipe", caption = "Indicadores variable dependiente", escape = F, footnote = NA)
+```
 
 ### Variables independientes
 
@@ -104,7 +120,7 @@ kable(tab2,table_format,booktabs = T, linesep = "",col.names = colnames2, captio
     full_width = T,
     latex_options = c("hold_position"),
     position = "center",
-    font_size = 14,
+    font_size = 15,
     bootstrap_options=c("striped", "bordered")) %>%
   column_spec(column = 1, width = "4 cm", ) %>%
   column_spec(column = 2,width = "6 cm") %>%

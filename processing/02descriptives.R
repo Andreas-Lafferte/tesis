@@ -132,7 +132,7 @@ tbl_stack(tbls = list(t1, t2)) %>%
 
 ### 3.1.2 PSCi evolution 1999-2019
 
-my_colors <- RColorBrewer::brewer.pal(10, "Blues")[9]
+my_colors <- RColorBrewer::brewer.pal(10, "Blues")[1]
 
 formatter <- function(...){
   function(x) format(round(x, 1), ...)
@@ -150,6 +150,96 @@ db %>% group_by(COUNTRY, YEAR) %>%
        y = "Promedio PSCi")+
   facet_wrap(.~COUNTRY, ncol = 5, scales = "fixed") +
   theme_classic()
+
+
+## 3.1.3 PSCi decomposed by indicator
+
+conf <- db %>% select(starts_with("CONFLICT"), COUNTRY) %>% 
+  mutate_at(vars(starts_with("CONFLICT")), ~ if_else(. %in% c(0,1),0,1))
+
+rp <- conf %>% select(COUNTRY, CONFLICT_RP) %>% 
+  mutate(filtro = if_else(CONFLICT_RP == 1, "RP", "No")) %>% 
+  group_by(COUNTRY, filtro) %>% 
+  summarise(total = n()) %>% 
+  mutate(prop = prop.table(total)*100) %>% 
+  filter(filtro == "RP") %>% select(everything(), -total)
+
+mw <- conf %>% select(COUNTRY, CONFLICT_MW) %>% 
+  mutate(filtro = if_else(CONFLICT_MW == 1, "MW", "No")) %>% 
+  group_by(COUNTRY, filtro) %>% 
+  summarise(total = n()) %>% 
+  mutate(prop = prop.table(total)*100) %>% 
+  filter(filtro == "MW") %>% select(everything(), -total)
+
+wcmc <- conf %>% select(COUNTRY, CONFLICT_WCMC) %>% 
+  mutate(filtro = if_else(CONFLICT_WCMC == 1, "WCMC", "No")) %>% 
+  group_by(COUNTRY, filtro) %>% 
+  summarise(total = n()) %>% 
+  mutate(prop = prop.table(total)*100) %>% 
+  filter(filtro == "WCMC") %>% select(everything(), -total)
+
+conf_df <- rbind(rp,mw,wcmc)
+
+theme_dotplot <- theme_bw(14) +
+  theme(axis.text.y = element_text(size = rel(.75)),
+        axis.ticks.y = element_blank(),
+        axis.title.x = element_text(size = rel(.75)),
+        panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_line(size = 0.5),
+        panel.grid.minor.x = element_blank())
+
+
+
+windowsFonts(`Roboto Condensed` = windowsFont("Roboto Condensed"))
+
+my_pretty_theme <- theme_bw(base_family = "Roboto Condensed", base_size = 10) +
+  theme(panel.grid.minor = element_blank(),
+        # Bold, bigger title
+        plot.title = element_text(face = "bold", size = rel(1.7)),
+        # Plain, slightly bigger subtitle that is grey
+        plot.subtitle = element_text(face = "italic", size = rel(0.85), color = "grey30"),
+        # Italic, smaller, grey caption that is left-aligned
+        plot.caption = element_text(face = "italic", size = rel(0.7), 
+                                    color = "grey70", hjust = 0),
+        # Bold legend titles
+        legend.title = element_text(face = "bold", size = rel(1)),
+        # Bold, slightly larger facet titles that are left-aligned for the sake of repetition
+        strip.text = element_text(face = "bold", size = rel(0.7), hjust = 0.5),
+        # Bold axis titles
+        axis.title = element_text(face = "bold", size = rel(0.85)),
+        # Add some space above the x-axis title and make it left-aligned
+        axis.title.x = element_text(margin = margin(t = 5)),
+        # Add some space to the right of the y-axis title and make it top-aligned
+        axis.title.y = element_text(margin = margin(r = 5)),
+        # Add a light grey background to the facet titles, with no borders
+        strip.background = element_rect(fill = "black", color = NA),
+        # Add a thin grey border around all the plots to tie in the facet titles
+        panel.border = element_rect(color = "#474747", fill = NA),
+        axis.text.y = element_text(size = rel(1.1)),
+        axis.ticks.y = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_line(size = 0.05, color = "#b4b4b4"),
+        panel.grid.minor.x = element_blank())
+
+
+conf_df %>% 
+  ggplot(aes(x = prop, y = fct_reorder2(`COUNTRY`, filtro, prop, .desc = T), group=filtro))+
+  geom_point(aes(shape=filtro, color=filtro), size = 1.6)+
+  coord_cartesian(xlim = c(0,100))+
+  scale_x_continuous(labels = function(prop){paste0(prop, "%")})+
+  labs(title = NULL,
+       y = NULL,
+       x = "Proporción intensidad conflictos",
+       color = "Tipo conflicto",
+       shape = "Tipo conflicto")+
+  scale_shape_manual(values=c(19, 17, 18))+
+  scale_color_manual(values = c("#00477b", "#6a9cd8", "#686868"))+
+  my_pretty_theme
+  
+
+library(scales)
+show_col(brewer.pal(10, "BuPu"))
+
 
 
 # 3.2. Bivariate ---- 

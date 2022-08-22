@@ -6,9 +6,11 @@ eq:mlm
 tab:tab-desc1
 fig:fig4
 fig:fig5
+fig:fig6
 fig:fig7
 fig:fig9
-tab:model
+tab:model1
+tab:model2
 fig:fig10
 tab:fit
 tab:tab-control

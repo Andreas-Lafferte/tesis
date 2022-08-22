@@ -62,6 +62,36 @@ theme_gtsummary_language(language = "es", decimal.mark = ".", big.mark = ",", se
 options(kableExtra.html.bsTable = T)
 options(knitr.kable.NA = '')
 
+theme_dotplot <- theme_bw(base_family = "Roboto Condensed", base_size = 10) +
+  theme(panel.grid.minor = element_blank(),
+        # Bold, bigger title
+        plot.title = element_text(face = "bold", size = rel(1.7)),
+        # Plain, slightly bigger subtitle that is grey
+        plot.subtitle = element_text(face = "italic", size = rel(0.85), color = "grey30"),
+        # Italic, smaller, grey caption that is left-aligned
+        plot.caption = element_text(face = "italic", size = rel(0.7), 
+                                    color = "grey70", hjust = 0),
+        # Bold legend titles
+        legend.title = element_text(face = "bold", size = rel(0.7)),
+        # Bold, slightly larger facet titles that are left-aligned for the sake of repetition
+        strip.text = element_text(face = "bold", size = rel(0.7), hjust = 0.5),
+        # Bold axis titles
+        axis.title = element_text(face = "bold", size = rel(0.85)),
+        # Add some space above the x-axis title and make it left-aligned
+        axis.title.x = element_text(margin = margin(t = 5)),
+        # Add some space to the right of the y-axis title and make it top-aligned
+        axis.title.y = element_text(margin = margin(r = 5)),
+        # Add a light grey background to the facet titles, with no borders
+        strip.background = element_rect(fill = "black", color = NA),
+        # Add a thin grey border around all the plots to tie in the facet titles
+        panel.border = element_rect(color = "#474747", fill = NA),
+        axis.text.y = element_text(size = rel(1)),
+        axis.ticks.y = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_line(size = 0.05, color = "#b4b4b4"),
+        panel.grid.minor.x = element_blank())
+
+
 ```
 
 
@@ -104,7 +134,7 @@ tab1 <- tbl_stack(tbls = list(t1, t2)) %>%
   kableExtra::add_footnote(label = "Fuente: Elaboración propia en base a ISSP 1999-2019, WIID, ICTWSS y OCDE") %>% 
   pack_rows("Dependiente", 1, 1) %>% 
   pack_rows("Nivel individual", 4, 27) %>%
-  pack_rows("Nivel contextual", 28, 42)
+  pack_rows("Nivel contextual (país-año)", 28, 42)
 
 
 tab1
@@ -141,12 +171,66 @@ g1
 
 Así también, resulta relevante mencionar lo que ocurre en términos temporales con las percepciones de conflicto en determinados países. De acuerdo con la Figura \@ref(fig:fig4), es posible identificar a algunos países en los cuales las percepciones de conflicto social han tendido a aumentar en el tiempo, tales como Hungría[^12] y más recientemente Chile[^13]. Sin embargo, estos países son más bien la excepción y no la regla puesto que existe una clara tendencia hacia la baja en el valor promedio de $PSCi$ entre los países que cuentan con más de una observación en el tiempo. En específico, de los 20 países con más de una observación, 9 han disminuido sus percepciones de conflicto social y 7 se han mantenido relativamente estables y por debajo del promedio mundial. Casos emblemáticos sobre los primeros son países como Chipre o Croacia, mientras que respecto a los segundos destacan naciones como Alemania o Nueva Zelanda. En consecuencia, y retomando las hipótesis de esta investigación, estos resultados preliminares permiten colocar en tela de juicio lo sostenido hipotéticamente por la $H_{5}$ ya que, contrario a esta, las percepciones de conflicto social han tendido a disminuir a través del tiempo.
 
-Otro aspecto a ser evaluado corresponde a la relación entre las percepciones de conflicto social y la posición de clase de los individuos. En el Panel A de la Figura \@ref(fig:fig5) se presenta esta asociación mediante un gráfico de cajas en donde, además de mostrar la distribución intercuartílica según cada categoría de clase, se indica el valor promedio de $PSCi$ representado por un punto. De esta figura se desprenden dos conclusiones: (1) quienes se ubican en las posiciones de clase subordinada -trabajadores no calificados, calificados y los supervisores no calificados-, poseen valores promedios más altos en la escala de percepción de conflicto en comparación a las posiciones de clases privilegiadas; y (2) quienes son parte de la clase de pequeña burguesía perciben, de hecho, mayores conflictos sociales que los individuos de clases capitalistas e inclusive que quienes son parte de las clases medias. Un hecho a remarcar es que, si bien existen diferencias entre las categorías de clase, estas no son demasiado grandes (ver Tabla \@ref(tab:tabi) del [Apéndice](#apendiceb)). Ahora bien, ¿son estas diferencias estadísticamente significativas? De acuerdo con el análisis de varianza (prueba de Welch de una vía), el efecto de la posición de clase es estadísticamente significativo (F(8, 6844,2) = 92.803, p < .001) y medio ($\omega^2$ = 0.10) según las recomendaciones de Field [-@fieldDiscoveringStatisticsUsing2013]. Al examinar las comparaciones múltiples (post hoc de Games-Howell) se encontraron diferencias estadísticamente significativas (p < .05) entre la mayoría de las combinaciones de las categorías de clase. Por tanto, y en línea con lo planteado por la $H_{1}$, estos resultados permiten sostener que existen diferencias significativas entre las categorías de clase respecto a la percepción de conflicto y que quienes se ubican en posiciones de clase subordinadas perciben mayores conflictos que los que se ubican en posiciones de clases privilegiadas.
+
+```{r fig5, echo=FALSE, fig.asp=0.65, out.width='100%', message=FALSE, warning=FALSE, fig.align='default', fig.cap="(ref:fig5)"}
+
+conf <- db %>% select(starts_with("CONFLICT"), COUNTRY) %>% 
+  mutate_at(vars(starts_with("CONFLICT")), ~ if_else(. %in% c(0,1),0,1))
+
+rp <- conf %>% select(COUNTRY, CONFLICT_RP) %>% 
+  mutate(filtro = if_else(CONFLICT_RP == 1, "RP", "No")) %>% 
+  group_by(COUNTRY, filtro) %>% 
+  summarise(total = n()) %>% 
+  mutate(prop = prop.table(total)*100) %>% 
+  filter(filtro == "RP") %>% select(everything(), -total)
+
+mw <- conf %>% select(COUNTRY, CONFLICT_MW) %>% 
+  mutate(filtro = if_else(CONFLICT_MW == 1, "MW", "No")) %>% 
+  group_by(COUNTRY, filtro) %>% 
+  summarise(total = n()) %>% 
+  mutate(prop = prop.table(total)*100) %>% 
+  filter(filtro == "MW") %>% select(everything(), -total)
+
+wcmc <- conf %>% select(COUNTRY, CONFLICT_WCMC) %>% 
+  mutate(filtro = if_else(CONFLICT_WCMC == 1, "WCMC", "No")) %>% 
+  group_by(COUNTRY, filtro) %>% 
+  summarise(total = n()) %>% 
+  mutate(prop = prop.table(total)*100) %>% 
+  filter(filtro == "WCMC") %>% select(everything(), -total)
+
+conf_df <- rbind(rp,mw,wcmc)
+
+g2 <- conf_df %>% 
+  mutate(filtro = case_when(filtro == "MW" ~ "Directivos vs. Trabajadores",
+                            filtro == "RP" ~ "Ricos vs. Pobres",
+                            filtro == "WCMC" ~ "Clase media vs. Clase obrera")) %>% 
+  mutate(filtro = factor(filtro, levels = c("Directivos vs. Trabajadores", "Ricos vs. Pobres", "Clase media vs. Clase obrera"))) %>% 
+  ggplot(aes(x = prop, y = fct_reorder2(`COUNTRY`, filtro, prop, .desc = T), group=filtro))+
+  geom_point(aes(shape=filtro, color=filtro), size = 1.6)+
+  coord_cartesian(xlim = c(0,100))+
+  scale_x_continuous(labels = function(prop){paste0(prop, "%")})+
+  labs(title = NULL,
+       y = NULL,
+       x = "Proporción intensidad conflictos",
+       color = "Tipo conflicto",
+       shape = "Tipo conflicto")+
+  scale_shape_manual(values=c(16,17,18))+
+  scale_color_manual(values = c("#c71585", "#6a9cd8", "#686868"))+
+  theme_dotplot
+
+g2
+
+```
+(ref:fig5) Intensidad de conflictos entre grupos percibidos por la población (% encuestados que respondieron "muy fuertes" o "fuertes" en cada uno de los indicadores de $PSCi$). Fuente: Elaboración propia en base a [ISSP (1999-2019)](https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality).
+
+Al momento de describir el comportamiento de los distintos tipos de conflictos que componen el índice, un punto esencial debe ser remarcado: en la mayoría de los países los ciudadanos tienden a reconocer más las tensiones entre los trabajadores y directivos de empresa. Como demuestra la Figura \@ref(fig:fig5), la percepción del conflicto laboral tiende a ser más fuerte entre los individuos, oscilando entre un 30% y un 60% en comparación a no percibir este conflicto o hacerlo de forma mesurada. Así también, existen variaciones importantes entre países pues, además de reflejarse los valores promedio de $PSCi$ en los respectivos países con los valores más altos o más bajos, hay naciones en las cuales son los conflictos entre ricos y pobres los que se perciben más intensamente, tales como Hungría, Estados Unidos o Bulgaria. De cualquier modo, los conflictos entre grupos polares en la estructura social asociados al conflicto distributivo más “tradicional” (trabajadores-directivos y ricos-pobres) tienden a primar en la mayoría de los países, encontrándose en menor intensidad los conflictos entre la clase media y la clase obrera pues en todos los países la proporción de quienes sostuvieron que este conflicto es percibido de forma fuerte o muy fuerte es menor en comparación a los otros conflictos. Esto sienta un precedente relevante en términos de medición de las percepciones de conflicto vertical pues, al parecer, los conflictos entre grupos sociales ubicados en los puntos extremos de la estructura social son los más importantes para este constructo.
+
+Otro aspecto a ser evaluado corresponde a la relación entre las percepciones de conflicto social y la posición de clase de los individuos. En el Panel A de la Figura \@ref(fig:fig6) se presenta esta asociación mediante un gráfico de cajas en donde, además de mostrar la distribución intercuartílica según cada categoría de clase, se indica el valor promedio de $PSCi$ representado por un punto. De esta figura se desprenden dos conclusiones: (1) quienes se ubican en las posiciones de clase subordinada -trabajadores no calificados, calificados y los supervisores no calificados-, poseen valores promedios más altos en la escala de percepción de conflicto en comparación a las posiciones de clases privilegiadas; y (2) quienes son parte de la clase de pequeña burguesía perciben, de hecho, mayores conflictos sociales que los individuos de clases capitalistas e inclusive que quienes son parte de las clases medias. Un hecho a remarcar es que, si bien existen diferencias entre las categorías de clase, estas no son demasiado grandes (ver Tabla \@ref(tab:tabi) del [Apéndice](#apendiceb)). Ahora bien, ¿son estas diferencias estadísticamente significativas? De acuerdo con el análisis de varianza (prueba de Welch de una vía), el efecto de la posición de clase es estadísticamente significativo (F(8, 6844,2) = 92.803, p < .001) y medio ($\omega^2$ = 0.10) según las recomendaciones de Field [-@fieldDiscoveringStatisticsUsing2013]. Al examinar las comparaciones múltiples (post hoc de Games-Howell) se encontraron diferencias estadísticamente significativas (p < .05) entre la mayoría de las combinaciones de las categorías de clase. Por tanto, y en línea con lo planteado por la $H_{1}$, estos resultados permiten sostener que existen diferencias significativas entre las categorías de clase respecto a la percepción de conflicto y que quienes se ubican en posiciones de clase subordinadas perciben mayores conflictos que los que se ubican en posiciones de clases privilegiadas.
 
 
-```{r fig5, echo=FALSE, fig.cap="(ref:fig5)", message=FALSE, warning=FALSE, out.width='100%', fig.asp=0.65}
+```{r fig6, echo=FALSE, fig.cap="(ref:fig6)", message=FALSE, warning=FALSE, out.width='100%', fig.asp=0.65}
 
-g2 <- plot_grpfrq(db$PSCi, db$CLASS, type = "box", coord.flip = T) + 
+g3 <- plot_grpfrq(db$PSCi, db$CLASS, type = "box", coord.flip = T) + 
   labs(title = "",
        subtitle = "F(8, 6844.2) = 92.8, p < 0.001, omega^2 = 0.10",
        y = "Promedio PSCi",
@@ -154,20 +238,20 @@ g2 <- plot_grpfrq(db$PSCi, db$CLASS, type = "box", coord.flip = T) +
   my_pretty_theme
 
 
-g3 <- plot_grpfrq(db$PSCi, db$UNION, type = "box", coord.flip = T, ) +
+g4 <- plot_grpfrq(db$PSCi, db$UNION, type = "box", coord.flip = T, ) +
   labs(title = "",
        subtitle = "t(37428.30) = 16.33, p < 0.001; Cohen's d = 0.17",
        y = "Promedio PSCi",
        x = "Afiliación sindical") +
    my_pretty_theme
 
-plot_grid(g2, g3, labels=c("A", "B"), label_size = 11, ncol = 2, nrow = 1)
+plot_grid(g3, g4, labels=c("A", "B"), label_size = 11, ncol = 2, nrow = 1)
 
 ```
-(ref:fig5) Promedio de conflicto percibido según clase social (panel A) y afiliación sindical (panel B). Estadísticos de los análisis de varianza indicados en cursiva. Fuente: Elaboración propia en base a [ISSP (1999-2019)](https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality). 
+(ref:fig6) Promedio de conflicto percibido según clase social (panel A) y afiliación sindical (panel B). Estadísticos de los análisis de varianza indicados en cursiva. Fuente: Elaboración propia en base a [ISSP (1999-2019)](https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality). 
 
 
-Por su parte, la asociación entre las percepciones de conflicto social y la membresía sindical contradice lo planteado hipotéticamente. Como se puede observar en el Panel B de la Figura \@ref(fig:fig5), quienes no son miembros de sindicatos poseen mayores valores promedio en la escala de conflictos sociales percibidos en comparación a quienes sí son miembros. Nuevamente, cabe mencionar que estas diferencias no son excesivamente grandes (ver Tabla \@ref(tab:tabi) del [Apéndice](#apendiceb)). La prueba t de Welch de dos muestras (varianzas no asumidas como iguales) que evalúa la diferencia de $PSCi$ según la condición de afiliación sindical sugiere que el efecto es positivo y estadísticamente significativo (diferencia = 0.33, t(37428,30) = 16.33, p < .001) aunque muy pequeño (d de Cohen = 0.17). En consecuencia, y de acuerdo a estos resultados, la $H_{2}$ que planteaba que los miembros de sindicatos percibirán mayores conflictos sociales que los no miembros no recibiría apoyo. 
+Por su parte, la asociación entre las percepciones de conflicto social y la membresía sindical contradice lo planteado hipotéticamente. Como se puede observar en el Panel B de la Figura \@ref(fig:fig6), quienes no son miembros de sindicatos poseen mayores valores promedio en la escala de conflictos sociales percibidos en comparación a quienes sí son miembros. Nuevamente, cabe mencionar que estas diferencias no son excesivamente grandes (ver Tabla \@ref(tab:tabi) del [Apéndice](#apendiceb)). La prueba t de Welch de dos muestras (varianzas no asumidas como iguales) que evalúa la diferencia de $PSCi$ según la condición de afiliación sindical sugiere que el efecto es positivo y estadísticamente significativo (diferencia = 0.33, t(37428,30) = 16.33, p < .001) aunque muy pequeño (d de Cohen = 0.17). En consecuencia, y de acuerdo a estos resultados, la $H_{2}$ que planteaba que los miembros de sindicatos percibirán mayores conflictos sociales que los no miembros no recibiría apoyo. 
 
 
 ```{r fig7, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.asp=0.6, out.width='100%', fig.align='default', fig.cap="(ref:fig7)"}
@@ -179,7 +263,7 @@ dat_text <- data.frame(
   RATIO_IC = c(35,35,35))
 
 
-g4 <- db %>% select(ISO_COUNTRY, YEAR, PSCi, RATIO_IC) %>% 
+g5 <- db %>% select(ISO_COUNTRY, YEAR, PSCi, RATIO_IC) %>% 
   na.omit() %>% 
   group_by(ISO_COUNTRY, YEAR) %>% 
   summarise_all(mean, na.rm = T) %>% 
@@ -200,7 +284,7 @@ g4 <- db %>% select(ISO_COUNTRY, YEAR, PSCi, RATIO_IC) %>%
   geom_text(data = dat_text,
             mapping = aes(x = RATIO_IC, y = PSCi, label = label),size = rel(3))
 
-g4
+g5
 ```
 
 (ref:fig7) Promedio de conflicto percibido y concentración de ingresos, por país y año. Fuente: Elaboración propia en base a [ISSP (1999-2019)](https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality) y [WIID](https://www.wider.unu.edu/database/world-income-inequality-database-wiid#WIIDcomp).
@@ -218,7 +302,7 @@ dat_text2 <- data.frame(
   CorpAll = c(0.8,0.8,0.8))
 
 
-g5 <- db %>% select(ISO_COUNTRY, YEAR, PSCi, CorpAll) %>% 
+g6 <- db %>% select(ISO_COUNTRY, YEAR, PSCi, CorpAll) %>% 
   na.omit() %>% 
   group_by(ISO_COUNTRY, YEAR) %>% 
   summarise_all(mean, na.rm = T) %>% 
@@ -242,7 +326,7 @@ g5 <- db %>% select(ISO_COUNTRY, YEAR, PSCi, CorpAll) %>%
   geom_text(data = dat_text2,
             mapping = aes(x = CorpAll, y = PSCi, label = label), size = rel(3))
 
-g5
+g6
 ```
 
 (ref:fig9) Promedio de conflicto percibido y nivel de corporativismo, por país y año. Fuente: Elaboración propia en base a [ISSP (1999-2019)](https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality) e [ICTWSS](https://www.ictwss.org/).
@@ -257,7 +341,7 @@ En síntesis, los resultados descriptivos aportan tres elementos importantes. Pr
 
 En esta sección se presentan los resultados de los modelos multinivel para los 33 países bajo estudio entre los años 1999, 2009 y 2019. Siguiendo una estrategía de análisis de complejidad creciente, se calculan seis modelos [@hoxMultilevelAnalysisTechniques2017a]. Como es usual, se comienza estimando un modelo nulo o de base (*i.e.* sin predictores) en el que solo se descompone la varianza de $PSCi$ a nivel individual y contextual con el fin de conocer si el conflicto percibido varía entre países. El Modelo 1 corresponde a un modelo con interceptos aleatorios en el que se incluyen las variables independientes de nivel individual, mientras que en el Modelo 2 se añaden las variables independientes de nivel contextual. En el Modelo 3 se replica la misma estimación que en el Modelo 2 pero se incorporan las variables de control. Luego, se calcula un modelo (no presentado) que trabaja con las mismas variables que en el Modelo 3, sin embargo, se diferencia en que añade la estimación de la pendiente aleatoria. Por último, en el Modelo 4 se estima un modelo que incorpora tanto la pendiente aleatoria como la interacción entre niveles. La sección finaliza reportando los estadísticos de bondad de ajuste de los modelos y se cierra con un resumen de los hallazgos principales.
 
-Los resultados de los modelos multinivel son presentados en la Tabla \@ref(tab:model). La correlación intraclase (ICC) para el modelo nulo (no mostrado) es igual a 0.217, lo cual indica la cantidad de varianza de $PSCi$ que puede atribuirse a la estructura de agrupación en la población, en este caso, los países [ICC en base a @hoxMultilevelAnalysisTechniques2017a, p.13]. Esto significa que cerca de un 22% de la varianza total del conflicto percibido por los individuos se asocia a características específicas de los países, asentando como precedente que existen diferencias significativas entre estos respecto al nivel de percepción de conflicto.
+Los resultados de los modelos multinivel son presentados en la Tabla \@ref(tab:model1). La correlación intraclase (ICC) para el modelo nulo (no mostrado) es igual a 0.217, lo cual indica la cantidad de varianza de $PSCi$ que puede atribuirse a la estructura de agrupación en la población, en este caso, los países [ICC en base a @hoxMultilevelAnalysisTechniques2017a, p.13]. Esto significa que cerca de un 22% de la varianza total del conflicto percibido por los individuos se asocia a características específicas de los países, asentando como precedente que existen diferencias significativas entre estos respecto al nivel de percepción de conflicto.
 
 
 ```{r, message=FALSE, warning=FALSE, include=FALSE, results='asis'}
@@ -326,17 +410,21 @@ model_6.e <- readRDS("~/GitHub/tesis/output/model_6e.rds")
 
 ```
 
-```{r model, echo=FALSE, message=FALSE, warning=FALSE, results='asis', cache=TRUE}
+### Determinantes de nivel individual
+
+Dentro de los distintos factores individuales que influyen en las percepciones de conflicto social, la posición de clase es un predictor particularmente relevante para este estudio. Como sugiere la Tabla \@ref(tab:model1), en todos los modelos el efecto de pertenecer a posiciones de clase subordinadas es positivo y estadísticamente significativo. En detalle, en el Modelo 1 se observa que, manteniendo los demás predictores constantes, quienes se ubican en la posición de clase trabajadora no calificada obtienen, en promedio, 0.54 puntos adicionales en la escala de percepción de conflictos en comparación a quienes se ubican en la posición de clase capitalista, siendo estadísticamente significativo al 99% de confianza. Similarmente, quienes pertenecen a la clase de trabajadores calificados ($\beta$ = 0.40, SE = 0.20, p < .01) y quienes pertenecen a la clase de los supervisores no calificados ($\beta$ = 0.57, SE = 0.28, p < .01) también obtienen mayores puntuaciones promedio en la escala de $PSCi$ en comparación a quienes pertenecen a la clase de los capitalistas o grandes propietarios. Llamativo es el caso de la clase de los supervisores no calificados pues, al compararla con las otras posiciones de clase subordinadas y medias, los individuos de esta clase poseen el coeficiente de mayor tamaño. Por su parte, los resultados del Modelo 1 también sugieren que quienes forman parte de las clases medias o “contradictorias”, como los supervisores calificados ($\beta$ = 0.21, SE = 0.09) o los expertos sin autoridad ($\beta$ = 0.19, SE = 0.09), poseen mayores percepciones de conflicto social respecto a los individuos de clase capitalista, ambos significativos al 95% de confianza.  Por último, no se puede dejar de mencionar lo que ocurre con la clase de la pequeña burguesía puesto que, aunque forma parte de las clases privilegiadas, quienes se ubican en esta clase perciben, en promedio, mayores conflictos sociales que los individuos de clase capitalista ($\beta$ = 0.28, SE = 0.09, p < .01). Con todo, estos resultados entregan evidencia favorable para la $H_{1}$, la cual establecía que los individuos de clases subordinadas tenderían a percibir mayor conflicto social que los individuos de clases privilegiadas. Cabe mencionar que los coeficientes de la posición de clase no son excesivamente grandes considerando la escala de $PSCi$, sin embargo, estos efectos son estadísticamente robustos y se mantienen significativos aún controlando por otras variables en los modelos siguientes. 
+
+```{r model1, echo=FALSE, message=FALSE, warning=FALSE, results='asis', cache=TRUE}
 
 
-capmo <- "Modelos de regresión multinivel para las percepciones de conflicto social en 33 países entre 1999-2019"
+capmo <- "Modelos de regresión multinivel con interceptos aleatorios para las percepciones de conflicto social en 33 países entre 1999-2019"
 
-texreg::htmlreg(l = list(model_2.e, model_3.e, model_4.e, model_6.e),
-                    custom.model.names = c("Modelo 1", "Modelo 2", "Modelo 3", "Modelo 4"),
-                    custom.coef.names = c("Intercepto", "2.Pequeños empleadores", "3.Pequeña burguesia", "4.Expertos directivos", "5.Expertos sin autoridad", "6.Supervisores calificados", "7.Supervisores no calificados", "8.Trabajadores calificados", "9.Trabajadores no calificados", "Miembro sindicato (ref: No)", "Ratio 80/20", "Corporativismo", "2009", "2019", "Edad (en años)", "Mujer (ref: Hombre)", "Centro", "Izquierda", "Sin identificación", "Gasto social (%GDP)", "Densidad sindical","2.Pequeños empleadores $\\times$ Ratio 80/20", "3.Pequeña burguesia $\\times$ Ratio 80/20", "4.Expertos directivos $\\times$ Ratio 80/20", "5.Expertos sin autoridad $\\times$ Ratio 80/20", "6.Supervisores calificados $\\times$ Ratio 80/20", "7.Supervisores no calificados $\\times$ Ratio 80/20", "8.Trabajadores calificados $\\times$ Ratio 80/20", "9.Trabajadores no calificados $\\times$ Ratio 80/20"),
+texreg::htmlreg(l = list(model_2.e, model_3.e, model_4.e),
+                    custom.model.names = c("Modelo 1", "Modelo 2", "Modelo 3"),
+                    custom.coef.names = c("Intercepto", "2.Pequeños empleadores", "3.Pequeña burguesia", "4.Expertos directivos", "5.Expertos sin autoridad", "6.Supervisores calificados", "7.Supervisores no calificados", "8.Trabajadores calificados", "9.Trabajadores no calificados", "Miembro sindicato (ref: No)", "Ratio 80/20", "Corporativismo", "2009", "2019", "Edad (en años)", "Mujer (ref: Hombre)", "Centro", "Izquierda", "Sin identificación", "Gasto social (%GDP)", "Densidad sindical"),single.row = T,
                     groups = list("<b>Efectos fijos</b>" = 1, "Posición de clase (ref: 1.Capitalistas)" = 2:9,
                       "Tiempo (ref: 1999)" = 13:14,
-                      "Identificación política (ref: Derecha)" = 17:19, "<b>Interacciones entre niveles</b> (ref: 1.Capitalistas $\\times$ Ratio 80/20)" = 22:29),stars = c(0.01,0.05,0.1), custom.gof.rows = list("<b>Efectos aleatorios</b>" = c(" ", " ", " ", " "), "<b>Ajuste modelo</b>" = c(" ", " ", " ", " "), "$\\tau_{00}$ (varianza nivel país)" = c("0.89", "2.23", "2.49", "2.67"), "$\\sigma^2$ (varianza nivel individual)" = c("3.26", "3.22", "3.19", "3.18")),
+                      "Identificación política (ref: Derecha)" = 17:19),stars = c(0.01,0.05,0.1), custom.gof.rows = list("<b>Efectos aleatorios</b>" = c(" ", " ", " "), "<b>Ajuste modelo</b>" = c(" ", " ", " "), "$\\tau_{00}$ (varianza nivel país)" = c("0.89", "2.23", "2.49"), "$\\sigma^2$ (varianza nivel individual)" = c("3.26", "3.22", "3.19")),
                     custom.gof.names = c("AIC", "BIC", "-2*log-likelihood", "N observaciones", "N países"),
                     reorder.gof = c(1,4,3,8,9,2,5,6,7),
                     dcolumn = TRUE , 
@@ -347,41 +435,71 @@ texreg::htmlreg(l = list(model_2.e, model_3.e, model_4.e, model_6.e),
                     scalebox = 0.5,
                     float.pos = "H", 
                     digits = 2,
-                    caption = paste("(\\#tab:model)",capmo),
+                    caption = paste("(\\#tab:model1)",capmo),
                     caption.above = T,
-                    custom.note = "\n**Nota**: Estimación de máxima verosimilitud restringida, coeficientes no estandarizados. Errores estándar entre paréntesis (SE). Variables de nivel contextual centradas a sus grandes medias (CGM). Variable 'edad' centrada al promedio de los países (CWC). Efectos aleatorios del Modelo 4 no mostrados por parsimonia. Datos ponderados. <br>  $^{***}$ p < 0.01; $^{**}$ p < 0.05; $^{*}$ p < 0.1")
+                    custom.note = "\n**Nota**: Estimación de máxima verosimilitud restringida, coeficientes no estandarizados. Errores estándar entre paréntesis (SE). Variables de nivel contextual centradas a sus grandes medias (CGM). Variable 'edad' centrada al promedio de los países (CWC). Datos ponderados. <br>  $^{***}$ p < 0.01; $^{**}$ p < 0.05; $^{*}$ p < 0.1")
 
 ```
+<br/>
 
-### Determinantes de nivel individual
 
-Dentro de los distintos factores individuales que influyen en las percepciones de conflicto social, la posición de clase es un predictor particularmente relevante para este estudio. Como sugiere la Tabla \@ref(tab:model), en todos los modelos el efecto de pertenecer a posiciones de clase subordinadas es positivo y estadísticamente significativo. En detalle, en el Modelo 1 se observa que, manteniendo los demás predictores constantes, quienes se ubican en la posición de clase trabajadora no calificada obtienen, en promedio, 0.54 puntos adicionales en la escala de percepción de conflictos en comparación a quienes se ubican en la posición de clase capitalista, siendo estadísticamente significativo al 99% de confianza. Similarmente, quienes pertenecen a la clase de trabajadores calificados ($\beta$ = 0.40, SE = 0.20, p < .01) y quienes pertenecen a la clase de los supervisores no calificados ($\beta$ = 0.57, SE = 0.28, p < .01) también obtienen mayores puntuaciones promedio en la escala de $PSCi$ en comparación a quienes pertenecen a la clase de los capitalistas o grandes propietarios. Llamativo es el caso de la clase de los supervisores no calificados pues, al compararla con las otras posiciones de clase subordinadas y medias, los individuos de esta clase poseen el coeficiente de mayor tamaño. Por su parte, los resultados del Modelo 1 también sugieren que quienes forman parte de las clases medias o “contradictorias”, como los supervisores calificados ($\beta$ = 0.21, SE = 0.09) o los expertos sin autoridad ($\beta$ = 0.19, SE = 0.09), poseen mayores percepciones de conflicto social respecto a los individuos de clase capitalista, ambos significativos al 95% de confianza.  Por último, no se puede dejar de mencionar lo que ocurre con la clase de la pequeña burguesía puesto que, aunque forma parte de las clases privilegiadas, quienes se ubican en esta clase perciben, en promedio, mayores conflictos sociales que los individuos de clase capitalista ($\beta$ = 0.28, SE = 0.09, p < .01). Con todo, estos resultados entregan evidencia favorable para rechazar la hipótesis nula, por lo cual la $H_{1}$ que establecía que los individuos de clases subordinadas tenderían a percibir mayor conflicto social que los individuos de clases privilegiadas debe ser aceptada. Cabe mencionar que los coeficientes de la posición de clase no son excesivamente grandes considerando la escala de $PSCi$, sin embargo, estos efectos son estadísticamente robustos y se mantienen significativos aún controlando por otras variables en los modelos siguientes. 
+Respecto a la segunda hipótesis ($H_{2}$) de esta investigación, los resultados del Modelo 1 indican que, con un 90% de confianza, existe evidencia a favor de que quienes son miembros de sindicatos perciben más conflicto que quienes no lo son. En efecto, el valor esperado de $PSCi$ para quienes son miembros de sindicatos es 0.04 puntos mayor en comparación a quienes no son miembros en los 33 países bajo estudio manteniendo los demás predictores constantes. Si se comparan estos resultados con el Modelo 3 se puede dar cuenta de que el coeficiente de la afiliación sindical se incrementa en 0.05 puntos y que la significancia estadística aumenta al 99% de confianza. Este aumento se explica mayormente por la incorporación de dos variables: la edad y el tiempo. En concreto, este cambio podría estar indicando que buena parte del efecto de la membresía sindical se encuentra comprendido en la relación de $PSCi$ con la edad de los individuos y con el tiempo u ola de aplicación de la encuesta. 
 
-Respecto a la segunda hipótesis ($H_{2}$) de esta investigación, los resultados del Modelo 1 indican que, con un 90% de confianza, se puede rechazar la hipótesis nula sobre que no existen diferencias en el nivel de conflicto percibido entre quienes son miembros de sindicatos y quienes no lo son. En efecto, el valor esperado de $PSCi$ para quienes son miembros de sindicatos es 0.04 puntos mayor en comparación a quienes no son miembros en los 33 países bajo estudio manteniendo los demás predictores constantes. Si se comparan estos resultados con el Modelo 3 se puede dar cuenta de que el coeficiente de la afiliación sindical se incrementa en 0.05 puntos y que la significancia estadística aumenta al 99% de confianza. Este aumento se explica mayormente por la incorporación de dos variables: la edad y el tiempo. En concreto, este cambio podría estar indicando que buena parte del efecto de la membresía sindical se encuentra comprendido en la relación de $PSCi$ con la edad de los individuos y con el tiempo u ola de aplicación de la encuesta. 
-
-A nivel individual, los resultados del Modelo 3 también muestran que existen otros hallazgos relevantes respecto a las variables de control. En línea con lo sostenido en investigaciones anteriores, los modelos confirman que las mujeres tienden a percibir mayores conflictos que los hombres y que a mayor edad las personas perciben menos conflictos sociales. Sin embargo, los resultados sobre la identificación política de los individuos aportan elementos nuevos a la investigación comparada ya que, como se observa en la Tabla \@ref(tab:model), las personas que se autoidentifican como de izquierda ($\beta$ = 0.20, SE = 0.02, p < .01) y quienes no se identifican con ninguna posición del espectro político ($\beta$ = 0.21, SE = 0.03, p < .01) obtienen mayores puntuaciones promedio en la escala de $PSCi$ en comparación a personas que se identifican políticamente como de derecha. 
-
+A nivel individual, los resultados del Modelo 3 también muestran que existen otros hallazgos relevantes respecto a las variables de control. En línea con lo sostenido en investigaciones anteriores, los modelos sugieren que las mujeres tienden a percibir mayores conflictos que los hombres y que a mayor edad las personas perciben menos conflictos sociales. Sin embargo, los resultados sobre la identificación política de los individuos aportan elementos nuevos a la investigación comparada ya que, como se observa en la Tabla \@ref(tab:model1), las personas que se autoidentifican como de izquierda ($\beta$ = 0.20, SE = 0.02, p < .01) y quienes no se identifican con ninguna posición del espectro político ($\beta$ = 0.21, SE = 0.03, p < .01) obtienen mayores puntuaciones promedio en la escala de $PSCi$ en comparación a personas que se identifican políticamente como de derecha.
 
 ### Determinantes de nivel contextual
 
-En relación a los factores de nivel contextual, el Modelo 2 muestra los resultados de la desigualdad económica y el grado de corporativismo de los países ingresados como efectos fijos. De acuerdo con este modelo, el coeficiente de regresión de la concentración del ingreso es 0.16, lo cual significa que, ceteris paribus, por cada unidad que aumenta la concentración del ingreso, la puntuación media en la escala de percepción de conflictos se incrementa en 0.16 puntos con un 99% de confianza. Este valor no se ve muy grande, pero es relevante cuando se consideran los valores mínimos y máximos de la concentración del ingreso. Esta variable (centrada al gran promedio) se mueve un rango de -3.55 a 37.82, por lo que la diferencia predicha entre el país más desigual y el país con menor desigualdad es de 5.48 (diferencia = 34.27 $\times$ 0.16 = 5.48) puntos promedios en la escala de $PSCi$. Además, en los modelos siguientes la dirección positiva del efecto y la significancia estadística de la concentración del ingreso se mantienen e inclusive incrementa el tamaño del coeficiente al incorporar las variables de control. Con todo, estos resultados permiten sostener que en países con mayores niveles de desigualdad económica las percepciones de conflicto social tienden a ser mayores, entregando apoyo favorable a la $H_{3}$. 
+En relación a los factores de nivel contextual, el Modelo 2 muestra los resultados de la desigualdad económica y el grado de corporativismo de los países ingresados como efectos fijos. De acuerdo con este modelo, el coeficiente de regresión de la concentración del ingreso es 0.16, lo cual significa que, ceteris paribus, por cada unidad que aumenta la concentración del ingreso, la puntuación media en la escala de percepción de conflictos se incrementa en 0.16 puntos con un 99% de confianza. Este valor no posee aparentemente un efecto de gran tamaño, pero es relevante cuando se consideran los valores mínimos y máximos de la concentración del ingreso. Esta variable (centrada al gran promedio) se mueve un rango de -3.55 a 37.82, por lo que la diferencia predicha entre el país más desigual y el país con menor desigualdad es de 5.48 (diferencia = 34.27 $\times$ 0.16 = 5.48) puntos promedios en la escala de $PSCi$. Además, en los modelos siguientes la dirección positiva del efecto y la significancia estadística de la concentración del ingreso se mantienen e inclusive incrementa el tamaño del coeficiente al incorporar las variables de control. Con todo, estos resultados permiten sostener que en países con mayores niveles de desigualdad económica las percepciones de conflicto tienden a ser mayores, entregando apoyo favorable a la $H_{3}$. 
 
-Por su parte, el grado de corporativismo de los países muestra un efecto negativo y estadísticamente significativo. Los resultados del Modelo 2 sugieren que, manteniendo las demás variables constantes y con un 99% de confianza, un aumento en el índice de corporativismo de una desviación estándar respecto a la media de los países disminuye en -1.41 puntos los valores en el índice de conflictos sociales percibidos. Como se observa en la Tabla \@ref(tab:model), el tamaño de este coeficiente va decreciendo (ajustando) a medida que se van complejizando los modelos, particularmente al momento de introducir el gasto social de los países como control (Modelo 3). Ahora bien, una de las preocupaciones específicas que resultaron de los análisis en la sección descriptiva era que el tiempo podría estar afectando la relación entre las percepciones de conflicto social y el corporativismo de los países en función de que la asociación entre estas variables se ha difuminado durante el tiempo. En otros modelos no mostrados, se constata que cuando se ingresa la variable tiempo el coeficiente del índice de corporativismo se parcializa aunque marginalmente. De cualquier modo, estos resultados permiten sostener lo planteado por la $H_{4}$ ya que, consistente con esta, las percepciones de conflicto social tienden a ser menores a medida que los países poseen mayores niveles de corporativismo.
+Por su parte, el grado de corporativismo de los países muestra un efecto negativo y estadísticamente significativo. Los resultados del Modelo 2 sugieren que, manteniendo las demás variables constantes y con un 99% de confianza, un aumento en el índice de corporativismo de una desviación estándar respecto a la media de los países disminuye en -1.41 puntos los valores en el índice de conflictos sociales percibidos. Como se observa en la Tabla \@ref(tab:model1), el tamaño de este coeficiente va decreciendo (ajustando) a medida que se van complejizando los modelos, particularmente al momento de introducir el gasto social de los países como control (Modelo 3). Ahora bien, una de las preocupaciones específicas que resultaron de los análisis en la sección descriptiva era que el tiempo podría estar afectando la relación entre las percepciones de conflicto social y el corporativismo de los países en función de que la asociación entre estas variables se ha difuminado durante el tiempo. En otros modelos no mostrados, se constata que cuando se ingresa la variable tiempo el coeficiente del índice de corporativismo se reduce aunque mínimamente. De cualquier modo, estos resultados permiten sostener lo planteado por la $H_{4}$ ya que, consistente con esta, las percepciones de conflicto social tienden a ser menores a medida que los países poseen mayores niveles de corporativismo.
 
-En relación al factor temporal, los resultados del Modelo 2 indican que el tiempo posee un efecto negativo y significativo. Como se recordará, en esta investigación se planteó de manera exploratoria que las percepciones de conflicto social tenderían a aumentar a través del tiempo ($H_{5}$). No obstante, la evidencia no permite sostener lo establecido hipotéticamente ya que, al contrario, el conflicto percibido se reduce sistemáticamente a medida que aumenta el tiempo en los 33 países bajo estudio. En específico, tomando al año 1999 como categoría de referencia, el valor promedio en la escala de $PSCi$ disminuye en -0.24 puntos en el año 2009 y -0.33 puntos en el 2019, manteniendo las demás variables constantes y con un 99% de confianza. En consecuencia, se acepta la hipótesis nula respecto a que el tiempo no produce un incremento en el conflicto percibido.
+En relación al factor temporal, los resultados del Modelo 2 indican que el tiempo posee un efecto negativo y significativo. Como se recordará, en esta investigación se planteó de manera exploratoria que las percepciones de conflicto social tenderían a aumentar a través del tiempo ($H_{5}$). No obstante, la evidencia no permite sostener lo establecido hipotéticamente ya que, al contrario, el conflicto percibido se reduce sistemáticamente a medida que aumenta el tiempo en los 33 países bajo estudio. En específico, tomando al año 1999 como categoría de referencia, el valor promedio en la escala de $PSCi$ disminuye en -0.24 puntos en el año 2009 y -0.33 puntos en el 2019, manteniendo las demás variables constantes y con un 99% de confianza. En consecuencia, no existe evidencia a favor de que el tiempo produzca un incremento en el conflicto percibido.
 
-Por último, distintos elementos pueden destacarse en relación a las variables de control de nivel contextual. Primero, es importante mencionar que en estos modelos no se incluyó el GDP per capita de los países debido que presentaba serios problemas de multicolinealidad con la variable tiempo (ver Figura \@ref(fig:fig11) del [Apéndice](#apendiceb)). Segundo, el Modelo 3 da cuenta de que el gasto social de los países posee un efecto negativo y estadísticamente significativo ($\beta$ = -0.05 , SE = 0.01, p < .01), lo cual es consistente con lo encontrado en investigaciones anteriores. Tercero, el efecto de la densidad sindical de los países es positivo y significativo ($\beta$ = 0.02 , SE = 0.00, p < .01), lo cual quiere decir que a mayor densidad sindical de los países mayores tienden a ser las percepciones de conflicto social en los individuos. Este último hallazgo establece un desafío a las investigaciones comparadas puesto que, contrario a lo consensuado, pareciera ser que en países con mayor poder sindical se estarían desarrollando actitudes más orientadas hacia el conflicto. 
+Por último, distintos elementos pueden destacarse en relación a las variables de control de nivel contextual. Primero, es importante mencionar que en estos modelos no se incluyó el GDP per capita de los países debido que presentaba serios problemas de multicolinealidad con la variable tiempo (ver Figura \@ref(fig:fig11) del [Apéndice](#apendiceb)). Segundo, el Modelo 3 da cuenta de que el gasto social de los países posee un efecto negativo y estadísticamente significativo ($\beta$ = -0.05 , SE = 0.01, p < .01), lo cual es consistente con lo encontrado en investigaciones anteriores. Tercero, el efecto de la densidad sindical de los países es positivo y significativo ($\beta$ = 0.02 , SE = 0.00, p < .01), lo cual quiere decir que a mayor densidad sindical de los países mayores tienden a ser las percepciones de conflicto social en los individuos. Este último hallazgo establece un desafío a las investigaciones comparadas puesto que, contrario a lo consensuado, pareciera ser que en países con mayor poder sindical se estarían desarrollando percepciones más orientadas hacia el conflicto. 
 
 ### Interacción entre niveles
 
 Como se ha demostrado, tanto la posición de clase de los individuos como el nivel de desigualdad económica de los países tienen un efecto significativo y positivo en la escala de percepción de conflictos. Ahora, resta examinar la hipótesis sobre que la relación entre la posición de clase y el conflicto percibido puede variar en función de (*i.e.* es moderada por) el nivel de desigualdad económica de los países.[^14] 
 
-De acuerdo con los resultados del Modelo 4, la $H_{3b}$ que establecía que a mayores niveles de desigualdad económica los individuos de clases subordinadas aumentarían su percepción de conflicto social y que los individuos de clases privilegiadas la mantendrían o disminuirían debe ser rechazada. En términos generales, no existe evidencia que sustente lo planteado hipotéticamente ya que, por un lado, todos los coeficientes de las categorías de clase son negativos, lo cual indica que a mayor concentración del ingreso las clases más bajas/subordinados perciben menos conflicto que los individuos de clase capitalista y, por el otro, solo tres categorías de clase muestran coeficientes estadísticamente significativos. En específico, los resultados de la interacción dan cuenta que, por ejemplo, por cada unidad que aumenta la concentración del ingreso, el efecto de pertenecer a la clase de los expertos directivos disminuye en -0.04 puntos en la escala de $PSCi$ en comparación a los individuos de clase capitalista, una disminución significativa al 99% de confianza. Similarmente, en países con mayor desigualdad económica, los expertos sin autoridad ($\beta$ = -0.03, SE = 0.01, p < .05) y los pequeños empleadores ($\beta$ = -0.03, SE = 0.01, p < .1) perciben menores (no mayores) conflictos sociales que los individuos de clase capitalista. Por su parte, las posiciones de clase subordinadas -como los trabajadores no calificados, calificados y supervisores no calificados-, no muestran coeficientes significativos y, más allá de este hecho, la dirección de los efectos es negativa. 
+```{r model2, echo=FALSE, message=FALSE, warning=FALSE, results='asis', cache=TRUE}
+
+
+capmo2 <- "Modelo de regresión multinivel con interacción entre niveles para las percepciones de conflicto social en 33 países entre 1999-2019"
+
+
+texreg::htmlreg(l = list(model_6.e),
+                    custom.model.names = c("Modelo 4"),
+                    custom.coef.names = c("Intercepto", "2.Pequeños empleadores", "3.Pequeña burguesia", "4.Expertos directivos", "5.Expertos sin autoridad", "6.Supervisores calificados", "7.Supervisores no calificados", "8.Trabajadores calificados", "9.Trabajadores no calificados", "Miembro sindicato (ref: No)", "Ratio 80/20", "Corporativismo", "2009", "2019", "Edad (en años)", "Mujer (ref: Hombre)", "Centro", "Izquierda", "Sin identificación", "Gasto social (%GDP)", "Densidad sindical","2.Pequeños empleadores $\\times$ Ratio 80/20", "3.Pequeña burguesia $\\times$ Ratio 80/20", "4.Expertos directivos $\\times$ Ratio 80/20", "5.Expertos sin autoridad $\\times$ Ratio 80/20", "6.Supervisores calificados $\\times$ Ratio 80/20", "7.Supervisores no calificados $\\times$ Ratio 80/20", "8.Trabajadores calificados $\\times$ Ratio 80/20", "9.Trabajadores no calificados $\\times$ Ratio 80/20"),
+                custom.coef.map = list("CLASS2.Pequeños empleadores:C_RATIO" = "2.Pequeños empleadores $\\times$ Ratio 80/20", "CLASS3.Pequeña burguesia:C_RATIO" = "3.Pequeña burguesia $\\times$ Ratio 80/20", "CLASS4.Expertos directivos:C_RATIO" = "4.Expertos directivos $\\times$ Ratio 80/20", "CLASS5.Expertos sin autoridad:C_RATIO" = "5.Expertos sin autoridad $\\times$ Ratio 80/20", "CLASS6.Supervisores calificados:C_RATIO" = "6.Supervisores calificados $\\times$ Ratio 80/20", "CLASS7.Supervisores no calificados:C_RATIO" = "7.Supervisores no calificados $\\times$ Ratio 80/20", "CLASS8.Trabajadores calificados:C_RATIO" ="8.Trabajadores calificados $\\times$ Ratio 80/20", "CLASS9.Trabajadores no calificados:C_RATIO" = "9.Trabajadores no calificados $\\times$ Ratio 80/20"),
+                groups = list("<b>Interacciones entre niveles</b> (ref: 1.Capitalistas $\\times$ Ratio 80/20)" = 1:8),stars = c(0.01,0.05,0.1),
+                single.row = T,
+                custom.gof.rows = list("Controles" = c("SI"),
+                  "<b>Efectos aleatorios</b>" = c(" "), "<b>Ajuste modelo</b>" = c(" "), "$\\tau_{00}$ (varianza nivel país)" = c("2.67"), "$\\sigma^2$ (varianza nivel individual)" = c("3.18")),
+                    custom.gof.names = c("AIC", "BIC", "-2*log-likelihood", "N observaciones", "N países")
+                ,
+                reorder.gof = c(1,2,5,4,9,10,3,6,7,8),
+                    dcolumn = TRUE , 
+                    type = "html", 
+                    doctype = FALSE, 
+                    sideways = FALSE,
+                    no.margin = FALSE,
+                    scalebox = 0.5,
+                    float.pos = "H", 
+                    digits = 2,
+                    caption = paste("(\\#tab:model2)",capmo2),
+                    caption.above = T,
+                custom.note = "\n**Nota**: Estimación de máxima verosimilitud restringida, coeficientes no estandarizados. Errores estándar entre paréntesis (SE). Variables de nivel contextual centradas a sus grandes medias (CGM). Efectos aleatorios del Modelo 4 no mostrados por parsimonia. Modelo 4 controla por las variables utilizadas en los modelos anteriores. Datos ponderados. <br>  $^{***}$ p < 0.01; $^{**}$ p < 0.05; $^{*}$ p < 0.1")
+
+```
+<br/>
+
+
+En la Tabla \@ref(tab:model2) se muestran los resultados de las interacciones entre niveles. De acuerdo con el Modelo 4, la $H_{3b}$ que establecía que a mayores niveles de desigualdad económica los individuos de clases subordinadas aumentarían su percepción de conflicto social y los individuos de clases privilegiadas la mantendrían o disminuirían, debe ser rechazada. En términos generales, no existe evidencia que sustente lo planteado hipotéticamente ya que, por un lado, todos los coeficientes de las categorías de clase son negativos, lo cual indica que a mayor concentración del ingreso las clases más bajas/subordinados perciben menos conflicto que los individuos de clase capitalista y, por el otro, solo tres categorías de clase muestran coeficientes estadísticamente significativos. En específico, los resultados de la interacción dan cuenta que, por ejemplo, por cada unidad que aumenta la concentración del ingreso, el efecto de pertenecer a la clase de los expertos directivos disminuye en -0.04 puntos en la escala de $PSCi$ en comparación a los individuos de clase capitalista, una disminución significativa al 99% de confianza. Similarmente, en países con mayor desigualdad económica, los expertos sin autoridad ($\beta$ = -0.03, SE = 0.01, p < .05) y los pequeños empleadores ($\beta$ = -0.03, SE = 0.01, p < .1) perciben menores (no mayores) conflictos sociales que los individuos de clase capitalista. Por su parte, las posiciones de clase subordinadas -como los trabajadores no calificados, calificados y supervisores no calificados-, no muestran coeficientes significativos y, más allá de este hecho, la dirección de los efectos es negativa. 
 
 
 ```{r fig10, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.asp=0.6, out.width='100%', fig.align='default', fig.cap="(ref:fig10)"}
 
-g6 <- ggpredict(model_6, terms = c("CLASS", "C_RATIO [minmax]")) %>% 
+g7 <- ggpredict(model_6, terms = c("CLASS", "C_RATIO [minmax]")) %>% 
   plot(ci.style = "errorbar", connect.lines = TRUE, show.title = FALSE) + 
   scale_color_manual(values = c("#E16462", "#0D0887"), name="Ratio 80/20", labels = c("Mínimo", "Máximo")) +
   scale_y_continuous(limits = c(0, 15), 
@@ -392,16 +510,16 @@ g6 <- ggpredict(model_6, terms = c("CLASS", "C_RATIO [minmax]")) %>%
                                    angle = -90,
                                    vjust = -0.0))
 
-g6
+g7
 
 ```
 (ref:fig10) Valores predichos de $PSCi$ en función de las categorías de clase con diferentes niveles de concentración del ingreso (Ratio 80/20). Los puntos muestran los valores predichos; las barras representan los intervalos de confianza del 95%. Fuente: Elaboración propia en base a [ISSP (1999-2019)](https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality) y [WIID](https://www.wider.unu.edu/database/world-income-inequality-database-wiid#WIIDcomp).
 
-Para ilustrar esta relación, en la Figura \@ref(fig:fig10) se grafican los valores predichos de $PSCi$ para cada categoría de clase según los niveles mínimos y máximos de la concentración del ingreso.[^15] En términos sustantivos, cuatro elementos pueden notificarse. Primero, en países con baja desigualdad económica no existen mayores diferencias entre las posiciones de clase respecto a la percepción de conflicto ya que, como se observa, las variaciones en el patrón son mínimas. Segundo, en países con alta desigualdad económica si se pueden observar leves diferencias entre las categorías de clase respecto al valor esperado en la escala de $PSCi$. Particularmente, los pequeños empleadores, los expertos directivos y los expertos sin autoridad presentan diferencias significativas que constatan con los coeficientes del Modelo 4. Tercero, en contextos de alta desigualdad estas tres categorías de clase tienden a percibir menores conflictos sociales que los individuos pertenecientes a la clase capitalista. Y cuarto, los individuos de clases subordinadas no perciben mayores conflictos que los individuos de clase capitalista cuando la desigualdad aumenta sino que, al contrario, perciben menos tensiones sociales.
+Para ilustrar esta relación, en la Figura \@ref(fig:fig10) se grafican los valores predichos de $PSCi$ para cada categoría de clase según los niveles mínimos y máximos de la concentración del ingreso.[^15] En términos sustantivos, cuatro elementos pueden notarse. Primero, en países con baja desigualdad económica no existen mayores diferencias entre las posiciones de clase respecto a la percepción de conflicto ya que, como se observa, las variaciones en el patrón son mínimas. Segundo, en países con alta desigualdad económica si se pueden observar leves diferencias entre las categorías de clase respecto al valor esperado en la escala de $PSCi$. Particularmente, los pequeños empleadores, los expertos directivos y los expertos sin autoridad presentan diferencias significativas que coinciden con los coeficientes del Modelo 4. Tercero, en contextos de alta desigualdad estas tres categorías de clase tienden a percibir menores conflictos sociales que los individuos pertenecientes a la clase capitalista. Y cuarto, los individuos de clases subordinadas no perciben mayores conflictos que los individuos de clase capitalista cuando la desigualdad aumenta sino que, al contrario, perciben menos tensiones sociales.
 
 ### Ajuste comparativo
 
-En relación al ajuste de los modelos, en la Tabla \@ref(tab:fit) se presentan los estadísticos del análisis de devianza (likelihood ratio test) incluyendo los modelos 1 al 4 y el modelo nulo. La prueba de razón de verosimilitud se utiliza para comparar modelos anidados y determinar cuál se ajusta mejor a los datos. De acuerdo con esta prueba, se puede notificar que los modelos más complejos incrementan significativamente el ajuste. Tomando como ejemplo el Modelo nulo y el Modelo 2, la prueba de razón de verosimilitud es estadísticamente significativa, $\chi^2$ (13) = 909.14 [394.56+514.58], p < .001, lo cual indica que un modelo con interceptos aleatorios que incorpora la posición de clase y la afiliación sindical a nivel individual, y la concentración del ingreso y el corporativismo a nivel contextual, se ajusta significativamente mejor a los datos que un modelo nulo o sin predictores. Además, tanto el AIC como el BIC son menores en el Modelo 2, lo cual representa un mejor ajuste. En cuanto a la comparación entre modelos que incluyen predictores, la diferencia de la devianza entre el Modelo 2 y el Modelo 3 es significativa $\chi^2$ (7) = 354.72, p < .001, por lo cual se puede determinar que un modelo que añade los predictores de control mejora sustantivamente el ajuste de la estimación. Así también, los valores del AIC y el BIC son menores en este modelo en comparación al Modelo 2.
+En relación al ajuste de los modelos, en la Tabla \@ref(tab:fit) se presentan los estadísticos del análisis de devianza (likelihood ratio test) incluyendo los modelos 1 al 4 y el modelo nulo. La prueba de razón de verosimilitud se utiliza para comparar modelos anidados y determinar cuál se ajusta mejor a los datos. De acuerdo con esta prueba, se puede advertir que los modelos más complejos incrementan significativamente el ajuste. Tomando como ejemplo el Modelo nulo y el Modelo 2, la prueba de razón de verosimilitud es estadísticamente significativa, $\chi^2$ (13) = 909.14 [394.56+514.58], p < .001, lo cual indica que un modelo con interceptos aleatorios que incorpora la posición de clase y la afiliación sindical a nivel individual, y la concentración del ingreso y el corporativismo a nivel contextual, se ajusta significativamente mejor a los datos que un modelo nulo o sin predictores. Además, tanto el AIC como el BIC son menores en el Modelo 2, lo cual representa un mejor ajuste. En cuanto a la comparación entre modelos que incluyen predictores, la diferencia de la devianza entre el Modelo 2 y el Modelo 3 es significativa $\chi^2$ (7) = 354.72, p < .001, por lo cual se puede determinar que un modelo que añade los predictores de control mejora sustantivamente el ajuste de la estimación. Así también, los valores del AIC y el BIC son menores en este modelo en comparación al Modelo 2.
 
 ```{r fit, echo=FALSE, message=FALSE, warning=FALSE, results='asis', cache=TRUE}
 
@@ -426,10 +544,11 @@ fit_tab <- kableExtra::kable(fit_tab, format = "html", col.names = colnames, row
 fit_tab
 
 ```
+<br/>
 
-Por último, cabe preguntarse por si el Modelo 4, que incluye la interacción entre niveles y la pendiente aleatoria, ajusta mejor que el Modelo 3 que solo utiliza interceptos aleatorios ya que, como se observa en la Tabla \@ref(tab:model), solo tres coeficientes de la interacción resultaron significativos y medidas de ajuste como el AIC o el BIC aumentaron levemente[^16]. Los resultados de la Tabla \@ref(tab:fit) sugieren que, a pesar de lo anterior, un modelo que incorpora la interacción entre la posición de clase de los individuos y la concentración del ingreso de los países se ajusta significativamente mejor a los datos, $\chi^2$ (52) = 84.69, p < .01, que un modelo con interceptos aleatorios y que asume coeficientes de regresión constantes entre los países. Por tanto, y aunque la diferencia de la devianza es pequeña, se puede concluir que el Modelo 4 que incorpora tanto los efectos fijos de las variables independientes como la pendiente aleatoria y la interacción entre niveles representa la mejor estimación de las percepciones de conflicto social en los 33 países bajo estudio entre los años 1999-2019. 
+Por último, cabe preguntarse por si el Modelo 4, que incluye la interacción entre niveles y la pendiente aleatoria, ajusta mejor que el Modelo 3 que solo utiliza interceptos aleatorios ya que, como se observa en la Tabla \@ref(tab:model2), solo tres coeficientes de la interacción resultaron significativos y medidas de ajuste como el AIC o el BIC aumentaron levemente[^16]. Los resultados de la Tabla \@ref(tab:fit) sugieren que, a pesar de lo anterior, un modelo que incorpora la interacción entre la posición de clase de los individuos y la concentración del ingreso de los países se ajusta significativamente mejor a los datos, $\chi^2$ (52) = 84.69, p < .01, que un modelo con interceptos aleatorios y que asume coeficientes de regresión constantes entre los países. Por tanto, y aunque la diferencia de la devianza es pequeña, se puede concluir que el Modelo 4 que incorpora tanto los efectos fijos de las variables independientes como la pendiente aleatoria y la interacción entre niveles representa la mejor estimación de las percepciones de conflicto social en los 33 países bajo estudio entre los años 1999-2019. 
 
-En síntesis, los resultados de los modelos multinivel entregan evidencia a favor de cuatro de las seis hipótesis planteadas en la revisión de literatura. Respecto a la $H_{1}$, los modelos confirman que los individuos que pertenecen a posiciones de clase subordinadas perciben mayor conflicto social que los individuos pertenecientes a las clases privilegiadas. Para la $H_{2}$, se encontró una relación positiva y significativa entre la afiliación sindical y el conflicto percibido: quienes son miembros de sindicatos perciben mayores conflictos que los no miembros. En relación a la $H_{3a}$ y $H_{4}$, los resultados dan cuenta que, en línea con estas hipótesis, los individuos de países con mayor desigualdad económica tienden a percibir mayores conflictos, mientras que los individuos de países con mayores grados de corporativismo tienden a percibir menores conflictos sociales. Sin embargo, no existe evidencia que sustente lo planteado por la $H_{3b}$ ya que los individuos de clases subordinadas no perciben mayores conflictos sociales que los individuos de clases privilegiadas a medida que la desigualdad económica aumenta. Finalmente, los resultados tampoco entregan evidencia que apoye la $H_{5}$ puesto que, al contrario de lo esperado, las percepciones de conflicto social se han reducido sistemáticamente con el paso del tiempo.  
+En síntesis, los resultados de los modelos multinivel entregan evidencia a favor de cuatro de las seis hipótesis planteadas en la revisión de literatura. Respecto a la $H_{1}$, los modelos sugieren que los individuos que pertenecen a posiciones de clase subordinadas perciben mayor conflicto social que los individuos pertenecientes a las clases privilegiadas. Para la $H_{2}$, se encontró una relación positiva y significativa entre la afiliación sindical y el conflicto percibido: quienes son miembros de sindicatos perciben mayores conflictos que los no miembros. En relación a la $H_{3a}$ y $H_{4}$, los resultados dan cuenta que, en línea con estas hipótesis, los individuos de países con mayor desigualdad económica tienden a percibir mayores conflictos, mientras que los individuos de países con mayores grados de corporativismo tienden a percibir menores conflictos sociales. Sin embargo, no existe evidencia que sustente lo planteado por la $H_{3b}$ ya que los individuos de clases subordinadas no perciben mayores conflictos sociales que los individuos de clases privilegiadas a medida que la desigualdad económica aumenta. Finalmente, los resultados tampoco entregan evidencia que apoye la $H_{5}$ puesto que, al contrario de lo esperado, las percepciones de conflicto social se han reducido sistemáticamente con el paso del tiempo.  
 
 
 

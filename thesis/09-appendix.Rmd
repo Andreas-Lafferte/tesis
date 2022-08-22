@@ -140,7 +140,7 @@ model_vif <- lmer(PSCi ~ 1 + CLASS + UNION + C_RATIO + CorpAll + WAVE +
                     C_SOCEXPEND + C_UD +
                     (1 | COUNTRY), data = db, weights = FACTOR, REML = T)
 
-g7 <- performance::check_collinearity(model_vif) %>% 
+g8 <- performance::check_collinearity(model_vif) %>% 
   plot() +
   labs(title = "",
        subtitle = "") +
@@ -151,7 +151,7 @@ g7 <- performance::check_collinearity(model_vif) %>%
         legend.title = element_text(size = 14),
         plot.margin = margin(t = 1, r = 1, b = 1, l = 1))
 
-g7
+g8
 
 ```
 (ref:fig11) Colinealidad. Las barras más altas (< 5) indican problemas potenciales de colinealidad. Fuente: Elaboración propia en base a [ISSP (1999-2019)](https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality), [WIID](https://www.wider.unu.edu/database/world-income-inequality-database-wiid#WIIDcomp), [ICTWSS](https://www.ictwss.org/) y [OCDE](https://data.oecd.org/economy.htm#profile-GDP%20and%20spending). 
