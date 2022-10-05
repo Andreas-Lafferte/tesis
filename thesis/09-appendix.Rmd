@@ -137,7 +137,7 @@ library(performance)
 
 model_vif <- lmer(PSCi ~ 1 + CLASS + UNION + C_RATIO + CorpAll + WAVE +
                     (C_AGE)^2 + SEX + IDEOLOGY + C_GDP +
-                    C_SOCEXPEND + C_UD +
+                    C_SOCEXPEND + 
                     (1 | COUNTRY), data = db, weights = FACTOR, REML = T)
 
 g8 <- performance::check_collinearity(model_vif) %>% 

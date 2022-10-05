@@ -180,48 +180,6 @@ wcmc <- conf %>% select(COUNTRY, CONFLICT_WCMC) %>%
 
 conf_df <- rbind(rp,mw,wcmc)
 
-theme_dotplot <- theme_bw(14) +
-  theme(axis.text.y = element_text(size = rel(.75)),
-        axis.ticks.y = element_blank(),
-        axis.title.x = element_text(size = rel(.75)),
-        panel.grid.major.x = element_blank(),
-        panel.grid.major.y = element_line(size = 0.5),
-        panel.grid.minor.x = element_blank())
-
-
-
-windowsFonts(`Roboto Condensed` = windowsFont("Roboto Condensed"))
-
-my_pretty_theme <- theme_bw(base_family = "Roboto Condensed", base_size = 10) +
-  theme(panel.grid.minor = element_blank(),
-        # Bold, bigger title
-        plot.title = element_text(face = "bold", size = rel(1.7)),
-        # Plain, slightly bigger subtitle that is grey
-        plot.subtitle = element_text(face = "italic", size = rel(0.85), color = "grey30"),
-        # Italic, smaller, grey caption that is left-aligned
-        plot.caption = element_text(face = "italic", size = rel(0.7), 
-                                    color = "grey70", hjust = 0),
-        # Bold legend titles
-        legend.title = element_text(face = "bold", size = rel(1)),
-        # Bold, slightly larger facet titles that are left-aligned for the sake of repetition
-        strip.text = element_text(face = "bold", size = rel(0.7), hjust = 0.5),
-        # Bold axis titles
-        axis.title = element_text(face = "bold", size = rel(0.85)),
-        # Add some space above the x-axis title and make it left-aligned
-        axis.title.x = element_text(margin = margin(t = 5)),
-        # Add some space to the right of the y-axis title and make it top-aligned
-        axis.title.y = element_text(margin = margin(r = 5)),
-        # Add a light grey background to the facet titles, with no borders
-        strip.background = element_rect(fill = "black", color = NA),
-        # Add a thin grey border around all the plots to tie in the facet titles
-        panel.border = element_rect(color = "#474747", fill = NA),
-        axis.text.y = element_text(size = rel(1.1)),
-        axis.ticks.y = element_blank(),
-        panel.grid.major.x = element_blank(),
-        panel.grid.major.y = element_line(size = 0.05, color = "#b4b4b4"),
-        panel.grid.minor.x = element_blank())
-
-
 conf_df %>% 
   ggplot(aes(x = prop, y = fct_reorder2(`COUNTRY`, filtro, prop, .desc = T), group=filtro))+
   geom_point(aes(shape=filtro, color=filtro), size = 1.6)+
@@ -233,14 +191,8 @@ conf_df %>%
        color = "Tipo conflicto",
        shape = "Tipo conflicto")+
   scale_shape_manual(values=c(19, 17, 18))+
-  scale_color_manual(values = c("#00477b", "#6a9cd8", "#686868"))+
-  my_pretty_theme
+  scale_color_manual(values = c("#00477b", "#6a9cd8", "#686868"))
   
-
-library(scales)
-show_col(brewer.pal(10, "BuPu"))
-
-
 
 # 3.2. Bivariate ---- 
 
@@ -359,6 +311,7 @@ ggdraw() +
   draw_plot(box1, 0, .5, 1, .5) +
   draw_plot(box2, 0, 0, 1, .5) +
   draw_plot_label(c("A", "B"), c(0, 0), c(1, 0.5), size = 11)
+
 ## 3.2.4 Correlation matrix 
 
 # matriz
@@ -492,18 +445,25 @@ cater <- db %>% select(ISO_COUNTRY, YEAR, PSCi, RATIO_IC) %>%
   summarise_all(mean, na.rm = T) %>% as.data.frame()
 
 
-ggscatter(cater, x = "RATIO_IC", y = "PSCi", color = "#2127b5",palette = "Blues", 
+ggscatter(cater, x = "RATIO_IC", y = "PSCi", color = my_colors, 
           cor.coef = T,
           facet.by = "YEAR",
           add = "reg.line", 
-          add.params = list(color = "black", fill = "lightgray"),
+          add.params = list(color = "#1f1f1f", fill = "#8a8a8a", size = 0.7),
           label = "ISO_COUNTRY",
-          cor.coef.coord = c(10, 7),
-          size = 1.5,
+          cor.coef.coord = c(32, 1.5),
+          size = 1.2,alpha = 0.9,
           conf.int = T,
-          cor.coef.size = 4,
+          cor.coef.size = rel(3),
           ggtheme = theme_classic(),
-          font.label = c(8, "plain"))
+          font.label = c(8, "plain")) + scale_y_continuous("Promedio PSCi", limits = c(1, 7),
+                                                           breaks = seq(1, 7, 1),
+                                                           labels = formatter(nsmall = 1)) +
+  scale_x_continuous("Ratio S80/S20", limits = c(0, 45),
+                     breaks = seq(0, 45, 10)) +
+  labs(x = "Ratio S80/S20", 
+       y = "Promedio PSCi") +
+  my_pretty_theme
 
 cater2 <- db %>% select(ISO_COUNTRY, YEAR, PSCi, CorpAll) %>% 
   na.omit() %>% 

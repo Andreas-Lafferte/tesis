@@ -62,19 +62,19 @@ model_3 <- lmer(PSCi ~ 1 + CLASS + UNION + C_RATIO + CorpAll + WAVE +
 
 # Model 4: Class + Union + Ratio + CorpAll + WAVE + Controls N1 & N2
 model_4 <- lmer(PSCi ~ 1 + CLASS + UNION + C_RATIO + CorpAll + WAVE +
-                  (C_AGE)^2 + SEX + IDEOLOGY + C_SOCEXPEND + C_UD +
+                  (C_AGE)^2 + SEX + IDEOLOGY + C_SOCEXPEND + 
                   (1 | COUNTRY), data = db, weights = FACTOR, REML = T)
 
 # Model 5: Class + Union + Ratio + CorpAll + WAVE + Controls N1 & N2 + Random Slope CLASS
 model_5 <- lmer(PSCi ~ 1 + CLASS + UNION + C_RATIO + CorpAll + WAVE +
-                    (C_AGE)^2 + SEX + IDEOLOGY + C_SOCEXPEND + C_UD +
+                    (C_AGE)^2 + SEX + IDEOLOGY + C_SOCEXPEND +
                     (1 + CLASS | COUNTRY), data = db, weights = FACTOR, REML = T)
 # save model 5
 saveRDS(model_5, file = "../output/model_5.rds")
 
 # Model 6: Class + Union + Ratio + CorpAll + WAVE + Controls N1 & N2 + Random Slope CLASS + Interaction
 model_6 <- lmer(PSCi ~ 1 + CLASS + UNION + C_RATIO + CorpAll + WAVE +
-                    (C_AGE)^2 + SEX + IDEOLOGY + C_SOCEXPEND + C_UD + 
+                    (C_AGE)^2 + SEX + IDEOLOGY + C_SOCEXPEND + 
                     CLASS*C_RATIO + 
                     (1 + CLASS | COUNTRY), data = db, weights = FACTOR, REML = T)
 
@@ -160,57 +160,4 @@ viridisLite::plasma(6)
 
 show_col(viridis_pal(option = "plasma")(6))
 show_col(brewer.pal(10, "Blues"))
-
-
-
-
-
-p <- ggpredict(model_6, c("trab_nocal", "C_RATIO [minmax]"))
-p[p$group %in% c("-3.68", "37.69"), ] %>% plot(ci.style = "errorbar")
-
-
-
-
-
-ggpredict(model_5, terms = c("CLASS"), type = "random") %>% plot()
-
-
-ggpredict(model_6, terms = c("CLASS", "C_RATIO [minmax]")) %>% 
-  plot(ci.style = "errorbar", connect.lines = TRUE, show.title = FALSE) + 
-  scale_color_manual(values = c("#E16462", "#0D0887"), name="Ratio 80/20", labels = c("Mínimo", "Máximo")) +
-  scale_y_continuous(limits = c(0, 15), 
-                     breaks = seq(0, 15, 2.5),
-                     labels = formatter(nsmall = 1)) +
-  my_pretty_theme +
-  theme(axis.text.x = element_text(size = 6))
-
-
-
-
-
-
-
-library(ggeffects)
-library(lme4)
-data(sleepstudy)
-m <- lmer(Reaction ~ Days + (1 + Days | Subject), data = sleepstudy)
-ggpredict(m, "Days")
-
-model_gdp <- lmer(PSCi ~ 1 + CLASS + UNION + C_RATIO + CorpAll +
-                    C_AGE + SEX + IDEOLOGY + C_GDP +
-                    C_SOCEXPEND + C_UD +
-                    (1 | COUNTRY), data = db, weights = FACTOR, REML = T)
-
-model_wave <- lmer(PSCi ~ 1 + CLASS + UNION + C_RATIO + CorpAll + WAVE +
-                     C_AGE + SEX + IDEOLOGY + 
-                     C_SOCEXPEND + C_UD +
-                     (1 | COUNTRY), data = db, weights = FACTOR, REML = T)
-
-
-performance::check_collinearity(model_4) %>% plot()
-
-performance::check_collinearity(model_gdp) %>% plot()
-
-performance::check_collinearity(model_wave) %>% plot()
-
 
