@@ -13,8 +13,10 @@ options(knitr.kable.NA = '')
 load("../input/data/swiid9_1.rda")
 ```
 
-<div style="text-align: justify">
+
 # Desigualdades y conflicto social: un marco analítico {#literature}
+
+<div style="text-align: justify">
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(out.width="80%", fig.pos = "!ht", out.extra = "")
@@ -22,6 +24,7 @@ knitr::opts_chunk$set(out.width="80%", fig.pos = "!ht", out.extra = "")
 
 
 ## Percepciones subjetivas del conflicto social
+
 <div style="text-align: justify">
 
 > *"The distinction between «up» and «down» -or, as the English say, «Them» and «Us»- is one of the fundamental experiences of most men in society, and, moreover, it appears that this distinction is intimately connected with unequal distribution of power" ---(Dahrendorf, 1958, p. 176).* 
@@ -65,9 +68,10 @@ De acuerdo con el cuerpo teórico y empírico de la literatura de las percepcion
 
 
 ## Determinantes individuales de las percepciones de conflicto social
-### Posición de clase
 
 <div style="text-align: justify">
+
+### Posición de clase
 
 > *"To say that «class counts», then, is to claim that the distribution of rights and powers over the basic productive resources of a society have significant, systematic consequences at both the micro and macro levels of social analysis" ---(Wright, 2005, p. 22).* 
 
@@ -93,8 +97,6 @@ $H_{1}$: Individuos de clase trabajadora (trabajadores no calificados, calificad
 
 ### Membresía sindical
 
-<div style="text-align: justify">
-
 > *"The structural location of individuals translates into action thanks largely to the influence networks exert over the perception of their own possibilities as well as of their social and political environment" ---(Passy and Giugni, 2001, p.130).*
 
 
@@ -115,8 +117,10 @@ $H_{2}$: Individuos miembros de sindicatos tenderán a percibir mayor conflicto 
 
 
 ## Determinantes contextuales de las percepciones de conflicto social
-### Desigualdad económica
+
 <div style="text-align: justify">
+
+### Desigualdad económica
 
 > *"A conflict relationship occurs within a specific social context; it affects it, and is in turn affected by it" ---(Bercovitch, Kremenuik and Zartman, 2008, p.7).*
 
@@ -213,7 +217,6 @@ $H_{3b}$: A mayores niveles de desigualdad económica, los individuos de clase t
 [^8]: Delhey & Keck [-@delheyPerceptionGroupConflicts2008b] estudiaron países como: Dinamarca, Finlandia, Suecia, Irlanda, Reino Unido, Países Bajos, Austria, Bélgica, Francia, Alemania, Luxemburgo, Grecia, Italia, Portugal, España, Chipre, Malta, Eslovenia, República Checa, Hungría, Polonia, Eslovaquia, Estonia, Letonia, Lituania, Bulgaria, Rumanía y Turquía.
 
 ### Marcos institucionales
-<div style="text-align: justify">
 
 > *"Institutions may be understood as a non-deterministic context for action" ---(Jackson, 2010, p. 80).*
 
