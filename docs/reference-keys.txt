@@ -18,6 +18,7 @@ eq:alpha
 tab:tabi
 fig:fig8
 fig:fig11
+fig:fig12
 literature
 percepciones-subjetivas-del-conflicto-social
 determinantes-individuales-de-las-percepciones-de-conflicto-social
@@ -49,3 +50,4 @@ alpha-ordinal
 tabla-bivariada
 matriz-de-correlaciones
 chequeo-multicolinealidad
+observaciones-influyentes-dfbetas

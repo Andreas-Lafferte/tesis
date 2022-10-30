@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2022-10-11" />
+<meta name="date" content="2022-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -141,6 +141,7 @@
 <li class="chapter" data-level="5.0.3" data-path="apendiceb.html"><a href="apendiceb.html#tabla-bivariada"><i class="fa fa-check"></i><b>5.0.3</b> Tabla bivariada</a></li>
 <li class="chapter" data-level="5.0.4" data-path="apendiceb.html"><a href="apendiceb.html#matriz-de-correlaciones"><i class="fa fa-check"></i><b>5.0.4</b> Matriz de correlaciones</a></li>
 <li class="chapter" data-level="5.0.5" data-path="apendiceb.html"><a href="apendiceb.html#chequeo-multicolinealidad"><i class="fa fa-check"></i><b>5.0.5</b> Chequeo multicolinealidad</a></li>
+<li class="chapter" data-level="5.0.6" data-path="apendiceb.html"><a href="apendiceb.html#observaciones-influyentes-dfbetas"><i class="fa fa-check"></i><b>5.0.6</b> Observaciones influyentes (DFBETAs)</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -169,7 +170,7 @@ Ellos contra nosotros: las percepciones del conflicto social
 <h2><span class="header-section-number">2.3</span> Métodos</h2>
 <div style="text-align: justify">
 
-<p>Para responder a la pregunta y objetivos de investigación, se estiman modelos de regresión multinivel para 33 países entre los años 1999, 2009 y 2019. La razón principal es que estos modelos permiten analizar estructuras de datos complejas, en donde las unidades de análisis están anidadas en grupos ordenados jerárquicamente (individuos anidados en países) y en donde el valor esperado de una unidad dada en la variable dependiente depende del grupo(s) al que pertenece <span class="citation">(<a href="referencias.html#ref-hoxMultilevelAnalysisTechniques2017a" role="doc-biblioref">Hox et al., 2017</a>)</span>. Lo anterior implica que estos modelos estiman tanto los efectos fijos de las variables independientes a través de los grupos, así como también sus efectos aleatorios que varían de grupo en grupo <span class="citation">(<a href="referencias.html#ref-gelmanAnalysisVarianceWhy2005" role="doc-biblioref">Gelman, 2005</a>)</span>. Además, estos modelos permiten plantear interacciones entre niveles con el fin de conocer cómo la relación entre la variable dependiente y una variable independiente de nivel individual cambia en función de otra variable independiente de nivel contextual <span class="citation">(<a href="referencias.html#ref-hoxMultilevelAnalysisTechniques2017a" role="doc-biblioref">Hox et al., 2017</a>)</span>.</p>
+<p>Para responder a la pregunta y objetivos de investigación, se estiman modelos de regresión multinivel para 33 países entre los años 1999, 2009 y 2019. La razón principal es que estos modelos permiten analizar estructuras de datos complejas, en donde las unidades de análisis están anidadas en grupos ordenados jerárquicamente (individuos anidados en países) y en donde el valor esperado de una unidad dada en la variable dependiente depende del grupo(s) al que pertenece <span class="citation">(<a href="referencias.html#ref-fairbrotherTwoMultilevelModeling2014" role="doc-biblioref">Fairbrother, 2014</a>)</span>. Estos modelos son adecuados cuando el interés es comprender cómo un resultado a nivel individual, como el conflicto percibido, puede cambiar en función de variables tanto a nivel individual como a nivel contextual. Lo anterior implica que estos modelos estiman tanto los efectos fijos de las variables independientes a través de los grupos, así como también sus efectos aleatorios que varían de un grupo a otro <span class="citation">(<a href="referencias.html#ref-bellFixedRandomEffects2019" role="doc-biblioref">Bell et al., 2019</a>)</span>. Además, estos modelos permiten plantear interacciones entre niveles con el fin de conocer cómo la relación entre la variable dependiente y una variable independiente de nivel individual cambia en función de otra variable independiente de nivel contextual <span class="citation">(<a href="referencias.html#ref-hoxMultilevelAnalysisTechniques2017a" role="doc-biblioref">Hox et al., 2017</a>)</span>.</p>
 <p>Teniendo en cuenta el tipo de hipótesis planteadas en esta investigación, los modelos multinivel se estiman utilizando interceptos aleatorios e interacciones entre niveles. En consecuencia, la ecuación de los modelos multinivel estimados es la siguiente <a href="métodos.html#eq:mlm">(2.1)</a>:</p>
 <p><span class="math display" id="eq:mlm">\[\begin{equation}
 PSCi_{ij} = \beta_{0} + \beta_{1}X_{ij} + \beta_{2}Z_{j} + \beta_{3}X_{ij}{Z}_{j} +  u_{0j} + u_{1j}X_{ij} + e_{ij}

@@ -154,4 +154,29 @@ g8 <- performance::check_collinearity(model_vif) %>%
 g8
 
 ```
-(ref:fig11) Colinealidad. Las barras más altas (< 5) indican problemas potenciales de colinealidad. Fuente: Elaboración propia en base a [ISSP (1999-2019)](https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality), [WIID](https://www.wider.unu.edu/database/world-income-inequality-database-wiid#WIIDcomp), [ICTWSS](https://www.ictwss.org/) y [OCDE](https://data.oecd.org/economy.htm#profile-GDP%20and%20spending). 
+(ref:fig11) Colinealidad. Las barras más altas (> 5) indican problemas potenciales de colinealidad. Fuente: Elaboración propia en base a [ISSP (1999-2019)](https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality), [WIID](https://www.wider.unu.edu/database/world-income-inequality-database-wiid#WIIDcomp), [ICTWSS](https://www.ictwss.org/) y [OCDE](https://data.oecd.org/economy.htm#profile-GDP%20and%20spending). 
+
+### Observaciones influyentes (DFBETAs)
+
+```{r dfbetas, include=FALSE}
+library(influence.ME)
+
+# Model 3: Class + Union + Ratio + CorpAll + WAVE
+model_3 <- lmer(PSCi ~ 1 + CLASS + UNION + C_RATIO + CorpAll + WAVE +
+                  (1 | COUNTRY), data = db, weights = FACTOR, REML = T)
+
+inf_m3 <- influence(model_3, group = "COUNTRY")
+
+cutdfbeta <- 2/sqrt(33)
+
+```
+
+
+```{r fig12, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.asp=0.8, out.width='85%', fig.align='default', fig.cap="(ref:fig12)"}
+
+plot(inf_m3, which = "dfbetas", cutoff = cutdfbeta, 
+     sort = TRUE, to.sort = 14, parameters = 13:14,
+     xlab = "DFBETAS", ylab = "País", width=60, height=40) 
+
+```
+(ref:fig12) Análisis de observaciones influyentes (DFBETAs). Punto de corte = 0.35. Fuente: Elaboración propia en base a [ISSP (1999-2019)](https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality). 
