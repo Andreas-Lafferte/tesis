@@ -81,7 +81,7 @@ model_6 <- lmer(PSCi ~ 1 + CLASS + UNION + C_RATIO + CorpAll + WAVE +
 # save model 6
 saveRDS(model_6, file = "../output/model_6.rds")
 
-model_6.e <- extract(model = model_6, 
+model_6.e <- texreg::extract(model = model_6, 
                      include.deviance = T,
                      include.loglik = F, 
                      include.variance = F)
@@ -114,50 +114,4 @@ compare_performance(model_0, model_2, model_3, model_4, model_6)
 
 compare_performance(model_0, model_2, model_3, model_4, model_6, rank = T)
 
-
-## 3.3. Plot interaction ----
-
-# plot random slope
-plot_model(model_5, type = "re",
-           show.legend = F,
-           show.values = T,
-           facet.grid = F,
-           value.size = 3.5,
-           y.offset = .4,
-           value.offset = .4)
-
-ggpredict(model_5, terms = c("COUNTRY", "CLASS"), type = "re") %>% plot() + coord_flip() 
-
-# plot interaction term
-plot_model(model_6, type = "int", pred.type = "re", mdrt.values = "meansd") # option 1
-
-ggpredict(model_6, terms = c("CLASS", "C_RATIO [meansd]")) %>% plot(ci.style = "errorbar", connect.lines = TRUE)
-
-plot_model(model_6, terms = c("C_RATIO", "CLASS"), type = "pred", pred.type = "re")
- 
-
-
-# ver si en vez del meansd hay que usar min max en el grafico para desigualdad
-
-
-plot_model(model_6, type = "int", mdrt.values = "minmax")
-
-
-ggpredict(model_6, terms = c("CLASS", "C_RATIO [minmax]")) %>% 
-  plot(ci.style = "errorbar", connect.lines = TRUE, show.title = FALSE, dot.size = 1.5) + 
-  scale_color_manual(values = c("#E16462", "#0D0887"), name="Ratio 80/20", labels = c("Mínimo", "Máximo")) +
-  scale_y_continuous(limits = c(0, 15), 
-                     breaks = seq(0, 15, 2.5),
-                     labels = formatter(nsmall = 1))
-
-
-
-my_colors
-
-colores <- RColorBrewer::brewer.pal(10, "Viridis")
-
-viridisLite::plasma(6)
-
-show_col(viridis_pal(option = "plasma")(6))
-show_col(brewer.pal(10, "Blues"))
 

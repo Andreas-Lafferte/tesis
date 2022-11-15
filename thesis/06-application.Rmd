@@ -226,7 +226,7 @@ g2
 ```
 (ref:fig5) Intensidad de conflictos entre grupos percibidos por la población (% encuestados que respondieron "muy fuertes" o "fuertes" en cada uno de los indicadores de $PSCi$). Fuente: Elaboración propia en base a [ISSP (1999-2019)](https://www.gesis.org/en/issp/modules/issp-modules-by-topic/social-inequality).
 
-Al momento de describir el comportamiento de los distintos tipos de conflictos que componen el índice, un punto esencial debe ser remarcado: en la mayoría de los países los ciudadanos tienden a reconocer más las tensiones entre los trabajadores y directivos de empresa. Como demuestra la Figura \@ref(fig:fig5), la percepción del conflicto laboral tiende a ser más fuerte entre los individuos, oscilando entre un 30% y un 60% en comparación a no percibir este conflicto o hacerlo de forma mesurada. Así también, existen variaciones importantes entre países ya que hay naciones en las cuales son los conflictos entre ricos y pobres los que se perciben más intensamente (ej. Hungría, Estados Unidos o Bulgaria). De cualquier modo, los conflictos entre grupos polares en la estructura social asociados al conflicto distributivo más “tradicional” (trabajadores-directivos y ricos-pobres) tienden a primar en la mayoría de los países, encontrándose en menor intensidad los conflictos entre la clase media y la clase obrera pues en todos los países la proporción de quienes sostuvieron que este conflicto es percibido de forma fuerte o muy fuerte es menor en comparación a los otros conflictos. Esto sienta un precedente relevante en términos de medición de las percepciones de conflicto vertical debido a que, al parecer, los conflictos entre grupos sociales ubicados en los puntos extremos de la estructura social son los más importantes para este constructo.
+Al momento de describir el comportamiento de los distintos tipos de conflictos que componen el índice, un punto esencial debe ser remarcado: en la mayoría de los países los ciudadanos tienden a reconocer más las tensiones entre los trabajadores y directivos de empresa. Como demuestra la Figura \@ref(fig:fig5), la percepción del conflicto laboral tiende a ser más fuerte entre los individuos, oscilando entre un 30% y un 60% en comparación a no percibir este conflicto o hacerlo de forma mesurada. Así también, existen variaciones importantes entre países ya que hay naciones en las cuales son los conflictos entre ricos y pobres los que se perciben más intensamente (e.g. Hungría, Estados Unidos o Bulgaria). De cualquier modo, los conflictos entre grupos polares en la estructura social asociados al conflicto distributivo más “tradicional” (trabajadores-directivos y ricos-pobres) tienden a primar en la mayoría de los países, encontrándose en menor intensidad los conflictos entre la clase media y la clase obrera pues en todos los países la proporción de quienes sostuvieron que este conflicto es percibido de forma fuerte o muy fuerte es menor en comparación a los otros conflictos. Esto sienta un precedente relevante en términos de medición de las percepciones de conflicto vertical debido a que, al parecer, los conflictos entre grupos sociales ubicados en los puntos extremos de la estructura social son los más importantes para este constructo.
 
 Otro aspecto a ser evaluado corresponde a la relación entre las percepciones de conflicto social y la posición de clase de los individuos. En el Panel A de la Figura \@ref(fig:fig6) se presenta esta asociación mediante un gráfico de cajas en donde, además de mostrar la distribución intercuartílica según cada categoría de clase, se indica el valor promedio de $PSCi$ representado por un punto. De esta figura se desprenden dos conclusiones: (1) quienes se ubican en las posiciones de clase subordinada -trabajadores no calificados, calificados y los supervisores no calificados-, poseen valores promedios más altos en la escala de percepción de conflicto en comparación a las posiciones de clases privilegiadas; y (2) quienes son parte de la clase de pequeña burguesía perciben, de hecho, mayores conflictos sociales que los individuos de clases capitalistas e inclusive que quienes son parte de las clases medias. Un hecho a remarcar es que, si bien existen diferencias entre las categorías de clase, estas no son demasiado grandes (ver Tabla \@ref(tab:tabi) del [Apéndice](#apendiceb)). Ahora bien, ¿son estas diferencias estadísticamente significativas? De acuerdo con el análisis de varianza (prueba de Welch de una vía), el efecto de la posición de clase es estadísticamente significativo (F(8, 6844,2) = 92.803, p < .001) y medio ($\omega^2$ = 0.10) según las recomendaciones de Field [-@fieldDiscoveringStatisticsUsing2013]. Al examinar las comparaciones múltiples (post hoc de Games-Howell) se encontraron diferencias estadísticamente significativas (p < .05) entre la mayoría de las combinaciones de las categorías de clase. Por tanto, y en línea con lo planteado por la $H_{1}$, estos resultados permiten sostener que existen diferencias significativas entre las categorías de clase respecto a la percepción de conflicto y que quienes se ubican en posiciones de clase subordinadas perciben mayores conflictos que los que se ubican en posiciones de clases privilegiadas.
 
@@ -401,13 +401,13 @@ model_6 <- readRDS("~/GitHub/tesis/output/model_6.rds")
 
 
 ## Extract for table
-model_2.e <- extract(model = model_2, include.deviance = T, include.loglik = F,
+model_2.e <- texreg::extract(model = model_2, include.deviance = T, include.loglik = F,
                      include.variance = F)
 
-model_3.e <- extract(model = model_3, include.deviance = T, include.loglik = F,
+model_3.e <- texreg::extract(model = model_3, include.deviance = T, include.loglik = F,
                      include.variance = F)
 
-model_4.e <- extract(model = model_4, include.deviance = T, include.loglik = F,
+model_4.e <- texreg::extract(model = model_4, include.deviance = T, include.loglik = F,
                      include.variance = F)
 
 model_6.e <- readRDS("~/GitHub/tesis/output/model_6e.rds")
@@ -515,7 +515,7 @@ En la Tabla \@ref(tab:model2) se muestran los resultados de las interacciones en
 
 g7<-ggpredict(model_6, terms = c("CLASS", "C_RATIO [meansd]")) %>% 
   filter(group!= 0) %>% 
-  plot(ci.style = "errorbar", connect.lines = TRUE, show.title = FALSE) + 
+  plot(ci.style = "errorbar", connect.lines = TRUE, show.title = FALSE) +
   scale_color_manual(values = c("#e16462", "#084387"), name="Ratio 80/20", 
                      labels = c("Bajo (-1 DS)", "Alto (+1 DS)")) +
   scale_y_continuous(limits = c(0, 6), 
