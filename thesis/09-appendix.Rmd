@@ -96,11 +96,12 @@ library(patchwork)  # For combining ggplot plots
 library(GGally)     # For scatterplot matrices
 library(broom) # For converting model objects to data frames
 library(ggstatsplot)
+library(sjlabelled)
 
 
 ttc <- db %>% select(PSCi, CLASS, UNION, AGE, SEX, IDEOLOGY,
-                     RATIO_IC, CorpAll, GDP, SOC_EXPEND, UD) %>% 
-  mutate_at(vars(1:11), ~ as_numeric(.)) 
+                     RATIO_IC, CorpAll, GDP, SOC_EXPEND) %>% 
+  mutate_at(vars(1:10), ~ as_numeric(.)) 
 
 ```
 
@@ -113,7 +114,7 @@ fig8 <- ggcorrmat(
   title    = NULL,
   subtitle = NULL,
   cor.vars.names = c("PSCi", "Clase", "Sindicato", "Edad", "Sexo", "Ideologia", "Ratio 80/20",
-                     "Corporativismo", "GDP", "Gasto social", "Densidad sindical")) + 
+                     "Corporativismo", "GDP", "Gasto social")) + 
   labs(x = NULL, y = NULL) +
   theme_minimal() + 
   theme(plot.title = element_text(size = 12), 
