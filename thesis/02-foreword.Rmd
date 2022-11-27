@@ -5,7 +5,7 @@ output:
 ---
 
 # Agradecimientos {-}
-<div style="text-align: center">
+<div style="text-align: left">
 
 <p>"Yo, como tú,<br>
 amo el amor, la vida, el dulce encanto<br>
