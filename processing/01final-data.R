@@ -97,11 +97,11 @@ db <- tibble::rowid_to_column(db, "ID_SUBJECT")
 
 db_original <- db %>% as_tibble(.) #original
 
-db <- db %>% select(everything(), -DEGREE, -SUBJEC_CLASS, -INCOME, -GINI, -CONFLICT_TB, -EGP)
+db <- db %>% select(everything(), -DEGREE, -SUBJEC_CLASS, -INCOME, -GINI, -CONFLICT_TB, -EGP, -ISEI)
 
 db <- db %>% na.omit()
 
-db <- left_join(db, db_original[,c(1,12)], by = "ID_SUBJECT")
+db <- left_join(db, db_original[,c(1,12,13)], by = "ID_SUBJECT")
 
 df_original <- df
 
@@ -199,7 +199,7 @@ db$COUNTRY_WAVE <- do.call(paste, c(db[c("ISO_COUNTRY", "WAVE")], sep = "_"))
 # 3.6 Final data ----
 
 db <- db %>% select(YEAR, COUNTRY, ISO_COUNTRY, WAVE, COUNTRY_WAVE, SEX, AGE,
-                    IDEOLOGY, UNION, CLASS, EGP, PSCi, RATIO_IC, CorpAll, GDP, GDP_LOG, 
+                    IDEOLOGY, UNION, CLASS, EGP, ISEI, PSCi, RATIO_IC, CorpAll, GDP, GDP_LOG, 
                     UD, SOC_EXPEND, C_RATIO, C_GDP, C_SOCEXPEND, C_UD, C_AGE, FACTOR, starts_with("CONFLICT"))
 
 db <- db %>% as_tibble(.)
@@ -213,6 +213,7 @@ db$UNION <- sjlabelled::set_label(db$UNION, label = c("Afiliación sindical"))
 db$IDEOLOGY <- sjlabelled::set_label(db$IDEOLOGY, label = c("Identificación política"))
 db$CLASS <- sjlabelled::set_label(db$CLASS, label = c("Posición de clase EOW"))
 db$EGP <- sjlabelled::set_label(db$EGP, label = c("Posición de clase EGP"))
+db$ISEI <- sjlabelled::set_label(db$ISEI, label = c("International Socio-Economic Index of occupational status"))
 db$ISO_COUNTRY <- sjlabelled::set_label(db$ISO_COUNTRY, label = c("Código ISO país"))
 db$WAVE <- sjlabelled::set_label(db$WAVE, label = c("Ola"))
 db$COUNTRY_WAVE <- sjlabelled::set_label(db$COUNTRY_WAVE, label = c("País-ola"))

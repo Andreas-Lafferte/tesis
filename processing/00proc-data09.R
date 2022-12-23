@@ -387,8 +387,14 @@ issp09 <- issp09 %>%
                                     self.employed = selfemp_egp,
                                     n.classes = 11))
 
+# 3.12 International Socio-Economic Index of occupational status ISEI ----
 
-# 3.12 PERCEIVED SOCIAL CONFLICT INDEX ----
+issp09 <- issp09 %>% 
+  mutate(ISCO08_isei = occupar::isco88to08(ISCO88_or),
+         ISEI = occupar::isco08toISEI08(ISCO08_isei))
+
+
+# 3.13 PERCEIVED SOCIAL CONFLICT INDEX ----
 ## Rich and poor 
 frq(issp09$V40)
 issp09 <- issp09 %>% mutate(CONFLICT_RP = case_when(V40 == 1 ~ 3,
@@ -468,7 +474,8 @@ issp09 <- issp09 %>% select(YEAR,
                             IDEOLOGY,
                             CLASS,
                             EGP,
-                            81:84,
+                            ISEI,
+                            83:86,
                             FACTOR)
 
 sapply(issp09, class)

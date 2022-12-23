@@ -326,9 +326,13 @@ issp19 <- issp19 %>%
                                     self.employed = selfemp_egp,
                                     n.classes = 11))
 
+# 3.13 International Socio-Economic Index of occupational status ISEI ----
+
+issp19 <- issp19 %>% 
+  mutate(ISEI = occupar::isco08toISEI08(ISCO08_or))
 
 
-# 3.13 PERCEIVED SOCIAL CONFLICT INDEX ----
+# 3.14 PERCEIVED SOCIAL CONFLICT INDEX ----
 
 ## Rich and poor
 frq(issp19$v36)
@@ -399,7 +403,8 @@ issp19 <- issp19 %>% select(YEAR,
                             IDEOLOGY,
                             CLASS,
                             EGP,
-                            60:63,
+                            ISEI,
+                            61:64,
                             FACTOR)
 
 sapply(issp19, class)
