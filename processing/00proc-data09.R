@@ -327,6 +327,7 @@ issp09 <- issp09 %>% filter(ISCO88 != 0, ISCO88 != 110) # eliminated FFAA and do
 issp09$ISCO88 <- as.numeric(issp09$ISCO88)
 table(issp09$ISCO88)
 
+issp09$ISCO88_or <- issp09$ISCO88
 issp09$ISCO88 <- substr(issp09$ISCO88, start = 1, stop = 2) # 2 digits
 table(issp09$ISCO88)
 
@@ -369,7 +370,25 @@ issp09$CLASS <- factor(issp09$CLASS,levels = c(1:9),
 issp09 %>% filter(!is.na(CLASS)) %>% count(CLASS) %>% mutate(prop = prop.table(n)) 
 issp09$CLASS <- sjlabelled::set_label(issp09$CLASS, label = c("Posición de clase"))
 
-# 3.11 PERCEIVED SOCIAL CONFLICT INDEX ----
+
+# 3.11 CLASS ESCHEME EGP ----
+
+frq(issp09$V64)
+frq(issp09$NEMPLOY)
+
+issp09 <- issp09 %>% 
+  mutate(selfemp_egp = if_else(V64 == 4, 1, 0),
+         nemploy_egp = car::recode(NEMPLOY, recodes = c("9995 = 0; c(9997,9998,9999) = NA")))
+
+
+issp09 <- issp09 %>% 
+  mutate(EGP = occupar::isco88toEGP(isco88 = ISCO88_or, 
+                                    n.employees = nemploy_egp, 
+                                    self.employed = selfemp_egp,
+                                    n.classes = 11))
+
+
+# 3.12 PERCEIVED SOCIAL CONFLICT INDEX ----
 ## Rich and poor 
 frq(issp09$V40)
 issp09 <- issp09 %>% mutate(CONFLICT_RP = case_when(V40 == 1 ~ 3,
@@ -448,7 +467,8 @@ issp09 <- issp09 %>% select(YEAR,
                             UNION,
                             IDEOLOGY,
                             CLASS,
-                            77:80,
+                            EGP,
+                            81:84,
                             FACTOR)
 
 sapply(issp09, class)

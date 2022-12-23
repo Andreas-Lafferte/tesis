@@ -260,6 +260,8 @@ frq(issp19$ISCO08)
 issp19 <- issp19 %>% filter(ISCO08 != -9, ISCO08 != -8, ISCO08 != 110, ISCO08 != 210, ISCO08 != 310) # eliminated FA & don't labor force people
 issp19$ISCO08_2 <- as.numeric(issp19$ISCO08)
 
+
+issp19$ISCO08_or <- issp19$ISCO08_2
 issp19$ISCO08_2 <- substr(issp19$ISCO08_2, start = 1, stop = 2)
 frq(issp19$ISCO08)
 frq(issp19$ISCO08_2)
@@ -304,7 +306,29 @@ issp19$CLASS <- factor(issp19$CLASS,levels = c(1:9),
 issp19 %>% filter(!is.na(CLASS)) %>% count(CLASS) %>% mutate(prop = prop.table(n)) 
 issp19$CLASS <- sjlabelled::set_label(issp19$CLASS, label = c("Posición de clase"))
 
-# 3.12 PERCEIVED SOCIAL CONFLICT INDEX ----
+
+# 3.12 CLASS ESCHEME EGP ----
+frq(issp19$EMPREL)
+frq(issp19$ISCO08_or)
+
+issp19 <- issp19 %>% 
+  mutate(ISCO88_or = occupar::isco08to88(isco08 = ISCO08_or),
+         selfemp_egp = if_else(EMPREL %in% c(2:5), 1, 0),
+         nemploy_egp = case_when(EMPREL %in% c(1,2) ~ 0,
+                                 EMPREL == 3 ~ 9,
+                                 EMPREL == 4  ~ 11,
+                                 EMPREL == 5 ~ 1,
+                                 TRUE ~ NA_real_))
+
+issp19 <- issp19 %>% 
+  mutate(EGP = occupar::isco88toEGP(isco88 = ISCO88_or, 
+                                    n.employees = nemploy_egp, 
+                                    self.employed = selfemp_egp,
+                                    n.classes = 11))
+
+
+
+# 3.13 PERCEIVED SOCIAL CONFLICT INDEX ----
 
 ## Rich and poor
 frq(issp19$v36)
@@ -374,7 +398,8 @@ issp19 <- issp19 %>% select(YEAR,
                             UNION,
                             IDEOLOGY,
                             CLASS,
-                            55:58,
+                            EGP,
+                            60:63,
                             FACTOR)
 
 sapply(issp19, class)
