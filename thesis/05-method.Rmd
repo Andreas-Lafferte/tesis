@@ -4,7 +4,6 @@
 
 ```{r include=FALSE}
 pacman::p_load(tidyverse, kableExtra, knitr, summarytools)
-
 options(scipen=999)
 load("../output/data/db-proc.RData")
 ```
@@ -39,23 +38,16 @@ La variable dependiente de esta investigación es el nivel de conflicto percibid
 
 
 ```{r include=FALSE}
-
 db <- db %>% 
   mutate_at(vars(starts_with("CONFLICT")), ~ car::recode(.,c("0 = 'No existen conflictos'; 1= 'Conflictos no muy fuertes'; 2='Conflictos fuertes'; 3='Conflictos muy fuertes'"), as.factor = T))
-
 db$CONFLICT_MW <- factor(db$CONFLICT_MW, levels = c("No existen conflictos", "Conflictos no muy fuertes", "Conflictos fuertes", "Conflictos muy fuertes"))
-
 db$CONFLICT_RP <- factor(db$CONFLICT_RP, levels = c("No existen conflictos", "Conflictos no muy fuertes", "Conflictos fuertes", "Conflictos muy fuertes"))
-
 db$CONFLICT_WCMC <- factor(db$CONFLICT_WCMC, levels = c("No existen conflictos", "Conflictos no muy fuertes", "Conflictos fuertes", "Conflictos muy fuertes"))
-
 ```
 
 
 ```{r tab-dep, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
-
 st_options(footnote = NA)
-
 tab <- db %>% select(starts_with("CONFLICT")) %>% 
   dfSummary(.,justify = "c",
                plain.ascii = FALSE,
@@ -67,11 +59,8 @@ tab <- db %>% select(starts_with("CONFLICT")) %>%
                na.col = F,    # missing
                valid.col = F,
                labels.col = F)
-
 tab$Variable <- c("Conflictos: gente pobre - gente rica", "Conflictos: clase obrera - clase media", "Conflictos: directivos - trabajadores")
-
 tab <- rename(tab, Indicator = Variable)
-
 kable(print(tab), format = "pipe", caption = "Indicadores variable dependiente", escape = F, footnote = NA)
 ```
 
@@ -114,7 +103,6 @@ Para conocer los posibles efectos del cambio en el tiempo a nivel contextual, se
 ```{r tab-indep, echo=FALSE}
 tab2 <- read.csv(file = "../input/tables/tabla2.csv", header = 1, sep = ";", encoding = "UTF-8")
 colnames2 <- c("Variable", "Descripción", "Fuente") 
-
 kable(tab2,table_format,booktabs = T, linesep = "",col.names = colnames2, caption = cap2) %>%
   kable_styling(
     full_width = T,
@@ -126,7 +114,6 @@ kable(tab2,table_format,booktabs = T, linesep = "",col.names = colnames2, captio
   column_spec(column = 2,width = "6 cm") %>%
   column_spec(column = 3,width = "2 cm") %>%
   collapse_rows(columns = 1:2,valign = "middle")
-
 ```
 
 ### Variables de control
