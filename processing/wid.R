@@ -141,3 +141,5 @@ wid <- wid_or %>%
 
 
 left_join(wiid, wid)
+
+save(wid, file = "../output/data/wid.RData")
